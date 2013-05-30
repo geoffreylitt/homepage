@@ -1,0 +1,57 @@
+!!!5
+/[if lt IE 7] <html class="no-js lt-ie9 lt-ie8 lt-ie7">
+/[if IE 7] <html class="no-js lt-ie9 lt-ie8">
+/[if IE 8] <html class="no-js lt-ie9">
+%html.no-js
+  %head
+    %meta{:charset => "utf-8"}
+    %meta{:content => "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}
+    
+    -# To set titles and descriptions globally and for each individual page, see /DOCS.md
+    %title= page_title
+    %meta{:content => page_description, :name => "description"}
+    %meta{:content => "Geoffrey Litt Yale web designer developer programmer", :name => "description"}
+    %link{:rel => "shortcut icon", :type => "image/x-icon", :href => "/images/favicon.ico"}
+    
+    %meta{:content => "width=device-width", :name => "viewport"}
+    
+    
+    = javascript_include_tag "vendor/modernizr-2.6.1.min"
+    = stylesheet_link_tag "site"
+    = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,700|Open+Sans:400italic,700italic,300,400,700|Montserrat:700,400' rel='stylesheet' type='text/css"
+  %body
+    /[if lt IE 7] <p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p>
+
+    / This only appears on mobile
+    %header.mobile
+      %a.logo{:href => '/'}
+        = image_tag 'circle-photo.png', :width => '60px'
+      %h1.name
+        %a{:href => '/'} Geoffrey Litt
+      %h2.description Developer and designer currently coding for Panorama Education (YC S13)
+    %nav.mobile
+      %ul
+        %li
+          %a{:href => '/'} Home
+        %li 
+        %li
+          %a{:href => '/about.html'} About
+        %li
+          %a{:href => '/about.html#projects'} Projects
+
+    / This only appears on desktop
+    %header.desktop
+
+    %div{:role => "main", :class => "main"}= yield
+    %footer
+    
+    = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"
+    :javascript
+      window.jQuery || document.write('<script src="javascripts/vendor/jquery-1.8.0.min.js"><\/script>')
+    = javascript_include_tag "site"
+    
+    :javascript
+      var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+      s.parentNode.insertBefore(g,s)}(document,'script'));

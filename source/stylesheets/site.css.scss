@@ -1,0 +1,113 @@
+/**
+
+//HTML5 Boilerplate + Normalize
+*= require "_vendor/normalize.css"
+*= require "_vendor/html5bp.css"
+
+//Grid
+//require "_layout/grid"
+*= require "_layout/responsive"
+
+*/
+
+// Variables
+
+$col_blue_dark: #1c3553;
+$col_blue_med: #3667a1;
+$col_blue_light: #498bd9;
+$col_blackish: #131313;
+$col_white: #ffffff;
+
+// Foundations
+
+@import "compass";
+
+// border-box on all elements
+* {@include box-sizing(border-box)}
+
+// Base Typography
+
+body{
+  background-color: #fff; //fallback for bg-image, and filler during loading
+
+  font-family: 'Crimson Text', serif;
+  color: $col_blackish;
+  font-size: 16pt;
+
+  width: 100%;
+  margin: 0;
+}
+
+// Mobile-only
+
+header.mobile{
+  width: 100%;
+  background-color: $col_blue_dark;
+  padding: 15px;
+
+  a.logo{
+    display: block;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+  }
+
+  h1.name{
+    display: block;
+    text-align: center;
+    margin: 15px 0 5px 0;
+    padding: 0;
+    line-height: 0.6em;
+
+    a{
+      font-family: 'Montserrat', sans serif;
+      font-size: 30px;
+      text-transform: uppercase;
+      @include link-colors($col_white);
+      text-decoration: none;
+      margin: 0 ;
+    }
+  }
+
+  h2.description{
+    font-family: 'Open Sans', sans serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 16px;
+    color: $col_white;
+
+    text-align: center;
+    margin: 0;
+  }
+}
+
+nav.mobile{
+  width: 100%;
+  padding: 5px;
+  background-color: $col_blue_med; 
+
+  ul{
+    margin: 0;
+    padding: 0; 
+
+    overflow: hidden;
+  }
+
+  li{
+    float: left;
+
+    margin: 0;
+    padding: 0;
+    width: 33.3%;
+    text-align: center;
+
+    font-family: 'Montserrat', sans serif;
+    font-size: 18px;
+    text-transform: uppercase;
+    
+    a{
+      @include link-colors($col_white);
+      text-decoration: none;
+    }
+  }
+}
