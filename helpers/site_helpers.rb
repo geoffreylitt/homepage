@@ -17,4 +17,8 @@ module SiteHelpers
     description
   end
 
+  def article_has_summary(article)
+    Nokogiri::HTML(article.summary).text.strip != Nokogiri::HTML(article.body).text.strip
+  end
+
 end

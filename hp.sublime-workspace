@@ -1,0 +1,1367 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"col_blue_",
+				"col_blue_dark"
+			],
+			[
+				"col_blue",
+				"col_blue_dark"
+			],
+			[
+				"col",
+				"col_blackish"
+			],
+			[
+				"pinter",
+				"pinterest_share_url"
+			],
+			[
+				"twitter_sha",
+				"twitter_share_url"
+			],
+			[
+				"backg",
+				"background-position"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "config.rb",
+			"settings":
+			{
+				"buffer_size": 2514,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/gklitt/Dropbox/dev/personal-homepage/content/stylesheets/stylesheet.scss",
+			"settings":
+			{
+				"buffer_size": 7050,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "source/layouts/layout.haml",
+			"settings":
+			{
+				"buffer_size": 2668,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/gklitt/Dropbox/dev/personal-homepage/content/posts/2013-02-26-nyuad.md",
+			"settings":
+			{
+				"buffer_size": 10118,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "source/index.html.haml",
+			"settings":
+			{
+				"buffer_size": 527,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "source/about.html.md",
+			"settings":
+			{
+				"buffer_size": 2081,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "helpers/site_helpers.rb",
+			"settings":
+			{
+				"buffer_size": 527,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Gemfile",
+			"settings":
+			{
+				"buffer_size": 264,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "source/articles/2013-05-30-my-second-post.html.md",
+			"settings":
+			{
+				"buffer_size": 333,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "source/stylesheets/site.css.scss",
+			"settings":
+			{
+				"buffer_size": 3708,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "source/stylesheets/_vendor/html5bp.css",
+			"settings":
+			{
+				"buffer_size": 5657,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "source/stylesheets/_responsive.css.scss",
+			"settings":
+			{
+				"buffer_size": 1185,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/LaTeXTools/LaTeX.sublime-build",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				":w",
+				":w - Save"
+			],
+			[
+				":",
+				":w - Save"
+			],
+			[
+				":W",
+				":w - Save"
+			],
+			[
+				":ws",
+				":w - Save"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"package install",
+				"Package Control: Install Package"
+			],
+			[
+				"psck",
+				"Package Control: Disable Package"
+			],
+			[
+				"pac",
+				"Package Control: Install Package"
+			],
+			[
+				"disc",
+				"Package Control: Discover Packages"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"helper",
+				"Simple Rails Navigator: List helpers"
+			],
+			[
+				"list views",
+				"Simple Rails Navigator: List views"
+			],
+			[
+				"rails",
+				"Simple Rails Navigator: List controllers"
+			],
+			[
+				"package discover",
+				"Package Control: Discover Packages"
+			],
+			[
+				"rem",
+				"Package Control: Remove Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"remove p",
+				"Package Control: Remove Package"
+			],
+			[
+				":e",
+				":e - Revert"
+			],
+			[
+				":ww",
+				"HTML: Wrap Selection With Tag"
+			],
+			[
+				":s",
+				":w - Save"
+			],
+			[
+				":q",
+				"Git: Quick Commit"
+			],
+			[
+				"git commit",
+				"Git: Commit"
+			],
+			[
+				"git add ",
+				"Git: Add..."
+			],
+			[
+				"git add",
+				"Git: Add Current File"
+			],
+			[
+				":build",
+				"Build: Build"
+			],
+			[
+				"package control install",
+				"Package Control: Install Package"
+			],
+			[
+				"git bla",
+				"Git: Blame"
+			],
+			[
+				"git diff cur",
+				"Git: Diff Current File"
+			],
+			[
+				"git com",
+				"Git: Commit"
+			],
+			[
+				"git log",
+				"Git: Log All"
+			],
+			[
+				"package install ",
+				"Package Control: Install Package"
+			],
+			[
+				"build",
+				"Build: Build"
+			]
+		],
+		"width": 476.0
+	},
+	"console":
+	{
+		"height": 139.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/gklitt/Dropbox/dev/personal-homepage/content/about.markdown",
+		"/Users/gklitt/Dropbox/dev/personal-homepage/content/index.html.erb",
+		"/Users/gklitt/Dropbox/dev/hp/source/stylesheets/_layout/responsive.css.scss",
+		"/Users/gklitt/Dropbox/dev/hp/source/layouts/blogpost.html.haml",
+		"/Users/gklitt/Dropbox/dev/hp/source/stylesheets/_code.css.erb",
+		"/Users/gklitt/Dropbox/dev/hp/Gemfile",
+		"/Users/gklitt/Dropbox/dev/hp/source/articles/2013-05-30-my-second-post.html.md",
+		"/Users/gklitt/Dropbox/dev/hp/source/articles/2013-05-30-my-first-post.html.markdown",
+		"/Users/gklitt/Dropbox/dev/hp/helpers/site_helpers.rb",
+		"/Users/gklitt/Dropbox/dev/hp/source/index.html.haml",
+		"/Users/gklitt/Dropbox/dev/hp/source/index.html.md",
+		"/Users/gklitt/Dropbox/dev/hp/source/stylesheets/_vendor/normalize.css",
+		"/Users/gklitt/Dropbox/dev/hp/source/stylesheets/_vendor/html5bp.css",
+		"/Users/gklitt/Dropbox/dev/hp/source/stylesheets/_layout/grid.css.scss",
+		"/Users/gklitt/Dropbox/dev/hp/source/stylesheets/_colors.css.scss",
+		"/Users/gklitt/Dropbox/dev/hp/source/stylesheets/_mobile.css.scss",
+		"/Users/gklitt/Dropbox/dev/hp/source/stylesheets/_desktop.css.scss",
+		"/Users/gklitt/Dropbox/dev/hp/source/stylesheets/mobile/header.css.scss",
+		"/Users/gklitt/Dropbox/dev/personal-homepage/layouts/main.html.erb",
+		"/Users/gklitt/Dropbox/dev/personal-homepage/content/stylesheets/stylesheet.scss",
+		"/Users/gklitt/Dropbox/dev/personal-homepage/Rules",
+		"/Users/gklitt/Dropbox/dev/personal-homepage/content/projects.html.erb",
+		"/Users/gklitt/Dropbox/dev/personal-homepage/content/posts/2013-02-26-nyuad.md",
+		"/Users/gklitt/Dropbox/dev/personal-homepage/content/blog.html.erb",
+		"/Users/gklitt/Dropbox/dev/personal-homepage/layouts/post.html.erb",
+		"/Users/gklitt/Dropbox/dev/personal-homepage/content/posts/2012-02-10-zero.md",
+		"/Users/gklitt/Downloads/mldata-utils-0.5.0/ml2h5/converter/h5_csv.py",
+		"/Users/gklitt/Dropbox/dev/personal-homepage/lib/default.rb",
+		"/Users/gklitt/Dropbox/dev/personal-homepage/layouts/project.html.erb",
+		"/Users/gklitt/Dropbox/dev/personal-homepage/layouts/about.html.erb",
+		"/Users/gklitt/Dropbox/dev/personal-homepage/personal-homepage.sublime-project",
+		"/Users/gklitt/Dropbox/dev/mentorme/app/controllers/application_controller.rb",
+		"/Users/gklitt/Dropbox/dev/mentorme/app/assets/javascripts/application.js",
+		"/Users/gklitt/Dropbox/dev/mentorme/config/routes.rb",
+		"/Users/gklitt/Dropbox/dev/mentorme/.gitignore",
+		"/Users/gklitt/Dropbox/dev/mentorme/app/controllers/meetings_controller.rb",
+		"/Users/gklitt/Dropbox/dev/textrank/app/controllers/ranking_votes_controller.rb",
+		"/Users/gklitt/Dropbox/dev/mentorme/config/initializers/keys.rb",
+		"/Users/gklitt/Dropbox/dev/mentorme/app/models/meeting.rb",
+		"/Users/gklitt/Downloads/opentok-sample-code/basictutorial.html",
+		"/Users/gklitt/Dropbox/dev/mentorme/app/assets/javascripts/meetings.js",
+		"/Users/gklitt/Dropbox/dev/mentorme/app/controllers/users_controller.rb",
+		"/Users/gklitt/Dropbox/dev/mentorme/app/assets/stylesheets/meetings.css.scss",
+		"/Users/gklitt/Dropbox/dev/mentorme/app/views/meetings/show.html.haml",
+		"/Users/gklitt/Downloads/opentok-sample-code/helloworld.html",
+		"/Users/gklitt/Dropbox/dev/mentorme/app/controllers/ios_controller.rb",
+		"/Users/gklitt/Dropbox/dev/mentorme/app/views/video_session/show.html.haml",
+		"/Users/gklitt/Dropbox/dev/mentorme/test/functional/meetings_controller.rb",
+		"/Users/gklitt/Dropbox/dev/mentorme/config/secrets.yml",
+		"/Users/gklitt/Dropbox/dev/mentorme/app/views/static_pages/home.html.haml",
+		"/Users/gklitt/Dropbox/dev/mentorme/db/migrate/20130223060711_create_meetings.rb",
+		"/Users/gklitt/Dropbox/dev/mentorme/app/controllers/static_pages_controller.rb",
+		"/Users/gklitt/Dropbox/dev/mentorme/app/helpers/meetings_helper.rb",
+		"/Users/gklitt/Dropbox/dev/mentorme/specs.md",
+		"/Users/gklitt/Dropbox/dev/mentorme/todo.txt",
+		"/Users/gklitt/Dropbox/dev/mentorme/config/database.yml",
+		"/Users/gklitt/Dropbox/dev/mentorme/Gemfile",
+		"/Users/gklitt/Dropbox/Junior year/CPSC 365/ps3/ps3.tex",
+		"/Users/gklitt/Library/Application Support/Sublime Text 2/Packages/User/sftp_servers/zoo",
+		"/Users/gklitt/Dropbox/dev/spotify/zipfsong.c",
+		"/Users/gklitt/Dropbox/dev/ma/public/player/AuteursVideoPlayer.swf",
+		"/Users/gklitt/dev/mp/app/assets/stylesheets/promo_landing.css.scss",
+		"/Users/gklitt/dev/mp/config/locales/en-US.yml",
+		"/Users/gklitt/Dropbox/Low Strung/Low Strung website/thegroup.html",
+		"/Users/gklitt/Dropbox/dev/mp/app/controllers/alachampfest_controller.rb",
+		"/Users/gklitt/dev/mp/app/controllers/playstation_controller.rb",
+		"/Users/gklitt/dev/mp/config/routes.rb",
+		"/Users/gklitt/Dropbox/dev/mp/app/views/alachampfest/show.html.haml",
+		"/Users/gklitt/dev/mp/app/views/playstation/show.html.haml",
+		"/Users/gklitt/Dropbox/dev/mp/app/assets/stylesheets/alachampfest.css.scss",
+		"/Users/gklitt/dev/mp/config/locales/nb-NO.yml",
+		"/Users/gklitt/dev/mp/config/locales/tr-TR.yml",
+		"/Users/gklitt/dev/mp/app/assets/stylesheets/playstation.css.scss",
+		"/Users/gklitt/dev/mp/app/controllers/picturehouse_controller.rb",
+		"/Users/gklitt/dev/mp/app/assets/stylesheets/application.css.scss",
+		"/Users/gklitt/dev/mp/app/assets/stylesheets/home.css.scss",
+		"/Users/gklitt/dev/mp/app/assets/stylesheets/films.css.scss",
+		"/Users/gklitt/Dropbox/dev/mp/app/assets/stylesheets/promo_landing.css.scss",
+		"/Users/gklitt/dev/mp/app/views/picturehouse/show.html.haml",
+		"/Users/gklitt/dev/mp/app/assets/stylesheets/picturehouse.css.scss",
+		"/Users/gklitt/dev/mp/app/controllers/films_controller.rb",
+		"/Users/gklitt/dev/mp/app/controllers/home_controller.rb",
+		"/Users/gklitt/dev/mp/app/models/film.rb",
+		"/Users/gklitt/dev/mp/Gemfile",
+		"/Users/gklitt/dev/mp/app/controllers/website_base_controller.rb",
+		"/Users/gklitt/dev/mp/test/functional/playstation_controller_test.rb",
+		"/Users/gklitt/dev/mp/test/functional/picturehouse_controller_test.rb",
+		"/Users/gklitt/dev/mp/app/helpers/application_helper.rb",
+		"/Users/gklitt/dev/mp/app/views/films/_film_showcase.html.mustache",
+		"/Users/gklitt/dev/mp/app/helpers/films_helper.rb",
+		"/Users/gklitt/dev/mp/app/assets/javascripts/social_buttons.js",
+		"/Users/gklitt/Documents/Low Strung/website old/thegroup.html",
+		"/Users/gklitt/dev/mp/app/views/films/show.html.haml",
+		"/Users/gklitt/dev/mp/lib/app_locale.rb",
+		"/Users/gklitt/dev/mp/app/views/layouts/_footer.html.haml",
+		"/Users/gklitt/dev/mp/app/assets/javascripts/mp.app.js",
+		"/Users/gklitt/dev/mp/app/assets/javascripts/films.js",
+		"/Users/gklitt/dev/textrank/textrankdb.dump",
+		"/Users/gklitt/dev/textrank/db/migrate/20121124023725_add_subjects_to_texts.rb",
+		"/Users/gklitt/dev/textrank/app/views/devise/registrations/edit.html.haml",
+		"/Users/gklitt/dev/textrank/app/models/user.rb",
+		"/Users/gklitt/dev/textrank/app/views/devise/registrations/new.html.haml",
+		"/Users/gklitt/dev/textrank/app/views/layouts/application.html.haml",
+		"/Users/gklitt/dev/textrank/app/views/layouts/_messages.html.haml",
+		"/Users/gklitt/dev/textrank/app/controllers/registrations_controller.rb",
+		"/Users/gklitt/dev/textrank/app/controllers/access_codes_controller.rb",
+		"/Users/gklitt/dev/textrank-resources/texts.csv",
+		"/Users/gklitt/dev/textrank/app/views/subjects/edit.html.haml",
+		"/Users/gklitt/dev/textrank/app/views/access_codes/edit.html.haml",
+		"/Users/gklitt/dev/textrank/app/views/admin/index.html.haml",
+		"/Users/gklitt/dev/textrank/app/controllers/admin_controller.rb",
+		"/Users/gklitt/dev/textrank/app/models/access_code.rb",
+		"/Users/gklitt/dev/textrank/app/views/subjects/index.html.haml",
+		"/Users/gklitt/dev/textrank/app/views/access_codes/index.html.haml",
+		"/Users/gklitt/dev/textrank/app/views/texts/index.html.haml",
+		"/Users/gklitt/dev/textrank/app/controllers/home_controller.rb",
+		"/Users/gklitt/dev/textrank/app/models/text.rb",
+		"/Users/gklitt/dev/textrank/db/migrate/20121123223352_remove_authors.rb",
+		"/Users/gklitt/dev/textrank/app/controllers/subjects_controller.rb",
+		"/Users/gklitt/dev/textrank/app/views/admin/texts/index.html.haml",
+		"/Users/gklitt/dev/textrank/Gemfile",
+		"/Users/gklitt/dev/textrank/app/views/admin/subjects/_form.html.haml",
+		"/Users/gklitt/dev/textrank/app/views/admin/access_codes/_form.html.haml",
+		"/Users/gklitt/dev/textrank/app/controllers/admin/texts_controller.rb",
+		"/Users/gklitt/dev/textrank/app/controllers/admin/subjects_controller.rb",
+		"/Users/gklitt/dev/textrank/app/controllers/admin/access_codes_controller.rb",
+		"/Users/gklitt/dev/textrank/app/views/access_codes/index.html.erb",
+		"/Users/gklitt/dev/textrank/app/controllers/texts_controller.rb"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			".main",
+			"main",
+			"syntax",
+			"header",
+			"display: none",
+			"display:none",
+			"display: none",
+			"index.html",
+			"height",
+			"alert",
+			"subscribers",
+			"addStream",
+			"publisher_div",
+			"video_session",
+			"Servo",
+			"test",
+			"boost",
+			"gear",
+			"gearPin",
+			"thm",
+			"lem",
+			"&#169;2011",
+			"2011",
+			"2012",
+			"sevenseg",
+			"runSecurityBlock",
+			"start_free_trial",
+			"playstation",
+			"pinterest",
+			"set_app_locale",
+			"still_url",
+			"film_still",
+			"film_for_mustache",
+			"trailer_url",
+			"base_url",
+			"facebook_page_url",
+			"helper_method",
+			"    @",
+			"Signed in successfully",
+			"color_mubi_green",
+			"$\n$color_mubi_green",
+			"take_my_money",
+			"fine_print",
+			"wallpaper",
+			"box-shadow",
+			"text-shadow",
+			"film_wallpaper",
+			"auteurs_#{",
+			"auteurs_development",
+			"promotion",
+			"film_grid",
+			"film_title_html",
+			"box-shadow",
+			"AppLocale",
+			"sixths",
+			"sixths()",
+			"width/6",
+			"16.667%",
+			"16.67%",
+			"our",
+			"wallpaper",
+			"function wallpaper",
+			"prevent_default",
+			"scroll:",
+			"@include box-shadow",
+			"auteurs_development",
+			"auteurs_production",
+			"auteurs_development",
+			"main",
+			"$color_link",
+			"tooltip",
+			"extra",
+			"nExtra",
+			"extraBits",
+			"nExtraBits",
+			"hasharrayinit",
+			"HashArrayInit",
+			"HashArrayInsert",
+			"codecount",
+			"hasharrayfull",
+			"debug",
+			"putbits",
+			"break",
+			"Hash",
+			"addFile",
+			"stackPush",
+			"stackPop",
+			"fclose",
+			"stackPop",
+			"listing",
+			"0666",
+			"400",
+			"fp",
+			"lstat",
+			"stat(",
+			"pushName",
+			"filename",
+			"stored",
+			"backup",
+			"sizeof",
+			"Die"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"end",
+			"\n#####",
+			"&#169;2013",
+			"a",
+			"15px",
+			"overflow",
+			"numOverflow",
+			"overflow",
+			"numOverflow",
+			"DEBUG",
+			"buffer",
+			"bak"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 5,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "config.rb",
+					"settings":
+					{
+						"buffer_size": 2514,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1524,
+								1524
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1260.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/Users/gklitt/Dropbox/dev/personal-homepage/content/stylesheets/stylesheet.scss",
+					"settings":
+					{
+						"buffer_size": 7050,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2627,
+								2627
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "source/layouts/layout.haml",
+					"settings":
+					{
+						"buffer_size": 2668,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2005,
+								2005
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Rails/Ruby Haml.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 191.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/Users/gklitt/Dropbox/dev/personal-homepage/content/posts/2013-02-26-nyuad.md",
+					"settings":
+					{
+						"buffer_size": 10118,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1701.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "source/index.html.haml",
+					"settings":
+					{
+						"buffer_size": 527,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								79,
+								79
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Rails/Ruby Haml.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "source/about.html.md",
+					"settings":
+					{
+						"buffer_size": 2081,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1771,
+								1771
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"incomplete_sync": null,
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 393.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "helpers/site_helpers.rb",
+					"settings":
+					{
+						"buffer_size": 527,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								521,
+								521
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "Gemfile",
+					"settings":
+					{
+						"buffer_size": 264,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								144,
+								144
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "source/articles/2013-05-30-my-second-post.html.md",
+					"settings":
+					{
+						"buffer_size": 333,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								43,
+								43
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 9,
+					"file": "source/stylesheets/site.css.scss",
+					"settings":
+					{
+						"buffer_size": 3708,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3358,
+								3358
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3061.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "source/stylesheets/_vendor/html5bp.css",
+					"settings":
+					{
+						"buffer_size": 5657,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "source/stylesheets/_responsive.css.scss",
+					"settings":
+					{
+						"buffer_size": 1185,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								180,
+								180
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 88.0
+	},
+	"output.git":
+	{
+		"height": 112.0
+	},
+	"output.sftp":
+	{
+		"height": 0.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"",
+				"config.rb"
+			],
+			[
+				"appcontro",
+				"app/controllers/application_controller.rb"
+			],
+			[
+				"routes",
+				"config/routes.rb"
+			],
+			[
+				"model",
+				"app/models/time_slot.rb"
+			],
+			[
+				"model/time",
+				"app/models/time_slot.rb"
+			],
+			[
+				"views/",
+				"app/views/layouts/application.html.haml"
+			],
+			[
+				"picturehouse.cs",
+				"app/assets/stylesheets/picturehouse.css.scss"
+			],
+			[
+				"playstation",
+				"app/controllers/playstation_controller.rb"
+			],
+			[
+				"picturehouse",
+				"app/controllers/picturehouse_controller.rb"
+			],
+			[
+				"playstation/show",
+				"app/views/playstation/show.html.haml"
+			],
+			[
+				"picturehouse.css",
+				"app/assets/stylesheets/picturehouse.css.scss"
+			],
+			[
+				"config/locales/",
+				"config/locales/tr-TR.yml"
+			],
+			[
+				"config/locales",
+				"config/locales/en-US.yml"
+			],
+			[
+				"playstationtest",
+				"test/functional/playstation_controller_test.rb"
+			],
+			[
+				"ge",
+				"Gemfile"
+			],
+			[
+				"test/picturehouse",
+				"test/functional/picturehouse_controller_test.rb"
+			],
+			[
+				"config/locales/en",
+				"config/locales/en-US.yml"
+			],
+			[
+				"views/picturehouse",
+				"app/views/picturehouse/show.html.haml"
+			],
+			[
+				"playstation.css",
+				"app/assets/stylesheets/playstation.css.scss"
+			],
+			[
+				"config/routes",
+				"config/routes.rb"
+			],
+			[
+				"locales/en",
+				"config/locales/en-US.yml"
+			],
+			[
+				"config/local",
+				"config/locales/en-US.yml"
+			],
+			[
+				"app",
+				"lib/app_locale.rb"
+			],
+			[
+				"controllers/films",
+				"app/controllers/films_controller.rb"
+			],
+			[
+				"films.css",
+				"app/assets/stylesheets/films.css.scss"
+			],
+			[
+				"views/films/show",
+				"app/views/films/show.html.haml"
+			],
+			[
+				"views/pictureho",
+				"app/views/picturehouse/show.html.haml"
+			],
+			[
+				"stylesheets/pictu",
+				"app/assets/stylesheets/picturehouse.css.scss"
+			],
+			[
+				"views/admin/inde",
+				"app/views/admin/index.html.haml"
+			],
+			[
+				"config/data",
+				"config/database.yml"
+			],
+			[
+				"gemfile",
+				"Gemfile"
+			],
+			[
+				"views/subject/index",
+				"app/views/subjects/index.html.haml"
+			],
+			[
+				"views/texts/inde",
+				"app/views/texts/index.html.haml"
+			],
+			[
+				"textscontrol",
+				"app/controllers/texts_controller.rb"
+			],
+			[
+				"migrate/subj",
+				"db/migrate/20121124023725_add_subjects_to_texts.rb"
+			],
+			[
+				"devise/registration",
+				"app/views/devise/registrations/edit.html.haml"
+			],
+			[
+				"admin_",
+				"app/controllers/admin_controller.rb"
+			],
+			[
+				"homecontr",
+				"app/controllers/home_controller.rb"
+			],
+			[
+				"migrate/access",
+				"db/migrate/20121123205723_create_access_codes.rb"
+			],
+			[
+				"stylesheets/",
+				"app/assets/stylesheets/boostrap_and_overrides.css.scss"
+			],
+			[
+				"migrate/user",
+				"db/migrate/20121122023936_add_fields_to_users.rb"
+			],
+			[
+				"routesrb",
+				"config/routes.rb"
+			],
+			[
+				"subj",
+				"app/models/subject.rb"
+			],
+			[
+				"analytics",
+				"app/controllers/services/internal/analytics_controller.rb"
+			],
+			[
+				"promos.css",
+				"app/assets/stylesheets/promos.css.scss"
+			],
+			[
+				"promos/show",
+				"app/views/promos/show.html.haml"
+			],
+			[
+				"pic",
+				"app/controllers/picturehouse_controller.rb"
+			],
+			[
+				"index",
+				"app/views/home/index.html.haml"
+			],
+			[
+				"wallpaper",
+				"app/assets/javascripts/jquery.wallpaper.js"
+			],
+			[
+				"picturehouse/show",
+				"app/views/picturehouse/show.html.haml"
+			],
+			[
+				"picture",
+				"app/controllers/picturehouse_controller.rb"
+			],
+			[
+				"index.html",
+				"app/views/home/index.html.haml"
+			],
+			[
+				"home.html",
+				"app/views/home/styleguide.html.haml"
+			],
+			[
+				"film",
+				"app/models/film.rb"
+			],
+			[
+				"userscont",
+				"app/controllers/users_controller.rb"
+			],
+			[
+				"promotionscontr",
+				"app/controllers/promotions_controller.rb"
+			],
+			[
+				"user.js",
+				"app/assets/javascripts/users.js"
+			],
+			[
+				"usersconr",
+				"app/controllers/users_controller.rb"
+			],
+			[
+				"promotionscontrol",
+				"app/controllers/promotions_controller.rb"
+			],
+			[
+				"home.js",
+				"app/assets/javascripts/home.js"
+			],
+			[
+				"application.js",
+				"app/assets/javascripts/application.js"
+			],
+			[
+				"promotions.js",
+				"app/assets/javascripts/promotions.js"
+			],
+			[
+				"promotions/pay",
+				"app/views/promotions/payment_details.html.haml"
+			],
+			[
+				"en-us",
+				"config/locales/en-US.yml"
+			],
+			[
+				"abtest",
+				"app/assets/stylesheets/abtest.css.scss"
+			],
+			[
+				"home.css",
+				"app/assets/stylesheets/home.css.scss"
+			],
+			[
+				"index.ht",
+				"app/views/home/index.html.haml"
+			],
+			[
+				"sessionscon",
+				"app/controllers/sessions_controller.rb"
+			],
+			[
+				"users",
+				"app/controllers/users_controller.rb"
+			],
+			[
+				"login",
+				"app/models/login.rb"
+			],
+			[
+				"application.cs",
+				"app/assets/stylesheets/application.css.scss"
+			],
+			[
+				"promotions.cs",
+				"app/assets/stylesheets/promotions.css.scss"
+			],
+			[
+				"promo",
+				"app/controllers/promotions_controller.rb"
+			],
+			[
+				"home_contr",
+				"app/controllers/home_controller.rb"
+			],
+			[
+				"promotions/show",
+				"app/views/promotions/show.html.haml"
+			],
+			[
+				"_head",
+				"app/views/layouts/_head.html.haml"
+			],
+			[
+				"config/rou",
+				"config/routes.rb"
+			],
+			[
+				"users_cont",
+				"app/controllers/users_controller.rb"
+			],
+			[
+				"_film",
+				"app/views/shared/_film.html.haml"
+			],
+			[
+				"users/new",
+				"app/views/users/new.html.haml"
+			],
+			[
+				"app_loca",
+				"lib/app_locale.rb"
+			],
+			[
+				"films.js",
+				"app/assets/javascripts/films.js"
+			],
+			[
+				"responsive",
+				"app/assets/stylesheets/responsive.css.scss"
+			],
+			[
+				"films/show",
+				"app/views/films/show.html.haml"
+			],
+			[
+				"mubi",
+				"app/services/mubi_film.rb"
+			],
+			[
+				"mubifilm",
+				"app/services/mubi_film.rb"
+			],
+			[
+				"mubi_service",
+				"app/services/mubi_service.rb"
+			],
+			[
+				"films_con",
+				"app/controllers/films_controller.rb"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/Users/gklitt/dev/mp/mp.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 180.0,
+	"status_bar_visible": true
+}

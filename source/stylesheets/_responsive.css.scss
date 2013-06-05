@@ -1,0 +1,79 @@
+@media screen and (min-width: 500px) {
+  .main{
+    padding: 25px;
+    font-size: 18px;
+
+    h1{
+      font-size: 28px;
+    }
+    
+    h2{
+      font-size: 24px;
+    }
+
+    h3.date{
+      font-size: 16px;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+
+  body{
+    background-image: url(/images/washi.png);
+  }
+
+  header{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 230px;
+    height: 100%;
+    background-color: $col_blue_dark;
+
+    a.logo{
+      width: 140px;
+      height: 140px;
+      margin: 5px auto 15px auto;
+    }
+  }
+
+  nav{
+    a{
+      display: block;
+      width: 200px;
+      margin: 5px 15px;
+      padding: 2px 0;
+      @include border-radius(4px);
+    }
+  }
+
+  .main_container{
+    display: block;
+    margin-left: 230px;
+
+    .main{
+      display: inline-block;
+      width: 90%;
+      max-width: 650px;
+      margin: 0 5% 20px 5%;
+
+      $default-box-shadow-blur: 10px;
+      @include box-shadow();
+
+      border: solid thin $col_blue_dark;
+      border-top: none;
+      @include border-bottom-radius(5px);
+    }
+  }
+
+  .footer_container{
+    margin-left: 230px;
+  }
+
+  footer{
+    width: 90%;
+    max-width: 650px;
+    margin: 0 5% 0 5%;
+  }
+}

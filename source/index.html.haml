@@ -1,0 +1,19 @@
+---
+pageable: true
+per_page: 10
+---
+- page_articles.each_with_index do |article, i|
+  %article.blogpost.summary
+    %h3.date= article.date.strftime('%b %e, %Y')
+    %h2.title= link_to article.title, article
+    .content= article.summary
+    - if article_has_summary(article)
+      = link_to 'Read more', article, :class => 'read_more'
+
+- if paginate && num_pages > 1
+  %p
+    Page #{page_number} of #{num_pages}
+  - if prev_page
+    %p= link_to 'Newer posts', prev_page
+  - if next_page
+    %p= link_to 'Older posts', next_page

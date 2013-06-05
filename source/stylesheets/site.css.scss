@@ -6,8 +6,9 @@
 
 //Grid
 //require "_layout/grid"
-*= require "_layout/responsive"
 
+//Code
+*= require "_code.css"
 */
 
 // Variables
@@ -16,6 +17,7 @@ $col_blue_dark: #1c3553;
 $col_blue_med: #3667a1;
 $col_blue_light: #498bd9;
 $col_blackish: #131313;
+$col_grey: #acacac;
 $col_white: #ffffff;
 
 // Foundations
@@ -30,32 +32,92 @@ $col_white: #ffffff;
 body{
   background-color: #fff; //fallback for bg-image, and filler during loading
 
-  font-family: 'Crimson Text', serif;
+  font-family: 'Open Sans', serif;
   color: $col_blackish;
-  font-size: 16pt;
+  font-size: 14pt;
 
   width: 100%;
   margin: 0;
 }
 
+pre.highlight{
+  padding: 6px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.8em;
+}
+
+// Blog post display
+
+.main{
+  width: 100%;
+  padding: 15px;
+  background-color: $col_white;
+
+  font-size: 15px;
+
+  h1, h2{
+    font-family: 'Montserrat', sans serif;
+    font-weight: bold;
+
+    a{
+      @include link-colors($col_blackish, $col_blue_med, $col_blue_dark, $col_blackish, $col_blue_med);
+      text-decoration: none;
+    }
+  }
+
+  h1{
+    font-size: 22px;
+    border-bottom: solid thin $col_blue_med;
+  }
+
+  h2{
+    font-size: 18px;
+
+    margin-top: 0px;
+    margin-bottom: 15px;
+  }
+
+  h3.date{
+    font-family: 'Open Sans', sans serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 14px;
+    color: $col_grey;
+
+    margin-bottom: 15px;
+    border-bottom: solid thin $col_grey;
+  }
+
+  a{
+    @include link-colors($col_blue_med, $col_blue_light, $col_blue_dark, $col_blue_med, $col_blue_light);
+    text-decoration: none;
+  }
+
+  article.blogpost{
+    margin-bottom: 30px;
+  }
+
+}
+
 // Mobile-only
 
-header.mobile{
+header{
   width: 100%;
   background-color: $col_blue_dark;
-  padding: 15px;
 
   a.logo{
+    @include box-sizing(content-box);
     display: block;
-    width: 60px;
-    height: 60px;
-    margin: 0 auto;
+    width: 80px;
+    height: 80px;
+    padding-top: 15px;
+    margin: 0 auto 10px auto; 
   }
 
   h1.name{
     display: block;
     text-align: center;
-    margin: 15px 0 5px 0;
+    margin: 0 0 5px 0;
     padding: 0;
     line-height: 0.6em;
 
@@ -77,14 +139,12 @@ header.mobile{
     color: $col_white;
 
     text-align: center;
-    margin: 0;
+    margin: 0 15px 15px 15px;
   }
 }
 
-nav.mobile{
+nav{
   width: 100%;
-  padding: 5px;
-  background-color: $col_blue_med; 
 
   ul{
     margin: 0;
@@ -94,20 +154,84 @@ nav.mobile{
   }
 
   li{
+      }
+
+  a{
+    background-color: $col_blue_med; 
     float: left;
 
     margin: 0;
-    padding: 0;
+    padding: 5px 0;
     width: 33.3%;
     text-align: center;
 
     font-family: 'Montserrat', sans serif;
     font-size: 18px;
     text-transform: uppercase;
-    
-    a{
-      @include link-colors($col_white);
-      text-decoration: none;
-    }
+
+    display: block;
+    @include link-colors($col_white);
+    text-decoration: none;
+  }
+
+  a:hover{
+    background-color: $col_blue_light;
   }
 }
+
+//Projects
+.project{
+  overflow: hidden;
+  background-color: #eee;
+  padding: 10px;
+  margin-bottom: 15px;
+  @include border-radius(5px);
+
+  width: 100%;
+
+  h2.name{
+    margin-bottom: 0px;
+  }
+
+  h3.subtitle{
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 300;
+    color: #555;
+
+    margin-top: 0px;
+  }
+
+  .basics{
+    float: left;
+    width: 275px;
+    margin-bottom: 20px;
+  }
+
+  .description{
+    float: left;
+    width: 40%;
+    min-width: 200px;
+  }
+}
+
+// Footer
+.footer_container{
+  background-color: #ddd;
+}
+
+footer{
+  display: block;
+  padding: 15px;
+  width: 100%;
+
+  font-family: 'Open Sans', sans serif;
+  font-size: 16px;
+
+  a{
+    @include link-colors($col_blue_med, $col_blue_light, $col_blue_dark, $col_blue_med, $col_blue_light)
+  }
+}
+
+@import "responsive";
+

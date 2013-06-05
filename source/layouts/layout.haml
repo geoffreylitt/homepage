@@ -18,33 +18,36 @@
     
     = javascript_include_tag "vendor/modernizr-2.6.1.min"
     = stylesheet_link_tag "site"
-    = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,700|Open+Sans:400italic,700italic,300,400,700|Montserrat:700,400' rel='stylesheet' type='text/css"
+    = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700|Montserrat:700,400' rel='stylesheet' type='text/css"
   %body
     /[if lt IE 7] <p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p>
 
-    / This only appears on mobile
-    %header.mobile
+    %header
       %a.logo{:href => '/'}
-        = image_tag 'circle-photo.png', :width => '60px'
+        = image_tag 'headshot-test2.png', :width => '100%'
       %h1.name
         %a{:href => '/'} Geoffrey Litt
-      %h2.description Developer and designer currently coding for Panorama Education (YC S13)
-    %nav.mobile
-      %ul
-        %li
-          %a{:href => '/'} Home
-        %li 
-        %li
-          %a{:href => '/about.html'} About
-        %li
-          %a{:href => '/about.html#projects'} Projects
+      %h2.description
+        Programmer and designer, coding for Panorama Education (YC S13)
+      %nav
+        %ul
+          %a{:href => '/'}
+            %li Home
+          %a{:href => '/about.html'}
+            %li About
+          %a{:href => '/about.html#projects'}
+            %li Projects
 
-    / This only appears on desktop
-    %header.desktop
+    .main_container
+      .main= yield
 
-    %div{:role => "main", :class => "main"}= yield
-    %footer
-    
+    .footer_container
+      %footer
+        :markdown
+          Find me on [Github](http://www.github.com/geoffreylitt), [LinkedIn](http://www.linkedin.com/in/geoffreylitt), [Twitter](http://www.twitter.com/geoffreylitt), and [email](mailto:gklitt@gmail.com).
+
+          This site was handcrafted (responsively) using [Middleman](http://middlemanapp.com/).
+      
     = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"
     :javascript
       window.jQuery || document.write('<script src="javascripts/vendor/jquery-1.8.0.min.js"><\/script>')
