@@ -4,9 +4,6 @@
 *= require "_vendor/normalize.css"
 *= require "_vendor/html5bp.css"
 
-//Grid
-//require "_layout/grid"
-
 //Code
 *= require "_code.css"
 */
@@ -53,7 +50,7 @@ pre.highlight{
   padding: 15px;
   background-color: $col_white;
 
-  font-size: 15px;
+  font-size: 14px;
 
   h1, h2{
     font-family: 'Montserrat', sans serif;
@@ -91,6 +88,10 @@ pre.highlight{
   a{
     @include link-colors($col_blue_med, $col_blue_light, $col_blue_dark, $col_blue_med, $col_blue_light);
     text-decoration: none;
+  }
+
+  li{
+    margin-bottom: 0.3em;
   }
 
   article.blogpost{
@@ -153,9 +154,6 @@ nav{
     overflow: hidden;
   }
 
-  li{
-      }
-
   a{
     background-color: $col_blue_med; 
     float: left;
@@ -166,7 +164,7 @@ nav{
     text-align: center;
 
     font-family: 'Montserrat', sans serif;
-    font-size: 18px;
+    font-size: 14px;
     text-transform: uppercase;
 
     display: block;
@@ -177,6 +175,10 @@ nav{
   a:hover{
     background-color: $col_blue_light;
   }
+}
+
+.contact{
+  display: none;
 }
 
 //Projects
@@ -226,7 +228,7 @@ footer{
   width: 100%;
 
   font-family: 'Open Sans', sans serif;
-  font-size: 16px;
+  font-size: 14px;
 
   a{
     @include link-colors($col_blue_med, $col_blue_light, $col_blue_dark, $col_blue_med, $col_blue_light)

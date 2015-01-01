@@ -10,8 +10,8 @@ activate :livereload
 ###
 
 # Susy grids in Compass
-# First: gem install compass-susy-plugin
-require 'susy'
+# First: gem install compass-susy-plugin 
+# require 'susy'
 
 # Change Compass configuration
 # compass_config do |config|

@@ -1,4 +1,11 @@
 @media screen and (min-width: 500px) {
+
+  nav{
+    a{
+      font-size: 16px;
+    }
+  }
+
   .main{
     padding: 25px;
     font-size: 18px;
@@ -14,6 +21,10 @@
     h3.date{
       font-size: 16px;
     }
+  }
+
+  footer{
+    font-size: 16px;
   }
 }
 
@@ -46,6 +57,24 @@
       padding: 2px 0;
       @include border-radius(4px);
     }
+  }
+
+  ul.contact{
+    font-size: 13px;
+    display: block;
+
+    list-style: none;
+    padding: 0 15px;
+
+    li{
+      display: inline;
+      margin-right: 6px;
+    }
+    
+    a{
+      @include link-colors($col_white);
+    }
+
   }
 
   .main_container{
