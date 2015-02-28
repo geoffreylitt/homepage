@@ -12,10 +12,10 @@ There's only one problem with Classroulette. To put it bluntly, the code quality
 
 But here's what this project made me realize: sometimes, __good code isn't the top priority!__
 
+READMORE
+
 People love Classroulette because of the user interface, not because of the underlying software architecture. I could have spent the limited hours I had improving the codebase, but I chose instead to focus on crafting a delightful user experience, and that decision paid off. When faced with limited resources, you have to make tough choices to get to launch. Classroulette launched as a minimum viable product--meaning it had a minimal feature set and minimal code quality, but great UX.
 
 Of course, anyone who's ever worked on production systems has alarm bells going off in their head reading this. But the site isn't maintainable! It's not extensible! It wouldn't work if there were more than one person working on the project!
 
 These are all valid criticisms. But in many cases, it's worth releasing a great user experience first, and fixing the code later--once you've discovered whether anyone actually wants to use the product. For what it's worth, I've been using AngularJS extensively recently, and I can't wait to rewrite Classroulette the right way when I get some free time.
-
-READMORE

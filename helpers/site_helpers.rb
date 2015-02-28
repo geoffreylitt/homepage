@@ -2,17 +2,17 @@ module SiteHelpers
 
   def page_title
     title = "Geoffrey Litt"
-    if data.page.title
-      title << " | " + data.page.title
+    if current_page.data.title
+      title << " | " + current_page.data.title
     end
     title
   end
-  
+
   def page_description
-    if data.page.description
-      description = data.page.description
+    if current_page.data.description
+      description = current_page.data.description
     else
-      description = "Geoffrey Litt is a programmer and designer currently studying at Yale University."
+      description = "Geoffrey Litt is a programmer and designer."
     end
     description
   end

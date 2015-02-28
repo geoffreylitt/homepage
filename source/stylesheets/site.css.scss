@@ -74,6 +74,10 @@ pre.highlight{
     margin-bottom: 15px;
   }
 
+  h3 {
+    margin-top: 1.5em;
+  }
+
   h3.date{
     font-family: 'Open Sans', sans serif;
     font-style: italic;
@@ -98,6 +102,11 @@ pre.highlight{
     margin-bottom: 30px;
   }
 
+  img{
+    margin: 10px 0;
+    max-width: 100%;
+  }
+
 }
 
 // Mobile-only
@@ -112,7 +121,7 @@ header{
     width: 80px;
     height: 80px;
     padding-top: 15px;
-    margin: 0 auto 10px auto; 
+    margin: 0 auto 10px auto;
   }
 
   h1.name{
@@ -149,13 +158,13 @@ nav{
 
   ul{
     margin: 0;
-    padding: 0; 
+    padding: 0;
 
     overflow: hidden;
   }
 
   a{
-    background-color: $col_blue_med; 
+    background-color: $col_blue_med;
     float: left;
 
     margin: 0;
