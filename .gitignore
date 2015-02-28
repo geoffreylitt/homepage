@@ -1,1 +1,7 @@
 build
+.sass-cache
+html5bp-docs
+.rvmrc
+DOCS.md
+*.sublime-project
+*.sublime-workspace
