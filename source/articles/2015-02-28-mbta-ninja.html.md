@@ -1,5 +1,5 @@
 ---
-title: "Waze for public transit: my first adventure in civic hacking"
+title: "Building Waze for the Boston subway: my first adventure in civic hacking"
 date: 2015-02-28 20:14 UTC
 tags:
 description: "Together with two coworkers, I built a crowdsourced subway alerting app called MBTA Ninja. We weren't really expecting anyone besides our coworkers and friends to use the app at first...and then it went viral on Twitter."
@@ -8,9 +8,9 @@ image_url: "http://www.mbta.ninja/images/ninja.png"
 
 Last weekend I attended CodeAcross Boston 2015, a civic innovation hackathon hosted by [Code for Boston](http://www.codeforboston.org/) as part of the national [CodeAcross](http://www.codeforamerica.org/events/codeacross-2015/) weekend.
 
-Having been driven insane by [the wintry woes](http://www.bostonglobe.com/news/bigpicture/2015/02/23/wintry-woes-for-mbta/UFasXMvGjJnzmfYTF2WMAI/story.html?comments=all&sort=NEWEST_CREATE_DT) of Boston's public transit system, my idea for the event was to build "Waze for the T" -- a crowdsourced alerting system to let commuters directly warn each other of delays, crowded platforms, and other problems on the subway. (The T is Boston's nickname for the public transit system.)
+Having been driven insane by [the wintry woes](http://www.bostonglobe.com/news/bigpicture/2015/02/23/wintry-woes-for-mbta/UFasXMvGjJnzmfYTF2WMAI/story.html?comments=all&sort=NEWEST_CREATE_DT) of Boston's public transit system, two coworkers from Panorama Education for the event was to build "Waze for the T" -- a crowdsourced alerting system to let commuters directly warn each other of delays, crowded platforms, and other problems on the subway. (The T is Boston's nickname for the public transit system.)
 
-I joined forces with two coworkers from Panorama Education, and over a weekend we built out the idea as a mobile web app using Meteor. We affectionately called it [MBTA Ninja](http://mbta.ninja). (As weird as the new gTLDs are, .ninja domains are a gold mine for hackathons!) We weren't really expecting anyone besides our coworkers and friends to use the app at first...
+I joined forces , and over a weekend we built out the idea as a mobile web app using Meteor. We affectionately called it [MBTA Ninja](http://mbta.ninja). (As weird as the new gTLDs are, .ninja domains are a gold mine for hackathons!) We weren't really expecting anyone besides our coworkers and friends to use the app at first...
 
 ...and then it went viral on Twitter.
 
