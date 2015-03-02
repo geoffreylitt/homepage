@@ -43,6 +43,12 @@ pre.highlight{
   font-size: 0.8em;
 }
 
+blockquote {
+  font-size: 0.9em;
+  border-left: solid thin #ddd;
+  padding-left: 10px;
+}
+
 // Blog post display
 
 .main{
@@ -107,6 +113,21 @@ pre.highlight{
     max-width: 100%;
   }
 
+}
+
+.iframe-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 60%;
+}
+
+.video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 // Mobile-only

@@ -14,6 +14,11 @@
 
     %meta{:content => "width=device-width", :name => "viewport"}
 
+    %meta{:property => "og:title", :content => page_title}
+    %meta{:property => "og:description", :content => page_description}
+    %meta{:property => "og:image", :content => page_image}
+
+
     = javascript_include_tag "vendor/modernizr-2.6.1.min"
     = javascript_include_tag "site"
     = stylesheet_link_tag "site"
