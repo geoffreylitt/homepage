@@ -27,14 +27,19 @@ $col_white: #ffffff;
 // Base Typography
 
 body{
-  background-color: #fff; //fallback for bg-image, and filler during loading
+  background-color: #fff;
 
-  font-family: 'Open Sans', serif;
+  font-family: 'Open Sans', Helvetica Neue, Helvetica, Arial, sans-serif;
   color: $col_blackish;
   font-size: 14pt;
 
   width: 100%;
   margin: 0;
+}
+
+a {
+  @include link-colors($col_blue_med, $col_blue_light, $col_blue_dark, $col_blue_med, $col_blue_light);
+  text-decoration: none;
 }
 
 pre.highlight{
@@ -64,13 +69,12 @@ blockquote {
 
     a{
       @include link-colors($col_blackish, $col_blue_med, $col_blue_dark, $col_blackish, $col_blue_med);
-      text-decoration: none;
     }
   }
 
   h1{
     font-size: 22px;
-    border-bottom: solid thin $col_blue_med;
+    margin-top: 20px;
   }
 
   h2{
@@ -85,7 +89,6 @@ blockquote {
   }
 
   h3.date{
-    font-family: 'Open Sans', sans serif;
     font-style: italic;
     font-weight: 300;
     font-size: 14px;
@@ -97,7 +100,6 @@ blockquote {
 
   a{
     @include link-colors($col_blue_med, $col_blue_light, $col_blue_dark, $col_blue_med, $col_blue_light);
-    text-decoration: none;
   }
 
   li{
@@ -134,81 +136,51 @@ blockquote {
 
 header{
   width: 100%;
-  background-color: $col_blue_dark;
+  padding: 20px 0 0 20px;
 
   a.logo{
     @include box-sizing(content-box);
-    display: block;
+    display: inline-block;
     width: 80px;
     height: 80px;
-    padding-top: 15px;
-    margin: 0 auto 10px auto;
+    vertical-align: top;
+    margin-right: 15px;
   }
 
   h1.name{
-    display: block;
-    text-align: center;
-    margin: 0 0 5px 0;
-    padding: 0;
+    display: inline-block;
     line-height: 0.6em;
+    font-weight: 300;
+    margin: 0;
 
     a{
-      font-family: 'Montserrat', sans serif;
-      font-size: 30px;
-      text-transform: uppercase;
-      @include link-colors($col_white);
-      text-decoration: none;
+      font-size: 23px;
+      @include link-colors($col_blackish);
       margin: 0 ;
     }
-  }
-
-  h2.description{
-    font-family: 'Open Sans', sans serif;
-    font-style: italic;
-    font-weight: 300;
-    font-size: 16px;
-    color: $col_white;
-
-    text-align: center;
-    margin: 0 15px 15px 15px;
   }
 }
 
 nav{
-  width: 100%;
+  display: inline-block;
+  vertical-align: bottom;
 
   ul{
     margin: 0;
     padding: 0;
 
     overflow: hidden;
+
+    li{
+      display: inline-block;
+      margin-right: 5px;
+      font-size: 14px;
+    }
   }
 
-  a{
-    background-color: $col_blue_med;
-    float: left;
-
-    margin: 0;
-    padding: 5px 0;
-    width: 33.3%;
-    text-align: center;
-
-    font-family: 'Montserrat', sans serif;
-    font-size: 14px;
-    text-transform: uppercase;
-
-    display: block;
-    @include link-colors($col_white);
-    text-decoration: none;
+  ul.contact {
+    display: none;
   }
-
-  a:hover{
-    background-color: $col_blue_light;
-  }
-}
-
-.contact{
-  display: none;
 }
 
 //Projects
@@ -244,24 +216,6 @@ nav{
     float: left;
     width: 40%;
     min-width: 200px;
-  }
-}
-
-// Footer
-.footer_container{
-  background-color: #ddd;
-}
-
-footer{
-  display: block;
-  padding: 15px;
-  width: 100%;
-
-  font-family: 'Open Sans', sans serif;
-  font-size: 14px;
-
-  a{
-    @include link-colors($col_blue_med, $col_blue_light, $col_blue_dark, $col_blue_med, $col_blue_light)
   }
 }
 

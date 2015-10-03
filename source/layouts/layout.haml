@@ -23,43 +23,37 @@
     = javascript_include_tag "site"
     = stylesheet_link_tag "site"
     = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700|Montserrat:700,400' rel='stylesheet' type='text/css"
+    = stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
   %body
     /[if lt IE 7] <p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p>
 
     %header
       %a.logo{:href => '/'}
-        = image_tag 'headshot-test2.png', :width => '100%'
-      %h1.name
-        %a{:href => '/'} Geoffrey Litt
-      %h2.description
+        = image_tag 'headshot.jpg', :width => '100%'
       %nav
-        %ul
-          %a{:href => '/'}
-            %li Blog
-          %a{:href => '/about.html'}
-            %li About
-          %a{:href => '/about.html#projects'}
-            %li Projects
-      %ul.contact
-        %li
-          %a{:href => 'http://www.github.com/geoffreylitt', :target => '_blank'} Github
-        %li
-          %a{:href => 'http://www.twitter.com/geoffreylitt', :target => '_blank'} Twitter
-        %li
-          %a{:href => 'http://www.linkedin.com/in/geoffreylitt', :target => '_blank'} LinkedIn
-        %li
-          %a{:href => 'mailto:gklitt@gmail.com', :target => '_blank'} Email
+        %h1.name
+          %a{:href => '/'} Geoffrey Litt
+        %ul.sections
+          %li
+            %a{:href => '/'} Blog
+          %li
+            %a{:href => '/about.html'} About
+          %li
+            %a{:href => '/about.html#projects'} Projects
+        %ul.contact
+          %li
+            %a{:href => 'http://www.github.com/geoffreylitt', :target => '_blank'}
+              %i.fa.fa-github
+          %li
+            %a{:href => 'http://www.twitter.com/geoffreylitt', :target => '_blank'}
+              %i.fa.fa-twitter
+          %li
+            %a{:href => 'mailto:gklitt@gmail.com', :target => '_blank'}
+              %i.fa.fa-envelope
 
 
     .main_container
       .main= yield
-
-    .footer_container
-      %footer
-        :markdown
-          Find me on [Github](http://www.github.com/geoffreylitt), [LinkedIn](http://www.linkedin.com/in/geoffreylitt), [Twitter](http://www.twitter.com/geoffreylitt), and [email](mailto:gklitt@gmail.com).
-
-          This site was handcrafted (responsively) using [Middleman](http://middlemanapp.com/).
 
     = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"
     :javascript

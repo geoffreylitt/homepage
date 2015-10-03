@@ -34,43 +34,38 @@
     position: fixed;
     top: 0px;
     left: 0px;
-    width: 230px;
+    width: 170px;
     height: 100%;
-    background-color: $col_blue_dark;
+    padding-top: 55px;
+    text-align: right;
 
-    a.logo{
-      width: 140px;
-      height: 140px;
-      margin: 5px auto 15px auto;
+    a.logo {
+      height: 120px;
+      width: 120px;
+      margin-bottom: 10px;
+      margin-right: 0;
     }
   }
 
   nav{
-    a{
+    text-align: right;
+    ul {
+      margin: 20px 0;
+    }
+
+    ul.contact {
       display: block;
-      width: 200px;
-      margin: 5px 15px;
-      padding: 2px 0;
-      @include border-radius(4px);
-    }
-  }
-
-  ul.contact{
-    font-size: 13px;
-    display: block;
-
-    list-style: none;
-    padding: 0 15px;
-
-    li{
-      display: inline;
-      margin-right: 6px;
+      a {
+        font-size: 18px;
+        @include link-colors($col_grey, darken($col_grey, 10%), darken($col_grey, 20%));
+      }
     }
 
-    a{
-      @include link-colors($col_white);
+    ul.sections {
+      li {
+        display: block;
+      }
     }
-
   }
 
   .main_container{
@@ -85,15 +80,5 @@
       max-width: 675px;
       margin: 0 5% 20px 5%;
     }
-  }
-
-  .footer_container{
-    margin-left: 230px;
-  }
-
-  footer{
-    width: 90%;
-    max-width: 650px;
-    margin: 0 5% 0 5%;
   }
 }

@@ -8,9 +8,9 @@ image_url: "http://www.mbta.ninja/images/ninja.png"
 
 Last weekend I attended CodeAcross Boston 2015, a civic innovation hackathon hosted by [Code for Boston](http://www.codeforboston.org/) as part of the national [CodeAcross](http://www.codeforamerica.org/events/codeacross-2015/) weekend.
 
-Having been driven insane by [the wintry woes](http://www.bostonglobe.com/news/bigpicture/2015/02/23/wintry-woes-for-mbta/UFasXMvGjJnzmfYTF2WMAI/story.html?comments=all&sort=NEWEST_CREATE_DT) of Boston's public transit system, two coworkers from Panorama Education for the event was to build "Waze for the T" -- a crowdsourced alerting system to let commuters directly warn each other of delays, crowded platforms, and other problems on the subway. (The T is Boston's nickname for the public transit system.)
+Having been driven insane by [the wintry woes](http://www.bostonglobe.com/news/bigpicture/2015/02/23/wintry-woes-for-mbta/UFasXMvGjJnzmfYTF2WMAI/story.html?comments=all&sort=NEWEST_CREATE_DT) of Boston's public transit system, my idea for the event was to build "Waze for the T" -- a crowdsourced alerting system to let commuters directly warn each other of delays, crowded platforms, and other problems on the subway. (The T is Boston's nickname for the public transit system.)
 
-I joined forces , and over a weekend we built out the idea as a mobile web app using Meteor. We affectionately called it [MBTA Ninja](http://mbta.ninja). (As weird as the new gTLDs are, .ninja domains are a gold mine for hackathons!) We weren't really expecting anyone besides our coworkers and friends to use the app at first...
+I joined forces with two coworkers from Panorama Education, and over a weekend we built out the idea as a mobile web app using Meteor. We affectionately called it [MBTA Ninja](http://mbta.ninja). (As weird as the new gTLDs are, .ninja domains are a gold mine for hackathons!) We weren't really expecting anyone besides our coworkers and friends to use the app at first...
 
 ...and then it went viral on Twitter.
 
@@ -86,3 +86,5 @@ Among the countless ways that people have found to give back to the world, open 
 In a world where political systems are increasingly gridlocked every day, and much of Silicon Valley is focused on peddling ads, the civic innovation and open data movements are a bright and optimistic exception to the zeitgeist. When the noble goals and pervasive reach of governments combine with the freewheeling innovation of the tech world, I'm confident that amazing things can happen.
 
 I couldn't have asked for a better first experience, and I'm excited to stay active in this space. If you live in Boston, you should come by a [Code for Boston](http://www.meetup.com/Code-for-Boston/) meetup sometime, and join dozens of people who are interested in hacking the future.
+
+[Discuss this post on Hacker News](https://news.ycombinator.com/item?id=9131793)
