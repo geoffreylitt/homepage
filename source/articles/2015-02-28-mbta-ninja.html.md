@@ -14,6 +14,8 @@ I joined forces with two coworkers from Panorama Education, and over a weekend w
 
 ...and then it went viral on Twitter.
 
+READMORE
+
 <blockquote class="twitter-tweet" data-cards="hidden" lang="en"><p>More cities need a project like Boston’s MBTA Ninja <a href="http://t.co/uJGS6ntBc9">http://t.co/uJGS6ntBc9</a> Nice work <a href="https://twitter.com/hashtag/CodeAcross?src=hash">#CodeAcross</a> Boston!</p>&mdash; Tim O&#39;Reilly (@timoreilly) <a href="https://twitter.com/timoreilly/status/570680232568614912">February 25, 2015</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
@@ -31,8 +33,6 @@ I joined forces with two coworkers from Panorama Education, and over a weekend w
 
 <blockquote class="twitter-tweet" lang="en"><p>Bless you <a href="https://twitter.com/mbta_ninja">@mbta_ninja</a> ❤ now... If only you had a downloadable app... <a href="https://twitter.com/hashtag/BabySteps?src=hash">#BabySteps</a></p>&mdash; Chris Souza (@CSwizzle69) <a href="https://twitter.com/CSwizzle69/status/571313319447023616">February 27, 2015</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-READMORE
 
 The last week has been a whirlwind. In just five days, 14,000 people have visited the site over 21,000 times. It's been [featured](http://www.betaboston.com/news/2015/02/24/like-a-waze-for-the-t-mbta-ninja-lets-bostonians-crowdsource-trouble-on-their-commute/) on various [news](http://bostinno.streetwise.co/2015/02/25/t-schedule-update-mbta-ninja-provides-subway-service-information/?utm_content=bufferd1bd4&utm_medium=social&utm_source=facebook.com&utm_campaign=buffer) [sites](http://www.bostonherald.com/news_opinion/local_coverage/2015/02/new_websites_offer_live_mbta_monitoring_tools), and we even got interviewed for local TV news on Thursday—the clip does a great job of telling the story.
 
