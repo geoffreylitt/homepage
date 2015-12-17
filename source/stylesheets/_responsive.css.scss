@@ -26,6 +26,11 @@
   footer{
     font-size: 16px;
   }
+
+  img.book-cover {
+    float: left;
+    margin-right: 20px;
+  }
 }
 
 @media screen and (min-width: 860px) {

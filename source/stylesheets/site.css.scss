@@ -132,6 +132,11 @@ blockquote {
     height: 100%;
 }
 
+img.book-cover {
+  max-height: 200px;
+  border: solid 1px black;
+}
+
 // Mobile-only
 
 header{
