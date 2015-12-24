@@ -2,7 +2,8 @@
 title: Five Books I Loved in 2015
 date: 2015-12-15 03:12 UTC
 tags:
-public: false
+image_url: "http://www.geoffreylitt.com/images/article_images/book-cover-habit.jpg"
+description: "Five of my favorite reads from 2015"
 ---
 
 One of my goals for 2015 was to read more books.
@@ -15,7 +16,7 @@ Even though I still spent way too much time on my smartphone, I managed to be mi
 
 ### The Power of Habit: Why We Do What We Do in Life and Business, by Charles Duhigg (2012)
 
-A lot of the actions we take, from our morning routines to how we spend our workdays and weekends, aren't really active choices -- they're driven by our habits. In a fun Gladwell-style read, Duhigg leans on a solid body of research and anecdotes to explain in detail how habits actually work, and then builds on this understanding to demonstrate how to form and modify them.
+A lot of the actions we take, from our morning routines to how we spend our workdays and weekends, aren't really active choices -- they're driven by our habits. In a fun Gladwellian read, Duhigg leans on a solid body of research and anecdotes to explain in detail how habits actually work, and then builds on this understanding to demonstrate how to form and modify them.
 
 One concept I found particularly interesting was the idea of "keystone habits". It turns out that seemingly small changes to a daily routine have been shown to have a surprisingly positive effect -- for example, "Making your bed every morning is correlated with better productivity, a greater sense of well-being, and stronger skills at sticking with a budget." It's not the action itself that's important, but rather the act of sticking with a habit, that seems to have a chain reaction. I now think of keystone habits as a kind of life hack to help with habit formation in many aspects of life.
 
