@@ -1,6 +1,6 @@
 ---
 title: "The Virtual Cafe: a better way to hang out remotely"
-date: 2017-01-22 23:10 UTC
+date: 2017-01-22 05:10 UTC
 tags:
 image_url: "http://www.geoffreylitt.com/images/article_images/virtual-cafe.jpg"
 description: "Why don't we use Skype more?"
