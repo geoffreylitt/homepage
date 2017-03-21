@@ -55,6 +55,13 @@ blockquote {
 
 // Blog post display
 
+table {
+  td, th {
+    border: solid thin #ddd;
+    padding: 5px;
+  }
+}
+
 .main{
   width: 100%;
   padding: 15px;
@@ -74,13 +81,18 @@ blockquote {
   h1{
     font-size: 22px;
     margin-top: 20px;
+    line-height: 1.2em;
   }
 
   h2{
     font-size: 18px;
 
-    margin-top: 0px;
+    margin-top: 40px;
     margin-bottom: 15px;
+
+    &.title {
+      margin-top: 0;
+    }
   }
 
   h3 {
