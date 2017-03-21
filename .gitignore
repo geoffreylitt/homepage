@@ -5,3 +5,5 @@ html5bp-docs
 DOCS.md
 *.sublime-project
 *.sublime-workspace
+.DS_Store
+

@@ -84,7 +84,7 @@ Fortunately, these are both problems that can be solved with a relational databa
 
 ## simple_recommender gem
 
-So, I created a small gem called [simple_recommender] that provides recommendations directly on top of your primary Postgres datastore using `intarray` -- no Redis needed.
+So, I created a small gem called [simple_recommender](https://github.com/geoffreylitt/simple_recommender) that provides recommendations directly on top of your primary Postgres datastore using `intarray` -- no Redis needed.
 
 The setup is as simple as installing the gem and adding two lines to your model, to specify an ActiveRecord association to use for recommendation:
 
