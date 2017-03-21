@@ -6,6 +6,8 @@ tags:
 
 I recently became interested in how online recommendation engines work, and decided to try implementing one myself as a Rails gem. I ended up building a gem that runs recommendations on your relational database, instead of using Redis like other gems. Read on to learn more about how I got there.
 
+READMORE
+
 ## Existing Rails recommendation gems
 
 Looking at the existing options for Rails recommendation engines, I quickly realized two things.
