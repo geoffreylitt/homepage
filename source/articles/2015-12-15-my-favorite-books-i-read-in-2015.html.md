@@ -12,6 +12,8 @@ As someone who grew up doing the majority of my nonfiction reading on the Intern
 
 Even though I still spent way too much time on my smartphone, I managed to be mildly successful at achieving my goal, which is a better result than I can report for most of my New Year's Resolutions! Here are five books that I most enjoyed reading this year.
 
+READMORE
+
 <img class="book-cover" src="/images/article_images/book-cover-habit.jpg" />
 
 ### The Power of Habit: Why We Do What We Do in Life and Business, by Charles Duhigg (2012)
@@ -21,8 +23,6 @@ A lot of the actions we take, from our morning routines to how we spend our work
 One concept I found particularly interesting was the idea of "keystone habits". It turns out that seemingly small changes to a daily routine have been shown to have a surprisingly positive effect -- for example, "Making your bed every morning is correlated with better productivity, a greater sense of well-being, and stronger skills at sticking with a budget." It's not the action itself that's important, but rather the act of sticking with a habit, that seems to have a chain reaction. I now think of keystone habits as a kind of life hack to help with habit formation in many aspects of life.
 
 The book is split into three parts where Duhigg applies these ideas to individuals, institutions, and then societies at large. I found the third chapter to be too much of a stretch, but it's well worth a read for the first two.
-
-READMORE
 
 <img class="book-cover" src="/images/article_images/book-cover-sense.jpg" />
 
