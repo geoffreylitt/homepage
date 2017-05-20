@@ -1,6 +1,6 @@
 # About
 
-Hi there! I'm a software engineer who is passionate about the power of data and machine learning to achieve social good. I'm currently working at [Panorama Education](http://www.panoramaed.com), where we're building the future of data analytics for thousands of K-12 schools around the world.
+Hi there! I'm a software engineer who's passionate about the power of data and machine learning to achieve social good. I'm currently working at [Panorama Education](http://www.panoramaed.com), where we're building the future of data analytics for thousands of K-12 schools around the world.
 
 I previously worked for the film startup [MUBI.com](http://mubi.com), and have been on first-place winning teams at hackathons like YHack, HackNY, and the NYU Abu Dhabi International Hackathon for Social Good in the Arab World.
 
