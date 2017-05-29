@@ -4,11 +4,15 @@ date: 2017-05-14 17:16 UTC
 tags:
 ---
 
----
+*I gave a lightning talk about GANs at [Bangbangcon 2017](http://bangbangcon.com/)! You can watch the video, or read a loose transcription of the talk below.*
 
-*This is a loose transcription of a lightning talk I gave at [Bangbangcon 2017](http://bangbangcon.com/). There's also a [10-minute video on Youtube](https://youtu.be/wGB5AYvFjxE?t=6h11m30s) if you prefer that format.*
+*As a disclaimer, this is intended to be a brief, intuitive, and entertaining introduction to GANs. If you're looking for a more detailed or mathematical explanation, I recommend looking at the many other online resources available on this topic.*
 
----
+<iframe width="560" height="315" src="https://www.youtube.com/embed/RhUmSeko1ZE" frameborder="0" allowfullscreen></iframe>
+
+READMORE
+
+## Transcription
 
 If you've ever watched the TV show CSI, you may have noticed that, while it scores pretty highly in terms of entertainment value, in terms of accurately portraying what computers do, it does not do quite as well.
 
@@ -21,8 +25,6 @@ The most egregious and consistent example of this sort of thing is, of course, t
 If you know anything about computers, you probably laugh when you see people do this in TV shows. We all know this is impossible...or is it?
 
 It turns out that recent machine learning techniques have actually made this (kind of) possible! Let's take a look at how this works.
-
-READMORE
 
 ## An impossible request?
 
@@ -97,3 +99,24 @@ But that's not what we want! This is never going to produce a TV-quality high-re
 And that's where generative adversarial networks (GANs) come in.
 
 ## GANs to the rescue
+
+GANs were [invented in 2014 by Ian Goodfellow.](https://arxiv.org/abs/1406.2661), and they provide a clever solution to this problem of incentivizing our neural network to produce realistic images.
+
+GANs take inspiration from adversarial games where two players are competing against each other. As an example of this sort of game, imagine some criminals creating counterfeit money.  They start producing counterfeit bills, and at first the bills work fine. But then at some point, the police catch on and develop better detection techniques. In response, the counterfeiters create new fake bills to defeat those techniques. This back-and-forth continues until the counterfeiters are producing really high-quality bills.
+
+<img src="/images/article_images/enhance/17.svg">
+
+GANs employ a similar structure by pitting two neural networks against each other in an adversarial game. We start by repurposing our upscaling neural network from before, and we now call it the "generator." It's kind of like the counterfeiter--its job is to produce fake high-res images based on low-res images. But this time, we're not going to use the per-pixel difference loss function to train the generator.
+
+Instead, we add a new neural network to the system, called the "discriminator." Its job is to take an image as input, and produce as output the probability that the image is a fake high-res image produced by our generator. This network is similar to the police--it's trying to determine whether a given image is "real" or "fake." Conversely, just like the counterfeiter's goal was to minimize the probability of getting caught by the police, our generator's objective is now defined in terms of the discriminator; it wants to minimize the discriminator's accuracy at differentiating real high-res images from fake high-res images created by the generator.
+
+<img src="/images/article_images/enhance/18.svg">
+
+So how does this actually work during training? On each iteration of training, we randomly give the discriminator network either a real high-res image from our training set, or an upscaled image produced by our generator network. It takes its best guess, and then we tell it what the correct answer was to give it feedback and help it improve over time.
+
+The generator network gets trained through the discriminator network. When the discriminator identifies a fake upscaled image, it gives feedback to the generator about how the generator could have produced a more realistic image, and the generator adjusts according to that feedback. Through this process, on each iteration of training, the generator becomes slightly better at producing a realistic image--one that will fool the discriminator next time.
+
+I used the same open-source Tensorflow network to train a GAN on our face training data, and here's how the output looked as it trained. The upscaled faces start out looking pretty odd, but over time they become much more defined than the bicubic interpolation upscaled photos, and start looking pretty realistic!
+
+<img src="/images/article_images/enhance/gan-training.gif">
+
