@@ -4,15 +4,15 @@ date: 2017-05-14 17:16 UTC
 tags:
 ---
 
-*I gave a lightning talk about GANs at [Bangbangcon 2017](http://bangbangcon.com/)! You can watch the video, or read a loose transcription of the talk below.*
+*I gave a silly lightning talk about GANs at [Bangbangcon 2017](http://bangbangcon.com/)! You can watch the video, or read a written version of the talk below.*
 
-*As a disclaimer, this is intended to be a brief, intuitive, and entertaining introduction to GANs. If you're looking for a more detailed or mathematical explanation, I recommend looking at the many other online resources available on this topic.*
+## Watch it
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/RhUmSeko1ZE" frameborder="0" allowfullscreen></iframe>
 
 READMORE
 
-## Transcription
+## Read it
 
 If you've ever watched the TV show CSI, you may have noticed that, while it scores pretty highly in terms of entertainment value, in terms of accurately portraying what computers do, it does not do quite as well.
 
@@ -26,7 +26,7 @@ If you know anything about computers, you probably laugh when you see people do 
 
 It turns out that recent machine learning techniques have actually made this (kind of) possible! Let's take a look at how this works.
 
-## An impossible request?
+### An impossible request?
 
 <img src="/images/article_images/enhance/3.svg">
 
@@ -56,7 +56,7 @@ Hmmm... well, we definitely have more pixels now, but we didn't gain much clarit
 
 Alright, guess that wasn't good enough. It's 2017; there must be other tools we can try here.
 
-## Neural networks to the rescue...?
+### Neural networks to the rescue...?
 
 Maybe we can try using a neural network for this. At a very high level, a neural network is just an approximation of a function that takes some input data, applies a complex transformation to it, and produces some output data. Except instead of explicitly programming the function, we just have the neural network learn it for us based on a bunch of example input/output pairs.
 
@@ -70,9 +70,9 @@ There's a great dataset of celebrity face photos called [CelebA](http://mmlab.ie
 
 The other thing we need to define to get our neural network to train is to define a "loss function," or the function that our network is going to try to optimize. We'll try using a pretty simple loss function here: a per-pixel difference.
 
-<img src="/images/article_images/enhance/11.svg">
-
 On each training iteration, we give the neural network a low-res image, it produces a guess at what it thinks the high-resolution image should look like, and then we compare that to the real high-resolution image by diffing each pair of corresponding pixels in the two images. The neural network's goal becomes to change its upscaling function to reduce this difference as much as possible. This makes intuitive sense as a good function to minimize--if the neural network perfectly reproduced the actual high-res image every time, the per-pixel difference would be zero.
+
+<img src="/images/article_images/enhance/11.svg">
 
 In the image above, you can see that the lower-left pixel is circled. The neural network guessed that it's black, but in the actual high-res photo, it's white. We heavily penalize the neural network for that, so that it's incentivized to fix that error next time.
 
@@ -98,7 +98,7 @@ But that's not what we want! This is never going to produce a TV-quality high-re
 
 And that's where generative adversarial networks (GANs) come in.
 
-## GANs to the rescue
+### GANs to the rescue
 
 GANs were [invented in 2014 by Ian Goodfellow.](https://arxiv.org/abs/1406.2661), and they provide a clever solution to this problem of incentivizing our neural network to produce realistic images.
 
@@ -114,9 +114,55 @@ Instead, we add a new neural network to the system, called the "discriminator." 
 
 So how does this actually work during training? On each iteration of training, we randomly give the discriminator network either a real high-res image from our training set, or an upscaled image produced by our generator network. It takes its best guess, and then we tell it what the correct answer was to give it feedback and help it improve over time.
 
-The generator network gets trained through the discriminator network. When the discriminator identifies a fake upscaled image, it gives feedback to the generator about how the generator could have produced a more realistic image, and the generator adjusts according to that feedback. Through this process, on each iteration of training, the generator becomes slightly better at producing a realistic image--one that will fool the discriminator next time.
+The generator network gets trained indirectly through the discriminator network. When the discriminator identifies a fake upscaled image, it gives feedback to the generator about how the generator could have produced a more realistic image, and the generator adjusts according to that feedback. Through this process, on each iteration of training, the generator becomes slightly better at producing a realistic image--one that will fool the discriminator next time.
 
 I used the same open-source Tensorflow network to train a GAN on our face training data, and here's how the output looked as it trained. The upscaled faces start out looking pretty odd, but over time they become much more defined than the bicubic interpolation upscaled photos, and start looking pretty realistic!
 
 <img src="/images/article_images/enhance/gan-training.gif">
 
+Alright, we've trained our GAN. Now for the moment of truth...let's see how it performs on our example face.
+
+<img src="/images/article_images/enhance/19.svg">
+
+Wow, that worked pretty well!
+
+<img src="/images/article_images/enhance/20.svg">
+
+At this point you might be thinking that there's a catch, and you would be right. The low-resolution images obviously don't contain enough information to actually reconstruct the original image. So to some extent, our neural network is just making up new pixels that seem realistic. This technique may be ready for TV, but it's not ready for actual crimefighting.
+
+To demonstrate this, we can look at GAN-upscaled images side-by-side with the original high-res images. You can see that while the generated faces match their low-res versions and look somewhat realistic, they don't actually look too similar to the original high-res photos.
+
+<img src="/images/article_images/enhance/21.svg">
+
+Also, because our upscaler was trained only on photos of faces, it naturally tries to turn everything into a face. For example, if we try to upscale the Bangbangcon conference logo, we get this weird face-ish blob:
+
+<img src="/images/article_images/enhance/23.svg">
+
+### Fun with GANs
+
+GANs are catching on in the machine learning community, and researchers are coming up with [dozens of papers](https://github.com/hindupuravinash/the-gan-zoo) producing remarkable results using GANs.
+
+One group came up with [a way to automatically convert zebra photos into corresponding horse photos, and vice versa](https://github.com/junyanz/CycleGAN):
+
+<img src="/images/article_images/enhance/horse2zebra.gif">
+
+[Another paper](https://github.com/phillipi/pix2pix) converts line sketches of specific objects into fake photographs
+matching the sketches. For example, I created a masterful sketch of a cat and got this photo:
+
+<img src="/images/article_images/enhance/25.svg">
+
+There's an [online web-based demo](https://affinelayer.com/pixsrv/) of that technique where you can try to draw a better cat than I did.
+
+Yet another group created [a system](https://arxiv.org/pdf/1612.03242v1.pdf) that converts captions describing birds to fake photos of said birds:
+
+<img src="/images/article_images/enhance/26.svg">
+
+And this is only scratching the surface of what GANs can do today! The research community seems to be developing new GAN-based techniques at a blistering pace, and I'm looking forward to seeing what surprising new tasks computers are able to achieve using GANs over the coming years.
+
+### Further reading
+
+If you're looking to learn more about generative adversarial networks, I'd recommend:
+
+* OpenAI's [blog post](https://blog.openai.com/generative-models/) about generative models: a good conceptual overview and pointers to their recent work in the space
+* Brandon Amos's blog post [Image Completion with Deep Learning in TensorFlow](https://bamos.github.io/2016/08/09/deep-completion/): a more detailed look with some Tensorflow code
+* Ian Goodfellow's [recent tutorial at NIPS](https://arxiv.org/pdf/1701.00160.pdf): I found this overview from the original inventor of GANs to be helpful for understanding the core ideas. It does get pretty technical but you'll be able to follow along if you have some ML background.
