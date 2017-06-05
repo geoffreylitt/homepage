@@ -14,8 +14,6 @@ I joined forces with two coworkers from Panorama Education, and over a weekend w
 
 ...and then it went viral on Twitter.
 
-READMORE
-
 <blockquote class="twitter-tweet" data-cards="hidden" lang="en"><p>More cities need a project like Boston’s MBTA Ninja <a href="http://t.co/uJGS6ntBc9">http://t.co/uJGS6ntBc9</a> Nice work <a href="https://twitter.com/hashtag/CodeAcross?src=hash">#CodeAcross</a> Boston!</p>&mdash; Tim O&#39;Reilly (@timoreilly) <a href="https://twitter.com/timoreilly/status/570680232568614912">February 25, 2015</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
@@ -41,6 +39,8 @@ The last week has been a whirlwind. In just five days, 14,000 people have visite
 </div>
 
 In thinking over this experience, I've come away with two main thoughts.
+
+READMORE
 
 ### 1. Creating new data sources is important.
 
