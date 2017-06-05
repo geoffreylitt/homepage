@@ -1,6 +1,6 @@
 ---
 title: "ENHANCE!: Upscaling images CSI-style with generative adversarial neural networks"
-date: 2017-06-05 12:16 UTC
+date: 2017-06-04 12:16 UTC
 tags:
 ---
 
