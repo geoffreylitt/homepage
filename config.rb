@@ -41,6 +41,8 @@ activate :livereload
 #   @which_fake_page = "Rendering a fake page with a variable"
 # end
 
+page "/feed.xml", :layout => false
+
 ###
 # Helpers
 ###
