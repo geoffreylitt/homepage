@@ -6,13 +6,9 @@ tags:
 
 *I gave a silly lightning talk about GANs at [Bangbangcon 2017](http://bangbangcon.com/)! You can watch the video, or read a written version of the talk below.*
 
-## Watch it
-
 <iframe width="560" height="315" src="https://www.youtube.com/embed/RhUmSeko1ZE" frameborder="0" allowfullscreen></iframe>
 
 READMORE
-
-## Read it
 
 If you've ever watched the TV show CSI, you may have noticed that, while it scores pretty highly in terms of entertainment value, in terms of accurately portraying what computers do, it does not do quite as well.
 
