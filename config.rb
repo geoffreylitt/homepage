@@ -41,6 +41,8 @@ activate :livereload
 #   @which_fake_page = "Rendering a fake page with a variable"
 # end
 
+page "/feed.xml", :layout => false
+
 ###
 # Helpers
 ###
@@ -75,6 +77,18 @@ activate :blog do |blog|
   blog.paginate = true
   blog.per_page = 10
   blog.page_link = "page/:num"
+end
+
+# Deploy extension
+activate :deploy do |deploy|
+  deploy.method   = :sftp
+  deploy.host            = 'ssh.phx.nearlyfreespeech.net'
+  deploy.port            = 22
+  deploy.path            = '/home/public'
+  # Optional Settings
+  deploy.user     = 'geoffreylitt_geoffreylitt'
+  deploy.password = ENV["NFSHOST_PASSWORD"]
+  deploy.build_before = true
 end
 
 #Syntax highlighting
