@@ -1,20 +1,26 @@
 ---
-title: "Adding tail call optimization to a Lisp interpreter"
-date: 2018-01-12 12:16 UTC
+title: "Adding tail call optimization to a Lisp interpreter with just a few lines of code"
+date: 2018-01-15 12:16 UTC
 tags:
 ---
 
-I spent the past week doing a programming retreat at the Recurse Center,
-writing a Lisp interpreter in Ruby. I followed the [make-a-lisp](https://github.com/kanaka/mal/blob/master/process/guide.md)
-tutorial, which does an excellent job guiding you through the process.
+I spent the past week doing a programming retreat at the [Recurse Center](https://www.recurse.com/) in New York City.
+As one of my projects I wrote a basic Lisp interpreter in Ruby, following the excellent [make-a-lisp](https://github.com/kanaka/mal/blob/master/process/guide.md)
+tutorial.
 
-One of the most fun and educational steps was adding support for tail call optimization.
-In this post, I'll explain the concept of tail call optimization and add it to a Lisp interpreter
-by changing a surprisingly small amount of code.
+One of the more educational steps was adding support for **tail call optimization**.
+I had used tail call optimization before and had a vague sense of how
+it worked, but it always sounded complicated. It turned out that implementing it in an interpreter was a great way to learn
+that the core idea is actually very simple!
+
+In this post, I'll show you why we need tail call optimization, and
+exactly how I implemented it in an interpreter with a surprisingly small set of changes to the code.
 
 READMORE
 
-To start off, a quick tour of a few constructs our little interpreter supports:
+### Blowing out the stack
+
+To start off, a quick tour of a few constructs our little Lisp interpreter supports:
 
 ```clojure
 ; basic math
@@ -37,7 +43,8 @@ To start off, a quick tour of a few constructs our little interpreter supports:
 ```
 
 Using these building blocks we can define a recursive function which sums all the
-integers from 0 up to a given number:
+integers from 0 up to a given number. On each recursive call we decrement `n`
+and add to our accumulator variable `acc`, until we hit the base case of `n = 0`.
 
 ```clojure
 (def! sum-to
@@ -50,13 +57,15 @@ integers from 0 up to a given number:
 (sum-to 3 0) ;=> 6
 ```
 
-On small inputs, it works great! But with a large input, it doesn't work so well --
+On small inputs, it works great. But with a large input, it doesn't work so well --
 we get a Ruby error "stack level too deep".
 
 ```clojure
 (sum-to 10000 0)
 ;=> /Users/glitt/personal-dev/mal/glitt/env.rb:16: stack level too deep (SystemStackError)
 ```
+
+### The problem
 
 To understand why that happened, we need to look inside our interpreter.
 
@@ -99,6 +108,8 @@ end
 This allocates a new stack frame every time we evaluate a conditional...hence the stack overflow
 when we recursively evaluate hundreds of them. To solve this we need to find a way
 to avoid allocating a new stack frame every time we evaluate a conditional.
+
+### The solution
 
 Here's one potential solution. Imagine for a second that Ruby had `GOTO` statements.
 First, put a `LABEL` at the top of our `EVAL` function. Then, when evaluating a
@@ -161,7 +172,7 @@ We can then apply a similar process to other language constructs.
 Things get a bit more complicated especially when applying this approach to
 user-defined functions, but the principle is exactly the same. If you're curious about the details
 check out the [full code diff](https://github.com/geoffreylitt/mal/commit/56fe63351435e8031a18b92baaecf8dc07abf7e7)
-or the [make-a-lisp spec](https://github.com/kanaka/mal/blob/master/process/guide.md#step-5-tail-call-optimization).
+or the [make-a-lisp guide](https://github.com/kanaka/mal/blob/master/process/guide.md#step-5-tail-call-optimization).
 
 Now we can re-run the same code as before...
 
@@ -171,3 +182,5 @@ Now we can re-run the same code as before...
 ```
 
 Voila, we now have a tail call optimized interpreter!
+
+
