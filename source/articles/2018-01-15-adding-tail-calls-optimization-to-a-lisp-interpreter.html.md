@@ -1,17 +1,16 @@
 ---
-title: "Adding tail call optimization to a Lisp interpreter with just a few lines of code"
+title: "Adding tail call optimization to a Lisp interpreter in Ruby"
 date: 2018-01-15 12:16 UTC
 tags:
 ---
 
 I spent the past week doing a programming retreat at the [Recurse Center](https://www.recurse.com/) in New York City.
-As one of my projects I wrote a basic Lisp interpreter in Ruby, following the excellent [make-a-lisp](https://github.com/kanaka/mal/blob/master/process/guide.md)
+One project I worked on was writing a simple Lisp interpreter in Ruby, following the excellent [make-a-lisp](https://github.com/kanaka/mal/blob/master/process/guide.md)
 tutorial.
 
 One of the more educational steps was adding support for **tail call optimization**.
 I had used tail call optimization before and had a vague sense of how
-it worked, but it always sounded complicated. It turned out that implementing it in an interpreter was a great way to learn
-that the core idea is actually very simple!
+it worked, but it always sounded complicated. Implementing it in a toy interpreter was a great way to understand it better, and it turns out that the core idea is actually very simple!
 
 In this post, I'll show you why we need tail call optimization, and
 exactly how I implemented it in an interpreter with a surprisingly small set of changes to the code.
@@ -20,7 +19,7 @@ READMORE
 
 ### Blowing out the stack
 
-To start off, a quick tour of a few constructs our little Lisp interpreter supports:
+To start off, let's take a quick tour of a few constructs the Lisp interpreter supports:
 
 ```clojure
 ; basic math
@@ -42,7 +41,7 @@ To start off, a quick tour of a few constructs our little Lisp interpreter suppo
 10
 ```
 
-Using these building blocks we can define a recursive function which sums all the
+Using these building blocks, we can define a recursive function which sums all the
 integers from 0 up to a given number. On each recursive call we decrement `n`
 and add to our accumulator variable `acc`, until we hit the base case of `n = 0`.
 
@@ -69,8 +68,8 @@ we get a Ruby error "stack level too deep".
 
 To understand why that happened, we need to look inside our interpreter.
 
-The relevant part of the code is the `EVAL` function in our Ruby code.
-It takes as input an abstract syntax tree (AST) of tokens and an environment of
+The relevant part of the code is the `EVAL` function, which is the heart
+of the interpreter. It takes as input an abstract syntax tree (AST) of tokens and an environment of
 symbol definitions, and returns a new AST representing the fully-evaluated expression.
 
 ```ruby
@@ -109,7 +108,7 @@ This allocates a new stack frame every time we evaluate a conditional...hence th
 when we recursively evaluate hundreds of them. To solve this we need to find a way
 to avoid allocating a new stack frame every time we evaluate a conditional.
 
-### The solution
+### The idea
 
 Here's one potential solution. Imagine for a second that Ruby had `GOTO` statements.
 First, put a `LABEL` at the top of our `EVAL` function. Then, when evaluating a
@@ -141,7 +140,7 @@ def EVAL(ast, env)
 end
 ```
 
-It turns out Ruby doesn't actually have gotos (well...[mostly](http://patshaughnessy.net/2012/2/29/the-joke-is-on-us-how-ruby-1-9-supports-the-goto-statement)). But there's a sipmle hack to get equivalent behavior: we can wrap all of `EVAL` in an infinite loop and then call `next` when we want to
+It turns out Ruby doesn't actually have gotos (well...[mostly](http://patshaughnessy.net/2012/2/29/the-joke-is-on-us-how-ruby-1-9-supports-the-goto-statement)). But there's a simple hack to get equivalent behavior: we can wrap all of `EVAL` in an infinite loop and then call `next` when we want to
 go back to the top of the loop.
 
 ```ruby
@@ -168,19 +167,118 @@ end
 Now when our interpreter evaluates a conditional it no longer
 makes a function call, and consequently no longer allocates a new stack frame.
 
-We can then apply a similar process to other language constructs.
-Things get a bit more complicated especially when applying this approach to
-user-defined functions, but the principle is exactly the same. If you're curious about the details
-check out the [full code diff](https://github.com/geoffreylitt/mal/commit/56fe63351435e8031a18b92baaecf8dc07abf7e7)
-or the [make-a-lisp guide](https://github.com/kanaka/mal/blob/master/process/guide.md#step-5-tail-call-optimization).
+### Extending to function calls
 
-Now we can re-run the same code as before...
+In order to make our `sum-to` function run successfully, we'll need to
+also make function calls tail-optimized in our interpreter.
+
+The principle is exactly the same as with conditionals, but the implementation
+is a bit more involved because function calls also involve binding variables to
+arguments and creating a new environment for evaluation.
+
+Let's first look at how function definition is implemented in our
+interpreter. When a function is defined by the user, we simply return a Ruby
+`Proc` as our internal representation of the function. (If you're not familiar
+with Ruby, this is the standard Ruby object for representing a function.)
+
+```ruby
+def EVAL(ast, env)
+  loop do
+    case ast.first
+    # ...
+    when :"fn*"
+      params = ast[1]
+      fn_body = ast[2]
+
+      return -> (*args) do
+        # Create a new environment:
+        # inherits from current environment and
+        # binds variables to passed-in arguments
+        new_env = Env.new(
+          outer: env,
+          binds: params,
+          exprs: args
+        )
+
+        # Evaluate function body in context of new environment
+        EVAL(fn_body, new_env)
+      end
+    # ...
+  end
+end
+```
+
+Later on, when the user calls the function in their code, we just
+call the Proc: `function.call(*args)`
+
+When that happens, our `Proc` object makes a call to
+`EVAL`, which allocates a stack frame. By now you know that this makes it
+unsafe to deeply recurse using this function, so we'll need to apply
+a fix similar to what we did with conditionals.
+
+First, instead of returning a `Proc` to internally represent the
+user-defined function, we just return a hash which remembers the
+function's parameters and its unevaluated body.
+
+```ruby
+def EVAL(ast, env)
+  loop do
+    case ast.first
+    # ...
+    when :"fn*"
+      params = ast[1]
+      fn_body = ast[2]
+
+      return {
+        ast: fn_body,
+        params: params,
+        env: env
+      }
+
+    # ...
+  end
+end
+```
+
+We then need to change how we execute function calls.
+Just like we did with conditionals, we reassign the `ast` variable in place.
+
+In addition, we also have to create a new environment for execution.
+We handle that similarly, by replacing `env` in place with a newly
+defined environment with function inputs bound.
+
+Then we call `next` to go back to the top of `EVAL`,
+and the interpreter starts evaluating the function body.
+
+```ruby
+def EVAL(ast, env)
+  loop do
+    # ...
+
+    # ---
+    # function evaluation
+    # ---
+
+    ast = function[:ast]
+    env = Env.new(
+      outer: function[:env],
+      binds: function[:params],
+      exprs: args
+    )
+
+    next
+  end
+end
+```
+
+Now that conditionals and function calls are tail-optimized, our
+`sum-to` function should be able to run an arbitrary number of times
+without running out of stack space. Let's try it out:
 
 ```clojure
 (sum-to 10000 0)
 50005000
 ```
 
-Voila, we now have a tail call optimized interpreter!
-
-
+Voila, we now have a tail call optimized interpreter! To learn more, check out the [full code diff on Github](https://github.com/geoffreylitt/mal/commit/56fe63351435e8031a18b92baaecf8dc07abf7e7)
+or the [make-a-lisp guide](https://github.com/kanaka/mal/blob/master/process/guide.md#step-5-tail-call-optimization).
