@@ -4,11 +4,6 @@ projects:
     link: https://github.com/geoffreylitt/ladybug
     tags:
       - personal
-  - name: 🔍 simple_recommender
-    description: Recommendations for Rails/Postgres, no Redis needed
-    link: https://github.com/geoffreylitt/simple_recommender
-    tags:
-      - personal
   - name: 🐦 carrier-bluebird
     description: What if Twitter only updated once a day?
     link: https://github.com/geoffreylitt/carrier-bluebird
@@ -17,6 +12,11 @@ projects:
   - name: 🚃 MBTA Ninja
     description: Waze for the Boston subway
     link: "/2015/02/28/mbta-ninja.html"
+    tags:
+      - personal
+  - name: 🔍 simple_recommender
+    description: User recommendations for Rails apps, using Postgres
+    link: https://github.com/geoffreylitt/simple_recommender
     tags:
       - personal
   - name: 🍺 gitdown
