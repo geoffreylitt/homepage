@@ -282,3 +282,5 @@ without running out of stack space. Let's try it out:
 
 Voila, we now have a tail call optimized interpreter! To learn more, check out the [full code diff on Github](https://github.com/geoffreylitt/mal/commit/56fe63351435e8031a18b92baaecf8dc07abf7e7)
 or the [make-a-lisp guide](https://github.com/kanaka/mal/blob/master/process/guide.md#step-5-tail-call-optimization).
+
+[Discuss on Hacker News](https://news.ycombinator.com/item?id=16168191)

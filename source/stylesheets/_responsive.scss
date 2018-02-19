@@ -62,7 +62,9 @@
       display: block;
       a {
         font-size: 22px;
-        @include link-colors($col_grey, darken($col_grey, 10%), darken($col_grey, 20%));
+        color: $col_grey;
+        &:hover { color: darken($col_grey, 10%) };
+        &:active { color: darken($col_grey, 20%) };
       }
     }
 
