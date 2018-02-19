@@ -1,0 +1,11 @@
+- projects = data.projects.projects.reject(&:hidden)
+%h1 Projects
+
+- ["personal", "work"].each do |tag|
+  %h2= "#{tag.titleize} projects"
+
+  .projects
+    - projects.select { |p| p.tags.include? tag }.each do |project|
+      = link_to project.link, class: "project" do
+        %h3.project-name= project.name
+        .project-description= project.description

@@ -210,43 +210,24 @@ nav{
   }
 }
 
-//Projects
-.project{
-  overflow: hidden;
-  background-color: #eee;
-  padding: 10px;
-  margin-bottom: 15px;
-  border-radius: 5px;
+.projects {
+  a.project {
+    display: block;
 
-  width: 100%;
+    color: lighten($col_blackish, 30%);
+    &:hover { color: $col_blackish }
+    &:visited { color: lighten($col_blackish, 30%); }
 
-  h2.name{
-    margin-bottom: 0px;
-  }
+    h3.project-name {
+      margin-bottom: 0;
+      color: inherit;
+    }
 
-  h3.subtitle{
-    font-size: 16px;
-    font-style: italic;
-    font-weight: 300;
-    color: #555;
-
-    margin-top: 0px;
-  }
-
-  .basics{
-    float: left;
-    width: 275px;
-    margin-bottom: 20px;
-  }
-
-  .description{
-    float: left;
-    width: 40%;
-    min-width: 200px;
+    .project-description {
+      color: inherit;
+    }
   }
 }
-
-
 
 @import "responsive";
 

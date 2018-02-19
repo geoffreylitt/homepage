@@ -1,0 +1,65 @@
+projects:
+  - name: 🐞 ladybug
+    description: What if we could debug Ruby code using Chrome DevTools?
+    link: https://github.com/geoffreylitt/ladybug
+    tags:
+      - personal
+  - name: 🔍 simple_recommender
+    description: Recommendations for Rails/Postgres, no Redis needed
+    link: https://github.com/geoffreylitt/simple_recommender
+    tags:
+      - personal
+  - name: 🐦 carrier-bluebird
+    description: What if Twitter only updated once a day?
+    link: https://github.com/geoffreylitt/carrier-bluebird
+    tags:
+      - personal
+  - name: 🚃 MBTA Ninja
+    description: Waze for the Boston subway
+    link: "/2015/02/28/mbta-ninja.html"
+    tags:
+      - personal
+  - name: 🍺 gitdown
+    description: Don't program drunk!
+    link: http://alexq.in/gitdown/
+    tags:
+      - personal
+  - name: 📚 wikivec
+    description: Solving wikipedia races by interpolating word vectors
+    link: https://github.com/geoffreylitt/wikivec
+    tags:
+      - personal
+  - name: 🚗 Formula Hybrid racecar
+    description: Arduino code for an electric hybrid racecar
+    link: https://github.com/BulldogsRacing/Yale-Formula-Hybrid
+    tags:
+      - personal
+  - name: 🚁 Autonomous quadcopter
+    description: Self-flying drones
+    link:
+    tags:
+      - personal
+    hidden: true
+  - name: 🚀 Astroboy, M.D.
+    description:
+    link:
+    hidden: true
+    tags:
+      - personal
+  - name: 📒 classroulette
+    description: Making online course catalogs skimmable and serendipitous
+    link:
+    hidden: true
+    tags:
+      - personal
+  - name: 📝 Free Response Analytics
+    description: Helping schools make sense of text-based feedback
+    link: https://blog.panoramaed.com/introducing-benchmarks-for-panorama-surveys/
+    tags:
+      - work
+  - name: 📊 National Benchmarks
+    description: Helping schools contextualize feedback survey data
+    link: https://blog.panoramaed.com/introducing-benchmarks-for-panorama-surveys/
+    tags:
+      - work
+

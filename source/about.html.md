@@ -12,7 +12,8 @@ In my free time, I enjoy playing the cello and running.
 
 You can find me on [Github](http://www.github.com/geoffreylitt), [Twitter](http://www.twitter.com/geoffreylitt), and [email](mailto:gklitt@gmail.com). Don't hesitate to reach out if I might be able to help you in any way!
 
-#Projects
+<!-- #Projects
+
 <a name="projects"></a>
 
 These are a few projects I've done alone or in small teams.
@@ -23,3 +24,4 @@ These are a few projects I've done alone or in small teams.
 * [**gitdown**](http://www.alexq.in/gitdown/) - an Arduino breathalyzer that stops you from programming drunk (HackNY Spring 2013, 1st place)
 * [**LZW**](http://github.com/geoffreylitt/lzw) - an implementation of the LZW compression algorithm in C.
 * **TakeFlight** - connecting Arab students with mentors and hosting video mentoring sessions (NYUAD Hackathon 2013, 1st place)
+ -->
