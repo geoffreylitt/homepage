@@ -25,8 +25,7 @@
     = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700|Montserrat:700,400' rel='stylesheet' type='text/css"
     = stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
   %body
-    /[if lt IE 7] <p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p>
-
+    /[if lt IE 10] <p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p>
     %header
       %a.logo{:href => '/'}
         = image_tag 'headshot.jpg', :width => '100%'
@@ -35,9 +34,7 @@
           %a{:href => '/'} Geoffrey Litt
         %ul.sections
           %li
-            %a{:href => '/'} Blog
-          %li
-            %a{:href => '/projects.html'} Projects
+            %a{:href => '/'} Home
           %li
             %a{:href => '/about.html'} About
           %li
@@ -54,7 +51,6 @@
           %li
             %a{:href => 'mailto:gklitt@gmail.com', :target => '_blank'}
               %i.fa.fa-envelope
-
 
     .main_container
       .main= yield

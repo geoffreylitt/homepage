@@ -11,17 +11,3 @@ I've worked on fun projects like building faster NoSQL document support into Pos
 In my free time, I enjoy playing the cello and running.
 
 You can find me on [Github](http://www.github.com/geoffreylitt), [Twitter](http://www.twitter.com/geoffreylitt), and [email](mailto:gklitt@gmail.com). Don't hesitate to reach out if I might be able to help you in any way!
-
-<!-- #Projects
-
-<a name="projects"></a>
-
-These are a few projects I've done alone or in small teams.
-
-* [**MBTA Ninja**](http://mbta.ninja) - Waze for the Boston subway ([press coverage](http://boston.cbslocal.com/2015/02/26/commuters-use-mbta-ninja-help-other-riders/), [my post about it](/2015/02/28/mbta-ninja.html))
-* [**Postgres-BSON**](/files/Postgres-BSON.pdf) - We replaced the PostgreSQL JSON storage backend with [BSON](http://bsonspec.org/) (MongoDB's JSON alternative with faster traversal). This increased performance up to 8 times on some queries.
-* **Yale Classroulette** - beautiful, randomized college course search ([press coverage](http://yaledailynews.com/blog/2012/08/08/class-roulette-aims-to-mimic-bluebooking/))
-* [**gitdown**](http://www.alexq.in/gitdown/) - an Arduino breathalyzer that stops you from programming drunk (HackNY Spring 2013, 1st place)
-* [**LZW**](http://github.com/geoffreylitt/lzw) - an implementation of the LZW compression algorithm in C.
-* **TakeFlight** - connecting Arab students with mentors and hosting video mentoring sessions (NYUAD Hackathon 2013, 1st place)
- -->

@@ -1,7 +1,19 @@
-- page_articles.each_with_index do |article, i|
-  %article.blogpost.summary
-    %h3.date= article.date.strftime('%b %e, %Y')
-    %h2.title= link_to article.title, article
-    .content= article.summary
-    - if article_has_summary(article)
-      = link_to 'Read more', article, :class => 'read_more'
+.homepage-grid
+  .projects
+    - projects = data.projects.projects.reject(&:hidden)
+    - ["personal", "work"].each do |tag|
+      %h2= "#{tag.titleize} projects"
+
+      .projects
+        - projects.select { |p| p.tags.include? tag }.each do |project|
+          = link_to project.link, class: "project" do
+            %h3.project-name= project.name
+            .project-description= project.description
+
+  .blogposts
+    %h2 Blog posts
+    - page_articles.each_with_index do |article, i|
+      %article.blogpost.summary
+        / %h3.date= article.date.strftime('%b %e, %Y')
+        %h3.title= link_to article.title, article
+
