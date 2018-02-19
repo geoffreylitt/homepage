@@ -4,9 +4,9 @@ projects:
     link: https://github.com/geoffreylitt/ladybug
     tags:
       - personal
-  - name: 🐦 carrier-bluebird
-    description: What if Twitter only updated once a day?
-    link: https://github.com/geoffreylitt/carrier-bluebird
+  - name: 🔍 simple_recommender
+    description: User recommendations for Rails apps, using Postgres
+    link: https://github.com/geoffreylitt/simple_recommender
     tags:
       - personal
   - name: 🚃 MBTA Ninja
@@ -14,9 +14,9 @@ projects:
     link: "/2015/02/28/mbta-ninja.html"
     tags:
       - personal
-  - name: 🔍 simple_recommender
-    description: User recommendations for Rails apps, using Postgres
-    link: https://github.com/geoffreylitt/simple_recommender
+  - name: 🐦 carrier-bluebird
+    description: What if Twitter only updated once a day?
+    link: https://github.com/geoffreylitt/carrier-bluebird
     tags:
       - personal
   - name: 🍺 gitdown
@@ -54,7 +54,7 @@ projects:
       - personal
   - name: 📝 Free Response Analytics
     description: Helping schools make sense of text-based feedback
-    link: https://blog.panoramaed.com/introducing-benchmarks-for-panorama-surveys/
+    link: https://blog.panoramaed.com/introducing-free-response-analytics/
     tags:
       - work
   - name: 📊 National Benchmarks
