@@ -1,6 +1,11 @@
 projects:
+  - name: 📝 Margin Notes
+    description: Automatic code documentation with recorded examples from runtime
+    link: /margin-notes
+    tags:
+      - personal
   - name: 🐞 ladybug
-    description: What if we could debug Ruby code using Chrome DevTools?
+    description: Debugging Ruby using Chrome Dev Tools
     link: https://github.com/geoffreylitt/ladybug
     tags:
       - personal
@@ -19,13 +24,15 @@ projects:
     link: https://github.com/geoffreylitt/carrier-bluebird
     tags:
       - personal
+    hidden: true
   - name: 🍺 gitdown
     description: Don't program drunk!
     link: http://alexq.in/gitdown/
     tags:
       - personal
+    hidden: true
   - name: 📚 wikivec
-    description: Solving wikipedia races by interpolating word vectors
+    description: Racing through Wikipedia with NLP
     link: https://github.com/geoffreylitt/wikivec
     tags:
       - personal

@@ -2,6 +2,7 @@
 title: On spaghetti code
 date: 2013-07-06 21:00 UTC
 tags:
+hidden: true
 ---
 
 Last summer, I found time after work and on weekends to build a small web project called [Yale Classroulette](http://yaleclassroulette.com). It's a way to randomly explore the enormous Yale undergraduate course catalog -- just tap the spacebar, and your screen fills up with a new grid of randomly selected classes, optimized for easy skimming. It basically combines the experience of skimming aimlessly through a paper course catalog with the convenience of the Internet.

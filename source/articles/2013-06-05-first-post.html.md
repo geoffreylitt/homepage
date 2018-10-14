@@ -2,6 +2,7 @@
 title: Redesign!
 date: 2013-06-05 08:25 UTC
 tags:
+hidden: true
 ---
 
 I'm excited to be writing my first post on my redesigned personal website. I've been working on it for the last week, and it has a few improvements:
