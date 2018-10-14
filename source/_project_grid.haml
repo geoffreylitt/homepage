@@ -1,0 +1,7 @@
+.project-grid
+  - projects.reject(&:hidden).each do |project|
+    = link_to (project.link || "/#{project.slug}.html"), class: "homepage-link" do
+      .project
+        .project-image= image_tag(project.image || "projects/#{project.slug}.png")
+        %h3.project-title= project.name
+        .project-description= project.description

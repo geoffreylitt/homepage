@@ -1,19 +1,30 @@
-.homepage-grid
-  .projects
-    - projects = data.projects.projects.reject(&:hidden)
-    - ["personal", "work"].each do |tag|
-      %h2= "#{tag.titleize} projects"
+- projects = data.projects.projects
 
-      .projects
-        - projects.select { |p| p.tags.include? tag }.each do |project|
-          = link_to project.link, class: "homepage-link" do
-            %h3.homepage-title= project.name
-            .project-description= project.description
+.project-grids
 
-  .blogposts
-    %h2 Blog posts
-    - page_articles.reject{ |a| a.data[:hidden] }.each_with_index do |article, i|
-      %article.blogpost.summary
-        = link_to article, class: "homepage-link" do
-          %h3.homepage-title= article.title
+  :markdown
+    Recently I've been interested in **programming interfaces**:
+  = partial(:project_grid, locals: { projects: projects.programming_interfaces })
 
+  :markdown
+    I've built **data visualizations** used by educators across the country, as well as personal explorations:
+  = partial(:project_grid, locals: { projects: projects.dataviz })
+
+  :markdown
+    I've built **hardware projects**:
+  = partial(:project_grid, locals: { projects: projects.hardware })
+
+  :markdown
+    I've helped design new product concepts:
+  = partial(:project_grid, locals: { projects: projects.design })
+
+  :markdown
+    and I've built other **software projects**:
+  = partial(:project_grid, locals: { projects: projects.other })
+
+.blogposts
+  %h2 Blog posts
+  - page_articles.reject{ |a| a.data[:hidden] }.each_with_index do |article, i|
+    %article.blogpost.summary
+      = link_to article, class: "homepage-link" do
+        %h3.homepage-title= article.title

@@ -1,72 +1,76 @@
 projects:
-  - name: 📝 Margin Notes
-    description: Automatic code documentation with recorded examples from runtime
-    link: /margin-notes
-    tags:
-      - personal
-  - name: 🐞 ladybug
-    description: Debugging Ruby using Chrome Dev Tools
-    link: https://github.com/geoffreylitt/ladybug
-    tags:
-      - personal
-  - name: 🔍 simple_recommender
-    description: User recommendations for Rails apps, using Postgres
-    link: https://github.com/geoffreylitt/simple_recommender
-    tags:
-      - personal
-  - name: 🚃 MBTA Ninja
-    description: Waze for the Boston subway
-    link: "/2015/02/28/mbta-ninja.html"
-    tags:
-      - personal
-  - name: 🐦 carrier-bluebird
-    description: What if Twitter only updated once a day?
-    link: https://github.com/geoffreylitt/carrier-bluebird
-    tags:
-      - personal
-    hidden: true
-  - name: 🍺 gitdown
-    description: Don't program drunk!
-    link: http://alexq.in/gitdown/
-    tags:
-      - personal
-    hidden: true
-  - name: 📚 wikivec
-    description: Racing through Wikipedia with NLP
-    link: https://github.com/geoffreylitt/wikivec
-    tags:
-      - personal
-  - name: 🚗 Formula Hybrid racecar
+  programming_interfaces:
+    - name: Margin Notes
+      slug: margin-notes
+      description: Automatic code documentation with recorded examples from runtime (presenting at LIVE 2018)
+      link: /margin-notes
+    - name: ladybug
+      slug: ladybug
+      description: A Ruby debugger backend for the Chrome Dev Tools UI
+      link: https://github.com/geoffreylitt/ladybug
+    - name: Experiments @ Dynamicland
+      slug: dynamicland
+      description: Playing in the dynamic medium
+      image: images/projects/dynamicland.jpg
+  hardware:
+  - name: Formula Hybrid racecar
+    image: images/projects/formula-hybrid.jpg
+    slug: formula-hybrid
     description: Arduino code for an electric hybrid racecar
     link: https://github.com/BulldogsRacing/Yale-Formula-Hybrid
-    tags:
-      - personal
-  - name: 🚁 Autonomous quadcopter
-    description: Self-flying drones
-    link:
-    tags:
-      - personal
-    hidden: true
-  - name: 🚀 Astroboy, M.D.
-    description:
-    link:
-    hidden: true
-    tags:
-      - personal
-  - name: 📒 classroulette
-    description: Making online course catalogs skimmable and serendipitous
-    link:
-    hidden: true
-    tags:
-      - personal
-  - name: 📝 Free Response Analytics
-    description: Helping schools make sense of text-based feedback
-    link: https://blog.panoramaed.com/introducing-free-response-analytics/
-    tags:
-      - work
-  - name: 📊 National Benchmarks
-    description: Helping schools contextualize feedback survey data
-    link: https://blog.panoramaed.com/introducing-benchmarks-for-panorama-surveys/
-    tags:
-      - work
+  - name: Autonomous quadcopter
+    slug: quadcopter
+    description: A sonar-based obstacle avoidance system for a quadcopter
+    image: images/projects/quadcopter.jpg
+  - name: 3D Laser Scanner
+    slug: laser-scanner
+    description: An efficient algorithm for an actuated laser scanner
+    link: https://github.com/BulldogsRacing/Yale-Formula-Hybrid
+  dataviz:
+    - name: Free Response Analytics
+      slug: free-response-analytics
+      description: Helping schools make sense of text-based feedback
+      link: https://blog.panoramaed.com/introducing-free-response-analytics/
+    - name: National Benchmarks
+      slug: national-benchmarks
+      description: Helping schools contextualize feedback survey data
+      link: https://blog.panoramaed.com/introducing-benchmarks-for-panorama-surveys/
+    - name: Analyzing pedometer data
+      slug: pedometer-data
+      description: Reviewing a year of step counter data
+      link: /2015/01/01/2014-a-year-in-review.html
+  design:
+    - name: Patient ID
+      slug: patient-id
+      image: images/projects/patient-id.jpg
+      description: Reimagining digital patient identification at hospitals
+    - name: MUBI
+      slug: mubi
+      description:
+    - name: MBTA Ninja
+      slug: mbta-ninja
+      description: Waze for the Boston subway
+      link: "/2015/02/28/mbta-ninja.html"
+  other:
+    - name: simple_recommender
+      slug: simple-recommender
+      description: User recommendations for Rails apps, using Postgres
+      link: https://github.com/geoffreylitt/simple_recommender
+    - name: Postgres BSON
+      slug: postgres-bson
+      description: An exploration of adding faster JSON storage to Postgres (before it was officially added)
+    - name: classroulette
+      slug: classroulette
+      description: Making online course catalogs skimmable and serendipitous
+      hidden: true
+    - name: carrier-bluebird
+      slug: carrier-bluebird
+      description: What if Twitter only updated once a day?
+      link: https://github.com/geoffreylitt/carrier-bluebird
+      hidden: true
+    - name: wikivec
+      slug: wikivec
+      description: Racing through Wikipedia with NLP
+      link: https://github.com/geoffreylitt/wikivec
+
 
