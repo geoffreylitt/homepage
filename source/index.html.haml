@@ -1,43 +1,45 @@
 - projects = data.projects.projects
 
 .project-grids
+  %h2.project-category{style: "background-color: #e8ffca"} Programming interfaces
   .project-grid-description
-    %h2{style: "background-color: #e8ffca"} Programming interfaces
     %p
       Recently, I've been interested in new interfaces for programming.
       In particular, I want to make better tools for intuitively understanding
       what our programs are doing when they run. Some explorations:
   = partial(:project_grid, locals: { projects: projects.programming_interfaces })
 
+  %h2.project-category{style: "background-color: #d9f6ff"} Data visualization
   .project-grid-description
-    %h2{style: "background-color: #d9f6ff"} Data visualization
     %p
       At Panorama Education, I build data visualizations used by educators to understand the viewpoints and needs of their students. A couple samples:
   = partial(:project_grid, locals: { projects: projects.dataviz })
 
+  %h2.project-category{style: "background-color: #ffe6e6"} Embedded systems
   .project-grid-description
-    %h2{style: "background-color: #ffe6e6"} Embedded systems
     %p
-      In college, I worked on a variety of embedded systems and hardware projects:
+      In college, I worked on embedded systems and hardware projects:
   = partial(:project_grid, locals: { projects: projects.hardware })
 
+  %h2.project-category{style: "background-color: #f0e2ff"} Product design
   .project-grid-description
-    %h2{style: "background-color: #f0e2ff"} Product design
-    %p
-      I've designed new product concepts in a variety of domains:
   = partial(:project_grid, locals: { projects: projects.design })
 
+  %h2.project-category{style: "background-color: #aeffe9"} Talks
   .project-grid-description
-    %h2{style: "background-color: #aeffe9"} Talks
   = partial(:project_grid, locals: { projects: projects.talks })
 
+
+  /   %h2.project-category{style: "background-color: #ffebc4"} Other software projects
   / .project-grid-description
-  /   %h2{style: "background-color: #ffebc4"} Other software projects
+
   / = partial(:project_grid, locals: { projects: projects.other })
 
-.blogposts
+.blo
+
+  %h2.project-category{style: "background-color: #fffda7"} Blog posts
   .project-grid-description
-    %h2{style: "background-color: #fffda7"} Blog posts
+
   - page_articles.reject{ |a| a.data[:hidden] }.each_with_index do |article, i|
     %article.blogpost.summary
       = link_to article, class: "homepage-link" do

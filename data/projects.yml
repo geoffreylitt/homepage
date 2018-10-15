@@ -7,17 +7,15 @@ projects:
     - name: ladybug
       slug: ladybug
       description: A Ruby debugger backend for the Chrome Dev Tools UI
-      link: https://github.com/geoffreylitt/ladybug
     - name: Experiments @ Dynamicland
       slug: dynamicland
       description: Playing in the dynamic medium
       image: images/projects/dynamicland.jpg
   hardware:
-  - name: Formula Hybrid racecar
+  - name: Bulldogs Racing
     image: images/projects/formula-hybrid.jpg
     slug: formula-hybrid
     description: Embedded software for a gas-electric hybrid racecar
-    link: https://github.com/BulldogsRacing/Yale-Formula-Hybrid
   - name: Autonomous quadcopter
     slug: quadcopter
     description: A sonar-based obstacle avoidance system for a quadcopter

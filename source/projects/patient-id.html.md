@@ -57,4 +57,4 @@ The wide variety of form factors was also seen as a big benefit because there ar
 
 ## Read more
 
-For more details on the project, see the [PDF report](/resources/patient-id-report.pdf).
+For more details on the project, see the [full PDF report](/resources/patient-id-report.pdf).
