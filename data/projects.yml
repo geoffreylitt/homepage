@@ -11,6 +11,7 @@ projects:
       slug: dynamicland
       description: Playing in the dynamic medium
       image: images/projects/dynamicland.jpg
+      hidden: true
   hardware:
   - name: Bulldogs Racing
     image: images/projects/formula-hybrid.jpg
@@ -23,7 +24,8 @@ projects:
   - name: Laser Scanner
     slug: laser-scanner
     description: An efficient algorithm for scanning objects with a cheap laser scanner
-    link: https://github.com/BulldogsRacing/Yale-Formula-Hybrid
+    link:
+    hidden: true
   dataviz:
     - name: Free Response Analytics
       slug: free-response-analytics

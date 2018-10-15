@@ -16,8 +16,6 @@ Almost all U.S. hospitals use disposable wristbands to keep track of patient ide
 
 This system, however, is fundamentally flawed; a combination of human error and inadequacy of the bracelets have led to persistent identification errors. Since 2003, the Joint Commission, an organization responsible for monitoring hospitals across the United States, has listed “Improving Patient Identification” as its top goal for patient safety improvement.
 
-Our goal was to invent a better approach.
-
 ## User research
 
 ![nurses](project_images/patient-id/hospital.png)

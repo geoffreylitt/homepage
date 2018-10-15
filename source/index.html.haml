@@ -9,12 +9,6 @@
       what our programs are doing when they run. Some explorations:
   = partial(:project_grid, locals: { projects: projects.programming_interfaces })
 
-  %h2.project-category{style: "background-color: #d9f6ff"} Data visualization
-  .project-grid-description
-    %p
-      At Panorama Education, I build data visualizations used by educators to understand the viewpoints and needs of their students. A couple samples:
-  = partial(:project_grid, locals: { projects: projects.dataviz })
-
   %h2.project-category{style: "background-color: #ffe6e6"} Embedded systems
   .project-grid-description
     %p
@@ -29,18 +23,14 @@
   .project-grid-description
   = partial(:project_grid, locals: { projects: projects.talks })
 
+  %h2.project-category{style: "background-color: #d9f6ff"} Data visualization
+  .project-grid-description
+    %p
+      At Panorama Education, I build data visualizations used by educators to understand the viewpoints and needs of their students. A couple samples:
+  = partial(:project_grid, locals: { projects: projects.dataviz })
 
   /   %h2.project-category{style: "background-color: #ffebc4"} Other software projects
   / .project-grid-description
 
   / = partial(:project_grid, locals: { projects: projects.other })
 
-.blo
-
-  %h2.project-category{style: "background-color: #fffda7"} Blog posts
-  .project-grid-description
-
-  - page_articles.reject{ |a| a.data[:hidden] }.each_with_index do |article, i|
-    %article.blogpost.summary
-      = link_to article, class: "homepage-link" do
-        %h3.homepage-title= article.title

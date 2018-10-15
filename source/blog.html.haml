@@ -1,0 +1,4 @@
+- page_articles.reject{ |a| a.data[:hidden] }.each_with_index do |article, i|
+  %article.blogpost.summary
+    = link_to article, class: "homepage-link" do
+      %h3.homepage-title= article.title
