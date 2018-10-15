@@ -16,20 +16,20 @@ projects:
   - name: Formula Hybrid racecar
     image: images/projects/formula-hybrid.jpg
     slug: formula-hybrid
-    description: Arduino code for an electric hybrid racecar
+    description: Embedded software for a gas-electric hybrid racecar
     link: https://github.com/BulldogsRacing/Yale-Formula-Hybrid
   - name: Autonomous quadcopter
     slug: quadcopter
     description: A sonar-based obstacle avoidance system for a quadcopter
     image: images/projects/quadcopter.jpg
-  - name: 3D Laser Scanner
+  - name: Laser Scanner
     slug: laser-scanner
-    description: An efficient algorithm for an actuated laser scanner
+    description: An efficient algorithm for scanning objects with a cheap laser scanner
     link: https://github.com/BulldogsRacing/Yale-Formula-Hybrid
   dataviz:
     - name: Free Response Analytics
       slug: free-response-analytics
-      description: Helping schools make sense of text-based feedback
+      description: Using natural language processing to help schools make sense of text feedback
       link: https://blog.panoramaed.com/introducing-free-response-analytics/
     - name: National Benchmarks
       slug: national-benchmarks
@@ -39,6 +39,7 @@ projects:
       slug: pedometer-data
       description: Reviewing a year of step counter data
       link: /2015/01/01/2014-a-year-in-review.html
+      hidden: true
   design:
     - name: Patient ID
       slug: patient-id
@@ -47,6 +48,7 @@ projects:
     - name: MUBI
       slug: mubi
       description:
+      hidden: true
     - name: MBTA Ninja
       slug: mbta-ninja
       description: Waze for the Boston subway
@@ -59,6 +61,7 @@ projects:
     - name: Postgres BSON
       slug: postgres-bson
       description: An exploration of adding faster JSON storage to Postgres (before it was officially added)
+      hidden: true
     - name: classroulette
       slug: classroulette
       description: Making online course catalogs skimmable and serendipitous
@@ -72,5 +75,14 @@ projects:
       slug: wikivec
       description: Racing through Wikipedia with NLP
       link: https://github.com/geoffreylitt/wikivec
+  talks:
+    - name: ENHANCE!
+      slug: enhance
+      description: Explaining Generative Adversarial Neural Networks using CSI
+      link: /2017/06/04/enhance-upscaling-images-with-generative-adversarial-neural-networks.html
+    - name: Ruby, A Family History
+      slug: ruby-family-history
+      description: Exploring how Ruby was influenced by Lisp, Smalltalk, and Perl, and what we can learn from that
+      link: https://speakerdeck.com/geoffreylitt/ruby-a-family-history-railsconf-2018?slide=5
 
 
