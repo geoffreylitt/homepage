@@ -461,11 +461,14 @@ AddCharset utf-8 .atom .css .js .json .rss .vtt .xml
 # Block access to "hidden" directories or files whose names begin with a
 # period. This includes directories used by version control systems such as
 # Subversion or Git.
-<IfModule mod_rewrite.c>
-  RewriteCond %{SCRIPT_FILENAME} -d [OR]
-  RewriteCond %{SCRIPT_FILENAME} -f
-  RewriteRule "(^|/)\." - [F]
-</IfModule>
+
+# Disable this rule because it messes up Lets Encrypt TLS setup/renewal
+
+# <IfModule mod_rewrite.c>
+#   RewriteCond %{SCRIPT_FILENAME} -d [OR]
+#   RewriteCond %{SCRIPT_FILENAME} -f
+#   RewriteRule "(^|/)\." - [F]
+# </IfModule>
 
 # Block access to backup and source files. These files may be left by some
 # text/html editors and pose a great security danger, when anyone can access
