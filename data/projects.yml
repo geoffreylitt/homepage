@@ -7,11 +7,10 @@ projects:
     - name: ladybug
       slug: ladybug
       description: A Ruby debugger backend for the Chrome Dev Tools UI
-    - name: Experiments @ Dynamicland
+    - name: Experiments in Dynamicland
       slug: dynamicland
-      description: Playing in the dynamic medium
+      description: Exploring in the dynamic medium
       image: images/projects/dynamicland.jpg
-      hidden: true
   hardware:
   - name: Bulldogs Racing
     image: images/projects/formula-hybrid.jpg
