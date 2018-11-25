@@ -2,7 +2,7 @@ projects:
   programming_interfaces:
     - name: Margin Notes
       slug: margin-notes
-      description: Automatic code documentation with recorded examples from runtime (presenting at LIVE 2018)
+      description: Automatic code documentation with recorded examples from runtime (presented at LIVE 2018)
       link: /margin-notes
     - name: ladybug
       slug: ladybug
@@ -23,48 +23,40 @@ projects:
   - name: Laser Scanner
     slug: laser-scanner
     description: An efficient algorithm for scanning objects with a cheap laser scanner
-    link:
     hidden: true
+  - name: Patient ID
+    slug: patient-id
+    image: images/projects/patient-id.jpg
+    description: Reimagining digital patient identification at hospitals
   dataviz:
     - name: Free Response Analytics
       slug: free-response-analytics
-      description: Using natural language processing to help schools make sense of text feedback
-      link: https://blog.panoramaed.com/introducing-free-response-analytics/
+      description: Using NLP to help educators understand text feedback
     - name: National Benchmarks
       slug: national-benchmarks
       description: Helping schools contextualize feedback survey data
+      hidden: true
       link: https://blog.panoramaed.com/introducing-benchmarks-for-panorama-surveys/
-    - name: Analyzing pedometer data
+    - name: News context sidebar
+      slug: news-context
+      description: A browser extension providing background context about news articles
+    - name: Pedometer data analysis
       slug: pedometer-data
-      description: Reviewing a year of step counter data
+      description: Analyzing a year of data from my smartphone step counter
       link: /2015/01/01/2014-a-year-in-review.html
-      hidden: true
-  design:
-    - name: Patient ID
-      slug: patient-id
-      image: images/projects/patient-id.jpg
-      description: Reimagining digital patient identification at hospitals
-    - name: MUBI
-      slug: mubi
-      description:
-      hidden: true
-    - name: MBTA Ninja
-      slug: mbta-ninja
-      description: Waze for the Boston subway
-      link: "/2015/02/28/mbta-ninja.html"
+      image: images/projects/pedometer.png
   other:
     - name: simple_recommender
       slug: simple-recommender
       description: User recommendations for Rails apps, using Postgres
-      link: https://github.com/geoffreylitt/simple_recommender
+      link: /2017/03/19/building-a-rails-recommendation-engine.html
     - name: Postgres BSON
       slug: postgres-bson
-      description: An exploration of adding faster JSON storage to Postgres (before it was officially added)
+      description: Adding faster JSON storage to Postgres
       hidden: true
     - name: classroulette
       slug: classroulette
       description: Making online course catalogs skimmable and serendipitous
-      hidden: true
     - name: carrier-bluebird
       slug: carrier-bluebird
       description: What if Twitter only updated once a day?
@@ -74,6 +66,10 @@ projects:
       slug: wikivec
       description: Racing through Wikipedia with NLP
       link: https://github.com/geoffreylitt/wikivec
+    - name: MBTA Ninja
+      slug: mbta-ninja
+      description: Waze for the Boston subway
+      link: "/2015/02/28/mbta-ninja.html"
   talks:
     - name: ENHANCE!
       slug: enhance

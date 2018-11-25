@@ -4,7 +4,11 @@ date: 2017-03-19 20:33 UTC
 tags:
 ---
 
-I recently became interested in how online recommendation engines work, and decided to try implementing one myself as a Rails gem. I ended up building a gem that runs recommendations on your relational database, instead of using Redis like other gems. Read on to learn more about how I got there.
+I recently became interested in how online recommendation engines work, and decided to try implementing one myself as a Rails gem. I ended up building a gem that runs recommendations on your relational database, instead of using Redis like other gems.
+
+To use the gem and see the code, visit **[simple_recommender](https://github.com/geoffreylitt/simple_recommender)** on Github.
+
+To learn more about how it works, keep reading!
 
 READMORE
 

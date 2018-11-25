@@ -18,8 +18,9 @@ You can find more background in [these](https://phenomenalworld.org/metaresearch
 Over a couple days in the space, I built some small experiments exploring
 possibilities for programming in this environment, focused on
 empowering anybody to modify any program.
-An important disclaimer: most of the work enabling these demos,
-including the OS, programming model, and hardware setup, and the overall vision,
+
+Most of the work enabling these demos,
+including the OS, programming model, and hardware setup,
 was done by the amazing team at Dynamicland.
 I was merely exploring in the medium that they created.
 

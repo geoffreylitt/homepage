@@ -2,35 +2,16 @@
 
 .project-grids
   %h2.project-category{style: "background-color: #e8ffca"} Programming interfaces
-  .project-grid-description
-    %p
-      Recently, I've been interested in new interfaces for programming.
-      In particular, I want to make better tools for intuitively understanding
-      what our programs are doing when they run. Some explorations:
   = partial(:project_grid, locals: { projects: projects.programming_interfaces })
 
-  %h2.project-category{style: "background-color: #ffe6e6"} Embedded systems
-  .project-grid-description
-    %p
-      In college, I worked on embedded systems and hardware projects:
-  = partial(:project_grid, locals: { projects: projects.hardware })
-
-  %h2.project-category{style: "background-color: #f0e2ff"} Product design
-  .project-grid-description
-  = partial(:project_grid, locals: { projects: projects.design })
-
-  %h2.project-category{style: "background-color: #aeffe9"} Talks
-  .project-grid-description
-  = partial(:project_grid, locals: { projects: projects.talks })
-
-  %h2.project-category{style: "background-color: #d9f6ff"} Data visualization
-  .project-grid-description
-    %p
-      At Panorama Education, I build data visualizations used by educators to understand the viewpoints and needs of their students. A couple samples:
+  %h2.project-category{style: "background-color: #d9f6ff"} Data visualization / NLP
   = partial(:project_grid, locals: { projects: projects.dataviz })
 
-  /   %h2.project-category{style: "background-color: #ffebc4"} Other software projects
-  / .project-grid-description
+  %h2.project-category{style: "background-color: #ffe6e6"} Hardware
+  = partial(:project_grid, locals: { projects: projects.hardware })
 
-  / = partial(:project_grid, locals: { projects: projects.other })
+  %h2.project-category{style: "background-color: #f0e2ff"} Software projects
+  = partial(:project_grid, locals: { projects: projects.other })
 
+  %h2.project-category{style: "background-color: #aeffe9"} Talks
+  = partial(:project_grid, locals: { projects: projects.talks })
