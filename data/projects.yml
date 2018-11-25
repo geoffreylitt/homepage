@@ -1,8 +1,8 @@
 projects:
   programming_interfaces:
-    - name: Margin Notes
+    - name: Margin Notes (LIVE 2018)
       slug: margin-notes
-      description: Automatic code documentation with recorded examples from runtime (presented at LIVE 2018)
+      description: Automatic code documentation with recorded examples from runtime
       link: /margin-notes
     - name: ladybug
       slug: ladybug
@@ -71,12 +71,16 @@ projects:
       description: Waze for the Boston subway
       link: "/2015/02/28/mbta-ninja.html"
   talks:
-    - name: ENHANCE!
+    - name: ENHANCE! (BangBangCon 2017)
       slug: enhance
       description: Explaining Generative Adversarial Neural Networks using CSI
       link: /2017/06/04/enhance-upscaling-images-with-generative-adversarial-neural-networks.html
-    - name: Ruby, A Family History
+    - name: Ruby, A Family History (RailsConf 2018)
       slug: ruby-family-history
-      description: Exploring how Ruby was influenced by Lisp, Smalltalk, and Perl, and what we can learn from that
+      description: Exploring how Ruby was influenced by Lisp, Smalltalk, and Perl
+    - name: "Deep Learning: an Introduction (BostonRB)"
+      slug: deep-learning-intro
+      description: "An introduction to deep learning techniques for Ruby developers"
+      link: "https://speakerdeck.com/geoffreylitt/deep-learning-an-introduction-for-ruby-developers"
 
 
