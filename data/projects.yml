@@ -64,6 +64,7 @@ projects:
     - name: wikivec
       slug: wikivec
       description: Racing through Wikipedia with NLP
+      hidden: true
       link: https://github.com/geoffreylitt/wikivec
     - name: MBTA Ninja
       slug: mbta-ninja
@@ -77,6 +78,5 @@ projects:
     - name: Ruby, A Family History
       slug: ruby-family-history
       description: Exploring how Ruby was influenced by Lisp, Smalltalk, and Perl, and what we can learn from that
-      link: https://speakerdeck.com/geoffreylitt/ruby-a-family-history-railsconf-2018?slide=5
 
 
