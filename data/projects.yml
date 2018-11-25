@@ -29,17 +29,16 @@ projects:
     image: images/projects/patient-id.jpg
     description: Reimagining digital patient identification at hospitals
   dataviz:
-    - name: Free Response Analytics
+    - name: "Panorama Free Response Analytics"
       slug: free-response-analytics
-      description: Using NLP to help educators understand text feedback
-    - name: National Benchmarks
+      description: Using NLP to help educators understand survey feedback
+    - name: "Panorama National Benchmarks"
       slug: national-benchmarks
       description: Helping schools contextualize feedback survey data
-      hidden: true
       link: https://blog.panoramaed.com/introducing-benchmarks-for-panorama-surveys/
     - name: News context sidebar
       slug: news-context
-      description: A browser extension providing background context about news articles
+      description: Automatically providing background context about news articles
     - name: Pedometer data analysis
       slug: pedometer-data
       description: Analyzing a year of data from my smartphone step counter
