@@ -8,6 +8,8 @@
 *= require "_code.css"
 */
 
+// cache bust
+
 // Variables
 
 $col_blue_dark: #1c3553;
@@ -30,7 +32,7 @@ $col_white: #ffffff;
   font-size: 14px;
 
   h1, h2{
-    font-family: 'Montserrat', sans serif;
+    font-family: 'Montserrat', 'Helvetica', sans serif;
     font-weight: bold;
 
     a{

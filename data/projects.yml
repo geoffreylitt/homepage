@@ -12,22 +12,22 @@ projects:
       description: Exploring in the dynamic medium
       image: images/projects/dynamicland.jpg
   hardware:
-  - name: Bulldogs Racing
-    image: images/projects/formula-hybrid.jpg
-    slug: formula-hybrid
-    description: Embedded software for a gas-electric hybrid racecar
   - name: Autonomous quadcopter
     slug: quadcopter
     description: A sonar-based obstacle avoidance system for a quadcopter
     image: images/projects/quadcopter.jpg
-  - name: Laser Scanner
+  - name: Laser scanning
     slug: laser-scanner
-    description: An efficient algorithm for scanning objects with a cheap laser scanner
-    hidden: true
-  - name: Patient ID
-    slug: patient-id
+    description: An algorithm for efficiently determining object orientation with a cheap laser scanner
+  - name: Bulldogs Racing
+    image: images/projects/formula-hybrid.jpg
+    slug: formula-hybrid
+    description: Embedded software for a gas-electric hybrid racecar
+  - name: Last Keepon Out
+    slug: keepon
     image: images/projects/patient-id.jpg
     description: Reimagining digital patient identification at hospitals
+    hidden: true
   dataviz:
     - name: "Panorama Free Response Analytics"
       slug: free-response-analytics
@@ -36,6 +36,7 @@ projects:
       slug: national-benchmarks
       description: Helping schools contextualize feedback survey data
       link: https://blog.panoramaed.com/introducing-benchmarks-for-panorama-surveys/
+      hidden: true
     - name: News context sidebar
       slug: news-context
       description: Automatically providing background context about news articles
@@ -45,6 +46,10 @@ projects:
       link: /2015/01/01/2014-a-year-in-review.html
       image: images/projects/pedometer.png
   other:
+    - name: Patient ID
+      slug: patient-id
+      image: images/projects/patient-id.jpg
+      description: Reimagining digital patient identification at hospitals
     - name: simple_recommender
       slug: simple-recommender
       description: User recommendations for Rails apps, using Postgres

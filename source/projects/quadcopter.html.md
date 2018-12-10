@@ -2,18 +2,17 @@
 layout: simple
 ---
 
-# Autonomous quadcopter
+# Autonomous Quadcopter
 
-As an independent undergrad project in Electrical Engineering (along with one fellow EECS student), I built a quadcopter that could stably fly alongside a wall.
+As an independent research project together with another student advised by Prof. Roman Kuc at Yale, I built a wall-following system for a quadcopter drone. The project involved mounting a lightweight rotating sonar and enabling it to wirelessly communicate with a computer running realtime algorithms that interpreted the raw sensor data and controlled the drone.
+
+The drone was able to successfully fly at a close distance along a wall without colliding with it, demonstrating the viability of sonar as a sensing platform for a drone.
 
 ![](/images/project_images/quadcopter/device.jpg)
 
 **Hardware**: We mounted a sonar sensor actuated by a servo, an Arduino microcontroller, and an Xbee wireless communciations device onto an off-the-shelf Parrot quadcopter.
 
 **Software**: We used the rotating sonar to gather distance measurements from around the quadcopter and sent them wirelessly to a laptop. We wrote control algorithms running on the laptop which processed the distance measurements and sent back control data to the drone.
-
-Managing the weight of the hardware was a major challenge. We used foamcore
-as a mounting material to save weight.
 
 We were able to get the quadcopter flying alongside the wall fairly reliably.
 With more time, we would have liked to explore more advanced
