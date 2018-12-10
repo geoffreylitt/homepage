@@ -46,6 +46,12 @@ projects:
       link: /2015/01/01/2014-a-year-in-review.html
       image: images/projects/pedometer.png
   other:
+    - name: Postgres BSON
+      slug: postgres-bson
+      description: Extending PostgreSQL with faster JSON queries
+    - name: classroulette
+      slug: classroulette
+      description: Making online course catalogs skimmable and serendipitous
     - name: Patient ID
       slug: patient-id
       image: images/projects/patient-id.jpg
@@ -54,13 +60,6 @@ projects:
       slug: simple-recommender
       description: User recommendations for Rails apps, using Postgres
       link: /2017/03/19/building-a-rails-recommendation-engine.html
-    - name: Postgres BSON
-      slug: postgres-bson
-      description: Adding faster JSON storage to Postgres
-      hidden: true
-    - name: classroulette
-      slug: classroulette
-      description: Making online course catalogs skimmable and serendipitous
     - name: carrier-bluebird
       slug: carrier-bluebird
       description: What if Twitter only updated once a day?
@@ -75,6 +74,7 @@ projects:
       slug: mbta-ninja
       description: Waze for the Boston subway
       link: "/2015/02/28/mbta-ninja.html"
+      hidden: true
   talks:
     - name: ENHANCE! (BangBangCon 2017)
       slug: enhance
