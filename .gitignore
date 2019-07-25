@@ -6,3 +6,5 @@ DOCS.md
 *.sublime-project
 *.sublime-workspace
 .DS_Store
+.bundle
+vendor
