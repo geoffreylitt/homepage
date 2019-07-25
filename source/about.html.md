@@ -8,7 +8,7 @@ layout: simple
 
 I'm pursuing a PhD in Computer Science at MIT, in the [Software Design Group](https://sdg.csail.mit.edu/).
 
-Here are some areas I'm thinking about these days:
+Here are some areas I'm thinking about:
 
 **Making programming more accessible**: (aka end-user programming, no-code development): how can we open up the full power of computing to more people, without the current barriers of programming? What does the world look like when people can flexibly modify and create their own software?
 
@@ -33,6 +33,8 @@ I'm also interested in programming environments that break out of plaintext thro
 From 2013 to 2019, I was an early engineer at [Panorama Education](http://www.panoramaed.com) (YC S13), a startup helping K-12 educators use data to better understand their students and schools. I wore various hats across engineering, product, and design, and helped grow Panorama into a leading education platform used by over 9 million students across the country. Here's a [sample project](/projects/free-response-analytics.html) I worked on to categorize text responses to school feedback surveys.
 
 From 2010 to 2014, I got my B.S. in Electrical Engineering and Computer Science at Yale University, where I played in the all-cello rock band Low Strung.
+
+I grew up in Tokyo, Japan (日本語話せます！） and the Washington, DC area. 
 
 ## Inspirations
 
