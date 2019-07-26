@@ -1,4 +1,20 @@
-- page_articles.reject{ |a| a.data[:hidden] }.each_with_index do |article, i|
-  %article.blogpost.summary
-    = link_to article, class: "homepage-link" do
-      %h3.homepage-title= article.title
+%h3 Blog
+
+.blogposts-list
+  - page_articles.reject{ |a| a.data[:hidden] }.each_with_index do |article, i|
+    .blogpost-link
+      = link_to article.title, article
+
+%hr
+
+To get updates about new blog posts,
+
+%a{:href => 'http://www.twitter.com/geoffreylitt', :target => '_blank'}
+  %i.fa.fa-twitter
+  follow me on Twitter
+
+or 
+
+%a{:href => '/feed.xml', :target => '_blank'}
+  %i.fa.fa-rss
+  subscribe via RSS
