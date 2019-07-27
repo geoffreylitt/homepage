@@ -24,17 +24,17 @@ I'm also interested in programming environments that break out of plaintext thro
 
 **Tools for thought**: Computers have massive potential to serve as a new medium that levels up our ability to think, just as writing and mass literacy has enabled humans to think in far more sophisticated ways. How can we design tools that leverage computers to level up our thinking? 
 
-## Let's talk!
-
-**Please reach out** if you're interested in talking about these topics, or if I might be able to help you somehow. You can contact me via [email](mailto:gklitt@gmail.com) or on [Twitter](http://www.twitter.com/geoffreylitt).
-
 ## Before that...
 
 From 2013 to 2019, I was an early engineer at [Panorama Education](http://www.panoramaed.com) (YC S13), a startup helping K-12 educators use data to better understand their students and schools. I wore various hats across engineering, product, and design, and helped grow Panorama into a leading education platform used by over 9 million students across the country. Here's a [sample project](/projects/free-response-analytics.html) I worked on to categorize text responses to school feedback surveys.
 
 From 2010 to 2014, I got my B.S. in Electrical Engineering and Computer Science at Yale University, where I played in the all-cello rock band Low Strung.
 
-I grew up in Tokyo, Japan (日本語話せます and the Washington, DC area. 
+I grew up in Tokyo, Japan (日本語話せます) and the Washington, DC area. 
+
+## Let's talk!
+
+**Please reach out** if you're interested in talking about these topics, or if I might be able to help you somehow. You can contact me via [email](mailto:gklitt@gmail.com) or on [Twitter](http://www.twitter.com/geoffreylitt).
 
 ## Inspirations
 

@@ -12,6 +12,11 @@ But, we also can't lose sight of the big picture: browser extensions are one of 
 
 ## The value of openness
 
+<figure style="margin: 0;">
+  <img src="/images/article_images/legos.jpg" alt="Lego bricks">
+  <figcaption>Photo by <a class="figure-link" href="https://unsplash.com/photos/2FaCKyEEtis">Rick Mason on Unsplash</a></figcaption>
+</figure>
+
 Browser extensions have such broad use cases. I personally use extensions to read kanji, simplify the design of Gmail, highlight and annotate articles, block ads, play videos at 2x speed. It's amazing that the web platform allows for this many types of extensions, most of them unanticipated by the original developers. I would be crushed to lose access to many of my extensions.
 
 "Unanticipated by the original developers" is key. It's not like they're hooking into explicit extension APIs. They're often taking the backdoor in and truly "hacking" the app. Much broader possibilities. Sometimes the original creators aren't happy (eg ad blockers), but mostly developers don't mind extensions at all. They often are happy to have their sites extended, as long as they don't have to do any work.
@@ -51,11 +56,3 @@ Put pressure on Google to keep APIs open (eg for ad blocking).
 There are some projects working on these problems. TBL's Solid project, and Beaker browser, seem promising. Let's support them.
 
 Most importantly: remember these principles don't only apply on the web. Mobile apps already don't have this level of openness at all. When we build the next big platform, can we bring these lessons along?
-
----
-
-I'm a PhD student at MIT doing research on these topics.
-
-If you're interested in following my work, follow me on Twitter or subscribe via RSS.
-
-And if you're interested in talking about these ideas, send me an email! 

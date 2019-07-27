@@ -1,5 +1,5 @@
 ---
-title: Databases talk
+title: Beyond the SQL/NoSQL debate
 date: 2013-10-03 21:00 UTC
 tags:
 ---

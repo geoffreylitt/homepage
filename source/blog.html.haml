@@ -5,16 +5,15 @@
     .blogpost-link
       = link_to article.title, article
 
-%hr
+%br
 
-To get updates about new blog posts,
+To get updates about new posts:
 
-%a{:href => 'http://www.twitter.com/geoffreylitt', :target => '_blank'}
-  %i.fa.fa-twitter
-  follow me on Twitter
-
-or 
-
-%a{:href => '/feed.xml', :target => '_blank'}
-  %i.fa.fa-rss
-  subscribe via RSS
+%div
+  %a{href: 'http://www.twitter.com/geoffreylitt', style: "margin-right: 15px;" }
+    %i.fa.fa-twitter
+    Follow me on Twitter
+    
+  %a{:href => '/feed.xml' }
+    %i.fa.fa-rss
+    Subscribe via RSS

@@ -1,12 +1,13 @@
 = wrap_layout :simple do
   %article.blogpost.full
-    %h3.date= current_article.date.strftime('%b %e, %Y')
+    %h3.date= current_article.date.strftime('%B %Y')
     %h1.title= current_article.title
     .content= current_article.body
 
     %br
     %hr
-    To read more posts like this,
+    I periodically post updates 
+    
     %a{href: "https://twitter.com/geoffreylitt"} follow me on Twitter
     or
     %a{href: "/feed.xml"} subscribe via RSS
