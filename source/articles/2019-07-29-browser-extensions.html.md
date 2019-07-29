@@ -1,9 +1,10 @@
 ---
 
-title: Why browser extensions are the best software ecosystem
-date: 2019-07-26 21:13 UTC
+title: "Browser extensions are underrated: the promise of hackable software"
+date: 2019-07-29 13:13 UTC
 tags: 
-
+image_url: /images/article_images/legos.jpg
+description: "In a world of closed platforms, browser extensions are the rare exception that let users modify the apps that we use."
 ---
 
 *This post is still a preview draft, please don't share broadly!*
@@ -21,7 +22,7 @@ Extensions remind us what it's like to have deep control over how we use our com
 
 ## Going beyond developers' intentions
 
-Browser extensions have remarkably broad use cases. I personally use Chrome extensions that fill in my passwords, help me read Japanese kanji, simplify the visual design of Gmail, let me highlight and annotate articles, save articles for later reading, play videos at 2x speed, and of course, block ads. [add links] Over time, these extensions have become a critical part of the way that I experience the Web.
+Browser extensions have remarkably broad use cases. I personally use Chrome extensions that fill in my passwords, help me read Japanese kanji, simplify the visual design of Gmail, let me highlight and annotate articles, save articles for later reading, play videos at 2x speed, and of course, block ads. Over time, these extensions have become a critical part of the way that I experience the Web.
 
 **Usually, extensions modify applications in ways that the original developers didn't anticipate at all.** When Japanese newspapers publish articles, they're not thinking about compatibility with the kanji reading extension. This gives extension authors a lot of creative space to maneuver in. It sometimes requires clever tricks to modify a site in ways that it wasn't built for, but it's often technically possible, and the sheer variety of extensions out there shows that people are willing to put in the effort.
 
@@ -35,9 +36,12 @@ The popularity of browser extensions proves that many people are interested in c
 
 ## Small tools > Big apps
 
-Many browser extensions are generic tools designed to enhance my use of all websites. I can use my highlighting and clipping tools everywhere, instead of needing a different highlighting tool for each article I read. Just like using a real highlighters and scissors for paper articles, I can master these tools once and get a lot of leverage by applying them in many contexts.
+Many browser extensions are generic tools designed to enhance my use of all websites. I can use my highlighting and clipping tools everywhere, instead of needing a different highlighting tool for each article I read. Just like using a physical highlighter and scissors for clipping paper articles, I can master these tools once and get a lot of leverage by applying them in many contexts.
 
 This way of thinking about software is quite different from building standalone apps that are meant to be used in isolation from each other.
+
+* normally we think OS builds the tools (think copy paste) and developers build apps
+* but in extensions, the developers are also building the generic tools
 
 When software is built in small units, it also changes the economics. The majority of extensions I use are free, and are perhaps too small in their feature set to support a business. And yet, because small extensions are cheap enough to build and distribute, people still choose to make them, and I can get access to these bits of software that improve my life. Massive software built by huge companies isn't the only way.
 
