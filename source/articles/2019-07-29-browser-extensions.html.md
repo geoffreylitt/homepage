@@ -28,7 +28,7 @@ The popularity of browser extensions proves that many people are interested in c
 
 Browser extensions have remarkably broad use cases. I personally use Chrome extensions that fill in my passwords, help me read Japanese kanji, simplify the visual design of Gmail, let me highlight and annotate articles, save articles for later reading, play videos at 2x speed, and of course, block ads.
 
-The key to this breadth is that most extensions modify applications in ways that the original developers didn't specifically plan for. When Japanese newspapers publish articles, they're not thinking about compatibility with the kanji reading extension. Extension authors gain creative freedom because they don't need to use application-specific APIs that reflect the original developers' view of how people might want to extend their application.
+**The key to this breadth is that most extensions modify applications in ways that the original developers didn't specifically plan for.** When Japanese newspapers publish articles, they're not thinking about compatibility with the kanji reading extension. Extension authors gain creative freedom because they don't need to use application-specific APIs that reflect the original developers' view of how people might want to extend their application.
 
 The web platform has a few qualities that enable this sort of unplanned extensibility. The foundational one is that the classic web deployment style is to ship all the client code to the browser in human-readable form. (Source maps are a key to preserving this advantage as we ship more code that's minified or compiled from other languages.) The web's layout model also promotes extensibility by encouraging semantic markup and the use of standard tags—my password manager extension works because web pages reliably use standard form tags for password submissions instead of building their own forms.
 
@@ -40,7 +40,7 @@ Occasionally there's tensions between the goals of the original website and exte
 
 Many browser extensions are generic tools designed to enhance my use of all websites. I can use my highlighting and clipping tools everywhere, instead of needing a different highlighting tool for each article I read. Just like using a physical highlighter with paper articles, I can master these tools once, and get a lot of leverage by applying them in many contexts.
 
-In many platforms, we think of the operating system as providing the cross-cutting tools (e.g. copy-paste), and third parties as providing standalone "apps" that are used mostly in isolation. With browser extensions, third parties are also providing tools; a single piece of software has the leverage to change my entire experience.
+In many platforms, we think of the operating system as providing the cross-cutting tools (e.g. copy-paste), and third parties as providing standalone "apps" that are used mostly in isolation. **With browser extensions, third parties are also providing tools; a single piece of software has the leverage to change my entire experience.**
 
 When software is built in small units, it also changes the economics. Most extensions I use are free, and are perhaps too small in their feature set to support a full-blown business. And yet, people still choose to make them, and I get access to these bits of software that improve my life. Browsing the extension store feels more like going to a local flea market than going to a supermarket. Massive software built by huge companies isn't the only way.
 
@@ -80,7 +80,7 @@ The [Beaker Browser](https://beakerbrowser.com/about/) and the decentralized web
 
 Tim Berners-Lee is working on a new project called [SOLID](https://inrupt.com/blog/one-small-step-for-the-web). I don't yet understand precisely what they're up to, but given Tim's involvement I figure it's worth paying some attention to. A key principle is giving people more ownership over their data, which would enable browser extensions to manipulate people's data in more flexible ways beyond what the server API allows.
 
-Computing is still young, and platforms are evolving quickly. Modern browser extensions are only a decade old, and the smartphone platform became dominant out of nowhere. There will be new platforms, and we will get to collectively decide how open they will be.
+Computing is still young, and platforms are changing quickly. Modern browser extensions and smartphone platforms are still only a decade old. These platforms will evolve, and there will be new platforms after them, and we will get to collectively decide how open they will be.
 
 Browser extensions give us one example to strive for: a place where we routinely hack the software we use and make it our own. <span style="color: #aaa;">▪</style>
 
