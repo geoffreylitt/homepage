@@ -17,11 +17,11 @@ module SiteHelpers
   end
 
   def page_image
-    image_url = "https://www.geoffreylitt.com/images/headshot.jpg"
+    url = "/images/headshot.jpg"
     if current_page.data.image_url
-      image_url = current_page.data.image_url
+      url = current_page.data.image_url
     end
-    image_url
+    "https://geoffreylitt.com" + url
   end
 
   def article_has_summary(article)
