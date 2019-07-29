@@ -4,15 +4,16 @@
     %h1.title= current_article.title
     .content= current_article.body
 
-    %br
-    %hr
-    I periodically write about programming tools, end-user programming, and other software topics. To get updates about new posts:
+    .subscribe
+      %h4 Subscribe
+      I periodically write about programming tools, end-user programming, and other software topics. To get updates about new posts:
 
-    %div
-    %a{href: 'http://www.twitter.com/geoffreylitt', style: "margin-right: 15px;" }
-      %i.fa.fa-twitter
-      Follow me on Twitter
-        
-    %a{:href => '/feed.xml' }
-      %i.fa.fa-rss
-      Subscribe via RSS
+      .subscribe-links
+        %div
+        %a{href: 'http://www.twitter.com/geoffreylitt', style: "margin-right: 15px;" }
+          %i.fa.fa-twitter
+          Follow me on Twitter
+            
+        %a{:href => '/feed.xml' }
+          %i.fa.fa-rss
+          Subscribe via RSS

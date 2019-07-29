@@ -181,6 +181,12 @@ h2.project-category {
   }
 }
 
+hr {
+  margin: 30px 0;
+  border-top: solid thin #ddd;
+  border-bottom: none;
+}
+
 
 
 
@@ -238,6 +244,23 @@ figure {
       color: #afafaf;
     }
   }
+}
+
+.subscribe {
+  background-color: rgb(245, 245, 245);
+  border-top: solid 3px #ff7171;
+  padding: 20px;
+  margin: 50px 0 100px 0;
+
+  h4 {
+    margin: 10px 0;
+  }
+
+  .subscribe-links {
+    font-weight: bold;
+    margin: 10px 0;
+  }
+
 }
 
 // Mobile-only

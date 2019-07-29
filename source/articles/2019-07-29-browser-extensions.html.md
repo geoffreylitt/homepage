@@ -24,7 +24,7 @@ Once a software platform reaches a certain level of openness, it can fundamental
 
 The popularity of browser extensions proves that many people are interested in customizing their software, and it's not just  a hobby for power users. There are over 180,000 extensions on the Chrome store, and nearly half of all Chrome users have browser extensions installed.[^chrome] When people have an easy way to extend their software with useful functionality, they apparently take advantage.
 
-## Hackable platforms > APIs
+## Hackable platforms, not custom APIs
 
 Browser extensions have remarkably broad use cases. I personally use Chrome extensions that fill in my passwords, help me read Japanese kanji, simplify the visual design of Gmail, let me highlight and annotate articles, save articles for later reading, play videos at 2x speed, and of course, block ads.
 
@@ -36,7 +36,7 @@ Even with these advantages, it can require clever tricks to modify a site in way
 
 Occasionally there's tensions between the goals of the original website and extensions, like those pesky messages on news sites asking you to disable your ad blocker. But it seems far more common that developers are fine with their sites being extended in creative ways, as long as they don't have to do any extra work. Extensions can even make life easier for application developers: if there's a niche request that a small minority of users want, a motivated community member can just build an extension to support it. By using a hackable platform, developers allow their users to get more value out of their applications by building extensions on top of them.
 
-## Small tools > Big apps
+## Small tools, not big apps
 
 Many browser extensions are generic tools designed to enhance my use of all websites. I can use my highlighting and clipping tools everywhere, instead of needing a different highlighting tool for each article I read. Just like using a physical highlighter with paper articles, I can master these tools once, and get a lot of leverage by applying them in many contexts.
 
@@ -83,8 +83,6 @@ Tim Berners-Lee is working on a new project called [SOLID](https://inrupt.com/bl
 Computing is still young, and platforms are evolving quickly. Modern browser extensions are only a decade old, and the smartphone platform became dominant out of nowhere. There will be new platforms, and we will get to collectively decide how open they will be.
 
 Browser extensions give us one example to strive for: a place where we routinely hack the software we use and make it our own. <span style="color: #aaa;">▪</style>
-
-<br />
 
 [^chrome]: [https://www.blog.google/technology/safety-security/update-project-strobe-new-policies-chrome-and-drive/](https://www.blog.google/technology/safety-security/update-project-strobe-new-policies-chrome-and-drive/)
 [^tbl]: Weaving the Web, by Tim Berners-Lee (p33)
