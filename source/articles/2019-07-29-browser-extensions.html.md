@@ -82,7 +82,10 @@ Tim Berners-Lee is working on a new project called [SOLID](https://inrupt.com/bl
 
 Computing is still young, and platforms are changing quickly. Modern browser extensions and smartphone platforms have only been around for about a decade. These platforms will evolve, and there will be new platforms after them, and we will get to collectively decide how open they will be.
 
-Browser extensions give us one example to strive for: a place where we routinely hack the software we use and make it our own. <span style="color: #aaa;">▪</style>
+Browser extensions give us one example to strive for: a place where we routinely hack the software we use and make it our own. <span style="color: #aaa;">▪</span>
+
+[*Discuss on Hacker News*
+](https://news.ycombinator.com/item?id=20556382)
 
 [^chrome]: [https://www.blog.google/technology/safety-security/update-project-strobe-new-policies-chrome-and-drive/](https://www.blog.google/technology/safety-security/update-project-strobe-new-policies-chrome-and-drive/)
 [^tbl]: Weaving the Web, by Tim Berners-Lee (p33)
