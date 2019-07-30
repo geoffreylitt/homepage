@@ -50,7 +50,7 @@ Each digit page is an object; in addition to containing the data about what
 digit it is, it also contains all the behavior for connecting to other nearby
 digits, chaining together a binary number to display, and converting the result
 to decimal. The entire UI of the program is simply rearranging these digit
-objects into different sptial configurations.
+objects into different spatial configurations.
 
 This feels quite different from a traditional visual programming approach of
 connecting boxes and wires. Spatial layout goes beyond a convenience for our
