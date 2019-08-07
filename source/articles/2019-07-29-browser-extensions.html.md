@@ -89,8 +89,6 @@ Browser extensions give us one example to strive for: a place where we routinely
 [*Discuss on Hacker News*
 ](https://news.ycombinator.com/item?id=20556382)
 
-%subscribe%
-
 [^chrome]: [https://www.blog.google/technology/safety-security/update-project-strobe-new-policies-chrome-and-drive/](https://www.blog.google/technology/safety-security/update-project-strobe-new-policies-chrome-and-drive/)
 [^tbl]: Weaving the Web, by Tim Berners-Lee (p33)
 [^tbl2]: Tim thought web browsers should also be website editors, and was disappointed when the Mosaic browser took off in popularity without including that feature. 

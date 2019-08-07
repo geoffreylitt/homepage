@@ -3,4 +3,3 @@
     %h3.date= current_article.date.strftime('%B %Y')
     %h1.title= current_article.title
     .content= current_article.body.gsub("%subscribe%", partial(:subscribe))
-
