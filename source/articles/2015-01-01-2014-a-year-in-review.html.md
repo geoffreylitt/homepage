@@ -1,7 +1,7 @@
 ---
 title: "2014: A year in review with iPhone pedometer data"
 date: 2015-01-01 13:00 UTC
-tags:
+tags: ["Statistics / Machine Learning"]
 description: "Now that I've collected almost a year of data on Argus, I thought it would be a good time to use that data to gain some insight into my past year and set goals for the coming year. After all, a proper 2015 New Year's Resolution should be data-driven!"
 ---
 

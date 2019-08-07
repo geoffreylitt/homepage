@@ -6,23 +6,15 @@ layout: simple
 
 ## Currently...
 
-I'm pursuing a PhD in Computer Science at MIT, in the [Software Design Group](https://sdg.csail.mit.edu/).
+I'm a PhD student in Computer Science at MIT, in the [Software Design Group](https://sdg.csail.mit.edu/).
 
-Here are some areas I'm thinking about:
+I'm thinking about:
 
-**Making programming more accessible**: (aka end-user programming, no-code development): how can we open up the full power of computing to more people, without the current barriers of programming? What does the world look like when people can flexibly modify and create their own software?
+**Futuristic programming languages, environments, debuggers**: How can we co-design languages and environments that give programmers more feedback and visibility into what they're doing? My [Margin Notes](/margin-notes) project explored one way to use runtime traces to help programmers understand the data flowing through their programs.
 
-Spreadsheets are a major success story in this arena. Can we pinpoint the underlying reasons why they succeeded, and extend those lessons to other domains?
+**Making programming more accessible**: (aka no-code development, end-user programming): how can we open up the full power of computing to more people, without the current barriers of programming? I'm currently exploring ways to use spreadsheets to build GUI apps.
 
-Another angle I'm pondering is how to make software amenable to being extended with plugins.
-
-**Futuristic programming languages, environments, debuggers**: Much of the way that experts do programming is shockingly similar to how it was done decades ago.
-
-How can we co-design languages and environments that give programmers more feedback and visibility into what they're doing, going far beyond typical debuggers? My [Margin Notes](/margin-notes) project explored one way to use runtime traces to help programmers understand the data flowing through their programs.
-
-I'm also interested in programming environments that break out of plaintext through structured editing or visual metaphors.
-
-**Tools for thought**: Computers have massive potential to serve as a new medium that levels up our ability to think, just as writing and mass literacy has enabled humans to think in far more sophisticated ways. How can we design tools that leverage computers to level up our thinking? 
+**Tools for thought**: How can we design tools that use computers to augment human intelligence, rather than trying to replace it with artificial intelligence?
 
 ## Before that...
 
@@ -30,7 +22,7 @@ From 2013 to 2019, I was an early engineer at [Panorama Education](http://www.pa
 
 From 2010 to 2014, I got my B.S. in Electrical Engineering and Computer Science at Yale University, where I played in the all-cello rock band Low Strung.
 
-I grew up in Tokyo, Japan (日本語話せます) and the Washington, DC area. 
+I grew up in Tokyo, Japan (日本語話せます!) and the Washington, DC area. 
 
 ## Let's talk!
 

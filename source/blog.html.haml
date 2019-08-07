@@ -1,23 +1,35 @@
 %h3 Blog
 
 .blogposts-list
-  - page_articles.reject{ |a| a.data[:hidden] }.each_with_index do |article, i|
+  - blog.tags.each do |tag, articles|
+    %h4= tag.titleize
+    - articles.reject{ |a| a.data[:hidden] }.each_with_index do |article, i|
+      .blogpost-link
+        = link_to article.title, article
+    
+    / Also link to tools projects from the "blog"
+    / (at some point, just combine the two?)
+    - if tag == "programming tools"
+      - projects = data.projects.projects.programming_interfaces
+      - projects.each do |project|
+        .blogpost-link
+        = link_to "#{project.name}: #{project.description}", (project.link || "/projects/#{project.slug}.html")
+      %div{style: "max-width: 700px;"}
+        .subscribe
+          %h4 Subscribe
+          I periodically write about programming tools, end-user programming, and other software topics. To get updates about new posts:
+
+          .subscribe-links
+            %div
+            %a{href: 'http://www.twitter.com/geoffreylitt', style: "margin-right: 15px;" }
+              %i.fa.fa-twitter
+              Follow me on Twitter
+                
+            %a{:href => '/feed.xml' }
+              %i.fa.fa-rss
+              Subscribe via RSS
+  %h4 Miscellaneous
+  - blog.articles.select { |a| (a.tags.nil? || a.tags == []) && !a.data[:hidden] }.each do |article|
     .blogpost-link
       = link_to article.title, article
-
 %br
-
-%div{style: "max-width: 700px;"}
-  .subscribe
-    %h4 Subscribe
-    I periodically write about programming tools, end-user programming, and other software topics. To get updates about new posts:
-
-    .subscribe-links
-      %div
-      %a{href: 'http://www.twitter.com/geoffreylitt', style: "margin-right: 15px;" }
-        %i.fa.fa-twitter
-        Follow me on Twitter
-          
-      %a{:href => '/feed.xml' }
-        %i.fa.fa-rss
-        Subscribe via RSS

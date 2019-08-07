@@ -1,7 +1,7 @@
 ---
 title: "Adding tail call optimization to a Lisp interpreter in Ruby"
 date: 2018-01-15 12:16 UTC
-tags:
+tags: "programming tools"
 ---
 
 I spent the past week doing a programming retreat at the [Recurse Center](https://www.recurse.com/) in New York City.

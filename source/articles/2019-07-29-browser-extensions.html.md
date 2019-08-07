@@ -2,7 +2,7 @@
 
 title: "Browser extensions are underrated: the promise of hackable software"
 date: 2019-07-29 13:13 UTC
-tags: 
+tags: ["programming tools"]
 image_url: /images/article_images/legos.jpg
 description: "In a world of closed platforms, browser extensions are the rare exception that let users modify the apps that we use."
 ---

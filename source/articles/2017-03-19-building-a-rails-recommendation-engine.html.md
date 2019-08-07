@@ -1,7 +1,7 @@
 ---
 title: "No Redis Needed: building a Postgres-backed recommendation engine for Rails"
 date: 2017-03-19 20:33 UTC
-tags:
+tags: ["Statistics / Machine Learning"]
 ---
 
 I recently became interested in how online recommendation engines work, and decided to try implementing one myself as a Rails gem. I ended up building a gem that runs recommendations on your relational database, instead of using Redis like other gems.
