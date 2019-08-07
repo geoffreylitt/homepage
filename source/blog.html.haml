@@ -15,19 +15,7 @@
         .blogpost-link
         = link_to "#{project.name}: #{project.description}", (project.link || "/projects/#{project.slug}.html")
       %div{style: "max-width: 700px;"}
-        .subscribe
-          %h4 Subscribe
-          I periodically write about programming tools, end-user programming, and other software topics. To get updates about new posts:
-
-          .subscribe-links
-            %div
-            %a{href: 'http://www.twitter.com/geoffreylitt', style: "margin-right: 15px;" }
-              %i.fa.fa-twitter
-              Follow me on Twitter
-                
-            %a{:href => '/feed.xml' }
-              %i.fa.fa-rss
-              Subscribe via RSS
+        = partial(:subscribe)
   %h4 Miscellaneous
   - blog.articles.select { |a| (a.tags.nil? || a.tags == []) && !a.data[:hidden] }.each do |article|
     .blogpost-link

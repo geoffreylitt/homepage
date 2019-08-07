@@ -167,6 +167,8 @@ end
 Now when our interpreter evaluates a conditional it no longer
 makes a function call, and consequently no longer allocates a new stack frame.
 
+%subscribe%
+
 ### Extending to function calls
 
 In order to make our `sum-to` function run successfully, we'll need to
@@ -284,3 +286,5 @@ Voila, we now have a tail call optimized interpreter! To learn more, check out t
 or the [make-a-lisp guide](https://github.com/kanaka/mal/blob/master/process/guide.md#step-5-tail-call-optimization).
 
 [Discuss on Hacker News](https://news.ycombinator.com/item?id=16168191)
+
+%subscribe%

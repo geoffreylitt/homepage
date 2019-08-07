@@ -92,6 +92,8 @@ But that's not what we want! This is never going to produce a TV-quality high-re
 
 And that's where generative adversarial networks (GANs) come in.
 
+%subscribe%
+
 ### GANs to the rescue
 
 GANs were [invented in 2014 by Ian Goodfellow.](https://arxiv.org/abs/1406.2661), and they provide a clever solution to this problem of incentivizing our neural network to produce realistic images.
@@ -160,3 +162,5 @@ If you're looking to learn more about generative adversarial networks, I'd recom
 * OpenAI's [blog post](https://blog.openai.com/generative-models/) about generative models: a good conceptual overview and pointers to their recent work in the space
 * Brandon Amos's blog post [Image Completion with Deep Learning in TensorFlow](https://bamos.github.io/2016/08/09/deep-completion/): a more detailed look with some Tensorflow code
 * Ian Goodfellow's [recent tutorial at NIPS](https://arxiv.org/pdf/1701.00160.pdf): I found this overview from the original inventor of GANs to be helpful for understanding the core ideas. It does get pretty technical but you'll be able to follow along if you have some ML background.
+
+%subscribe%

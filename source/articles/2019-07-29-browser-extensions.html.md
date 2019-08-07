@@ -44,6 +44,8 @@ In many software platforms, we think of the operating system as providing the cr
 
 When software is built in small units, it also changes the economics. Most extensions I use are free, and are perhaps too small in their feature set to support a full-blown business. And yet, people still choose to make them, and I benefit immensely from these little bits of software. Browsing the extension store feels more like going to a local flea market than going to a supermarket. Massive software built by huge companies isn't the only way.
 
+%subscribe%
+
 ## The origins of openness
 
 It's not an accident that this openness emerged on the web platform.
@@ -87,6 +89,9 @@ Browser extensions give us one example to strive for: a place where we routinely
 [*Discuss on Hacker News*
 ](https://news.ycombinator.com/item?id=20556382)
 
+%subscribe%
+
 [^chrome]: [https://www.blog.google/technology/safety-security/update-project-strobe-new-policies-chrome-and-drive/](https://www.blog.google/technology/safety-security/update-project-strobe-new-policies-chrome-and-drive/)
 [^tbl]: Weaving the Web, by Tim Berners-Lee (p33)
 [^tbl2]: Tim thought web browsers should also be website editors, and was disappointed when the Mosaic browser took off in popularity without including that feature. 
+
