@@ -312,6 +312,12 @@ nav{
   ul.contact {
     display: none;
   }
+
+  .subscribe-header {
+    font-size: 12px;
+    color: #aaa;
+    display: none; /* hide on mobile */
+  }
 }
 
 @import "responsive";

@@ -39,21 +39,22 @@
           %a{:href => '/'} Geoffrey Litt
         %ul.sections
           %li
-            %a{:href => '/'} Home
+            %a{:href => '/'} Projects
+          %li
+            %a{:href => '/blog.html'} Writing
           %li
             %a{:href => '/about.html'} About
-          %li
-            %a{:href => '/blog.html'} Blog
-        %ul.contact
+        .subscribe-header
+          Subscribe:
+        %ul.subscribe-links
           %li
             %a{:href => 'http://www.twitter.com/geoffreylitt'}
+              Twitter
               %i.fa.fa-twitter
           %li
             %a{:href => '/feed.xml'}
+              RSS
               %i.fa.fa-rss
-          %li
-            %a{:href => 'mailto:gklitt@gmail.com'}
-              %i.fa.fa-envelope
 
     .main_container
       .main= yield

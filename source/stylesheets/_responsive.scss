@@ -54,24 +54,22 @@
 
   nav{
     text-align: right;
-    ul {
+    ul.sections {
       margin: 20px 0;
     }
 
-    ul.contact {
-      display: block;
-      a {
-        font-size: 22px;
-        color: $col_grey;
-        &:hover { color: darken($col_grey, 10%) };
-        &:active { color: darken($col_grey, 20%) };
-      }
-    }
-
-    ul.sections {
+    ul {
       li {
         display: block;
       }
+    }
+
+    li {
+      display: block;
+    }
+
+    .subscribe-header {
+      display: block;
     }
   }
 
