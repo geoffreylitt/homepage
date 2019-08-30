@@ -4,15 +4,15 @@ layout: simple
 
 # About
 
-I'm currently pursuing a PhD in Computer Science at MIT. I'm doing research on making programming more accessible through new languages and environments.
+I'm currently pursuing a PhD in Computer Science at MIT. I'm working on making programming more accessible by designing new languages and development tools. One of my main inspirations is the spreadsheet: an accessible programming system that combines a language with a rich visual environment.
 
-Before that, I was an early engineer at [Panorama Education](http://www.panoramaed.com) (YC S13), a startup helping K-12 educators use data to better understand their students and schools. Over five years I helped grow Panorama into a leading education platform used by over 9 million students.
+Before that, for five years I was an early engineer at [Panorama Education](http://www.panoramaed.com) (YC S13), a startup helping K-12 educators use data to better understand their students and schools. Over five years I helped grow Panorama into a leading education platform used by over 9 million students.
 
 I grew up in Tokyo and played in an all-cello rock band in college.
 
 ## Let's talk!
 
-**Please reach out** if you're interested in chatting about ideas or if I might be able to help you somehow. You can contact me via [email](mailto:gklitt@gmail.com) or on [Twitter](http://www.twitter.com/geoffreylitt).
+**Please reach out** if you're interested in chatting about ideas, or if I might be able to help you. You can contact me via [email](mailto:gklitt@gmail.com) or on [Twitter](http://www.twitter.com/geoffreylitt).
 
 ---
 
