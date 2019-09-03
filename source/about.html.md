@@ -6,7 +6,7 @@ layout: simple
 
 I'm currently pursuing a PhD in Computer Science at MIT. I'm working on making programming more accessible by designing new languages and development tools. One of my main inspirations is the spreadsheet: an accessible programming system that combines a language with a rich visual environment.
 
-Before that, for five years I was an early engineer at [Panorama Education](http://www.panoramaed.com) (YC S13), a startup helping K-12 educators use data to better understand their students and schools. Over five years I helped grow Panorama into a leading education platform used by over 9 million students.
+Before that, I was an early engineer at [Panorama Education](http://www.panoramaed.com) (YC S13), a startup helping K-12 educators use data to better understand their students and schools. Over five years I helped grow Panorama into a leading education platform used by over 9 million students.
 
 I grew up in Tokyo and played in an all-cello rock band in college.
 
