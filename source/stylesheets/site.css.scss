@@ -330,6 +330,11 @@ nav{
     color: #aaa;
     display: none; /* hide on mobile */
   }
+
+  ul.subscribe-links {
+    display: inline-block;
+    margin-bottom: 10px;
+  }
 }
 
 .home-body-text {

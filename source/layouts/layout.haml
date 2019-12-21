@@ -43,8 +43,6 @@
             %a{:href => '/#projects'} Projects
           %li
             %a{:href => '/#writing'} Writing
-          %li
-            %a{:href => '/#inspiration'} Inspirations
         .subscribe-header
           Subscribe:
         %ul.subscribe-links
@@ -56,6 +54,13 @@
             %a{:href => '/feed.xml'}
               RSS
               %i.fa.fa-rss
+        .subscribe-header
+          Contact
+        %ul.subscribe-links
+          %li
+            %a{:href => 'mailto:gklitt@gmail.com'}
+              Email
+              %i.fa.fa-envelope
 
     .main_container
       .main= yield
