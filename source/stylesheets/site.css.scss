@@ -21,6 +21,11 @@ $col_white: #ffffff;
 
 // Foundations
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: paralucent, sans serif;
+  font-weight: 400;
+}
+
 // border-box on all elements
 * { box-sizing: border-box }
 
@@ -29,11 +34,11 @@ $col_white: #ffffff;
   padding: 15px;
   background-color: $col_white;
 
-  font-size: 14px;
+  font-size: 12pt;
 
   h1, h2{
-    font-family: 'Montserrat', 'Helvetica', sans serif;
-    font-weight: bold;
+    font-family: paralucent, sans serif;
+    font-weight: 500;
 
     a{
       color: $col_blackish;
@@ -45,7 +50,7 @@ $col_white: #ffffff;
   }
 
   h1{
-    font-size: 22px;
+    font-size: 26px;
     margin-top: 20px;
     line-height: 1.2em;
   }
@@ -97,7 +102,7 @@ $col_white: #ffffff;
 body{
   background-color: #fff;
 
-  font-family: 'Open Sans', Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: expo-serif-pro, serif;
   color: $col_blackish;
   font-size: 14pt;
 
@@ -198,7 +203,7 @@ hr {
 }
 
 .blogpost-link {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 // Individual post
@@ -268,6 +273,8 @@ figure {
 header{
   width: 100%;
   padding: 20px 0 0 20px;
+  font-family: paralucent, sans serif;
+  font-weight: 400;
 
   a.logo{
     box-sizing: content-box;
