@@ -1,5 +1,19 @@
 - projects = data.projects.projects
 
+
+.home-body-text
+  :markdown
+    Hi, I'm Geoffrey. I want everyone to make programming radically more accessible, so that everyone can build and modify their own software.
+    
+    I'm currently pursuing a PhD in Computer Science at MIT, designing programming languages and tools. Most recently, I'm hacking on [Wildcard](http://sdg.csail.mit.edu/projects/wildcard): a platform that empowers anyone to build browser extensions and modify websites to meet their own specific needs.
+
+    I periodically write about programming tools, end-user programming, and software design. To get updates about new posts, [follow me on Twitter](https://www.twitter.com/geoffreylitt) or [subscribe via RSS](/feed.xml).
+
+    Before working on programming tools, I was an early engineer at [Panorama Education](http://www.panoramaed.com) (YC S13), an edtech startup building data analytics software for K-12 schools. Over five years, I helped grow Panorama into a leading education platform that serves 10 million students.
+
+    Here are some things I've made and written:
+
+%a{id: "projects"}
 .project-grids
   %h2.project-category Programming tools
   = partial(:project_grid, locals: { projects: projects.programming_interfaces })
@@ -15,3 +29,51 @@
 
   %h2.project-category Conference Talks
   = partial(:project_grid, locals: { projects: projects.talks })
+
+%a{id: "writing"}
+%h2.project-category Writing
+
+.blogposts-list
+  - page_articles.reject{ |a| a.data[:hidden] }.each_with_index do |article, i|
+    .blogpost-link
+      = link_to article.title, article
+
+
+%a{id: "inspiration"}
+%h2.project-category Inspirations
+
+:markdown
+  Here's a very incomplete list of people whose work I've found inspirational. If your taste is similar to mine, maybe you'll get some inspiration from their work too.
+
+  * [Bret Victor](http://worrydream.com/LearnableProgramming/)
+  * [Alan Kay](https://www.youtube.com/watch?v=oKg1hTOQXoY&feature=youtu.be)
+  * [Chris Granger](http://www.chris-granger.com/2014/03/27/toward-a-better-programming/)
+  * [Jonathan Edwards](https://alarmingdevelopment.org/?p=1145)
+  * [Kerry Chang](https://www.cs.cmu.edu/~shihpinc/gneiss.html)
+  * [Doug Engelbart](http://www.dougengelbart.org/content/view/209/448/)
+  * [Daniel Jackson](http://people.csail.mit.edu/dnj/)
+  * [Neil Postman](https://en.wikipedia.org/wiki/Amusing_Ourselves_to_Death)
+  * [Seymour Papert](https://en.wikipedia.org/wiki/Mindstorms_(book))
+  * [Cyrus Omar](https://hazel.org/)
+  * [Brad Myers](http://www.cs.cmu.edu/~bam/)
+  * [Elena Glassman](https://eglassman.github.io/examplore/)
+  * [Glen Chiacchieri](http://glench.com/LegibleMathematics/)
+  * [Amy Ko](https://www.cs.cmu.edu/~NatProg/whyline-java.html)
+  * [Michael Nielsen](https://distill.pub/2017/aia/)
+  * [Lea Verou](https://mavo.io/)
+
+
+%div{style: "max-width: 700px;"}
+  .subscribe
+    %h4 Subscribe
+    I periodically write about programming tools, end-user programming, and software design. To get updates about new posts:
+
+    .subscribe-links
+      %div
+      %a{href: 'http://www.twitter.com/geoffreylitt', style: "margin-right: 15px;" }
+        %i.fa.fa-twitter
+        Follow me on Twitter
+          
+      %a{:href => '/feed.xml' }
+        %i.fa.fa-rss
+        Subscribe via RSS
