@@ -87,5 +87,6 @@ projects:
       slug: deep-learning-intro
       description: "An introduction to deep learning techniques for Ruby developers"
       link: "https://speakerdeck.com/geoffreylitt/deep-learning-an-introduction-for-ruby-developers"
+      image: images/projects/deep-learning-intro.jpg
 
 
