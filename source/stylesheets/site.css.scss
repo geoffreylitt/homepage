@@ -18,6 +18,7 @@ $col_blue_light: #498bd9;
 $col_blackish: #131313;
 $col_grey: #acacac;
 $col_white: #ffffff;
+$col_orange: #EE5B36;
 
 // Foundations
 
@@ -32,7 +33,6 @@ h1, h2, h3, h4, h5, h6 {
 .main{
   width: 100%;
   padding: 15px;
-  background-color: $col_white;
 
   font-size: 12pt;
 
@@ -100,7 +100,9 @@ h1, h2, h3, h4, h5, h6 {
 
 
 body{
-  background-color: #fff;
+  // background-color: #fff;
+  background: #003973; /* fallback for old browsers */
+  background: linear-gradient(to left, #f0fcff, #e5e5be); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
   font-family: expo-serif-pro, serif;
   color: $col_blackish;
@@ -149,10 +151,17 @@ blockquote {
 }
 
 h2.project-category {
-  background-color: #ffe6e6;
   padding: 5px;
-  border-radius: 5px;
   font-size: 16px !important;
+
+  &::before {
+    content: "";
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    margin-right: 5px;
+    background-color: $col_orange;
+  }
 }
 
 .project-grid {
@@ -253,7 +262,7 @@ figure {
 
 .subscribe {
   background-color: rgb(245, 245, 245);
-  border-top: solid 3px #ff7171;
+  border-top: solid 3px $col_orange;
   padding: 20px;
   margin: 50px 0 100px 0;
 
