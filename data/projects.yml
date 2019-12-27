@@ -40,6 +40,7 @@ projects:
     - name: News context sidebar
       slug: news-context
       description: Automatically providing background context about news articles
+      image: images/projects/news-context.jpg
     - name: Pedometer data analysis
       slug: pedometer-data
       description: Analyzing a year of data from my smartphone step counter
@@ -48,6 +49,7 @@ projects:
   other:
     - name: Postgres BSON
       slug: postgres-bson
+      image: images/projects/postgres-bson.jpg
       description: Extending PostgreSQL with faster JSON queries
     - name: classroulette
       slug: classroulette
@@ -78,10 +80,12 @@ projects:
   talks:
     - name: ENHANCE! (BangBangCon 2017)
       slug: enhance
+      image: images/projects/enhance.jpg
       description: Explaining Generative Adversarial Neural Networks using CSI
       link: /2017/06/04/enhance-upscaling-images-with-generative-adversarial-neural-networks.html
     - name: Ruby, A Family History (RailsConf 2018)
       slug: ruby-family-history
+      image: images/projects/ruby-family-history.jpg
       description: Exploring how Ruby was influenced by Lisp, Smalltalk, and Perl
     - name: "Deep Learning: an Introduction (BostonRB)"
       slug: deep-learning-intro
