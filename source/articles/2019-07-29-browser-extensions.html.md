@@ -62,6 +62,8 @@ We clearly need to work on protecting people from malicious extensions that inva
 
 **Accessibility:** Today, it requires a big jump to go from using browser extensions to creating them: you need to learn a fair amount of web development to get started, and you can't easily develop extensions in the browser itself. What if there were a quick way to get started developing and sharing extensions in the browser? You could imagine smoothly transitioning from editing a website in the developer tools to publishing a small extension.
 
+*Update*: I've started working on a system called [Wildcard](https://sdg.csail.mit.edu/projects/wildcard) to work towards this vision.
+
 **Compatibility:** Because extensions hook into websites in unsupported ways, updates to websites often result in extensions temporarily breaking, and extension authors scrambling to fix them. Can we make it easier for website developers and extension authors to form stable connections between their software, without necessarily resorting to using explicit extension APIs?
 
 There are existing practices that fit into this category already—for example, using clean semantic markup, human-readable CSS, and source maps makes it easier to develop an extension.
