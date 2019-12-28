@@ -79,18 +79,6 @@ activate :blog do |blog|
   blog.page_link = "page/:num"
 end
 
-# Deploy extension
-activate :deploy do |deploy|
-  deploy.deploy_method   = :sftp
-  deploy.host            = 'ssh.phx.nearlyfreespeech.net'
-  deploy.port            = 22
-  deploy.path            = '/home/public'
-  # Optional Settings
-  deploy.user     = 'geoffreylitt_geoffreylitt'
-  deploy.password = ENV["NFSHOST_PASSWORD"]
-  deploy.build_before = true
-end
-
 #Syntax highlighting
 activate :syntax
 
