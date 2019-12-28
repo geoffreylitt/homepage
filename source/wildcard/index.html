@@ -42,8 +42,8 @@ padding: 10px; margin: 20px 0 0 0;">In-progress DRAFT. Please don't distribute!<
 <ul>
 <li><a href="#expose-unified-structure-across-applications">Expose unified structure across applications</a></li>
 <li><a href="#direct-manipulation-by-proxy">Direct manipulation by proxy</a></li>
-<li><a href="#first-party-optional">First party optional</a></li>
-<li><a href="#built-for-the-web">Built for the web</a></li>
+<li><a href="#first-party-cooperation-optional">First party cooperation optional</a></li>
+<li><a href="#in-place-toolchain">In-place toolchain</a></li>
 <li><a href="#decouple-ui-from-data">Decouple UI from data</a></li>
 </ul></li>
 <li><a href="#related-work">Related work</a></li>
@@ -57,6 +57,7 @@ padding: 10px; margin: 20px 0 0 0;">In-progress DRAFT. Please don't distribute!<
 <ul>
 <li>hook with Airbnb sort</li>
 <li>add more bigger picture reasons, less focus on the affordances</li>
+<li>assembling our own software: starts with <em>tweaks</em></li>
 <li>make this shorter</li>
 </ul>
 <p>People have complaints about web apps they use, but they rarely modify those apps to meet their needs. Why not? Some guesses:</p>
@@ -122,8 +123,9 @@ padding: 10px; margin: 20px 0 0 0;">In-progress DRAFT. Please don't distribute!<
 <li>Next implementation goals</li>
 </ul>
 <h1 id="design-principles">Design principles</h1>
-<p>Here are some of the ideas behind the design of Wildcard. We hope these can be useful principles not only for Wildcard, but also for other tools that enable end users to modify software.</p>
+<p>Here are some of the ideas behind the current design of Wildcard. We hope that these principles are also useful for thinking more broadly about enabling end users to modify software.</p>
 <h2 id="expose-unified-structure-across-applications">Expose unified structure across applications</h2>
+<p>Todo: diagram?</p>
 <p>In <em>Changing Minds</em> <span class="citation" data-cites="disessa2000">[<a href="#ref-disessa2000" role="doc-biblioref">2</a>]</span>, Andrea diSessa critiques the design of modern software with a story about a hypothetical “nightmare bike.” Each gear on the nightmare bike is labeled not with a number, but with an icon describing its intended use: smooth pavement uphill, smooth pavement downhill, gravel, etc. By some logic, this is more “user-friendly” than numbered gears, but in fact, hiding orderly structure from the user makes it more difficult to operate the bike. Many modern software designs fall into this trap, teaching users to use isolated modes rather than coherent structure, and the problem gets far worse when operating across multiple applications. Unlike the UNIX philosophy of small tools interoperating through shared abstractions, in modern computing each application is in its own silo of data and functionality.</p>
 <p>Wildcard helps people understand and modify the behavior of applications through the lens of a consistent abstraction: a data table. This abstraction strikes a balance between being both simple and generic. A data table is simpler than the DOM tree that describes the details of the UI, but is also generic enough to describe the essence of many different kinds of applications.</p>
 <p>Exposing a unified higher-level abstraction is a deliberate choice, and is not the only way to enable users to program without directly using the DOM. Chickenfoot <span class="citation" data-cites="bolin2005">[<a href="#ref-bolin2005" role="doc-biblioref">1</a>]</span> and CoScripter <span class="citation" data-cites="leshed2008">[<a href="#ref-leshed2008" role="doc-biblioref">3</a>]</span> allow users to create scripts that resemble natural language and “sloppily” match queries to elements in the DOM. These designs allow for a wide range of operations, but don’t explicitly indicate what operations are possible—the user must look at the original page and imagine the possibilities. In contrast, Wildcard provides affordances that clearly suggest the availability of certain types of modifications. In addition to giving users more certainty about whether a modification is possible, these affordances might give users new ideas for things to try. Because people are not used to modifying web applications, providing inspiration is an important goal. (Todo: Perhaps something to cite here, re: discoverability in GUIs vs CLIs?)</p>
@@ -134,32 +136,12 @@ padding: 10px; margin: 20px 0 0 0;">In-progress DRAFT. Please don't distribute!<
 <figure>
 <img src="media/devtools.png" id="fig:devtools" alt="" /><figcaption>The Chrome Dev Tools use highlighting to show the mapping between HTML code and the page</figcaption>
 </figure>
-<h2 id="first-party-optional">First party optional</h2>
-<p>Many platforms expect plugins to use an explicitly</p>
+<h2 id="first-party-cooperation-optional">First party cooperation optional</h2>
+<p>The Web is an unusually extensible platform. On many other platforms (e.g. smartphone operating systems), software is locked down unless first-party developers explicitly provide hooks for plugins and interoperability, but on the Web, all client-side code is available for browser extensions to modify. Application authors can use practices that make it easier to modify their apps (e.g. clean semantic markup), or more difficult (e.g. code obfuscation), but the default state is openness. This gives extensions freedom to modify applications in creative ways that the original developers did not plan for.</p>
+<p>Wildcard takes advantage of this openness, and does not depend on cooperation from first-party website developers. Any programmer can add support for any website to Wildcard by building a third party adapter. This design acknowledges the pragmatic reality that most sites today will not have Wildcard support built in, and more broadly do not prioritize client side extensibility.</p>
+<p>However, we also hope that first party website developers eventually build in Wildcard support to their applications, which would reduce the burden of maintaining adapters and make Wildcard plugins more stable. While this might seem optimistic, implementing the Wildcard adapter API could be straightforward in a typical client-side application that already has access to a structured version of the data in the page. There is also precedent for first parties implementing an official client extension API in response to user demand: for several years, Google exposed an extension API in Gmail for Greasemonkey scripts to use. (Since then, third parties have created well-maintained alternatives <span class="citation" data-cites="streak talwar2019">[<a href="#ref-streak" role="doc-biblioref">4</a>, <a href="#ref-talwar2019" role="doc-biblioref">5</a>]</span>, illustrating the value of sharing even third party adapters.)</p>
+<h2 id="in-place-toolchain">In-place toolchain</h2>
 <ul>
-<li>browser extensions are a neat starting point: no permission required.
-<ul>
-<li>room for creativity, even subversion</li>
-<li>also, pragmatic and realistic.</li>
-</ul></li>
-<li>3p-only is enough. 1p help is optional.</li>
-<li>eventually we hope for 1p support
-<ul>
-<li>helps a lot with stability</li>
-<li>precedent: Gmail Greasemonkey API</li>
-<li>make it easy for 1p: just ask for a data table, no fancy schema.</li>
-</ul></li>
-</ul>
-<p>Adapters aren’t an essential component, just a temporary shim. The interaction with the table is the important piece.</p>
-<h2 id="built-for-the-web">Built for the web</h2>
-<ul>
-<li>web has the right foundations:
-<ul>
-<li>the right platform</li>
-<li>open platform</li>
-<li>dev tools</li>
-<li>originally intended to be</li>
-</ul></li>
 <li>in-place toolchain: meet the user where they are, in the page</li>
 </ul>
 <h2 id="decouple-ui-from-data">Decouple UI from data</h2>
@@ -178,6 +160,7 @@ padding: 10px; margin: 20px 0 0 0;">In-progress DRAFT. Please don't distribute!<
 </ul>
 <h1 id="future-work">Future work</h1>
 <ul>
+<li>still early: plan to release</li>
 <li>How far does functionality go?
 <ul>
 <li>workflows? triggers?</li>
@@ -188,7 +171,6 @@ padding: 10px; margin: 20px 0 0 0;">In-progress DRAFT. Please don't distribute!<
 <li>lean on existing tech</li>
 </ul></li>
 <li>usability studies</li>
-<li>plan to release</li>
 <li>sign up for future updates</li>
 </ul>
 <h1 id="meta-todos">meta: todos</h1>
@@ -199,13 +181,19 @@ padding: 10px; margin: 20px 0 0 0;">In-progress DRAFT. Please don't distribute!<
 <h1 class="unnumbered" id="bibliography" class="unnumbered">References</h1>
 <div id="refs" class="references" role="doc-bibliography">
 <div id="ref-bolin2005">
-<p>[1] Michael Bolin, Matthew Webber, Philip Rha, Tom Wilson, and Robert C. Miller. 2005. Automation and customization of rendered web pages. In <em>Proceedings of the 18th annual ACM symposium on User interface software and technology - UIST ’05</em>, ACM Press, Seattle, WA, USA, 163. DOI:<a href="https://doi.org/10.1145/1095034.1095062">https://doi.org/10.1145/1095034.1095062</a></p>
+<p>[1] Bolin, M. et al. 2005. Automation and customization of rendered web pages. <em>Proceedings of the 18th annual ACM symposium on User interface software and technology - UIST ’05</em> (Seattle, WA, USA, 2005), 163.</p>
 </div>
 <div id="ref-disessa2000">
-<p>[2] Andrea A. diSessa. 2000. <em>Changing Minds: Computers, Learning, and Literacy</em>. MIT Press, Cambridge, MA, USA.</p>
+<p>[2] diSessa, A.A. 2000. <em>Changing Minds: Computers, Learning, and Literacy</em>. MIT Press.</p>
 </div>
 <div id="ref-leshed2008">
-<p>[3] Gilly Leshed, Eben M. Haber, Tara Matthews, and Tessa Lau. 2008. CoScripter: Automating &amp; Sharing How-to Knowledge in the Enterprise. In <em>Proceedings of the SIGCHI Conference on Human Factors in Computing Systems</em> (CHI ’08), ACM, New York, NY, USA, 1719–1728. DOI:<a href="https://doi.org/10.1145/1357054.1357323">https://doi.org/10.1145/1357054.1357323</a></p>
+<p>[3] Leshed, G. et al. 2008. CoScripter: Automating &amp; Sharing How-to Knowledge in the Enterprise. <em>Proceedings of the SIGCHI Conference on Human Factors in Computing Systems</em> (New York, NY, USA, 2008), 1719–1728.</p>
+</div>
+<div id="ref-streak">
+<p>[4] Streak InboxSDK. https://www.inboxsdk.com/.</p>
+</div>
+<div id="ref-talwar2019">
+<p>[5] Talwar, K. 2019. Gmail.Js. <em>GitHub</em>. https://github.com/KartikTalwar/gmail.js.</p>
 </div>
 </div>
 </body>
