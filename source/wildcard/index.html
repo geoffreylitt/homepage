@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Geoffrey Litt and Daniel Jackson" />
-  <title>Wildcard: modifying websites by directly manipulating a data table</title>
+  <title>Wildcard: Modifying web applications by directly manipulating a data table</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -27,11 +27,11 @@ font-weight: bold;
 padding: 10px; margin: 20px 0 0 0;">In-progress DRAFT. Please don't distribute!</p>
 
 <header id="title-block-header">
-<h1 class="title">Wildcard: modifying websites by directly manipulating a data table</h1>
+<h1 class="title">Wildcard: Modifying web applications by directly manipulating a data table</h1>
 <p class="author">Geoffrey Litt and Daniel Jackson</p>
 </header>
 <p>Browser extensions and user scripts can modify web applications in useful ways, but many people have unique needs that aren’t met by existing extensions. Today, most of them are stuck—they can’t build their own browser extensions without learning how to program in Javascript.</p>
-<p>Wildcard is a platform that empowers anyone to build browser extensions without doing traditional programming. Wildcard shows a simplified view of the data in a web page as a table, and the table maintains a bidirectional connection to the original page. People can directly manipulate the table to sort/filter content, add annotations, and even use spreadsheet formulas to fetch data from other websites.</p>
+<p>Wildcard is a platform that empowers anyone to build browser extensions without doing traditional programming. Wildcard shows the main data from a web page in a table with a bidirectional connection to the original page. People can directly manipulate the table to sort/filter content, add private annotations, and use spreadsheet formulas to fetch data from other websites.</p>
 <nav id="TOC" role="doc-toc">
 <h2 id="toc-title">Contents</h2>
 <ul>
@@ -48,7 +48,7 @@ padding: 10px; margin: 20px 0 0 0;">In-progress DRAFT. Please don't distribute!<
 </ul></li>
 <li><a href="#related-work">Related work</a></li>
 <li><a href="#future-work">Future work</a></li>
-<li><a href="#todos">Todos</a></li>
+<li><a href="#meta-todos">meta: todos</a></li>
 <li><a href="#bibliography">References</a></li>
 </ul>
 </nav>
@@ -66,11 +66,10 @@ padding: 10px; margin: 20px 0 0 0;">In-progress DRAFT. Please don't distribute!<
 </ul>
 <p>These seem reasonable but they might not tell the whole story.</p>
 <p>There have been many research projects that try to address these hurdles. For example, Chickenfoot <span class="citation" data-cites="bolin2005">[<a href="#ref-bolin2005" role="doc-biblioref">1</a>]</span> allows for people to more quickly modify sites without using Javascript or dealing with the DOM, directly addressing both of these barriers. But, a decade later, not many people have ended up using systems like this.</p>
-<h3 id="why-dont-people-tweak-websites">Why don’t people tweak websites?</h3>
 <p>I know how to do web programming, and yet I rarely modify my apps. Sometimes it actually turns out to be pretty easy to hack on a site once I start doing it so the ROI is actually pretty high. These reasons don’t seem to fully explain my behavior.</p>
 <p>A disheartening explanation might be that most people just don’t care enough to make changes. This claim might be true in the current context, but it’s also important to remember that motivation is connected to culture and to the space of possibilities provided by our tools. Most people probably didn’t want to write letters before mass literacy.</p>
-<p>One interesting explanation is that <strong>people can’t estimate the difficulty of a change</strong>. It’s not motivating to think about what changes I might want when I don’t know whether they would take a few minutes or are completely impossible. For me, an engineer, this gets at the heart of the issue. I know I could probably implement the change, but it’s so hard to estimate how long it would take (minutes? months?) that I don’t even bother trying. In general, when something seems expensive to do (or even possibly expensive), it can discourage casual lightweight experimentation.</p>
-<p>So, perhaps to encourage people to casually modify software, <strong>apps need to provide more consistent affordances indicating what changes are possible and easy.</strong> Maybe if it were more obvious that certain types of changes could be achieved in mere minutes, programmers and non-programmers would end up modifying our software more.</p>
+<p>One interesting explanation is that people can’t estimate the difficulty of a change. It’s not motivating to think about what changes I might want when I don’t know whether they would take a few minutes or are completely impossible. For me, an engineer, this gets at the heart of the issue. I know I could probably implement the change, but it’s so hard to estimate how long it would take (minutes? months?) that I don’t even bother trying. In general, when something seems expensive to do (or even possibly expensive), it can discourage casual lightweight experimentation.</p>
+<p>So, perhaps to encourage people to casually modify software, apps need to provide more consistent affordances indicating what changes are possible and easy. Maybe if it were more obvious that certain types of changes could be achieved in mere minutes, programmers and non-programmers would end up modifying our software more.</p>
 <h3 id="the-wildcard-platform">The Wildcard platform</h3>
 <p>Wildcard adds a panel to the bottom of a web page that shows a structured table view of some of the core data in the page. When the user manipulates the table, the original page also gets modified. We aim to make the mapping between the table and the page as direct and intuitive as possible.</p>
 <p>Todos here:</p>
@@ -87,9 +86,6 @@ padding: 10px; margin: 20px 0 0 0;">In-progress DRAFT. Please don't distribute!<
 <div class="pdf-only">
 
 </div>
-<p>There’s somewhat of a tension here between directness and structure. Manipulating the original page itself might seem most “direct.” But the whole problem we’re dealing with is that the original web page doesn’t provide affordances for end-user modification, and there’s no consistent structure that people can learn to work with across many sites.</p>
-<h3 id="directness">Directness</h3>
-<p>The table view is perhaps one hop less “direct,” but in turn provides other benefits. Because many people are already familiar with spreadsheets, they can quickly intuit which changes are easy to make in this system. Also, people can learn to work with the same consistent spreadsheet view across many sites. This consistency is very important—learning a generic tool that can be applied to many different specific cases is very powerful, and connected to the idea of literacy in a medium (just ask anyone who has used vim, or spreadsheets, or a pencil and paper). Wildcard aims to balance this tension, with a workflow that involves both the table view and the original webpage.</p>
 <p>Wildcard is fairly general and can support many useful changes to websites, which will be demoed later:</p>
 <ul>
 <li>sorting and filtering data: eg sorting shopping results</li>
@@ -98,12 +94,6 @@ padding: 10px; margin: 20px 0 0 0;">In-progress DRAFT. Please don't distribute!<
 <li>using alternate UI widgets to enter data into a page: eg using a personal datepicker widget with private calendar data, to enter the right dates for taking a flight</li>
 </ul>
 <p>The overall goal is to provide generic tools that fit well with the table paradigm and enable many specific useful changes. But it’s important to note that Wildcard doesn’t aim to provide maximum coverage all the possible ways someone might want to modify a web page. Rather, it aims to provide a useful, simple subset of modifications, and to provide consistent affordances so that users confidently understand which modifications they can make.</p>
-<h3 id="the-big-picture">The big picture</h3>
-<p>Eventually web apps might provide the structured data table themselves. In the meantime, we need some sort of adapter to make this system work with existing sites.</p>
-<p>Wildcard provides a system for creating a wrapper on top of existing websites. This wrapper defines how structured data can be extracted out of the page, and also how manipulating the table should modify the page.</p>
-<p>The most basic way of building these wrappers is for skilled programmers to manually build and maintain them for popular sites. This approach beats the status quo because many people, including end users, can benefit from the generic wrapper and use it in many ways. This is different from the current world where programmers build use-case-specific browser extensions, and each extension has to implement its own interactions with the low-level DOM of a page. There’s also a greater incentive for many people to collectively maintain a wrapper if it’s shared.</p>
-<p>A more advanced way would be to make these wrappers partially or totally automated, and enable end users to create them. This future work could leverage existing research on wrapper induction but isn’t the focus of the current work.</p>
-<p>Again, ultimately we hope that first-party sites would find it beneficial and straightforward to provide a structured data view themselves. Wildcard doesn’t require sites to expose some complex Semantic Web schema; it merely asks for a simple structured data view.</p>
 <h1 id="demo-booking-a-trip-with-wildcard">Demo: Booking a trip with Wildcard</h1>
 <ul>
 <li>Sorting search results:
@@ -123,31 +113,44 @@ padding: 10px; margin: 20px 0 0 0;">In-progress DRAFT. Please don't distribute!<
 <li>Using a custom date picker</li>
 </ul>
 <h1 id="implementation">Implementation</h1>
+<p>Eventually web apps might provide the structured data table themselves. In the meantime, we need some sort of adapter to make this system work with existing sites.</p>
+<p>Wildcard provides a system for creating a wrapper on top of existing websites. This wrapper defines how structured data can be extracted out of the page, and also how manipulating the table should modify the page.</p>
+<p>The most basic way of building these wrappers is for skilled programmers to manually build and maintain them for popular sites. This approach beats the status quo because many people, including end users, can benefit from the generic wrapper and use it in many ways. This is different from the current world where programmers build use-case-specific browser extensions, and each extension has to implement its own interactions with the low-level DOM of a page. There’s also a greater incentive for many people to collectively maintain a wrapper if it’s shared.</p>
+<p>A more advanced way would be to make these wrappers partially or totally automated, and enable end users to create them. This future work could leverage existing research on wrapper induction but isn’t the focus of the current work.</p>
 <ul>
-<li>programmer adapter API</li>
-<li>eventually automated</li>
-<li>meta: probably need this before design principles, just to ground the conversation.</li>
+<li>Clarify what’s real and fake currently</li>
+<li>Next implementation goals</li>
 </ul>
 <h1 id="design-principles">Design principles</h1>
+<p>Here are some of the ideas behind the design of Wildcard. We hope these can be useful principles not only for Wildcard, but also for other tools that enable end users to modify software.</p>
 <h2 id="expose-unified-structure-across-applications">Expose unified structure across applications</h2>
 <p>In <em>Changing Minds</em> <span class="citation" data-cites="disessa2000">[<a href="#ref-disessa2000" role="doc-biblioref">2</a>]</span>, Andrea diSessa critiques the design of modern software with a story about a hypothetical “nightmare bike.” Each gear on the nightmare bike is labeled not with a number, but with an icon describing its intended use: smooth pavement uphill, smooth pavement downhill, gravel, etc. By some logic, this is more “user-friendly” than numbered gears, but in fact, hiding orderly structure from the user makes it more difficult to operate the bike. Many modern software designs fall into this trap, teaching users to use isolated modes rather than coherent structure, and the problem gets far worse when operating across multiple applications. Unlike the UNIX philosophy of small tools interoperating through shared abstractions, in modern computing each application is in its own silo of data and functionality.</p>
 <p>Wildcard helps people understand and modify the behavior of applications through the lens of a consistent abstraction: a data table. This abstraction strikes a balance between being both simple and generic. A data table is simpler than the DOM tree that describes the details of the UI, but is also generic enough to describe the essence of many different kinds of applications.</p>
 <p>Exposing a unified higher-level abstraction is a deliberate choice, and is not the only way to enable users to program without directly using the DOM. Chickenfoot <span class="citation" data-cites="bolin2005">[<a href="#ref-bolin2005" role="doc-biblioref">1</a>]</span> and CoScripter <span class="citation" data-cites="leshed2008">[<a href="#ref-leshed2008" role="doc-biblioref">3</a>]</span> allow users to create scripts that resemble natural language and “sloppily” match queries to elements in the DOM. These designs allow for a wide range of operations, but don’t explicitly indicate what operations are possible—the user must look at the original page and imagine the possibilities. In contrast, Wildcard provides affordances that clearly suggest the availability of certain types of modifications. In addition to giving users more certainty about whether a modification is possible, these affordances might give users new ideas for things to try. Because people are not used to modifying web applications, providing inspiration is an important goal. (Todo: Perhaps something to cite here, re: discoverability in GUIs vs CLIs?)</p>
 <h2 id="direct-manipulation-by-proxy">Direct manipulation by proxy</h2>
-<ul>
-<li>True DM might be right on the page itself
-<ul>
-<li>There are good UIs for this, eg Chrome DevTools element picker</li>
-</ul></li>
-<li>Considered for Wildcard, but went with an indirect proxy. Still maintain a close mapping.</li>
-<li>Pros: consistency across sites. Avoid site-specific styling issues.</li>
-<li>Cons: maybe less intuitive? More work to do the mapping, might be a source of confusion.</li>
-</ul>
+<p>In Wildcard, users manipulate a data table added to the page, rather than the original page. Although the interaction with the table is direct like using a spreadsheet, the interaction with the page is indirectly mediated through the table.</p>
+<p>We considered other approaches where the user would interact more directly with the original UI, e.g. injecting sort controls into the page, but decided that the consistency and affordances of the table view outweighed the potential confusion of a new layer of indirection.</p>
+<p>Making this design successful requires maintaining a close mapping in the user’s mind between the new representation and the original page (cite Norman? Cognitive Dimensions?). Wildcard provides live visual cues as the user navigates the data table, similar to the highlighting provided by browser developer tools to indicate the mapping between HTML and the original page.</p>
+<figure>
+<img src="media/devtools.png" id="fig:devtools" alt="" /><figcaption>The Chrome Dev Tools use highlighting to show the mapping between HTML code and the page</figcaption>
+</figure>
 <h2 id="first-party-optional">First party optional</h2>
+<p>Many platforms expect plugins to use an explicitly</p>
 <ul>
+<li>browser extensions are a neat starting point: no permission required.
+<ul>
+<li>room for creativity, even subversion</li>
+<li>also, pragmatic and realistic.</li>
+</ul></li>
 <li>3p-only is enough. 1p help is optional.</li>
-<li>Can even do things the 1p didn’t want to expose.</li>
+<li>eventually we hope for 1p support
+<ul>
+<li>helps a lot with stability</li>
+<li>precedent: Gmail Greasemonkey API</li>
+<li>make it easy for 1p: just ask for a data table, no fancy schema.</li>
+</ul></li>
 </ul>
+<p>Adapters aren’t an essential component, just a temporary shim. The interaction with the table is the important piece.</p>
 <h2 id="built-for-the-web">Built for the web</h2>
 <ul>
 <li>web has the right foundations:
@@ -185,8 +188,10 @@ padding: 10px; margin: 20px 0 0 0;">In-progress DRAFT. Please don't distribute!<
 <li>lean on existing tech</li>
 </ul></li>
 <li>usability studies</li>
+<li>plan to release</li>
+<li>sign up for future updates</li>
 </ul>
-<h1 id="todos">Todos</h1>
+<h1 id="meta-todos">meta: todos</h1>
 <ul>
 <li>remove bold text for the proceedings version</li>
 <li>go through the Programming proceedings template checklist</li>
