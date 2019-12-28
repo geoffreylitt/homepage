@@ -1,10 +1,10 @@
 source :rubygems
 
+gem "bundler", "~> 2.0"
 gem "middleman"
 gem "middleman-livereload"
 gem "middleman-blog"
 gem "middleman-syntax"
-gem 'middleman-deploy', '~> 2.0.0.pre.alpha'
 gem "susy", "~>1.0.5"
 gem "redcarpet"
 gem "compass"
