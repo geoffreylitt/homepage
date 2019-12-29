@@ -52,15 +52,6 @@ padding: 10px; margin: 20px 0 0 0;">In-progress DRAFT. Please don't distribute!<
 <li><a href="#bibliography">References</a></li>
 </ul>
 </nav>
-<p>Main notes for DNJ:</p>
-<ul>
-<li>design principles: categorization? Is something missing?</li>
-<li>naming core concepts.
-<ul>
-<li>casual programming</li>
-<li>DM by proxy</li>
-</ul></li>
-</ul>
 <h1 id="introduction">Introduction</h1>
 <p>In 2012, the travel site Airbnb removed the ability to sort listings by price. Users could still filter down to a price range, but could no longer view the cheapest listings first. Many users complained on online message boards that the change seemed hostile to users. “It’s so frustrating!..What is the logic behind not having this function?” said one user on the <a href="https://community.withairbnb.com/t5/Hosting/Sorting-listing-by-price/td-p/559404">Airbnb support forum</a>. Alas, the feature remains missing to this day.</p>
 <p>This is a familiar situation in a world of web applications that are frequently updated without user consent. For most people, when web software does not quite meet their needs, their only recourse is to complain to the developers and hope someone listens. If they know how to program in Javascript, perhaps they can implement a user script or a browser extension to patch the issue, but most people do not have these programming skills. While many have become accustomed to this status quo, we see it as a waste of the openness of the Web platform and the general pliability of software. In <em>Personal Dynamic Media</em>, Alan Kay envisioned personal computing as a medium that let a user “mold and channel its power to his own needs,” but today’s software is far from this vision.</p>
@@ -97,6 +88,7 @@ padding: 10px; margin: 20px 0 0 0;">In-progress DRAFT. Please don't distribute!<
 </ul>
 <h1 id="design-principles">Design principles</h1>
 <p>The design of Wildcard is grounded in several principles, informed by prior work and our own experimentation. We hope you find these principles helpful not only for understanding our prototype, but also for designing other systems for end user programming.</p>
+<p><em>Todo: add diagrams illustrating principles</em></p>
 <h2 id="decouple-ui-from-data">Decouple UI from data</h2>
 <p>Most software does not allow users to choose their own UI elements, even for common data types. If a website provides a datepicker widget, you have no ability to provide your own replacement datepicker, with your preferred design or with privileged access to your private calendar data. This forces users to learn many different interfaces of varying quality for similar tasks. Some websites have APIs to allow users to access the data underlying the UI, but in addition to requiring programming, these are heavyweight tools more fit for batch exports or building entire new clients than for casual UI modification.</p>
 <p>In Wildcard, a user gets access to a view of the underlying data in the page, and can choose their own interfaces to view and modify the data. The Expedia datepicker demo showed one example of how this can be useful, but we also envision creating other widgets for visualizing and editing data. Some examples would be showing geographic data in a custom map that includes the user’s own annotations, or editing a blog post in a rich text editor of the user’s choice.</p>
