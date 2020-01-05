@@ -13,6 +13,68 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="basic.css" />
   <!--[if lt IE 9]>
@@ -28,17 +90,25 @@ padding: 10px; margin: 20px 0 0 0;">In-progress DRAFT. Please don't distribute!<
 
 <header id="title-block-header">
 <h1 class="title">Wildcard: End user modification of web applications through a data table</h1>
-<p class="author">Geoffrey Litt and Daniel Jackson</p>
+<p class="author"><a href="https://www.geoffreylitt.com/">Geoffrey Litt</a> and <a href="http://people.csail.mit.edu/dnj/">Daniel Jackson</a></p>
 </header>
-<p>Many people use Web applications that do not exactly meet their unique needs. While the Web platform supports client-side modification through user scripts and browser extensions, most people do not have the programming skills to implement such modifications. We wanted to build a system that enables end users to casually implement software tweaks without needing to learn traditional programming in Javascript.</p>
-<p>We present a prototype of a browser extension called Wildcard. Wildcard shows the main data from a web page in a table, and maintains a bidirectional connection between the table and the original page. By directly manipulating the data table, people can sort/filter content, add private annotations, and use spreadsheet formulas to fetch data from other web services.</p>
-<p>We present examples of using Wildcard to solve real world problems, and explain the design principles behind the prototype. In the future, we envision building Wildcard into a fully deployed system that makes the web into a more malleable medium.</p>
+<p>Many Web applications do not meet the precise needs of their users. Browser extensions and user scripts offer a way to customize web applications, but most people do not have the programming skills to implement their own customizations.</p>
+<p>In this paper, we present a prototype of Wildcard, a live programming system embedded in the browser that empowers users to casually tweak web applications without needing to program in Javascript or interact with the DOM.</p>
+<p>Wildcard shows the data from a web page in a table, and maintains a bidirectional connection between the table and the original page. By directly manipulating the table, users can perform a wide variety of modifications: sorting/filtering content, adding private annotations, using spreadsheet formulas to fetch data from other web services, using custom UI elements to edit form data, and more.</p>
+<p>We present examples of using Wildcard to solve real world problems, and explain the design principles behind the prototype. In the future, we envision continuing to build Wildcard into a fully deployed system that helps make the web into a more malleable medium for all users.</p>
 <nav id="TOC" role="doc-toc">
 <h2 id="toc-title">Contents</h2>
 <ul>
 <li><a href="#introduction">Introduction</a></li>
-<li><a href="#demo-booking-a-trip-with-wildcard">Demo: Booking a trip with Wildcard</a></li>
-<li><a href="#system-implementation">System Implementation</a></li>
+<li><a href="#demos">Demos</a>
+<ul>
+<li><a href="#sorting-and-filtering">Sorting and filtering</a></li>
+<li><a href="#row-actions">Row actions</a></li>
+<li><a href="#user-annotations">User annotations</a></li>
+<li><a href="#computation-with-formulas">Computation with formulas</a></li>
+<li><a href="#custom-ui-elements">Custom UI elements</a></li>
+</ul></li>
+<li><a href="#system-architecture">System Architecture</a></li>
 <li><a href="#design-principles">Design principles</a>
 <ul>
 <li><a href="#decouple-ui-from-data">Decouple UI from data</a></li>
@@ -46,60 +116,96 @@ padding: 10px; margin: 20px 0 0 0;">In-progress DRAFT. Please don't distribute!<
 <li><a href="#direct-manipulation-of-an-alternate-representation">Direct manipulation of an alternate representation</a></li>
 <li><a href="#encourage-casual-tweaking">Encourage casual tweaking</a></li>
 <li><a href="#first-party-cooperation-optional">First party cooperation optional</a></li>
+<li><a href="#collaboration-over-automation">Collaboration over automation</a></li>
 </ul></li>
-<li><a href="#related-work">Related work</a></li>
-<li><a href="#future-work">Future work</a></li>
+<li><a href="#related-work">Related work</a>
+<ul>
+<li><a href="#malleable-software">Malleable software</a></li>
+<li><a href="#web-augmentation">Web augmentation</a></li>
+<li><a href="#spreadsheet-based-app-builders">Spreadsheet-based app builders</a></li>
+<li><a href="#web-scraping-data-extraction">Web scraping / data extraction</a></li>
+</ul></li>
+<li><a href="#limitations-and-future-work">Limitations and future work</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
 <li><a href="#bibliography">References</a></li>
 </ul>
 </nav>
 <h1 id="introduction">Introduction</h1>
-<p>In 2012, the travel site Airbnb removed the ability to sort listings by price. Users could still filter down to a price range, but could no longer view the cheapest listings first. Many users complained on online message boards that the change seemed hostile to users. “It’s so frustrating!..What is the logic behind not having this function?” said one user on the <a href="https://community.withairbnb.com/t5/Hosting/Sorting-listing-by-price/td-p/559404">Airbnb support forum</a>. Alas, the feature remains missing to this day.</p>
-<p>This is a familiar situation in a world of web applications that are frequently updated without user consent. For most people, when web software does not quite meet their needs, their only recourse is to complain to the developers and hope someone listens. If they know how to program in Javascript, perhaps they can implement a user script or a browser extension to patch the issue, but most people do not have these programming skills. While many have become accustomed to this status quo, we see it as a waste of the openness of the Web platform and the general pliability of software. In <em>Personal Dynamic Media</em>, Alan Kay envisioned personal computing as a medium that let a user “mold and channel its power to his own needs,” but today’s software is far from this vision.</p>
-<p>In this paper, we introduce Wildcard<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, a browser extension that aims to make software more malleable by enabling users to tweak web applications without programming. Wildcard adds a panel to the bottom of a web page that shows a structured table view of the main data in the page. The table maintains a bidirectional connection to the original page—when the user manipulates the table, the original page gets modified, and vice versa.</p>
-<p>In Wildcard, a user can sort Airbnb listings with just one intuitive click on a table header, with no programming required. Beyond sorting and filtering data, Wildcard also supports accessing third party APIs, performing small computations, recording private user annotations, using alternate UI widgets, and other useful changes. While Wildcard does not support all changes someone might want to make to a website, it makes broad subset of changes easily accessible to end users.</p>
-<p>Under the hood, the implementation is straightforward, because a programmer must manually write an adapter for each individual website, which uses traditional web scraping techniques to map the web page to the table. While programming is required for part of the process, this is still very different from traditional browser extensions—instead of the programmer defining a narrow use case, the end user is able to make many different changes on top of a single site-specific adapter.</p>
-<p>In this paper, we present examples of using Wildcard to solve real world problems, and explain the design principles behind the prototype. In the future, we envision building Wildcard into a fully deployed system that makes the web into a more malleable medium.</p>
-<h1 id="demo-booking-a-trip-with-wildcard">Demo: Booking a trip with Wildcard</h1>
-<p>To get a sense of the experience of using Wildcard, let’s see an example of modifying a website with Wildcard.</p>
-<div class="html-only">
-<p>Here, the user is on the Airbnb search results page, which does not allow the user to sort by price. The user simply opens up the data table and clicks the price column header. Note that, in addition to sorting the table, the entries also become sorted in the page itself.</p>
-<video width="100%" src="media/airbnb-sort.mp4" autoplay loop muted playsinline controls class>
+<p>In 2012, the travel site Airbnb removed the ability to sort listings by price. Users could still filter by price range, but could no longer view the cheapest listings first. Many users complained on online message boards that the change seemed hostile to users. “It’s so frustrating!..What is the logic behind not having this function?” said one user on the <a href="https://community.withairbnb.com/t5/Hosting/Sorting-listing-by-price/td-p/559404">Airbnb support forum</a>. Alas, the feature remains missing to this day.</p>
+<p>This is a familiar situation in a world of web applications that are frequently updated without user consent. Sometimes there is a browser extension or user script that fixes an issue, and if the user is a programmer they might even be able to implement their own fix. But for most people in most situations, the only recourse is to complain to the developers and pray that someone listens—or more likely, to simply give up. While many have become used to this status quo, we see it as a tremendous waste of the openness of the Web platform. In <em>Personal Dynamic Media</em> <span class="citation" data-cites="kay1977">[<a href="#ref-kay1977" role="doc-biblioref">15</a>]</span>, Alan Kay originally envisioned personal computing as a medium that let a user “mold and channel its power to his own needs,” but today’s software is more like concrete than clay.</p>
+<p>In this paper, we introduce Wildcard, a live programming system embedded in the browser that enables users to tweak web applications without programming in Javascript or interacting with the DOM. Wildcard adds a panel to the bottom of a web page that shows a structured table view of the main data in the page. The table maintains a bidirectional connection to the original page—when the user manipulates the table, the original page gets modified, and vice versa.</p>
+<p>In Wildcard, a user can sort Airbnb listings with just one intuitive click on a table header, with no programming required. Beyond sorting and filtering data, Wildcard also supports accessing third party APIs, performing small computations, recording private user annotations, and using alternate UI widgets to control a page. While Wildcard does not support any change someone might want to make to a website, it makes a variety of common and useful changes accessible to end users.</p>
+<p>Under the hood, the implementation is straightforward, because a programmer must manually write an adapter for each individual website, which uses web scraping techniques to map the data from the web page to the Wildcard table. Although there is still manual programming involved, the result is very different from traditional single-use browser extensions, because instead of the programmer defining a narrow use case, the end user is able to make many different changes on top of a single site-specific adapter.</p>
+<p>Wildcard is currently an early research prototype, with incomplete features and limited coverage of sites. We plan to continue privately testing the system with our own use cases, and then to release the tool publicly, enabling other programmers to contribute site adapters and other plugins. Ultimately, we hope that Wildcard makes modifying websites into a natural part of using the web, as mundane and ubiquitous as using spreadsheets in everyday computing.</p>
+<p>In this paper, we present examples of using Wildcard to solve real world problems, and then explain the system architecture and design principles behind the prototype.</p>
+<h1 id="demos">Demos</h1>
+<p>To get a sense of how it feels to use Wildcard, let’s see an example of using it to help with booking a trip using the travel sites Airbnb and Expedia.</p>
+<h2 id="sorting-and-filtering">Sorting and filtering</h2>
+<p>We start by opening up the Airbnb search listings page to look for a place to stay. As mentioned before, this page doesn’t let us sort by price, but we can use Wildcard to fix that. First, we open up the Wildcard panel, which shows a table corresponding to the search results in the page. As we click around in the table, the corresponding row in the page is highlighted so we can see the connection between the views.</p>
+<video width="100%" controls="controls" preload="auto" muted="muted" src="media/table.mp4#t=0.1" muted playsinline controls class>
 </video>
-</div>
-<div class="pdf-only">
-
-</div>
-<p><em>Todo: fill in the rest of the section with similar video demos.</em></p>
-<h1 id="system-implementation">System Implementation</h1>
-<p><em>Goal of this section: briefly explain the current implementation. Just enough detail to ground further discussion.</em> <img src="media/adapter.png" id="fig:adapter" alt="Sketch of adapter API" /></p>
-<ul>
-<li>Built as a Greasemonkey script for now (<em>todo: convert to a full browser extension?</em>)</li>
-<li>Describe the adapter API
-<ul>
-<li>show a snippet of adapter code</li>
-<li>discuss how easy it is for programmers to make adapters</li>
-<li>discuss possible future automation of adapter creation</li>
-</ul></li>
-<li>Mention the technique of scraping data from AJAX requests</li>
-<li>future implementation goals
-<ul>
-<li>make it easy for programmers to add adapters + plugins, and distribute them to users. (Currently all adapters + plugins are part of the main Wildcard codebase)</li>
-</ul></li>
-</ul>
+<p>When we click the Price column header in the table, both the table and the original page become sorted by price. We can also filter listings by rating, another feature not offered in the Airbnb site.</p>
+<video width="100%" controls="controls" preload="auto" muted="muted" src="media/sort-filter.mp4#t=0.1" muted playsinline controls class>
+</video>
+<p>After finishing the sorting and filtering, we can close the table view and continue using the website in its original polished design.</p>
+<h2 id="row-actions">Row actions</h2>
+<p>Most websites that show lists of data also offer actions that can be taken on a row in the table, like adding an item to a shopping cart. Wildcard has the ability to make these actions available in the data table if the site adapter implements them. The main advantage this provides is the ability to easily perform an action in bulk across multiple rows.</p>
+<p>For example, it’s tedious on Airbnb to click on listings one by one to add them to a list of favorites. Using Wildcard, we can just select multiple rows and favorite all of them with one click. Similarly, we can also open the detailed pages for many listings in new tabs.</p>
+<video width="100%" controls="controls" preload="auto" muted="muted" src="media/favorite-open.mp4#t=0.1" muted playsinline controls class>
+</video>
+<p>Within the site adapter, each action is implemented as a regular Javascript function running in the context of the page, which can click on buttons in the UI, launch AJAX requests, navigate to a new page, etc.</p>
+<h2 id="user-annotations">User annotations</h2>
+<p>It’s a common practice in spreadsheets to add a column next to a table for recording notes about the item in each row. In Wildcard, this pattern can be used to create private annotations in a website. Here, we use this feature to jot down pros and cons of various listings:</p>
+<video width="100%" controls="controls" preload="auto" muted="muted" src="media/annotate.mp4#t=0.1" muted playsinline controls class>
+</video>
+<p>In order to match the annotations with the existing design, the site adapter specifies a reasonable location in each row for injecting new data.</p>
+<p>Annotations are persisted in browser local storage so the user can come back and view them later. The site adapter associates each table row with a stable identifier from the original site so that annotations can be displayed with the appropriate item.</p>
+<p>Currently annotations are private to the browser of the user that created them, but it could be useful in the future to allow users to share annotations.</p>
+<h2 id="computation-with-formulas">Computation with formulas</h2>
+<p>The demos so far have shown straightforward tweaks that provide useful conveniences with little effort. But Wildcard also supports more sophisticated tweaks that fetch external data and perform computations, using a formula language.</p>
+<p>When traveling without a car, it’s nice to evaluate potential places to stay based on how walkable the surroundings. Using Wildcard formulas, we can integrate Airbnb with Walkscore, an API that can rate the walkability of any location on a 1-100 scale. When we call the <code>WALKSCORE</code> formula with the latitude and longitude of the listing, it returns the score as the cell value. Because the cell is shown in the page, the score also shows up in the page body.</p>
+<video width="100%" controls="controls" preload="auto" muted="muted" src="media/walkscore.mp4#t=0.1" muted playsinline controls class>
+</video>
+<p>Wildcard formulas are just Javascript functions that take table data as input and return new data. Formulas can have limited side effects like accessing external APIs to fetch data, but do not directly manipulate the page. Instead, they return data into the table, which is then injected into the page with the same mechanism used for injecting user annotations.</p>
+<h2 id="custom-ui-elements">Custom UI elements</h2>
+<p>It might seem that Wildcard is only useful on websites that display lists of tabular data like search results. But in fact, the table metaphor is flexible enough to represent many types of data. For example, a form can be represented as a single row, with a column for each input.</p>
+<video width="100%" controls="controls" preload="auto" muted="muted" src="media/expedia-table.mp4#t=0.1" muted playsinline controls class>
+</video>
+<p>In previous examples the data extracted from the site was marked as read-only (it’s not allowed to change the name of an Airbnb listing), but in this case, the cells are marked as writable, so that changes in the table are reflected in the original form. This becomes particularly useful when combined with custom cell editing UIs, which allow users to graphically edit the value of a cell.</p>
+<p>Here’s an example of using those features to help with filling in a form. Filling in dates for a flight search typically requires opening up a separate calendar app to look up the correct dates, and then manually copying them into the form. In Wildcard, we can make this easier by editing the date cell using a datepicker widget that has privileged access to our calendar information.</p>
+<video width="100%" controls="controls" preload="auto" muted="muted" src="media/datepicker.mp4#t=0.1" muted playsinline controls class>
+</video>
+<p>Custom UIs enable people to use a consistent UI to enter common types of data across the web. They also allow a user to access their own private data as part of a web interface, without needing to expose it to the website server.</p>
+<p>Overall, an interactive data table is a computation model that presents a surprisingly large range of useful possibilities for end user modification of websites, while also remaining familiar and easy to use. While we’ve presented concretely illustrated here just a few of these possibilities, we plan to continue developing site adapters, formulas, and UI elements to explore more use cases, and to eventually publicly release the tool to allow real end users to discover their own uses.</p>
+<h1 id="system-architecture">System Architecture</h1>
+<p>Wildcard is written in Typescript. It is currently injected into pages using the <a href="https://www.tampermonkey.net/">Tampermonkey</a> userscript manager, but in the future we plan to deploy it as a standalone browser extension to make it easier to install.</p>
+<p>In order to maximize extensibility, Wildcard is implemented as a small core program along with several types of plugins: site adapters, formulas, and cell renderers/editors. The core contains functionality for displaying the data table and handling user interactions, and the table implementation is built using the <a href="https://handsontable.com/">Handsontable</a> Javascript library.</p>
+<figure>
+<img src="media/architecture-clean.png" alt="" /><figcaption>The architecture of the Wildcard system</figcaption>
+</figure>
+<p>Site adapters specify the bidirectional connection between the web page and its structured data representation.</p>
+<p>For extracting data from the page and getting it into structured form, Wildcard provides ways to concisely and declaratively express scraping logic. For example, here is a code snippet for extracting the name of an Airbnb listing. It specifies the field name and some metadata properties, and then a function that extracts the name div from a row div.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb1-1"><a href="#cb1-1"></a>  <span class="op">{</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>    fieldName<span class="op">:</span> <span class="st">&quot;name&quot;</span><span class="op">,</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>    readOnly<span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a>    type<span class="op">:</span> <span class="st">&quot;text&quot;</span><span class="op">,</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a>    el<span class="op">:</span> (row) <span class="kw">=&gt;</span> <span class="va">row</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="vs">`.</span><span class="sc">${</span>titleClass<span class="sc">}</span><span class="vs">`</span>)<span class="op">,</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a>  <span class="op">}</span></span></code></pre></div>
+<p>The site adapter also needs to support the reverse direction: sending updates from the table to the original page. Most DOM manipulation is not performed directly by the site adapter: the adapter specifies how to find the divs representing data rows, and the core platform mutates the DOM to reflect the table state. The only exception is site-specific actions (like favoriting in Airbnb) which runs Javascript code that can mutate the DOM or perform other arbitrary behaviors.</p>
+<p>So far we have only implemented three site adapters in Wildcard, but we plan to implement many more in the near future to continue to test the limits of the API. Eventually we will also encourage third party programmers to build, maintain, and distribute adapters for popular sites.</p>
 <h1 id="design-principles">Design principles</h1>
-<p>The design of Wildcard is grounded in several principles, informed by prior work and our own experimentation. We hope you find these principles helpful not only for understanding our prototype, but also for designing other systems for end user programming.</p>
-<p><em>Todo: add diagrams illustrating principles</em></p>
+<p>The design of Wildcard is grounded in several principles, informed by prior work and our own experimentation. We think these principles can also more generally inform the design of end user programming, particularly systems enabling users to modify GUI apps.</p>
 <h2 id="decouple-ui-from-data">Decouple UI from data</h2>
-<p>Most software does not allow users to choose their own UI elements, even for common data types. If a website provides a datepicker widget, you have no ability to provide your own replacement datepicker, with your preferred design or with privileged access to your private calendar data. This forces users to learn many different interfaces of varying quality for similar tasks. Some websites have APIs to allow users to access the data underlying the UI, but in addition to requiring programming, these are heavyweight tools more fit for batch exports or building entire new clients than for casual UI modification.</p>
-<p>In Wildcard, a user gets access to a view of the underlying data in the page, and can choose their own interfaces to view and modify the data. The Expedia datepicker demo showed one example of how this can be useful, but we also envision creating other widgets for visualizing and editing data. Some examples would be showing geographic data in a custom map that includes the user’s own annotations, or editing a blog post in a rich text editor of the user’s choice.</p>
-<p>One benefit of decoupling data from interfaces is improved UI quality. When UI widgets can compete on their merits rather than based on network effects from the data they have access to, it creates much stronger competition at the interface level. For example, there is competition among email clients (which consume an open protocol), but not among Facebook or Twitter clients. This benefit relates to the SOLID project led by Tim Berners-Lee <span class="citation" data-cites="berners-lee2018">[<a href="#ref-berners-lee2018" role="doc-biblioref">2</a>]</span>, which envisions user-controlled data as a mechanism for decoupling data from interfaces, e.g. giving users a choice of which client to use to consume a given social media feed. Wildcard has overlapping goals with SOLID, but does not require decentralized user control of data—the data can remain on a centralized server, as long as the interface can be tweaked by end users.</p>
-<p>Another benefit of decoupling data from UI is that it becomes possible to use the same consistent interface across many applications. For example, many programmers become deeply familiar with one text editor and use it for many different kinds of tasks, even as an interactive input mechanism in the shell (e.g. for editing git commit messages). The ability to generically reuse the text editor in many contexts makes it worth investing time in mastering the tool. Beaudouin-Lafon and Mackay refer to this ability to use a UI tool in many contexts as <em>polymorphic</em> interaction <span class="citation" data-cites="beaudouin-lafon2000">[<a href="#ref-beaudouin-lafon2000" role="doc-biblioref">1</a>]</span>, noting that it is a useful technique for keeping interfaces simple while increasing their power. diSessa also <span class="citation" data-cites="disessa2000">[<a href="#ref-disessa2000" role="doc-biblioref">4</a>]</span> notes that there is a connection between polymorphism and the idea of literacy in a medium: textual literacy rests on a single rich medium of writing which can be adapted to many different genres and uses.</p>
+<p>Most software does not allow users to choose their own UI elements, even for common data types. If a website provides a datepicker widget, you have no ability to provide your own replacement datepicker, with your preferred design or with privileged access to your private calendar data. This forces users to learn many different interfaces of varying quality for similar tasks. Some websites have APIs to allow users to access the data underlying the UI, but in addition to requiring programming skills, these are heavyweight tools better suited for designing an entirely new client from scratch rather than modifying an existing client.</p>
+<p>In Wildcard, a user can see a view of the underlying data in the page, and can choose their own interfaces to view and modify the data. The Expedia datepicker demo showed one example of how this can be useful, but we also envision creating other widgets for visualizing and editing data. Some examples would be showing geographic data in a custom map that includes the user’s own annotations, or editing a blog post in a rich text editor of the user’s choice.</p>
+<p>One benefit of decoupling data from interfaces is improved UI quality. When UI widgets can compete on their merits rather than based on network effects from the data they have access to, it creates much stronger competition at the interface level. For example, there is competition among email clients (which consume an open protocol), but not among Facebook or Twitter clients. This benefit relates to the SOLID project led by Tim Berners-Lee <span class="citation" data-cites="berners-lee2018">[<a href="#ref-berners-lee2018" role="doc-biblioref">4</a>]</span>, which envisions user-controlled data as a mechanism for decoupling data from interfaces, e.g. giving users a choice of which client to use to consume a given social media feed. Wildcard has overlapping goals with SOLID, but does not require decentralized user control of data—the data can remain on a centralized server, as long as the interface can be tweaked by end users.</p>
+<p>Another benefit of decoupling data from UI is that it becomes possible to use the same consistent interface across many applications. For example, many programmers become deeply familiar with one text editor and use it for many different kinds of tasks, even as an interactive input mechanism in the shell (e.g. for editing git commit messages). The ability to generically reuse the text editor in many contexts makes it worth investing time in mastering the tool. Beaudouin-Lafon and Mackay refer to this ability to use a UI tool in many contexts as <em>polymorphic</em> interaction <span class="citation" data-cites="beaudouin-lafon2000">[<a href="#ref-beaudouin-lafon2000" role="doc-biblioref">2</a>]</span>, noting that it is a useful technique for keeping interfaces simple while increasing their power. diSessa also <span class="citation" data-cites="disessa2000">[<a href="#ref-disessa2000" role="doc-biblioref">8</a>]</span> notes that there is a connection between polymorphism and the idea of literacy in a medium: textual literacy rests on a single rich medium of writing which can be adapted to many different genres and uses.</p>
 <p><em>Note: Maybe could relate this section to Concept Reuse?</em></p>
 <h2 id="expose-structure">Expose structure</h2>
-<p>In <em>Changing Minds</em> <span class="citation" data-cites="disessa2000">[<a href="#ref-disessa2000" role="doc-biblioref">4</a>]</span>, Andrea diSessa critiques the design of modern software with a story about a hypothetical “nightmare bike.” Each gear on the nightmare bike is labeled not with a number, but with an icon describing its intended use: smooth pavement uphill, smooth pavement downhill, gravel, etc. This might seem more “user-friendly” than numbered gears, but in fact, it makes it harder to operate the bike. A numerical sequence allows the user to develop intuition for the structure of the system, but isolated modes provide a superficial understanding with no grounding in structure. This understanding might be sufficient for the most common cases but breaks down in unfamiliar situations. If someone needs to go uphill on gravel, do they need to try every mode at random?</p>
+<p>In <em>Changing Minds</em> <span class="citation" data-cites="disessa2000">[<a href="#ref-disessa2000" role="doc-biblioref">8</a>]</span>, Andrea diSessa critiques the design of modern software with a story about a hypothetical “nightmare bike.” Each gear on the nightmare bike is labeled not with a number, but with an icon describing its intended use: smooth pavement uphill, smooth pavement downhill, gravel, etc. This might seem more “user-friendly” than numbered gears, but in fact, it makes it harder to operate the bike. A numerical sequence allows the user to develop intuition for the structure of the system, but isolated modes provide a superficial understanding with no grounding in structure. This understanding might be sufficient for the most common cases but breaks down in unfamiliar situations. If someone needs to go uphill on gravel, do they need to try every mode at random?</p>
 <p>Many modern software designs fall into this trap, teaching users to use isolated modes rather than coherent structure, and the problem gets far worse when operating across multiple applications. Unlike the UNIX philosophy of small tools interoperating through shared abstractions, in modern computing each application is in its own silo of data and functionality.</p>
 <p>Wildcard helps people understand and modify the behavior of applications through the lens of a consistent abstraction: a data table. This abstraction strikes a balance between being both simple and generic. A data table is simpler than the DOM tree that describes the details of the UI, but is also generic enough to describe the essence of many different kinds of applications.</p>
-<p>Creating a structured abstraction to represent a web page is a deliberate choice, and is not the only way to enable users to modify websites without directly accessing the DOM. Systems like Chickenfoot <span class="citation" data-cites="bolin2005">[<a href="#ref-bolin2005" role="doc-biblioref">3</a>]</span> and CoScripter <span class="citation" data-cites="leshed2008">[<a href="#ref-leshed2008" role="doc-biblioref">6</a>]</span> allow users to create scripts in an informal language and then perform fuzzy pattern matching to find elements in the DOM. For example, to find a button after a textbox in Chickenfoot, the user could type <code>click(find(“button just after textbox”))</code>. These designs allow for expressing a wide range of operations, but they don’t explicitly indicate what operations are possible—the user can only see the original page and imagine the possibilities. In contrast, Wildcard provides affordances that clearly suggest the availability of certain actions (e.g. sorting, editing a cell, adding a column with a derived value), especially to users who are familiar with spreadsheets. In addition to giving users more certainty about whether a modification is possible, these affordances might give users new ideas for things to try. Just as graphical interfaces better communicate the space of possible actions than command line interfaces, Wildcard aims to clearly communicate the space of possible modifications.</p>
+<p>Creating a structured abstraction to represent a web page is a deliberate choice, and is not the only way to enable users to modify websites without directly accessing the DOM. Systems like Chickenfoot <span class="citation" data-cites="bolin2005">[<a href="#ref-bolin2005" role="doc-biblioref">5</a>]</span> and CoScripter <span class="citation" data-cites="leshed2008">[<a href="#ref-leshed2008" role="doc-biblioref">17</a>]</span> allow users to create scripts in an informal language and then perform fuzzy pattern matching to find elements in the DOM. For example, to find a button after a textbox in Chickenfoot, the user could type <code>click(find(“button just after textbox”))</code>. These designs allow for expressing a wide range of operations, but they don’t explicitly indicate what operations are possible—the user can only see the original page and imagine the possibilities. In contrast, Wildcard provides affordances that clearly suggest the availability of certain actions (e.g. sorting, editing a cell, adding a column with a derived value), especially to users who are familiar with spreadsheets. In addition to giving users more certainty about whether a modification is possible, these affordances might improve discoverability and give users new ideas for things to try.</p>
 <h2 id="direct-manipulation-of-an-alternate-representation">Direct manipulation of an alternate representation</h2>
 <p>In Wildcard, users manipulate an alternate representation of a web page. The interaction with the data table is direct like using a spreadsheet, but the interaction with the page is indirectly mediated through the table.</p>
 <p>We considered other approaches where the user would interact more directly with the original UI, e.g. injecting sort controls into the page, but decided that the table view had advantages that justified the cost of adding a layer of indirection:</p>
@@ -130,68 +236,130 @@ padding: 10px; margin: 20px 0 0 0;">In-progress DRAFT. Please don't distribute!<
 </tbody>
 </table>
 <p>We can evaluate a system for modifying software along two dimensions. First, the technical capability required of the user: is programming knowledge needed? Second, the level of effort required: how far out of their way the user must go to make a change? Can they casually make a small change, or do they need to make a larger project out of it? These dimensions are not orthogonal, but they are distinct. For example, setting up a workflow trigger in an end user programming system like <a href="https://ifttt.com/">IFTTT</a> does not require much technical skill, but it does require leaving the user’s normal software and entering a separate environment. On the other hand, running a Javascript snippet in the browser console requires programming skills, but can be done immediately and casually in the flow of using a website.</p>
-<p>In addition to requiring no programming skills, Wildcard also aims to support frequent, small modifications. The Wildcard table appears in the course of normal web browsing, to ensure that the tools for modification are close at hand while using the original software. Ink and Switch refers to this property as having an “in-place toolchain” <span class="citation" data-cites="inkandswitch2019">[<a href="#ref-inkandswitch2019" role="doc-biblioref">5</a>]</span>.</p>
+<p>In addition to requiring no programming skills, Wildcard also aims to support frequent, small modifications. The Wildcard table appears in the course of normal web browsing, to ensure that the tools for modification are close at hand while using the original software. Ink and Switch refers to this property as having an “in-place toolchain” <span class="citation" data-cites="inkandswitch2019">[<a href="#ref-inkandswitch2019" role="doc-biblioref">14</a>]</span>.</p>
 <p>We also try to make simple changes possible with particularly low effort, like being able to sort a table in a single click. This property is inspired by spreadsheets, which can be useful even to someone who has learned only a small part of their functionality. In contrast, many traditional programming systems require someone to learn many complex concepts just to perform a simple task (e.g., needing to learn what <code>public static void main</code> means to write a Hello World program in Java).</p>
 <h2 id="first-party-cooperation-optional">First party cooperation optional</h2>
-<p>The Web is an unusually extensible platform. On many other platforms (e.g. smartphone operating systems), software is locked down unless first-party developers explicitly provide hooks for plugins and interoperability, but on the Web, all client-side code is available for browser extensions to modify. Application authors can use practices that make it easier to modify their apps (e.g. clean semantic markup), or more difficult (e.g. code obfuscation), but the default state is openness. This gives extensions freedom to modify applications in creative ways that the original developers did not plan for.</p>
+<p>The Web is an unusually extensible platform. On many other platforms (e.g. smartphone operating systems), software is locked down unless first-party developers explicitly provide hooks for plugins and interoperability, but on the Web, all client-side code is available for browser extensions to modify. Application authors can use practices that make it easier to modify their apps (e.g. clean semantic markup), or more difficult (e.g. code obfuscation), but the default state is openness. This gives extensions freedom to modify applications in creative ways that the original developers did not plan for. At the most extreme, this can even include modifications like ad blocking that are hostile to the desires of the original developers (a notion Cory Doctorow calls <a href="https://www.eff.org/deeplinks/2019/10/adversarial-interoperability/">adversarial interoperability</a>), but there are also many other changes which are not actively hostile, merely falling outside the range of possibilities originally imagined by the developer.</p>
 <p>Wildcard takes advantage of this openness, and does not depend on cooperation from first-party website developers. Any programmer can add support for any website to Wildcard by building a third party adapter. This design decision acknowledges the pragmatic need to interoperate with current websites, but we hope that eventually first party website developers will build in Wildcard support to their applications, since this would reduce the burden of maintaining adapters and make Wildcard plugins more stable.</p>
-<p>Implementing the Wildcard adapter API could help developers by allowing users to fix some of their own issues, particularly idiosyncratic use cases that the first party developer would never plan to prioritize. Supporting Wildcard could be straightforward in a typical client-side application that already has access to a structured version of the data in the page. And while some developers might hesitate to promote extensibility in their clients to avoid unwanted changes, the most common problem of users blocking ads is already ground well trod by existing browser extensions. There is also precedent for first parties implementing an official client extension API in response to user demand: for several years, Google maintained an official extension API in Gmail for Greasemonkey scripts to use. (Incidentally, since then, third parties have continued to maintain Gmail extension APIs used by many Gmail browser extensions <span class="citation" data-cites="streak talwar2019">[<a href="#ref-streak" role="doc-biblioref">7</a>, <a href="#ref-talwar2019" role="doc-biblioref">8</a>]</span>, illustrating the value of collaboratively maintaining third party adapters.)</p>
+<p>Implementing the Wildcard adapter API could help developers by allowing users to fix some of their own issues, particularly idiosyncratic use cases that the first party developer would never plan to prioritize. Supporting Wildcard could be straightforward in a typical client-side application that already has access to a structured version of the data in the page. And while some developers might hesitate to promote extensibility in their clients to avoid unwanted changes, the most common problem of users blocking ads is already ground well trod by existing browser extensions. There is also precedent for first parties implementing an official client extension API in response to user demand: for several years, Google maintained an official extension API in Gmail for Greasemonkey scripts to use. (Incidentally, since then, third parties have continued to maintain Gmail extension APIs used by many Gmail browser extensions <span class="citation" data-cites="streak talwar2019">[<a href="#ref-streak" role="doc-biblioref">20</a>, <a href="#ref-talwar2019" role="doc-biblioref">21</a>]</span>, illustrating the value of collaboratively maintaining third party adapters.)</p>
+<h2 id="collaboration-over-automation">Collaboration over automation</h2>
+<p>The architecture of Wildcard requires site adapters to abstract the low level representation of a web page into a higher-level, structured representation that is easier for end users to work with. Many web scraping research systems have either automated this process entirely using heuristics, or created interactive workflows for end users to specify the translation. In Wildcard, we take a different approach: programmers manually code site adapters.</p>
+<p>This decision is partially a pragmatic one—we haven’t had time to incorporate sophisticated automation yet, and we may choose to do so in the future. But it is also a principled decision. Automated approaches tend to work much of the time but not all of the time <span class="citation" data-cites="bolin2005">[<a href="#ref-bolin2005" role="doc-biblioref">5</a>]</span> <span class="citation" data-cites="little2010">[<a href="#ref-little2010" role="doc-biblioref">18</a>]</span>. In contrast, human programmers have been able to maintain very stable scraping libraries, even for complex sites like Gmail <span class="citation" data-cites="streak talwar2019">[<a href="#ref-streak" role="doc-biblioref">20</a>, <a href="#ref-talwar2019" role="doc-biblioref">21</a>]</span>. We are willing to trade off lower site coverage in return for more reliable results on the sites that are covered, because this builds confidence for users about where they can expect Wildcard to work.</p>
+<p>We see this architecture as a form of collaboration between programmers and end users. In the wild, spreadsheets are built collaboratively by users with different levels of technical expertise: some users write simple formulas, while others help write more complex formulas or even macros <span class="citation" data-cites="nardi1990">[<a href="#ref-nardi1990" role="doc-biblioref">19</a>]</span>. Even though some parts of the collaboration require more expertise, even users with little expertise are still empowered to perform much of the work themselves, which differs radically from custom software development where coding expertise is table stakes for making any contributions. Similarly, we envision multiple layers of Wildcard usage depending on technical expertise:</p>
+<ul>
+<li>only using sorting/filtering/annotation, with no computation of any kind</li>
+<li>writing simple formulas to fetch new data</li>
+<li>composing complex formulas that perform more advanced computation</li>
+<li>using Javascript to create or maintain site adapters, formulas, or cell editors</li>
+</ul>
 <h1 id="related-work">Related work</h1>
-<p><em>Note: a lot of this was already covered above; how to deal with that?</em></p>
+<p>Many projects have explored end user customization of web applications, but it has not become a common activity in the wild. We suspect that so far no system has found the right combination of utility, ease of use, and robustness required for widespread adoption. Wildcard aims to build on lessons learned from this body of work, employing a novel approach of using a familiar spreadsheet table to go about the task of modifying the UI of an existing web application. Here we describe some of the areas of related work, and how Wildcard builds on them.</p>
+<h2 id="malleable-software">Malleable software</h2>
+<p>In the broadest sense, Wildcard is inspired by systems aiming to make software into a dynamic medium where end users frequently create and modify software to meet their own needs, rather than accepting pre-built applications built by programmers. These systems include Smalltalk <span class="citation" data-cites="kay1977">[<a href="#ref-kay1977" role="doc-biblioref">15</a>]</span>, Hypercard <span class="citation" data-cites="hypercard2019">[<a href="#ref-hypercard2019" role="doc-biblioref">13</a>]</span>, Boxer <span class="citation" data-cites="disessa1986">[<a href="#ref-disessa1986" role="doc-biblioref">9</a>]</span>, Webstrates <span class="citation" data-cites="klokmose2015">[<a href="#ref-klokmose2015" role="doc-biblioref">16</a>]</span>, and Dynamicland <span class="citation" data-cites="victor">[<a href="#ref-victor" role="doc-biblioref">22</a>]</span>. (The project’s name Wildcard comes from the internal pre-release name for Hypercard, which promoted software modification by end users and was a precursor to the modern Web.)</p>
+<p>These projects generally require building new software from scratch for that environment. This provides a great deal of flexibility, but also means they are not compatible with existing software and require wholesale adoption. In contrast, Wildcard takes a pragmatic approach of enabling people to tweak the software they already use.</p>
+<h2 id="web-augmentation">Web augmentation</h2>
+<p>Wildcard’s goals are closely shared with other browser extensions which provide panels to augment and modify a website in the context of using the site.</p>
+<p>Sifter <span class="citation" data-cites="huynh2006">[<a href="#ref-huynh2006" role="doc-biblioref">11</a>]</span> enables users to sort and filter lists of data on web pages by converting the data into a structured format, providing a result similar to Wildcard’s sort and filter functionality. The mechanism is different, though: Sifter uses a combination of automated heuristics and interactive user feedback to extract data, whereas Wildcard currently relies on programmers creating wrappers for extracting structured data, probably leading to higher quality extraction but on fewer sites. Also, Wildcard aims for much broader functionality than just sorting and filtering, and shows the structured table view of the data to facilitate these other interactions, whereas Sifter just shows sort controls and never reveals the underlying data table.</p>
+<p>“Sloppy programming” <span class="citation" data-cites="little2010">[<a href="#ref-little2010" role="doc-biblioref">18</a>]</span> tools like Chickenfoot <span class="citation" data-cites="bolin2005">[<a href="#ref-bolin2005" role="doc-biblioref">5</a>]</span> and Coscripter <span class="citation" data-cites="leshed2008">[<a href="#ref-leshed2008" role="doc-biblioref">17</a>]</span> enable users to create scripts that perform actions like filling in text boxes and clicking buttons, without directly interacting with the DOM. Users express the desired page elements in natural, informal terms (e.g. writing “the username box” to represent the textbook closest to the label “username”), and then using heuristics to determine which elements most likely match the user’s intent. This approach allows for expressing a wide variety of commands with minimal training, but it also has downsides. It is difficult to know whether a command will consistently work over time (in addition to changes to the website, changes to the heuristics can also cause problems), and it is not easy for users to discover the space of possible commands.</p>
+<p>Wildcard offers a sharp contrast to sloppy programming, instead choosing to expose a high degree of structure through the familiar spreadsheet table, which offers the reverse set of tradeoffs: more robust behavior, but in a narrower domain. Wildcard offers more consistency (e.g., clicking a sort header will always work correctly as long as the site adapter is maintained) and offers clearer affordances for what types of actions are possible (or, crucially, what actions are <em>not</em> possible, which is very useful for users to know). On the other hand, Wildcard cannot offer coverage of all websites, and has a narrower range of possible actions than sloppy tools. Still, we hope that with enough site adapters and formulas, these downsides can be mitigated, and that the benefits of structure outweigh these costs.</p>
+<h2 id="spreadsheet-based-app-builders">Spreadsheet-based app builders</h2>
+<p>It is a powerful realization to notice that a spreadsheet can serve as an end-user-friendly backing data store and computation layer for an interactive web application. Research projects like Quilt <span class="citation" data-cites="benson2014">[<a href="#ref-benson2014" role="doc-biblioref">3</a>]</span>, Gneiss <span class="citation" data-cites="chang2014">[<a href="#ref-chang2014" role="doc-biblioref">6</a>]</span>, and Marmite <span class="citation" data-cites="wong2007">[<a href="#ref-wong2007" role="doc-biblioref">23</a>]</span>, as well as commercial tools like Airtable Blocks <span class="citation" data-cites="zotero-79">[<a href="#ref-zotero-79" role="doc-biblioref">24</a>]</span> and Glide <span class="citation" data-cites="zotero-81">[<a href="#ref-zotero-81" role="doc-biblioref">25</a>]</span> allow users to view data in a spreadsheet table, compute over the data using formulas, and connect the table to a GUI. Because many users are already familiar with using spreadsheets, this way of creating applications tends to be much easier than traditional software methods; for example, in a user study of Quilt, many people were able to create applications in under 10 minutes, even if they expected it would take them many hours.</p>
+<p>Wildcard builds on this powerful idea, but applies it to modifying existing applications, rather than building new applications from scratch. For many people, we suspect that tweaking existing applications provides more motivation as a starting point for programming than creating a new application from scratch.</p>
+<p>An important design decision for tools in this space is how far to deviate from traditional spreadsheets, and in what ways. Quilt and Glide use existing web spreadsheet software as a backend, providing maximum familiarity and compatibility with existing spreadsheets, but other projects branch out in various ways. Gneiss has its own spreadsheet with additional features useful for building GUIs. Marmite provides a live data view that resembles a spreadsheet, but programming is actually done using a separate data flow pane rather than spreadsheet formulas, which led to some confusion in a user study among users who expected behavior more similar to spreadsheets <span class="citation" data-cites="wong2007">[<a href="#ref-wong2007" role="doc-biblioref">23</a>]</span>. Airtable offers a relational database with formula support in a spreadsheet-style direct manipulation interface, a combination which has found commercial success. Wildcard’s table is most similar to Airtable, aiming to offer the structure of a relational table, but to keep the notion of pure reactive formulas from spreadsheets rather than introducing a separate programming model outside of the table.</p>
+<p>Quilt also raised the hypothetical idea of “web worksheets” in spreadsheets: small HTML UIs inside of a spreadsheet table to help users edit data or formulas in a more domain-specific interface. This is similar to Wildcard’s notion of cell editors.</p>
+<h2 id="web-scraping-data-extraction">Web scraping / data extraction</h2>
+<p>Web scraping tools focus on extracting structured data out of unstructured web pages. Web scraping is closely related to the implementation of Wildcard, but has very different goals: web scraping extracts static data for processing in another environment, whereas Wildcard supports modification of the original page by maintaining a bidirectional connection between the extracted data and the page.</p>
+<p>Web scraping tools differ in how much structure they attempt to map onto the data. Some tools like Rousillon <span class="citation" data-cites="chasins2018">[<a href="#ref-chasins2018" role="doc-biblioref">7</a>]</span> extract data in a minimally structured relational format; other tools like Piggy Bank <span class="citation" data-cites="huynh2005">[<a href="#ref-huynh2005" role="doc-biblioref">12</a>]</span> or Thresher <span class="citation" data-cites="hogue2005">[<a href="#ref-hogue2005" role="doc-biblioref">10</a>]</span> more ambitiously map the data to a Semantic Web schema. In Wildcard, we chose to avoid rich schemas, in order to reduce the work associated with creating a site adapter.</p>
+<h1 id="limitations-and-future-work">Limitations and future work</h1>
+<p>Wildcard is still in early development; there are still many limitations to resolve and open questions to explore.</p>
+<p>The most important question is whether the combination of features provided by Wildcard can actually be combined in enough useful ways to make the system worth using in practice. We plan to test this by first continuing to privately test the system with our own needs, and eventually by shipping the system publicly, once the API is stable enough and we have developed enough site adapters and formulas to support a critical mass of sites and use cases.</p>
+<p>Here are a few of the most pressing limitations in the current system:</p>
 <ul>
-<li>Malleable software: Kay, Webstrates</li>
-<li>Instrumental interaction, polymorphic UI</li>
-<li>Web automation: Chickenfoot, CoScripter</li>
-<li>Wrapper induction: Thresher, Helena</li>
-<li>Personal data ownership: SOLID</li>
-<li>Extension helper libraries, e.g. Gmail.js.</li>
+<li>Wildcard only extracts data on the page, which means that subsequent pages of results in paginated lists are not included in the table. (Sifter explains <span class="citation" data-cites="huynh2006">[<a href="#ref-huynh2006" role="doc-biblioref">11</a>]</span> techniques that might help get around this.)</li>
+<li>There is no mechanism for end users to express imperative workflows (e.g. “click this button, and then…”); they can only write formulas that return data and then inject the resulting data into the page. While this makes the system simpler, it also may exclude many valuable use cases.</li>
+<li>Wildcard’s data model expresses a single table at a time, without any notion of relationships between tables. A UI like SIEUFERD <span class="citation" data-cites="bakke2016">[<a href="#ref-bakke2016" role="doc-biblioref">1</a>]</span> might help to visualize joins between tables.</li>
+<li>Only allowing site adapters to be manually coded means that the number of supported sites is limited. We may explore also building wrappers using automated heuristics.</li>
 </ul>
-<h1 id="future-work">Future work</h1>
-<ul>
-<li>limitations / future ideas
-<ul>
-<li>the spreadsheet language is very primitive, can we make it more expressive? what are the exact semantics of fetching data from APIs? What about making API requests that do mutation, not just fetching data?</li>
-<li>only works when the user is browsing. Should we explore triggers, scheduled scraping?</li>
-<li>only has spreadsheet-style functional transformations. Should we explore imperative workflows? Injecting buttons into pages that do things? (Eg, imagine a “save to google maps” button that you can inject into a page)</li>
-<li>limited options for how to style injected content, could explore styling (eg, maybe you can restyle a table cell and the styling is reflected when it’s injected into the page?)</li>
-</ul></li>
-<li>still in early development; note the beta release plan (tentative: target public beta availability at the workshop in March?)</li>
-<li>Could explore automated wrapper induction, building on prior work</li>
-<li>Want to get more real usage of the tool and run usability studies</li>
-<li>Include a link to sign up for future updates</li>
-</ul>
+<h1 id="conclusion">Conclusion</h1>
+<p>We live in a time of pessimism about the effects of the internet and software. At times it seems like there is no way out of the mess, but we think that one promising solution is to enable more people to have deeper control over the software they use every day. The Web offers an open foundation that browser extensions have capitalized on, but even this has only empowered users within the limited confines of the ideas that programmers have been able to think of.</p>
+<p>In this paper, we have presented Wildcard, a general-purpose browser extension that gives end users more freedom to mold web applications to meet their needs. To receive future updates on Wildcard and notifications about a public release, sign up for the email newsletter.</p>
 <h1 class="unnumbered" id="bibliography" class="unnumbered">References</h1>
 <div id="refs" class="references" role="doc-bibliography">
+<div id="ref-bakke2016">
+<p>[1] Bakke, E. and Karger, D.R. 2016. Expressive Query Construction through Direct Manipulation of Nested Relational Results. <em>Proceedings of the 2016 International Conference on Management of Data - SIGMOD ’16</em> (San Francisco, California, USA, 2016), 1377–1392.</p>
+</div>
 <div id="ref-beaudouin-lafon2000">
-<p>[1] Beaudouin-Lafon, M. and Mackay, W.E. 2000. Reification, Polymorphism and Reuse: Three Principles for Designing Visual Interfaces. <em>Proceedings of the Working Conference on Advanced Visual Interfaces</em> (New York, NY, USA, 2000), 102–109.</p>
+<p>[2] Beaudouin-Lafon, M. and Mackay, W.E. 2000. Reification, Polymorphism and Reuse: Three Principles for Designing Visual Interfaces. <em>Proceedings of the Working Conference on Advanced Visual Interfaces</em> (Palermo, Italy, 2000), 102–109.</p>
+</div>
+<div id="ref-benson2014">
+<p>[3] Benson, E. et al. 2014. Spreadsheet driven web applications. <em>Proceedings of the 27th annual ACM symposium on User interface software and technology - UIST ’14</em> (Honolulu, Hawaii, USA, 2014), 97–106.</p>
 </div>
 <div id="ref-berners-lee2018">
-<p>[2] Berners-Lee, T. 2018. One Small Step for the Web…. <em>Medium</em>. https://medium.com/@timberners_lee/one-small-step-for-the-web-87f92217d085.</p>
+<p>[4] Berners-Lee, T. 2018. One Small Step for the Web…. <em>Medium</em>. https://medium.com/@timberners_lee/one-small-step-for-the-web-87f92217d085.</p>
 </div>
 <div id="ref-bolin2005">
-<p>[3] Bolin, M. et al. 2005. Automation and customization of rendered web pages. <em>Proceedings of the 18th annual ACM symposium on User interface software and technology - UIST ’05</em> (Seattle, WA, USA, 2005), 163.</p>
+<p>[5] Bolin, M. et al. 2005. Automation and customization of rendered web pages. <em>Proceedings of the 18th annual ACM symposium on User interface software and technology - UIST ’05</em> (Seattle, WA, USA, 2005), 163.</p>
+</div>
+<div id="ref-chang2014">
+<p>[6] Chang, K.S.-P. and Myers, B.A. 2014. Creating interactive web data applications with spreadsheets. <em>Proceedings of the 27th annual ACM symposium on User interface software and technology - UIST ’14</em> (Honolulu, Hawaii, USA, 2014), 87–96.</p>
+</div>
+<div id="ref-chasins2018">
+<p>[7] Chasins, S.E. et al. 2018. Rousillon: Scraping Distributed Hierarchical Web Data. <em>The 31st Annual ACM Symposium on User Interface Software and Technology - UIST ’18</em> (Berlin, Germany, 2018), 963–975.</p>
 </div>
 <div id="ref-disessa2000">
-<p>[4] diSessa, A.A. 2000. <em>Changing Minds: Computers, Learning, and Literacy</em>. MIT Press.</p>
+<p>[8] diSessa, A.A. 2000. <em>Changing Minds: Computers, Learning, and Literacy</em>. MIT Press.</p>
+</div>
+<div id="ref-disessa1986">
+<p>[9] diSessa, A.A. and Abelson, H. 1986. Boxer: A reconstructible computational medium. <em>Communications of the ACM</em>. 29, 9 (Sep. 1986), 859–868. DOI:<a href="https://doi.org/10.1145/6592.6595">https://doi.org/10.1145/6592.6595</a>.</p>
+</div>
+<div id="ref-hogue2005">
+<p>[10] Hogue, A. and Karger, D. 2005. Thresher: Automating the unwrapping of semantic content from the World Wide Web. <em>Proceedings of the 14th international conference on World Wide Web - WWW ’05</em> (Chiba, Japan, 2005), 86.</p>
+</div>
+<div id="ref-huynh2006">
+<p>[11] Huynh, D.F. et al. 2006. Enabling web browsers to augment web sites’ filtering and sorting functionalities. <em>Proceedings of the 19th annual ACM symposium on User interface software and technology - UIST ’06</em> (Montreux, Switzerland, 2006), 125.</p>
+</div>
+<div id="ref-huynh2005">
+<p>[12] Huynh, D. et al. 2005. Piggy Bank: Experience the Semantic Web Inside Your Web Browser. <em>The Semantic Web ISWC 2005</em> (Berlin, Heidelberg, 2005), 413–430.</p>
+</div>
+<div id="ref-hypercard2019">
+<p>[13] Hypercard 2019. HyperCard. <em>Wikipedia</em>. (Dec. 2019).</p>
 </div>
 <div id="ref-inkandswitch2019">
-<p>[5] Ink and Switch 2019. End-user programming. <em>Ink and Switch</em>.</p>
+<p>[14] Ink and Switch 2019. End-user programming. <em>Ink and Switch</em>.</p>
+</div>
+<div id="ref-kay1977">
+<p>[15] Kay, A. and Goldberg, A. 1977. Personal Dynamic Media. <em>Computer</em>. 10, 3 (Mar. 1977), 31–41. DOI:<a href="https://doi.org/10.1109/C-M.1977.217672">https://doi.org/10.1109/C-M.1977.217672</a>.</p>
+</div>
+<div id="ref-klokmose2015">
+<p>[16] Klokmose, C.N. et al. 2015. Webstrates: Shareable Dynamic Media. <em>Proceedings of the 28th Annual ACM Symposium on User Interface Software &amp; Technology - UIST ’15</em> (Daegu, Kyungpook, Republic of Korea, 2015), 280–290.</p>
 </div>
 <div id="ref-leshed2008">
-<p>[6] Leshed, G. et al. 2008. CoScripter: Automating &amp; Sharing How-to Knowledge in the Enterprise. <em>Proceedings of the SIGCHI Conference on Human Factors in Computing Systems</em> (New York, NY, USA, 2008), 1719–1728.</p>
+<p>[17] Leshed, G. et al. 2008. CoScripter: Automating &amp; Sharing How-to Knowledge in the Enterprise. <em>Proceedings of the SIGCHI Conference on Human Factors in Computing Systems</em> (Florence, Italy, 2008), 1719–1728.</p>
+</div>
+<div id="ref-little2010">
+<p>[18] Little, G. et al. 2010. Sloppy programming. <em>No Code Required</em>. Elsevier. 289–307.</p>
+</div>
+<div id="ref-nardi1990">
+<p>[19] Nardi, B.A. and Miller, J.R. 1990. An Ethnographic Study of Distributed Problem Solving in Spreadsheet Development. (1990), 197–208.</p>
 </div>
 <div id="ref-streak">
-<p>[7] Streak InboxSDK. https://www.inboxsdk.com/.</p>
+<p>[20] Streak InboxSDK. https://www.inboxsdk.com/.</p>
 </div>
 <div id="ref-talwar2019">
-<p>[8] Talwar, K. 2019. Gmail.Js. <em>GitHub</em>. https://github.com/KartikTalwar/gmail.js.</p>
+<p>[21] Talwar, K. 2019. Gmail.Js. <em>GitHub</em>. https://github.com/KartikTalwar/gmail.js.</p>
+</div>
+<div id="ref-victor">
+<p>[22] Victor, B. Dynamicland. https://dynamicland.org/.</p>
+</div>
+<div id="ref-wong2007">
+<p>[23] Wong, J. and Hong, J.I. 2007. Making mashups with marmite: Towards end-user programming for the web. <em>Proceedings of the SIGCHI Conference on Human Factors in Computing Systems - CHI ’07</em> (San Jose, California, USA, 2007), 1435–1444.</p>
+</div>
+<div id="ref-zotero-79">
+<p>[24] Airtable: Organize anything you can imagine. <em>Airtable</em>. https://airtable.com.</p>
+</div>
+<div id="ref-zotero-81">
+<p>[25] Create an App from a Google Sheet in Minutes <span class="math inline">⋅</span> Glide. https://www.glideapps.com/.</p>
 </div>
 </div>
-<section class="footnotes" role="doc-endnotes">
-<hr />
-<ol>
-<li id="fn1" role="doc-endnote"><p>Wildcard was the original internal name for Hypercard, which promoted both software modification by end users, and many of the ideas underlying the modern Web.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section>
 </body>
 </html>
