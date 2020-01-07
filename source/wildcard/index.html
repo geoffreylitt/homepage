@@ -100,14 +100,7 @@ padding: 10px; margin: 20px 0 0 0;">In-progress DRAFT. Please don't distribute!<
 <h2 id="toc-title">Contents</h2>
 <ul>
 <li><a href="#introduction">Introduction</a></li>
-<li><a href="#demos">Demos</a>
-<ul>
-<li><a href="#sorting-and-filtering">Sorting and filtering</a></li>
-<li><a href="#row-actions">Row actions</a></li>
-<li><a href="#user-annotations">User annotations</a></li>
-<li><a href="#computation-with-formulas">Computation with formulas</a></li>
-<li><a href="#custom-ui-elements">Custom UI elements</a></li>
-</ul></li>
+<li><a href="#demo-booking-a-trip-with-wildcard">Demo: booking a trip with Wildcard</a></li>
 <li><a href="#system-architecture">System Architecture</a></li>
 <li><a href="#design-principles">Design principles</a>
 <ul>
@@ -136,9 +129,8 @@ padding: 10px; margin: 20px 0 0 0;">In-progress DRAFT. Please don't distribute!<
 <p><em>Low floor, high ceiling</em>: We aim to provide a low barrier to entry so that non-programmers can casually use the system, but a high ceiling on the complexity it can achieve. Small but genuinely valuable tweaks like sorting a page are made possible with little effort in the flow of normal use to provide a low floor, and a rich formula system creates a high ceiling on possible modifications.</p>
 <p><em>Build for multiple tiers of users</em>: We aim to make Wildcard as easy as possible for end users, by designing roles for tiers of users with differing levels of technical sophistication. Programmers or tech-savvy end users are responsible for the data extraction step of mapping existing UIs to structured data. Most end users only interact with the structured data, providing a predictable and user-friendly experience.</p>
 <p>Wildcard is currently an early research prototype, with incomplete features and limited coverage of sites. We plan to continue privately testing the system with our own use cases, and then to release the tool publicly, enabling other programmers to contribute site adapters and other plugins. Ultimately, we hope that Wildcard makes modifying websites into a natural part of using the web, as ubiquitous as using spreadsheets in everyday computing.</p>
-<h1 id="demos">Demos</h1>
-<p>To get a sense of how it feels to use Wildcard, let’s see an example of using it to help with booking a trip using the travel sites Airbnb and Expedia.</p>
-<h2 id="sorting-and-filtering">Sorting and filtering</h2>
+<h1 id="demo-booking-a-trip-with-wildcard">Demo: booking a trip with Wildcard</h1>
+<p>To get a sense of how it might feel to use Wildcard, let’s see an example of someone using it to help with booking a trip on the travel sites Airbnb and Expedia.</p>
 <p>The user starts by opening up the Airbnb search listings page to look for a place to stay. The page looks nice and mostly works well, but is missing some key features. As mentioned before, this page doesn’t allow the user to sort by price. It also doesn’t let them filter by user rating. Using Wildcard, the user can add these small features, while leaving the page’s design and the rest of its functionality unchanged.</p>
 <p>First, the user opens up the Wildcard panel, which shows a table corresponding to the search results in the page. As they click around in the table, the corresponding row in the page is highlighted so they can see the connection between the views.</p>
 <video width="100%" controls="controls" preload="auto" muted="muted" src="media/table.mp4#t=0.1" muted playsinline controls class>
@@ -147,34 +139,25 @@ padding: 10px; margin: 20px 0 0 0;">In-progress DRAFT. Please don't distribute!<
 <video width="100%" controls="controls" preload="auto" muted="muted" src="media/sort-filter.mp4#t=0.1" muted playsinline controls class>
 </video>
 <p>Notice how after manipulating the data, the user was able to close the table view and continue using the website with its original visual design. The table view offers a way to change the data backing a page, but does not need to replace the original interface entirely.</p>
-<h2 id="row-actions">Row actions</h2>
 <p>Most websites that show lists of data also offer actions that can be taken on a row in the table, like adding an item to a shopping cart. Wildcard has the ability to make these actions available in the data table if the site adapter implements them. The main advantage this provides is the ability to easily perform an action in bulk across multiple rows.</p>
 <p>For example, it’s tedious on Airbnb to click on listings one by one to add them to a list of favorites. Using Wildcard, we can just select multiple rows and favorite all of them with one click. Similarly, we can also open the detailed pages for many listings in new tabs.</p>
 <video width="100%" controls="controls" preload="auto" muted="muted" src="media/favorite-open.mp4#t=0.1" muted playsinline controls class>
 </video>
-<h2 id="user-annotations">User annotations</h2>
-<p>It’s a common practice in spreadsheets to add a column next to a table for recording notes about the item in each row. In Wildcard, this pattern can be used to create private annotations in a website. Here, we use this feature to jot down pros and cons of various listings:</p>
+<p>Now the user would like to jot down some notes on the pros and cons of each listing. To do this, they can simply type notes into an additional column next to each listing, and the notes appear inside the listings in the original UI. These annotations are also persisted in the browser for future retrieval.</p>
 <video width="100%" controls="controls" preload="auto" muted="muted" src="media/annotate.mp4#t=0.1" muted playsinline controls class>
 </video>
-<p><em>drop the implementation part?</em></p>
-<p>In order to match the annotations with the existing design, the site adapter specifies a reasonable location in each row for injecting new data.</p>
-<p>Annotations are persisted in browser local storage so the user can come back and view them later. The site adapter associates each table row with a stable identifier from the original site so that annotations can be displayed with the appropriate item.</p>
-<p>Currently annotations are private to the browser of the user that created them, but it could be useful in the future to allow users to share annotations.</p>
-<h2 id="computation-with-formulas">Computation with formulas</h2>
-<p>The demos so far have shown straightforward tweaks that provide useful conveniences with little effort. But Wildcard also supports more sophisticated tweaks that fetch external data and perform computations, using a formula language.</p>
-<p>When traveling without a car, it’s nice to evaluate potential places to stay based on how walkable the surroundings. Using Wildcard formulas, we can integrate Airbnb with Walkscore, an API that can rate the walkability of any location on a 1-100 scale. When we call the <code>WALKSCORE</code> formula with the latitude and longitude of the listing, it returns the score as the cell value. Because the cell is shown in the page, the score also shows up in the page body.</p>
+<p>Wildcard also includes a formula language which enables more sophisticated tweaks that fetch external data and perform computations.</p>
+<p>When traveling without a car, it’s nice to evaluate potential places to stay based on how walkable the surroundings. Using Wildcard formulas, we can integrate Airbnb with Walkscore, an API that rates the walkability of any location on a 1-100 scale. When we call the <code>WALKSCORE</code> formula with the latitude and longitude of the listing, it returns the walk score as the cell value. Because the cell’s contents are injected into the page, the score also shows up in the page body.</p>
 <video width="100%" controls="controls" preload="auto" muted="muted" src="media/walkscore.mp4#t=0.1" muted playsinline controls class>
 </video>
-<p>Wildcard formulas are just Javascript functions that take table data as input and return new data. Formulas can have limited side effects like accessing external APIs to fetch data, but do not directly manipulate the page. Instead, they return data into the table, which is then injected into the page with the same mechanism used for injecting user annotations.</p>
-<h2 id="custom-ui-elements">Custom UI elements</h2>
 <p>It might seem that Wildcard is only useful on websites that display lists of tabular data like search results. But in fact, the table metaphor is flexible enough to represent many types of data. For example, a form can be represented as a single row, with a column for each input.</p>
 <video width="100%" controls="controls" preload="auto" muted="muted" src="media/expedia-table.mp4#t=0.1" muted playsinline controls class>
 </video>
-<p>In previous examples the data extracted from the site was marked as read-only; one cannot change the name of an Airbnb listing for example. In the next case, the cells are marked as writable, so that changes in the table are reflected in the original form. This becomes particularly useful when combined with cell editing UI widgets tailored to the cell’s data type.</p>
+<p>In previous examples the data extracted from the site was marked as read-only; users cannot change the name or price of an Airbnb listing. In this next case, the cells are marked as writable, so that changes in the table are reflected in the form inputs. This becomes useful when combined with GUI widgets for editing the value of a table cell.</p>
 <p>Filling in dates for a flight search typically requires opening up a separate calendar app to find the right dates, and then manually copying them into the form. In Wildcard, we can make this easier by providing a datepicker widget that has privileged access to the user’s calendar information.</p>
 <video width="100%" controls="controls" preload="auto" muted="muted" src="media/datepicker.mp4#t=0.1" muted playsinline controls class>
 </video>
-<p>Here we’ve presented just a few possibilities for how to use Wildcard, but we think the interactive data table offers a flexible computational model that can also support a wide range of other useful modifications, all while remaining familiar and easy to use.</p>
+<p>Here we’ve presented just a few possibilities for how to use Wildcard. We think the interactive data table offers a flexible computational model that can support a wide range of other useful modifications, all while remaining familiar and easy to use.</p>
 <h1 id="system-architecture">System Architecture</h1>
 <p>Wildcard is written in Typescript. It is currently injected into pages using the <a href="https://www.tampermonkey.net/">Tampermonkey</a> userscript manager, but in the future we plan to deploy it as a standalone browser extension to make it easier to install.</p>
 <p>In order to maximize extensibility, Wildcard is implemented as a small core program along with several types of plugins: site adapters, formulas, and cell renderers/editors. The core contains functionality for displaying the data table and handling user interactions, and the table implementation is built using the <a href="https://handsontable.com/">Handsontable</a> Javascript library.</p>
@@ -191,7 +174,7 @@ padding: 10px; margin: 20px 0 0 0;">In-progress DRAFT. Please don't distribute!<
 <span id="cb1-6"><a href="#cb1-6"></a>  <span class="op">}</span></span></code></pre></div>
 <p>The site adapter also needs to support the reverse direction: sending updates from the table to the original page. Most DOM manipulation is not performed directly by the site adapter: the adapter specifies how to find the divs representing data rows, and the core platform mutates the DOM to reflect the table state. The only exception is site-specific actions (like favoriting in Airbnb): actions are implemented as regular Javascript functions running in the context of the page, which can mutate the DOM, simulate clicks on buttons in the UI, launch AJAX requests, navigate to new pages, etc.</p>
 <h1 id="design-principles">Design principles</h1>
-<p>The design of Wildcard is grounded in several principles, informed by prior work and our own experimentation. We think these principles extend beyond Wildcard itself and might inform the design of other end user programming tools, particularly systems enabling users to modify GUI apps.</p>
+<p>The design of Wildcard is grounded in several principles, informed by prior work and our own experimentation. We think these principles extend beyond Wildcard and might inform the design of other end user programming tools, particularly systems enabling users to modify GUI apps.</p>
 <h2 id="expose-consistent-structure">Expose consistent structure</h2>
 <p>Today, most personal computing consists of using distinct apps, each one an isolated silo of concepts, interfaces, data, and functionality. While there are some shared idioms and limited points of interoperability, the fundamental expectation is that each app operates independently. If a new need emerges, a user must hope “there’s an app for that”; creating a new tool to meet the need is often out of the question.</p>
 <p>Computing does not need to operate this way. As one example, UNIX offers a compelling alternate vision of small tools connected through a common abstraction of text files. Just like riding a bike with numbered gears, UNIX requires users to build up a structured understanding of the system, which then allows them to flexibly react to new needs not served by existing tools. Users can also deeply master a text editor and use it for a vast array of tasks, even as an interactive input mechanism in shell programs (e.g. for editing git commit messages). Beaudouin-Lafon and Mackay call this style of interaction <em>polymorphic</em> <span class="citation" data-cites="beaudouin-lafon2000">[<a href="#ref-beaudouin-lafon2000" role="doc-biblioref">2</a>]</span>, since a single interface can be used in many contexts. diSessa <span class="citation" data-cites="disessa2000">[<a href="#ref-disessa2000" role="doc-biblioref">8</a>]</span> notes the deep connection between polymorphism and literacy: textual literacy rests on a single rich medium of writing, which once mastered, can be adapted to many different genres and uses. If people needed to relearn from scratch when switching from writing essays to writing emails, the medium would lose most of its potency; this is the situation in software today.</p>
