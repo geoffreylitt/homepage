@@ -92,10 +92,9 @@ padding: 10px; margin: 20px 0 0 0;">In-progress DRAFT. Please don't distribute!<
 <h1 class="title">Wildcard: End user modification of web applications through a data table</h1>
 <p class="author"><a href="https://www.geoffreylitt.com/">Geoffrey Litt</a> and <a href="http://people.csail.mit.edu/dnj/">Daniel Jackson</a></p>
 </header>
-<p>Many Web applications do not meet the particular needs of their users. Browser extensions and user scripts offer a way to customize web applications, but most people do not have the programming skills to implement their own customizations.</p>
-<p>In this paper, we present a prototype of Wildcard, an extension framework embedded in the browser that empowers users to casually tweak web applications without needing to program in Javascript or directly interact with the DOM.</p>
-<p>Wildcard shows the data from a web page in a table, and maintains a live bidirectional connection between the table and the original page. By directly manipulating the table, users can perform a wide variety of modifications: sorting/filtering content, adding private annotations, using spreadsheet formulas to fetch data from other web services, adding custom UI elements to edit form data, and more.</p>
-<p>We present examples of using Wildcard to solve real world problems, and explain the design principles behind the prototype. In the future, we envision growing Wildcard into a fully deployed system that helps make the web into a more malleable medium for all its users.</p>
+<p>Many Web applications do not meet the particular needs of their users. Browser extensions and user scripts offer a way to customize web applications, but most people do not have the programming skills to implement their own extensions.</p>
+<p>We present the idea of <em>spreadsheet-driven customization</em>: enabling end users to customize existing applications using a live spreadsheet view of the data inside the application. By manipulating the spreadsheet, users can implement a wide variety of customizations, ranging from sorting lists of search results to displaying related data from other web services, without doing any traditional programming.</p>
+<p>We built a prototype system called Wildcard that implements spreadsheet-driven customization as a web browser extension. Through concrete examples, we demonstrate that Wildcard has both a low barrier to entry for beginners and enough flexibility to solve many useful problems. We also show that Wildcard can work with real existing websites, by extracting structured data using web scraping techniques.</p>
 <nav id="TOC" role="doc-toc">
 <h2 id="toc-title">Contents</h2>
 <ul>
