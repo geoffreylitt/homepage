@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <link href="https://fonts.googleapis.com/css?family=Merriweather:300,700" rel="stylesheet">
   <meta name="author" content="Geoffrey Litt and Daniel Jackson" />
   <title>Wildcard: Spreadsheet-Driven Customization of Web Applications</title>
   <style>
@@ -99,7 +100,11 @@ padding: 10px; margin: 20px 0 0 0;">In-progress DRAFT. Please don't distribute!<
 <h2 id="toc-title">Contents</h2>
 <ul>
 <li><a href="#introduction"><span class="toc-section-number">1</span> Introduction</a></li>
-<li><a href="#demo-booking-a-trip-with-wildcard"><span class="toc-section-number">2</span> Demo: booking a trip with Wildcard</a></li>
+<li><a href="#demo-booking-a-trip-with-wildcard"><span class="toc-section-number">2</span> Demo: booking a trip with Wildcard</a>
+<ul>
+<li><a href="#customizing-search-results"><span class="toc-section-number">2.1</span> Customizing search results</a></li>
+<li><a href="#customizing-a-form-input"><span class="toc-section-number">2.2</span> Customizing a form input</a></li>
+</ul></li>
 <li><a href="#system-architecture"><span class="toc-section-number">3</span> System Architecture</a></li>
 <li><a href="#design-principles"><span class="toc-section-number">4</span> Design principles</a>
 <ul>
@@ -122,6 +127,9 @@ padding: 10px; margin: 20px 0 0 0;">In-progress DRAFT. Please don't distribute!<
 <h1 data-number="1" id="introduction" data-number="1"><span class="header-section-number">1</span> Introduction</h1>
 <p>Web applications often don’t match the particular needs of their users. Sometimes there is a browser extension available to patch an issue, and if the user is a programmer they might be able to fix it themselves. But for most people, the only recourse is to complain to the developers, or more likely, to simply give up. Back in 1977, in <em>Personal Dynamic Media</em> <span class="citation" data-cites="kay1977">[<a href="#ref-kay1977" role="doc-biblioref">14</a>]</span>, Alan Kay envisioned personal computing as a medium that let a user “mold and channel its power to his own needs,” but today, software feels more like concrete than clay.</p>
 <p>In this paper, we present <em>spreadsheet-driven customization</em>, a technique that enables end users to customize software. The idea is to augment an application’s UI with a spreadsheet that is synchronized with the application’s data. When the user manipulates the spreadsheet, the underlying data is modified and the changes are propagated to the UI, and vice versa. We have implemented this technique in a prototype browser extension called Wildcard. Section 2 presents demos of using Wildcard to augment real websites in useful ways, and Section 3 describes the implementation of the extension.</p>
+<figure>
+<img src="media/overview-300dpi.png" id="fig:overview" alt="" /><figcaption>An overview of spreadsheet-driven customization</figcaption>
+</figure>
 <p>Spreadsheet-driven customization provides an easy entry point for end users, since small tweaks can be performed with a single click. At the same time, it also supports a variety of richer customizations, like adding private annotations to a webpage or joining in related data from a web API. In Section 4, we elaborate on this principle of “low floor, high ceiling,” as well as other design principles guiding our work.</p>
 <p>Prior work <span class="citation" data-cites="mccutchen2016 benson2014 chang2014">[<a href="#ref-benson2014" role="doc-biblioref">3</a>, <a href="#ref-chang2014" role="doc-biblioref">5</a>, <a href="#ref-mccutchen2016" role="doc-biblioref">19</a>]</span> has enabled end users to create “spreadsheet-driven applications” which use spreadsheets as a backing data layer. Spreadsheet-driven <em>customization</em> applies this idea in a different context: customizing existing software, rather than building new software from scratch. Our technique does not require that the application actually be backed by a spreadsheet; it merely uses the spreadsheet as an interface for viewing and modifying the internal state of the application.</p>
 <p>This approach requires extracting structured data from the user interfaces of existing applications, but we hide the complexity of data extraction from end users. Programmers write <em>site adapters</em> which use web scraping techniques to extract structured data from existing applications and map them to the spreadsheet table. End users only interact with the structured spreadsheet, providing a straightforward customization experience. In Section 5, we explain this architecture in more depth, and describe how Wildcard relates to existing work on malleable software, web customization, spreadsheet-driven applications, and web scraping.</p>
@@ -131,6 +139,7 @@ padding: 10px; margin: 20px 0 0 0;">In-progress DRAFT. Please don't distribute!<
 <div class="pdf-only">
 
 </div>
+<h2 data-number="2.1" id="customizing-search-results" data-number="2.1"><span class="header-section-number">2.1</span> Customizing search results</h2>
 <p>In 2012, the travel site Airbnb removed the ability to sort accommodation listings by price. Users could still filter by price range, but could no longer view the cheapest listings first. Many users complained on online message boards that the change seemed hostile to users. “It’s so frustrating!..What is the logic behind not having this function?” said one user on the <a href="https://community.withairbnb.com/t5/Hosting/Sorting-listing-by-price/td-p/559404">Airbnb support forum</a>. Alas, the feature remains missing to this day.</p>
 <p>Using Wildcard, the user can fix this omission, while leaving the page’s design and the rest of its functionality unchanged.<span class="pdf-only"></span> First, the user opens up the Wildcard panel, which shows a table corresponding to the search results in the page. As they click around in the table, the corresponding row in the page is highlighted so they can see the connection between the views.</p>
 <video width="100%" controls="controls" preload="auto" muted="muted" src="media/table.mp4#t=0.1" muted playsinline controls class>
@@ -153,6 +162,7 @@ padding: 10px; margin: 20px 0 0 0;">In-progress DRAFT. Please don't distribute!<
 <div class="pdf-only">
 
 </div>
+<h2 data-number="2.2" id="customizing-a-form-input" data-number="2.2"><span class="header-section-number">2.2</span> Customizing a form input</h2>
 <p>It might seem that Wildcard is only useful on websites that display lists of tabular data like search results. But in fact, the table metaphor is flexible enough to represent many types of data. For example, a flight search form on Expedia can be represented as a single row, with a column corresponding to each input. <span class="pdf-only"></span></p>
 <video width="100%" controls="controls" preload="auto" muted="muted" src="media/expedia-table.mp4#t=0.1" muted playsinline controls class>
 </video>
