@@ -142,33 +142,33 @@ padding: 10px; margin: 20px 0 0 0;">In-progress DRAFT. Please don't distribute!<
 <h2 data-number="2.1" id="customizing-search-results" data-number="2.1"><span class="header-section-number">2.1</span> Customizing search results</h2>
 <p>In 2012, the travel site Airbnb removed the ability to sort accommodation listings by price. Users could still filter by price range, but could no longer view the cheapest listings first. Many users complained on online message boards that the change seemed hostile to users. “It’s so frustrating!..What is the logic behind not having this function?” said one user on the <a href="https://community.withairbnb.com/t5/Hosting/Sorting-listing-by-price/td-p/559404">Airbnb support forum</a>. Alas, the feature remains missing to this day.</p>
 <p>Using Wildcard, the user can fix this omission, while leaving the page’s design and the rest of its functionality unchanged.<span class="pdf-only"></span> First, the user opens up the Wildcard panel, which shows a table corresponding to the search results in the page. As they click around in the table, the corresponding row in the page is highlighted so they can see the connection between the views.</p>
-<video width="100%" controls="controls" preload="auto" muted="muted" src="media/table.mp4#t=0.1" muted playsinline controls class>
+<video controls="controls" preload="auto" muted="muted" src="media/table.mp4#t=0.1" muted playsinline controls class>
 </video>
 <p>Then, the user clicks on the price column header to sort the spreadsheet, and the Airbnb UI, by in ascending order by price<span class="pdf-only"></span>. They can similarly use the column headers to filter to listings with a user rating above 4.5, which the original Airbnb UI also doesn’t allow.</p>
-<video width="100%" controls="controls" preload="auto" muted="muted" src="media/sort-filter.mp4#t=0.1" muted playsinline controls class>
+<video controls="controls" preload="auto" muted="muted" src="media/sort-filter.mp4#t=0.1" muted playsinline controls class>
 </video>
 <p>After manipulating the data, the user closes the table view and continues using the website with its original visual design. The table view offers a way to change the data backing a page, but does not need to replace the original interface entirely.</p>
 <p>Most websites that show lists of data also offer actions on rows in the table, like adding an item to a shopping cart. Wildcard has the ability to make these “row actions” available in the data table through the site adapter.</p>
 <p>In the Airbnb UI, saving multiple listings to a Favorites list requires tediously clicking through them one by one. Using Wildcard, the user can select multiple rows and favorite all of them with a single click<span class="pdf-only"></span>. Similarly, the user can also open the detailed pages for many listings at once.</p>
-<video width="100%" controls="controls" preload="auto" muted="muted" src="media/favorite-open.mp4#t=0.1" muted playsinline controls class>
+<video controls="controls" preload="auto" muted="muted" src="media/favorite-open.mp4#t=0.1" muted playsinline controls class>
 </video>
 <p>Now the user wants to jot down some notes on the pros and cons of each listing. To do this, they type some notes into an additional column in each listing row, and the notes appear inside the listings in the original UI<span class="pdf-only"></span>. The annotations are saved in the browser for future sessions.</p>
-<video width="100%" controls="controls" preload="auto" muted="muted" src="media/annotate.mp4#t=0.1" muted playsinline controls class>
+<video controls="controls" preload="auto" muted="muted" src="media/annotate.mp4#t=0.1" muted playsinline controls class>
 </video>
 <p>Wildcard also includes a formula language, which enables more sophisticated customizations that fetch external data and perform computations.</p>
 <p>When traveling without a car, it’s useful to evaluate potential places to stay based on how walkable the surroundings are. Using Wildcard formulas, the user can integrate Airbnb with Walkscore, an API that rates the walkability of any location on a 1-100 scale. When they type in a <code>WALKSCORE</code> formula with the latitude and longitude of the listing, it returns the walk score as the cell’s value. Because the cell’s contents are injected into the page, the score also shows up in the page body<span class="pdf-only"></span>.</p>
-<video width="100%" controls="controls" preload="auto" muted="muted" src="media/walkscore.mp4#t=0.1" muted playsinline controls class>
+<video controls="controls" preload="auto" muted="muted" src="media/walkscore.mp4#t=0.1" muted playsinline controls class>
 </video>
 <div class="pdf-only">
 
 </div>
 <h2 data-number="2.2" id="customizing-a-form-input" data-number="2.2"><span class="header-section-number">2.2</span> Customizing a form input</h2>
 <p>It might seem that Wildcard is only useful on websites that display lists of tabular data like search results. But in fact, the table metaphor is flexible enough to represent many types of data. For example, a flight search form on Expedia can be represented as a single row, with a column corresponding to each input. <span class="pdf-only"></span></p>
-<video width="100%" controls="controls" preload="auto" muted="muted" src="media/expedia-table.mp4#t=0.1" muted playsinline controls class>
+<video controls="controls" preload="auto" muted="muted" src="media/expedia-table.mp4#t=0.1" muted playsinline controls class>
 </video>
 <p>In previous examples the table cells were read-only; users cannot change the name or price of an Airbnb listing. In this next case, the cells are writable, so that changes in the table are reflected in the form inputs. This becomes especially useful when combined with GUI widgets that can edit the value of a table cell.</p>
 <p>Filling in dates for a flight search typically requires opening up a separate calendar app to find the right dates and then manually copying them into the form. In Wildcard, the user can avoid this cumbersome workflow by using a datepicker widget that includes the user’s personal calendar information<span class="pdf-only"></span>. The user can directly click on the right date, and it gets inserted into the spreadsheet and the original form.</p>
-<video width="100%" controls="controls" preload="auto" muted="muted" src="media/datepicker.mp4#t=0.1" muted playsinline controls class>
+<video controls="controls" preload="auto" muted="muted" src="media/datepicker.mp4#t=0.1" muted playsinline controls class>
 </video>
 <p>Here we’ve presented just a few use cases for spreadsheet-driven customization, but we think the interactive data table is flexible enough to support a wide range of other useful modifications, all while remaining familiar and easy to use.</p>
 <h1 data-number="3" id="system-architecture" data-number="3"><span class="header-section-number">3</span> System Architecture</h1>
