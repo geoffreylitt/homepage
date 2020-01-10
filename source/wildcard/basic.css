@@ -21,22 +21,19 @@ body {
 }
 
 
-
-a {
-  color: #0645ad;
+a, a:hover, a:active, a:focus, a:visited {
+  color: #4b7ba8;
   text-decoration: none;
 }
 
-a:visited {
-  color: #0b0080;
-}
-
-a:hover {
-  color: #06e;
+a:hover, a:active {
+  color: #335a7e
+  text-decoration: none;
 }
 
 a:active {
   color: #faa700;
+  text-decoration: none;
 }
 
 a:focus {
@@ -82,6 +79,11 @@ h1, h2, h3, h4, h5, h6 {
 h1.title {
   font-weight: bold;
   font-size: 2em;
+  margin-bottom: 0;
+}
+
+h2.subtitle {
+  margin: 0;
 }
 
 h4, h5, h6 {
@@ -110,6 +112,10 @@ h5 {
 
 h6 {
   font-size: 0.9em;
+}
+
+video {
+  max-width: 100%;
 }
 
 .header-section-number {
@@ -265,7 +271,8 @@ table td {
 
 .author {
   font-size: 1.2em;
-  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  margin-bottom: 2em;
 }
 
 @media only screen and (min-width: 480px) {
