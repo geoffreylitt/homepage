@@ -27,7 +27,7 @@ a, a:hover, a:active, a:focus, a:visited {
 }
 
 a:hover, a:active {
-  color: #335a7e
+  color: #335a7e;
   text-decoration: none;
 }
 
