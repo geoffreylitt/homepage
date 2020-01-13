@@ -6,7 +6,7 @@ layout: simple
 
 This is a research project with my advisor Daniel Jackson.
 
-For more detailed information, see the [paper](/wildcard/convivial) submitted to the Convivial Computing Salon 2020.
+For more detailed information, see the [paper](/wildcard/salon2020) submitted to the Convivial Computing Salon 2020.
 
 ## The problem
 Browser extensions and user scripts have shown that there are lots of useful ways to modify websites, ranging from blocking ads to adding entire new features to Gmail.
