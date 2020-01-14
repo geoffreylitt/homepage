@@ -4,9 +4,11 @@ layout: simple
 
 # Wildcard
 
-This is a research project with my advisor Daniel Jackson.
+Wildcard is a research project as part of my PhD at MIT, with my advisor Daniel Jackson.
 
-For more detailed information, see the [paper](/wildcard/salon2020) submitted to the Convivial Computing Salon 2020.
+To learn more, read the [paper](/wildcard/salon2020) submitted to the Convivial Computing Salon 2020.
+
+To be notified when Wildcard is available for public use, [sign up for the mailing list](https://docs.google.com/forms/d/e/1FAIpQLSf8nJZ5hY0ZTB0g3WmHEpvP-p8keRzWbWRltEidTK8awsfBEw/viewform?usp=sf_link).
 
 ## The problem
 Browser extensions and user scripts have shown that there are lots of useful ways to modify websites, ranging from blocking ads to adding entire new features to Gmail.
