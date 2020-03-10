@@ -129,20 +129,20 @@
 <h2 data-number="2.1" id="augmenting-search-results" data-number="2.1"><span class="header-section-number">2.1</span> Augmenting search results</h2>
 <p>In 2012, the travel site Airbnb removed the ability to sort accommodation searches by price. Users could still filter by price range, but could no longer view the cheapest listings first. Many users complained that the change seemed hostile to users. “It’s so frustrating! What is the logic behind not having this function?” said one user on the <a href="https://community.withairbnb.com/t5/Hosting/Sorting-listing-by-price/td-p/559404">Airbnb support forum</a>. Alas, the feature remains missing to this day.</p>
 <p>Using Wildcard, the user can fix this omission, while leaving the page’s design and the rest of its functionality unchanged.<span class="pdf-only"></span> First, the user opens up the Wildcard panel, which shows a table corresponding to the search results in the page. As they click around in the table, the corresponding row in the page is highlighted to indicate the mapping between the views.</p>
-<video controls="controls" preload="auto" muted="muted" src="media/table.mp4#t=0.1" muted playsinline controls class>
+<video controls="controls" muted="muted" src="media/table.mp4" muted playsinline controls class>
 </video>
 <p>Then, the user clicks on the price column header to sort the spreadsheet and the Airbnb UI by price<span class="pdf-only"></span>. They also filter to listings with a user rating above 4.5 (another feature missing in the original Airbnb UI).</p>
-<video controls="controls" preload="auto" muted="muted" src="media/sort-filter.mp4#t=0.1" muted playsinline controls class>
+<video controls="controls" muted="muted" src="media/sort-filter.mp4" muted playsinline controls class>
 </video>
 <p>After manipulating the data, the user closes the table view and continues using the website. Because the application’s UI usually has a nicer visual design than a spreadsheet, Wildcard does not aim to replace it—at any time, the user can use either the UI, the spreadsheet, or both together.</p>
 <p>Many websites that show lists of data also offer actions on rows in the table, like adding an item to a shopping cart. Wildcard has the ability to make these “row actions” available in the data table through the site adapter. In the Airbnb UI, saving multiple listings to a Favorites list requires tediously clicking through them one by one. Using Wildcard row actions, the user can select multiple rows and favorite all of them with a single click<span class="pdf-only"></span>. Similarly, the user can open the detailed pages for many listings at once.</p>
-<video controls="controls" preload="auto" muted="muted" src="media/favorite-open.mp4#t=0.1" muted playsinline controls class>
+<video controls="controls" muted="muted" src="media/favorite-open.mp4" muted playsinline controls class>
 </video>
 <p>Next, the user wants to jot down some notes about each listing. To do this, they type some notes into an additional column in each row, and the notes appear inside the listings in the original UI<span class="pdf-only"></span>. The annotations are saved in the browser and associated with the backend ID of the listing, so they will appear in future browser sessions that display the same listing.</p>
-<video controls="controls" preload="auto" muted="muted" src="media/annotate.mp4#t=0.1" muted playsinline controls class>
+<video controls="controls" muted="muted" src="media/annotate.mp4" muted playsinline controls class>
 </video>
 <p>Wildcard also includes a formula language that enables more sophisticated customizations. When traveling without a car, it’s useful to evaluate potential places to stay based on how walkable the surroundings are. Using a formula, the user can integrate Airbnb with Walkscore, an API that rates the walkability of any location on a 1-100 scale. When the user calls the <code>walkscore</code> formula with the listing’s latitude and longitude as arguments, it returns the walk score for that location and shows it as the cell value. Because the cell’s contents are injected into the page, the score also appears in the UI<span class="pdf-only"></span>.</p>
-<video controls="controls" preload="auto" muted="muted" src="media/walkscore.mp4#t=0.1" muted playsinline controls class>
+<video controls="controls" muted="muted" src="media/walkscore.mp4" muted playsinline controls class>
 </video>
 <h2 data-number="2.2" id="snoozing-todos" data-number="2.2"><span class="header-section-number">2.2</span> Snoozing todos</h2>
 <div class="pdf-only">
@@ -150,10 +150,10 @@
 </div>
 <p>In addition to fetching data from other sources, Wildcard formulas can also perform computations. In this example, the user would like to augment the TodoMVC todo list app with a “snooze” feature, which will temporarily hide a todo from the list until a certain date.<span class="pdf-only"></span></p>
 <p>The user opens the table view, which shows the text and completed status of each todo. They start the customization by adding a new column to store the snooze date for each todo<span class="pdf-only"></span>.</p>
-<video controls="controls" preload="auto" muted="muted" src="media/todo-date.mp4#t=0.1" muted playsinline controls class>
+<video controls="controls" muted="muted" src="media/todo-date.mp4" muted playsinline controls class>
 </video>
 <p>The next step is to hide snoozed todos. The user creates a <code>snoozed?</code> column, which uses a formula to compute whether a todo is snoozed—i.e., whether it has a snooze date in the future<span class="pdf-only"></span>. Then, they simply filter the table to hide the snoozed todos<span class="pdf-only"></span>.</p>
-<video controls="controls" preload="auto" muted="muted" src="media/todo-snooze-formula.mp4#t=0.1" muted playsinline controls class>
+<video controls="controls" muted="muted" src="media/todo-snooze-formula.mp4" muted playsinline controls class>
 </video>
 <p>Because the built-in <code>NOW()</code> function always returns the current datetime, snoozed todos will automatically appear once their snooze date arrives.</p>
 <p>Because this implementation of snoozing was built on the spreadsheet abstraction, it is completely decoupled from this particular todo list app. We envision that users could share these types of customizations as generic browser extensions, which could be applied to any site supported by Wildcard with no additional effort.</p>
@@ -162,11 +162,11 @@
 
 </div>
 <p>It might seem that Wildcard is only useful on websites that display lists of tabular data, but the table metaphor is flexible enough to represent many types of data. For example, a flight search form on Expedia can be represented as a single row, with a column corresponding to each input<span class="pdf-only"></span>.</p>
-<video controls="controls" preload="auto" muted="muted" src="media/expedia-table.mp4#t=0.1" muted playsinline controls class>
+<video controls="controls" muted="muted" src="media/expedia-table.mp4" muted playsinline controls class>
 </video>
 <p>In some of the previous examples, the table cells were read-only (because users can’t, for example, change the name or price of an Airbnb listing). In this case, the cells are writable, which means that changes in the table are reflected in the form inputs. This becomes especially useful when combined with GUI widgets that can edit the value of a table cell.</p>
 <p>Filling in dates for a flight search often requires a cumbersome workflow: open up a separate calendar app, find the dates for the trip, and then carefully copy them into the form. In Wildcard, the user can avoid this by using a datepicker widget that shows the user’s personal calendar events<span class="pdf-only"></span>. The user can directly click on the correct date, and it gets inserted into both the spreadsheet and the original form.</p>
-<video controls="controls" preload="auto" muted="muted" src="media/datepicker.mp4#t=0.1" muted playsinline controls class>
+<video controls="controls" muted="muted" src="media/datepicker.mp4" muted playsinline controls class>
 </video>
 <p>In this section we’ve presented just a few use cases for spreadsheet-driven customization, to suggest some possibilities of the paradigm. We think the spreadsheet model is flexible enough to support a wide range of other useful modifications while remaining familiar and easy to use.</p>
 <h1 data-number="3" id="sec:implementation" data-number="3"><span class="header-section-number">3</span> System Implementation</h1>
