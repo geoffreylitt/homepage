@@ -4,3 +4,7 @@
 = wrap_layout :layout do
   .one-column
     = yield
+
+  = javascript_include_tag "//cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"
+  :javascript
+    anchors.add();
