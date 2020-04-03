@@ -1,5 +1,12 @@
 projects:
   programming_interfaces:
+    - name: Wildcard
+      slug: wildcard
+      description: Spreadsheet-driven customization of web applications
+      link: /wildcard
+    - name: JSON Sheets
+      slug: json-sheets
+      description: A live programming environment for reactive GUIs
     - name: Margin Notes (LIVE 2018)
       slug: margin-notes
       description: Automatic code documentation with recorded examples from runtime
