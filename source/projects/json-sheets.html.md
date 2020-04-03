@@ -47,15 +47,18 @@ Here's a 10 minute demo of TodoMVC built in this environment:
 The main ideas:
 
 * Make your UI a pure function of your data
-* Use a spreadsheet-style reactive interface to build up the function `data -> UI`. The "formula" for each cell is written in Javascript, and can output either data (as vanilla JS data) or UI (using JSX templating). Cells can reference other cells and updates propagate automatically.
-* To handle state updates, there's one special spreadsheet cell that exposes an append-only event stream of all the DOM events happening in the UI. All other cells derive their state from this cell. (Related to the Elm architecture / event sourcing. Also thanks to Steve Krouse for inspiration here.)
+* Use a spreadsheet-style reactive interface to build up the function `data -> UI`. Split up the transformation into little incremental "cells", each of which show live output. The formula code for each cell is written in Javascript. A cell can reactively reference data from other cells, and can output either data (as vanilla JS data) or UI (using JSX templating).
+* Handling user input is the tricky part. Here's how it works: there's one special system cell that exposes an append-only event stream of all the DOM events happening in the UI. All other cells derive their state as pure functions over the live output of this cell. (This is kind of related to the Elm architecture / event sourcing. Also thanks to Steve Krouse for the inspiration here.)
+
+
 
 Some future areas of work:
 
 * Visualizing event stream manipulations: Those complicated reduce functions in Javascript aren’t easy to write or read. I think 1) a cleaner DSL that can pattern match on event types, 2) more visualization of what the reduce is doing to the stream would help.
-* Visualizing dependencies: In a normal spreadsheet, you can see much of the data you care about all at once. But in JSON Sheets, there’s so much nested data that most of it is hidden from you. I find that this makes it difficult to intuit how dependencies are working (eg “when I update this cell, what else is updating?”) Since we have the explicit dependency graph available, I’d like to explore lots of options for surfacing the dependencies. A couple basic ideas:
+* Visualizing dependencies: Unlike a "nodes-and-wires" environment, we use the spreadsheet style of referencing by _name_ here, to avoid the chaos of wires. In a normal spreadsheet, you can see much of the data you care about all at once, but in JSON Sheets, there’s so much nested data that most of it is hidden from you, which makes it difficult to intuit how dependencies are working (eg “when I update this cell, what else is updating?”) Since we have the explicit dependency graph available, I’d like to explore lots of options for surfacing the dependencies. A couple basic ideas:
   * When a cell updates, its child cells briefly flash to indicate they updated
   * When editing a cell, the right-hand cell list prioritizes showing you the parents and children of the cell you’re editing
+  * Take inspiration from [Observable's dependency viz](https://observablehq.com/@observablehq/introducing-visual-dataflow)
 * Performance: Currently the implementation is incredibly naive. At the least it needs to use the classic spreadsheet dependency update algorithm to work faster. Also probably need to compact the event stream? Most likely can't keep reducing over the whole stream forever.
 
 ## v3 and beyond?
