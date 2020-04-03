@@ -1,6 +1,6 @@
 #Markdown
 set :markdown_engine, :redcarpet
-set :markdown, :fenced_code_blocks => true, :smartypants => true, :footnotes => true
+set :markdown, :fenced_code_blocks => true, :smartypants => true, :footnotes => true, :with_toc_data => true
 
 set :haml, { ugly: true }
 #Livereload
