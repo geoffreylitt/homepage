@@ -8,7 +8,7 @@ Wildcard is a research project as part of my PhD at MIT, with my advisor Daniel 
 
 For more details, see the [paper](/wildcard/salon2020) being presented at Convivial Computing Salon 2020.
 
-We plan to start inviting beta users in the next couple months. To get notified when the beta opens, [sign up for the mailing list](https://docs.google.com/forms/d/e/1FAIpQLSf8nJZ5hY0ZTB0g3WmHEpvP-p8keRzWbWRltEidTK8awsfBEw/viewform?usp=sf_link).
+We plan to start inviting beta users in the next couple months. To get notified when the beta opens, [sign up for the mailing list](https://tinyletter.com/wildcard-extension).
 
 ## The problem
 Browser extensions and user scripts have shown that there are lots of useful ways to modify websites, ranging from blocking ads to adding entire new features to Gmail.
