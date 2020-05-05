@@ -6,9 +6,11 @@ layout: simple
 
 Wildcard is a research project as part of my PhD at MIT, with my advisor Daniel Jackson.
 
-For more details, see the [paper](/wildcard/salon2020) being presented at Convivial Computing Salon 2020.
+For more details, see the [workshop paper](/wildcard/salon2020) being presented at Convivial Computing Salon 2020.
 
-We plan to start inviting beta users in the next couple months. To get notified when the beta opens, [sign up for the mailing list](https://tinyletter.com/wildcard-extension).
+If you'd like to try it out, I'd recommend waiting until the stable beta version is ready. To get notified when the beta is available, [sign up for the mailing list](https://tinyletter.com/wildcard-extension).
+
+If you'd like, you can also try installing the current dev build, although it's not stable or full-featured quite yet. Here are the [installation instructions](https://geoffreylitt.github.io/wildcard/#/quickstart) and the [Github source](https://github.com/geoffreylitt/wildcard). [Let me know](mailto:glitt@mit.edu) if you run into problems or questions.
 
 ## The problem
 Browser extensions and user scripts have shown that there are lots of useful ways to modify websites, ranging from blocking ads to adding entire new features to Gmail.
