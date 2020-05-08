@@ -6,11 +6,18 @@ layout: simple
 
 Wildcard is a platform that empowers anyone to build browser extensions and modify websites to meet their own specific needs, using a familiar spreadsheet view. It's a research project as part of my PhD at MIT, with my advisor Daniel Jackson.
 
-**Find out more**: For more details, see the [workshop paper](/wildcard/salon2020) being presented at Convivial Computing Salon 2020, or my [30 min video talk](https://us02web.zoom.us/rec/share/5pVKFPba2nhLSYmcr3nnU_QkPY7saaa81yYZrqYNyE8Aqb_hvFJCTMy4bZZiaAqF?startTime=1588694468000) about the project.
+**Find out more**: For more details, see the [workshop paper](/wildcard/salon2020) being presented at Convivial Computing Salon 2020.
 
 **Sign up for beta**: We're getting close to a beta release. To get notified when the beta is available, [sign up for the mailing list](https://tinyletter.com/wildcard-extension).
 
 **Try the current version**: If you want to live on the edge, you can try installing the current dev build, although it's not totally feature-complete or stable. Here are the [installation instructions](https://geoffreylitt.github.io/wildcard/#/quickstart) and the [Github source](https://github.com/geoffreylitt/wildcard). [Let me know](mailto:glitt@mit.edu) if you run into problems or questions.
+
+## Video
+
+Here's a 30 minute talk explaining the project:
+
+<iframe src="https://player.vimeo.com/video/416346068" width="640" height="446" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+<p><a href="https://vimeo.com/416346068">Wildcard: Spreadsheet-Driven Customization of Web Applications</a> from <a href="https://vimeo.com/jonathoda">Jonathan Edwards</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
 
 ## The problem
 Browser extensions and user scripts have shown that there are lots of useful ways to modify websites, ranging from blocking ads to adding entire new features to Gmail.
