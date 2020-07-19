@@ -1,29 +1,28 @@
 @media screen and (min-width: 500px) {
-
-  nav{
-    a{
+  nav {
+    a {
       font-size: 16px;
     }
   }
 
-  .main{
+  .main {
     padding: 35px 25px;
     font-size: 16px;
 
-    h1{
+    h1 {
       font-size: 28px;
     }
 
-    h2{
+    h2 {
       font-size: 20px;
     }
 
-    h3.date{
+    h3.date {
       font-size: 16px;
     }
   }
 
-  footer{
+  footer {
     font-size: 16px;
   }
 
@@ -34,8 +33,7 @@
 }
 
 @media screen and (min-width: 860px) {
-
-  header{
+  header {
     position: fixed;
     top: 0px;
     left: 0px;
@@ -45,14 +43,18 @@
     text-align: right;
 
     a.logo {
-      height: 120px;
-      width: 120px;
+      height: 80px;
+      width: 80px;
       margin-bottom: 10px;
       margin-right: 0;
+
+      img {
+        border-radius: 100%;
+      }
     }
   }
 
-  nav{
+  nav {
     text-align: right;
     ul.sections {
       margin: 20px 0;
@@ -73,11 +75,11 @@
     }
   }
 
-  .main_container{
+  .main_container {
     display: block;
     margin-left: 200px;
 
-    .main{
+    .main {
       font-size: 13pt;
       line-height: 1.5em;
       width: 90%;

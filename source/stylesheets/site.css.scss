@@ -98,17 +98,18 @@ h6 {
 
   a {
     color: $col_blue_med;
-    &:hover {
-      color: $col_blue_light;
-    }
-    &:active {
-      color: $col_blue_dark;
-    }
     &:visited {
       color: $col_blue_med;
     }
     &:focus {
       color: $col_blue_light;
+    }
+    &:hover {
+      text-decoration: underline;
+      color: $col_blackish;
+    }
+    &:active {
+      color: $col_blue_dark;
     }
   }
 
