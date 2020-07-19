@@ -30,39 +30,40 @@
     = stylesheet_link_tag "https://use.typekit.net/goh5xrk.css"
 
   %body
-    /[if lt IE 10] <p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p>
-    %header
-      %a.logo{:href => '/'}
-        = image_tag 'headshot.jpg', :width => '100%'
-      %nav
-        %h1.name
-          %a{:href => '/'} Geoffrey Litt
-        %ul.sections
-          %li
-            %a{:href => '/#projects'} Projects
-          %li
-            %a{:href => '/#writing'} Writing
-        .subscribe-header
-          Subscribe:
-        %ul.subscribe-links
-          %li
-            %a{:href => 'http://www.twitter.com/geoffreylitt'}
-              Twitter
-              %i.fa.fa-twitter
-          %li
-            %a{:href => '/feed.xml'}
-              RSS
-              %i.fa.fa-rss
-        .subscribe-header
-          Contact
-        %ul.subscribe-links
-          %li
-            %a{:href => 'mailto:gklitt@gmail.com'}
-              Email
-              %i.fa.fa-envelope
+    .site-container
+      /[if lt IE 10] <p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p>
+      %header
+        %a.logo{:href => '/'}
+          = image_tag 'headshot.jpg', :width => '100%'
+        %nav
+          %h1.name
+            %a{:href => '/'} Geoffrey Litt
+          %ul.sections
+            %li
+              %a{:href => '/#projects'} Projects
+            %li
+              %a{:href => '/#writing'} Writing
+          .subscribe-header
+            Subscribe:
+          %ul.subscribe-links
+            %li
+              %a{:href => 'http://www.twitter.com/geoffreylitt'}
+                Twitter
+                %i.fa.fa-twitter
+            %li
+              %a{:href => '/feed.xml'}
+                RSS
+                %i.fa.fa-rss
+          .subscribe-header
+            Contact
+          %ul.subscribe-links
+            %li
+              %a{:href => 'mailto:gklitt@gmail.com'}
+                Email
+                %i.fa.fa-envelope
 
-    .main_container
-      .main= yield
+      .main_container
+        .main= yield
 
     = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"
     :javascript

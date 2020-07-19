@@ -18,44 +18,60 @@ $col_blue_light: #498bd9;
 $col_blackish: #131313;
 $col_grey: #acacac;
 $col_white: #ffffff;
-$col_orange: #EE5B36;
+$col_orange: #ee5b36;
 
 // Foundations
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: paralucent, sans serif;
   font-weight: 400;
 }
 
 // border-box on all elements
-* { box-sizing: border-box }
+* {
+  box-sizing: border-box;
+}
 
-.main{
+.main {
   width: 100%;
   padding: 15px;
 
   font-size: 12pt;
 
-  h1, h2{
+  h1,
+  h2 {
     font-family: paralucent, sans serif;
     font-weight: 500;
 
-    a{
+    a {
       color: $col_blackish;
-      &:hover { color: $col_blue_med };
-      &:active { color: $col_blue_dark };
-      &:visited { color: $col_blackish };
-      &:focus { color: $col_blue_med };
+      &:hover {
+        color: $col_blue_med;
+      }
+      &:active {
+        color: $col_blue_dark;
+      }
+      &:visited {
+        color: $col_blackish;
+      }
+      &:focus {
+        color: $col_blue_med;
+      }
     }
   }
 
-  h1{
+  h1 {
     font-size: 26px;
     margin-top: 20px;
     line-height: 1.2em;
   }
 
-  h2{
+  h2 {
     font-size: 18px;
 
     margin-top: 40px;
@@ -70,7 +86,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 1.5em;
   }
 
-  h3.date{
+  h3.date {
     font-style: italic;
     font-weight: 300;
     font-size: 14px;
@@ -80,26 +96,34 @@ h1, h2, h3, h4, h5, h6 {
     border-bottom: solid thin $col_grey;
   }
 
-  a{
+  a {
     color: $col_blue_med;
-    &:hover { color: $col_blue_light };
-    &:active { color: $col_blue_dark };
-    &:visited { color: $col_blue_med };
-    &:focus { color: $col_blue_light };
+    &:hover {
+      color: $col_blue_light;
+    }
+    &:active {
+      color: $col_blue_dark;
+    }
+    &:visited {
+      color: $col_blue_med;
+    }
+    &:focus {
+      color: $col_blue_light;
+    }
   }
 
-  li{
+  li {
     margin-bottom: 0.3em;
   }
 
-  img, video{
+  img,
+  video {
     margin: 10px 0;
     max-width: 100%;
   }
 }
 
-
-body{
+body {
   // background-color: #fff;
   background: #fff9b5; /* fallback for old browsers */
   background: linear-gradient(to left, #d9f7ff, #fff9b5);
@@ -112,19 +136,33 @@ body{
   margin: 0;
 }
 
+.site-container {
+  // for some reason, firefox doesn't render gradient on body background,
+  // so we need this container div
+  background: linear-gradient(to left, #d9f7ff, #fff9b5);
+}
+
 a {
   color: $col_blue_med;
   text-decoration: none;
 
-  &:hover { color: $col_blue_light };
-  &:active { color: $col_blue_dark };
-  &:visited { color: $col_blue_med };
-  &:focus { color: $col_blue_light };
+  &:hover {
+    color: $col_blue_light;
+  }
+  &:active {
+    color: $col_blue_dark;
+  }
+  &:visited {
+    color: $col_blue_med;
+  }
+  &:focus {
+    color: $col_blue_light;
+  }
 }
 
-pre.highlight{
+pre.highlight {
   padding: 6px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
 }
 
 blockquote {
@@ -137,13 +175,10 @@ blockquote {
   max-width: 675px;
 }
 
-
 // homepage project list
 
 .project-grid-description {
   max-width: 600px;
-
-
 }
 
 h2.project-category {
@@ -197,9 +232,6 @@ hr {
   border-bottom: none;
 }
 
-
-
-
 // Blog post display
 
 // Blog list
@@ -214,25 +246,26 @@ hr {
 // Individual post
 
 table {
-  td, th {
+  td,
+  th {
     border: solid thin #ddd;
     padding: 5px;
   }
 }
 
 .iframe-container {
-    position: relative;
-    width: 100%;
-    height: 0;
-    padding-bottom: 60%;
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 60%;
 }
 
 .video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 img.book-cover {
@@ -250,7 +283,8 @@ figure {
     text-align: right;
     margin-top: -15px;
 
-    a.figure-link, a.figure-link:visited {
+    a.figure-link,
+    a.figure-link:visited {
       color: #afafaf;
     }
   }
@@ -270,18 +304,17 @@ figure {
     font-weight: bold;
     margin: 10px 0;
   }
-
 }
 
 // Mobile-only
 
-header{
+header {
   width: 100%;
   padding: 20px 0 0 20px;
   font-family: paralucent, sans serif;
   font-weight: 400;
 
-  a.logo{
+  a.logo {
     box-sizing: content-box;
     display: inline-block;
     width: 80px;
@@ -290,31 +323,31 @@ header{
     margin-right: 15px;
   }
 
-  h1.name{
+  h1.name {
     display: inline-block;
     line-height: 0.6em;
     font-weight: 300;
     margin: 0;
 
-    a{
+    a {
       font-size: 23px;
       color: $col_blackish;
-      margin: 0 ;
+      margin: 0;
     }
   }
 }
 
-nav{
+nav {
   display: inline-block;
   vertical-align: bottom;
 
-  ul{
+  ul {
     margin: 0;
     padding: 0;
 
     overflow: hidden;
 
-    li{
+    li {
       display: inline-block;
       margin-right: 5px;
       font-size: 14px;
