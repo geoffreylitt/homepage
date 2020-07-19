@@ -2,7 +2,6 @@
 title: "Foam Research: software as curation"
 date: 2020-07-19 15:55 UTC
 tags:
-published: false
 summary: We tend to think of software in terms of monolithic "apps." But what if we thought about software design as a process of curating existing parts into a holistic user experience?
 ---
 
