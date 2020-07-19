@@ -235,6 +235,15 @@ hr {
 
 // Blog post display
 
+article.blogpost {
+  p.summary {
+    font-weight: bold;
+    font-style: italic;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 10px;
+  }
+}
+
 // Blog list
 .blogposts-list {
   margin-top: 25px;

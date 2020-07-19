@@ -2,6 +2,8 @@
   %article.blogpost.full
     %h3.date= current_article.date.strftime('%B %Y')
     %h1.title= current_article.title
+    - if current_article.data.summary
+      %p.summary= current_article.data.summary
     .content= current_article.body
 
     .subscribe
