@@ -1,5 +1,5 @@
 ---
-title: "Foam Research: software as curation"
+title: "Foam: Software as Curation"
 date: 2020-07-19 15:55 UTC
 tags:
 summary: We tend to think of software in terms of monolithic "apps." But what if we thought about software design as a process of curating existing parts into a holistic user experience?
@@ -15,11 +15,11 @@ When openness and design are in tension, I choose design. I'm a Mac person, not 
 
 ## Mostly air
 
-That's why I was excited to come across this tool called [Foam Research](https://github.com/foambubble/foam), a Markdown note taking tool inspired by the latest darling app of the note taking world, [Roam Research](https://roamresearch.com/).
+That's why I was excited to come across this tool called [Foam](https://github.com/foambubble/foam), a Markdown note taking tool inspired by the latest darling app of the note taking world, [Roam Research](https://roamresearch.com/).
 
 It's kind of hard to describe what Foam is. Foam definitely isn't an app. It's barely even...anything? Here's how Foam's creator describes it:
 
-<blockquote class="quoteback" darkmode="" data-title="Foam%20Research" data-author="" cite="https://foambubble.github.io/foam/">
+<blockquote class="quoteback" darkmode="" data-title="Foam" data-author="" cite="https://foambubble.github.io/foam/">
 <p>Like the soapy suds it’s named after, <strong>Foam</strong> is mostly air.</p>
 
 <ol>
