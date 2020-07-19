@@ -9,15 +9,19 @@ module SiteHelpers
   end
 
   def page_description
-    description = "Geoffrey Litt is a programmer and designer."
+    description = ""
     if current_page.data.description
       description = current_page.data.description
     end
+    if current_page.data.summary
+      description = current_page.data.summary
+    end
+
     description
   end
 
   def page_image
-    url = "/images/headshot.jpg"
+    url = "/images/gradient.png"
     if current_page.data.image_url
       url = current_page.data.image_url
     end
