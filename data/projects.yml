@@ -19,22 +19,22 @@ projects:
       description: Exploring in the dynamic medium
       image: images/projects/dynamicland.jpg
   hardware:
-  - name: Autonomous quadcopter
-    slug: quadcopter
-    description: A sonar-based obstacle avoidance system for a quadcopter
-    image: images/projects/quadcopter.jpg
-  - name: Laser scanning
-    slug: laser-scanner
-    description: An algorithm for efficiently determining object orientation with a cheap laser scanner
-  - name: Bulldogs Racing
-    image: images/projects/formula-hybrid.jpg
-    slug: formula-hybrid
-    description: Embedded software for a gas-electric hybrid racecar
-  - name: Last Keepon Out
-    slug: keepon
-    image: images/projects/patient-id.jpg
-    description: Reimagining digital patient identification at hospitals
-    hidden: true
+    - name: Autonomous quadcopter
+      slug: quadcopter
+      description: A sonar-based obstacle avoidance system for a quadcopter
+      image: images/projects/quadcopter.jpg
+    - name: Laser scanning
+      slug: laser-scanner
+      description: An algorithm for efficiently determining object orientation with a cheap laser scanner
+    - name: Bulldogs Racing
+      image: images/projects/formula-hybrid.jpg
+      slug: formula-hybrid
+      description: Embedded software for a gas-electric hybrid racecar
+    - name: Last Keepon Out
+      slug: keepon
+      image: images/projects/patient-id.jpg
+      description: Reimagining digital patient identification at hospitals
+      hidden: true
   dataviz:
     - name: "Panorama Free Response Analytics"
       slug: free-response-analytics
@@ -54,10 +54,6 @@ projects:
       link: /2015/01/01/2014-a-year-in-review.html
       image: images/projects/pedometer.png
   other:
-    - name: Postgres BSON
-      slug: postgres-bson
-      image: images/projects/postgres-bson.jpg
-      description: Extending PostgreSQL with faster JSON queries
     - name: classroulette
       slug: classroulette
       description: Making online course catalogs skimmable and serendipitous
@@ -65,10 +61,15 @@ projects:
       slug: patient-id
       image: images/projects/patient-id.jpg
       description: Reimagining digital patient identification at hospitals
+      hidden: true
     - name: simple_recommender
       slug: simple-recommender
       description: User recommendations for Rails apps, using Postgres
       link: /2017/03/19/building-a-rails-recommendation-engine.html
+    - name: Postgres BSON
+      slug: postgres-bson
+      image: images/projects/postgres-bson.jpg
+      description: Extending PostgreSQL with faster JSON queries
     - name: carrier-bluebird
       slug: carrier-bluebird
       description: What if Twitter only updated once a day?
@@ -99,5 +100,3 @@ projects:
       description: "An introduction to deep learning techniques for Ruby developers"
       link: "https://speakerdeck.com/geoffreylitt/deep-learning-an-introduction-for-ruby-developers"
       image: images/projects/deep-learning-intro.jpg
-
-

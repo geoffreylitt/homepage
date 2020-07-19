@@ -43,7 +43,7 @@ While Foam does install its own extension, most of the value comes from installi
 
 The user experience still isn't nearly as polished as a highly integrated tool like Notion. But it's clear that someone at least thought about how all the pieces fit together into a cohesive whole. It feels closer to a product than a random bag of parts.
 
-I think this is a neat way of thinking about creating value in software. **The essential value of Foam isn't code—it's the opinionated curation of existing building blocks.**
+I think this is a neat way of creating value in software. **The essential value of Foam isn't code—it's the opinionated curation of existing building blocks.**
 
 ## Software as curation
 

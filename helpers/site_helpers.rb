@@ -21,7 +21,7 @@ module SiteHelpers
   end
 
   def page_image
-    url = "/images/gradient.png"
+    url = "/images/gradient.jpg"
     if current_page.data.image_url
       url = current_page.data.image_url
     end
