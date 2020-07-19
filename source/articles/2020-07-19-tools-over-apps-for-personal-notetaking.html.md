@@ -54,9 +54,15 @@ By installing four different Gmail extensions that modify everything from the vi
 <footer>Geoffrey Litt<cite> <a href="https://www.geoffreylitt.com/2019/07/29/browser-extensions.html">https://www.geoffreylitt.com/2019/07/29/browser-extensions.html</a></cite></footer>
 </blockquote><script note="" src="https://cdn.jsdelivr.net/gh/Blogger-Peer-Review/quotebacks@1/quoteback.js"></script>
 
-The trouble is, this is a lot of work, and the type of thing that many users (including myself!) try to avoid. Saving people the effort and giving them a set of extensions that work well together can be really helpful.
+The trouble is, this is a lot of work, and the type of thing that many users (including myself!) try to avoid. Saving people the initial effort and giving them a starting point can be really helpful.
 
-Maybe one view on this is that most software is like a restaurant: you pay for the well-constructed end product. But Foam is more like a recipe. Someone tells you a good combination of ingredients, and you get to try making the food yourself, customizing it to your liking. We all know good recipes are valuable—it's a lot easier for most people to cook from a recipe than to make it all up themselves!
+Maybe one view on this is that most software is like a restaurant: you pay for the final end product. **But Foam is more like a recipe than a final dish.** A recipe tells you a good combination of ingredients, and you get to make the food yourself, substituting ingredients to your liking along the way. We all realize recipes are valuable. It's easier to cook from a recipe than to make up a dish from scratch, even if you end up making tweaks.
+
+Also, there's a role in the world for both restaurants and home cooking! I'm not saying that all restaurants are bad or that all software needs to be built like this. Just that it's nice to have some software where the end user plays a larger role in the final assembly:
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">2/ Yes, the restaurant food is truly &quot;better&quot; in many ways, and there&#39;s a role for restaurants in society...<br><br>But I wouldn&#39;t want to live in a world where no one cooks, and food is something we can only choose off a menu.<br><br>Software is increasingly heading to that place.</p>&mdash; Geoffrey Litt (@geoffreylitt) <a href="https://twitter.com/geoffreylitt/status/1177607450863767553?ref_src=twsrc%5Etfw">September 27, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+By the way, one funny thing is that a lot of software is actually built like this under the hood. Engineers don't make things from scratch these days, they find libraries and assemble them into products where the seams are hidden from the user. In the Foam model, the modules are exposed—giving me the power to open the hood and disable or replace individual parts.
 
 ## Tools, not apps
 
