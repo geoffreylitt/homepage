@@ -237,7 +237,6 @@ hr {
 
 article.blogpost {
   p.summary {
-    font-weight: bold;
     font-style: italic;
     background-color: rgba(255, 255, 255, 0.5);
     padding: 10px;
@@ -289,13 +288,13 @@ figure {
   }
   figcaption {
     font-size: 12px;
-    color: #afafaf;
+    color: #777;
     text-align: right;
     margin-top: -15px;
 
     a.figure-link,
     a.figure-link:visited {
-      color: #afafaf;
+      color: #777;
     }
   }
 }
