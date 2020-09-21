@@ -79,7 +79,7 @@ There's a **low barrier to starting** on Twitter. Just click a button, type a th
 
 But the more interesting phenomenon is the **low barrier to finishing**. On Twitter, a single sentence is a completely acceptable unit of publication. Anything beyond that is sort of a bonus. In contrast, most of my blog posts go unpublished because I fear they're not complete, or not good enough in some dimension. These unpublished drafts are obviously far more complete than a single tweet, but because they're on a blog, they don't feel "done," and it's hard to overcome the fear of sharing.
 
-This seems like a crucial part of sketching tools: when you make a sketch, it should be understood that your idea is immature, and feel safe to share it in that state. **There's a time and a place for polished, deeply thorough artifacts... and it's not Twitter!** Everyone knows you just did a quick sketch. In healthy sub-communities of Twitter,
+This seems like a crucial part of sketching tools: when you make a sketch, it should be understood that your idea is immature, and feel safe to share it in that state. **There's a time and a place for polished, deeply thorough artifacts... and it's not Twitter!** Everyone knows you just did a quick sketch.
 
 I believe that quantity leads to quality. [The students who make more pots in ceramics class improve faster than the students who obsess over making a single perfect pot](https://kottke.org/09/02/art-and-fear). A tool with a built-in low barrier to finishing makes it easier to overcome the fear, do more work, and share it at an earlier stage.
 
