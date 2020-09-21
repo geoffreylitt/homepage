@@ -1,5 +1,5 @@
 ---
-title: "How tweet threads cured my writer's block: reflections on Twitter as a medium for sketching"
+title: "How tweet threads cured my writer's block: Twitter as a medium for sketching"
 date: 2020-09-21 14:06 UTC
 tags:
 summary: |
