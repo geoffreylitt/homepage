@@ -5,6 +5,8 @@ tags:
 hidden: true
 ---
 
+**Oops, this is a draft article that accidentally got published to my RSS feed. Real version coming soon, but enjoy the outline for now! (and [email me](gklitt@gmail.com)) if there are topics you want me to cover**
+
 If you're an early career software engineer considering grad school, you're probably wondering: 1) is it a good idea? 2) how do I get in?
 
 Unfortunately, in my experience, it's hard to find advice on this rather niche question. There's lots of advice on grad school written by academics, but most of it seems to be for hotshot undergrads dreaming about grad school from day 1 of freshman year. Conversely, most people in industry don't really know what grad school is like, so they can't give good advice either.
