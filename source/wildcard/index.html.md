@@ -6,19 +6,6 @@ layout: simple
 
 Wildcard is a platform that empowers anyone to build browser extensions and modify websites to meet their own specific needs, using a familiar spreadsheet view. It's a research project as part of my PhD at MIT, with my advisor Daniel Jackson.
 
-**Find out more**: For more details, see the [workshop paper](/wildcard/salon2020) being presented at Convivial Computing Salon 2020.
-
-**Sign up for beta**: We're getting close to a beta release. To get notified when the beta is available, [sign up for the mailing list](https://tinyletter.com/wildcard-extension).
-
-**Try the current version**: If you want to live on the edge, you can try installing the current dev build, although it's not totally feature-complete or stable. Here are the [installation instructions](https://geoffreylitt.github.io/wildcard/#/quickstart) and the [Github source](https://github.com/geoffreylitt/wildcard). [Let me know](mailto:glitt@mit.edu) if you run into problems or questions.
-
-## Video
-
-Here's a 30 minute talk explaining the project:
-
-<iframe src="https://player.vimeo.com/video/416346068" width="640" height="446" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-<p><a href="https://vimeo.com/416346068">Wildcard: Spreadsheet-Driven Customization of Web Applications</a> from <a href="https://vimeo.com/jonathoda">Jonathan Edwards</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
-
 ## The problem
 Browser extensions and user scripts have shown that there are lots of useful ways to modify websites, ranging from blocking ads to adding entire new features to Gmail.
 
@@ -29,7 +16,16 @@ Wildcard is a platform that empowers anyone to build browser extensions and modi
 
 Wildcard shows a simplified view of the data in a web page as a familiar table view. People can directly manipulate the table to sort/filter content, add annotations, and even use spreadsheet-style formulas to pull in data from other websites. The key idea is that a table view is simple and easy to work with, but surprisingly powerful in the range of modifications it can support.
 
-Eventually we envision a new web ecosystem where website developers expose more structured data in web clients, to support easier modification by end users. But Wildcard is also pragmatically designed to work with the existing websites of today, using adapters that map between the website and the table view.
+**Find out more**: For more details, see the [workshop paper](/wildcard/salon2020) being presented at Convivial Computing Salon 2020.
+
+**Sign up for beta**: To get notified when the beta is available, [sign up for the mailing list](https://tinyletter.com/wildcard-extension).
+
+## Video
+
+Here's a 30 minute talk explaining the project:
+
+<iframe src="https://player.vimeo.com/video/416346068" width="640" height="446" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+<p><a href="https://vimeo.com/416346068">Wildcard: Spreadsheet-Driven Customization of Web Applications</a> from <a href="https://vimeo.com/jonathoda">Jonathan Edwards</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
 
 ## Demo
 
@@ -43,8 +39,14 @@ Here's another demo of hiding already-read articles on Hacker News:
 
 [The paper](https://www.geoffreylitt.com/wildcard/salon2020/#sec:demos) has more examples of using Wildcard to add new features and inject custom UI elements into web apps.
 
-## More details
+## Publications
 
-**Paper**: For more demos and details, read the [paper](/wildcard/salon2020) being presented at the Convivial Computing Salon 2020.
+[(html)](/wildcard/salon2020) [(pdf)](/wildcard/salon2020/paper.pdf) Geoffrey Litt and Daniel Jackson. 2020. Wildcard: Spreadsheet-Driven Customization of Web Applications. In Companion Proceedings of the 4th International Conference on the Art, Science, and Engineering of Programming, 10. https://doi.org/10.1145/3397537.3397541
+
+[(pdf)](/wildcard/Wildcard-Onward-2020.pdf) Geoffrey Litt, Daniel Jackson, Tyler Millis, and Jessica Quaye. 2020. End-User Software Customization by Direct Manipulation of Tabular Data. In Proceedings of the 2020 ACM SIGPLAN International Symposium on New Ideas, New Paradigms, and Reflections on Programming and Software - Onward! 2020. https://doi.org/10.1145/3426428.3426914
+
+## Get involved
 
 **Sign up**: We plan to start inviting beta users in the next couple months. To get notified when the beta opens, [sign up for the mailing list](https://docs.google.com/forms/d/e/1FAIpQLSf8nJZ5hY0ZTB0g3WmHEpvP-p8keRzWbWRltEidTK8awsfBEw/viewform?usp=sf_link).
+
+**Try the current version**: If you want to live on the edge, you can try installing the current dev build, although it's not totally feature-complete or stable. Here are the [installation instructions](https://geoffreylitt.github.io/wildcard/#/quickstart) and the [Github source](https://github.com/geoffreylitt/wildcard). [Let me know](mailto:glitt@mit.edu) if you run into problems or questions.
