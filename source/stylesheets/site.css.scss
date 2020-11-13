@@ -391,15 +391,34 @@ nav {
   background: rgba(255, 255, 255, 0.2);
 }
 
-a.read-the-paper,
-a.read-the-paper:visited,
-a.read-the-paper:active,
-a.read-the-paper:hover {
-  display: inline-block;
-  padding: 20px;
-  background-color: #2c6d8d;
-  color: white;
-  /* width: 175px; */
-  border-radius: 20px;
-  box-shadow: 3 2 black;
+.publication-link {
+  margin-bottom: 30px;
+
+  .main-metadata p {
+    margin: 0;
+  }
+
+  .paper-title {
+    font-weight: bold;
+  }
+
+  .links {
+    background-color: rgba(176, 176, 176, 0.1);
+    padding: 5px 10px;
+    margin-top: 10px;
+    border-radius: 20px;
+    font-variant: all-small-caps;
+    font-size: 22px;
+    font-family: paralucent, sans serif;
+  }
+
+  .links a {
+    padding-right: 5px;
+    margin-right: 5px;
+    border-right: solid thin #ddd;
+
+    &:last-child {
+      border-right: none;
+    }
+  }
 }
