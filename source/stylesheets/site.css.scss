@@ -198,7 +198,7 @@ h2.project-category {
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
   grid-gap: 30px;
 }
 
@@ -249,7 +249,11 @@ article.blogpost {
 }
 
 .blogpost-link {
-  margin-bottom: 20px;
+  margin-bottom: 5px;
+
+  &::before {
+    content: "- ";
+  }
 }
 
 // Individual post
@@ -421,4 +425,23 @@ nav {
       border-right: none;
     }
   }
+}
+
+a.starred {
+  font-weight: bold;
+
+  &::before {
+    content: "⭐️ ";
+  }
+}
+
+h1.the-archive {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(176, 68, 0, 1) 100%
+  );
+  padding: 400px 10px 10px 10px;
+  color: white;
+  margin-top: 200px;
 }

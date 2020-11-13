@@ -2,23 +2,21 @@
 
 .home-body-text
   :markdown
-    I'm a PhD student in Computer Science at MIT in the [Software Design Group](http://sdg.csail.mit.edu/). My goal is to make programming radically more accessible, so that everyone can build and tweak their own software. _Recently_...
+    Hi! I'm a PhD student in Computer Science at MIT in the [Software Design Group](http://sdg.csail.mit.edu/). My goal is to make programming radically more accessible, so that everyone can build and tweak their own software. _Recently_...
   
-    * I'm developing [Wildcard](/wildcard), a platform that empowers end users to modify web applications through a spreadsheet interface.
-    * I wrote about [Cambria](https://www.inkandswitch.com/cambria.html), a system for achieving better data compatibility between applications, with the Ink and Switch research lab.
+    * I've been working on [Wildcard](/wildcard), a platform that empowers end users to modify web applications through a spreadsheet interface.
+    * I wrote about [Cambria](https://www.inkandswitch.com/cambria.html), a system for more ergonomic data schema compatibility, with the Ink and Switch research lab.
     * I'm [thinking](/2020/07/19/tools-over-apps-for-personal-notetaking.html) [about](/2019/07/29/browser-extensions.html) extension ecosystems, [evolvable software](https://twitter.com/geoffreylitt/status/1272542423001022467), and new OS metaphors for moving beyond siloed applications.
 
-    _To follow along_: [join my email newsletter](https://tinyletter.com/geoffreylitt), [follow me on Twitter](https://www.twitter.com/geoffreylitt), or [subscribe via RSS](/feed.xml).
-
-    _Previously_: I was an early engineer at [Panorama Education](http://www.panoramaed.com) (YC S13), an edtech startup building data analytics software for K-12 schools. I helped grow Panorama into a market leader that serves 10 million students.
-
+    _To get updates_: [join my email newsletter](https://tinyletter.com/geoffreylitt), [follow me on Twitter](https://www.twitter.com/geoffreylitt), or [subscribe via RSS](/feed.xml).
+        
   %a{id: "projects"}
 .project-grids
-  %h2.project-category Programming tools
+  %h2.project-category Published Projects
   = partial(:project_grid, locals: { projects: projects.programming_interfaces })
 
-  %h2.project-category Conference Talks
-  = partial(:project_grid, locals: { projects: projects.talks })
+  %h2.project-category Smaller Explorations
+  = partial(:project_grid, locals: { projects: projects.explorations })
 
 %a{id: "writing"}
 %h2.project-category Writing
@@ -26,39 +24,16 @@
 .blogposts-list
   - page_articles.reject{ |a| a.data[:hidden] }.each_with_index do |article, i|
     .blogpost-link
-      = link_to article.title, article
-
-
-%a{id: "inspiration"}
-%h2.project-category Inspirations
-
-.home-body-text
-  :markdown
-    Here's a very incomplete list of people whose work I've found inspirational. If your taste is similar to mine, maybe you'll get some inspiration from their work too.
-
-    * [Bret Victor](http://worrydream.com/LearnableProgramming/)
-    * [Alan Kay](https://www.youtube.com/watch?v=oKg1hTOQXoY&feature=youtu.be)
-    * [Chris Granger](http://www.chris-granger.com/2014/03/27/toward-a-better-programming/)
-    * [Jonathan Edwards](https://alarmingdevelopment.org/?p=1145)
-    * [Kerry Chang](https://www.cs.cmu.edu/~shihpinc/gneiss.html)
-    * [Doug Engelbart](http://www.dougengelbart.org/content/view/209/448/)
-    * [Daniel Jackson](http://people.csail.mit.edu/dnj/)
-    * [Neil Postman](https://en.wikipedia.org/wiki/Amusing_Ourselves_to_Death)
-    * [Seymour Papert](https://en.wikipedia.org/wiki/Mindstorms_(book))
-    * [Cyrus Omar](https://hazel.org/)
-    * [Brad Myers](http://www.cs.cmu.edu/~bam/)
-    * [Elena Glassman](https://eglassman.github.io/examplore/)
-    * [Glen Chiacchieri](http://glench.com/LegibleMathematics/)
-    * [Amy Ko](https://www.cs.cmu.edu/~NatProg/whyline-java.html)
-    * [Michael Nielsen](https://distill.pub/2017/aia/)
-    * [Lea Verou](https://mavo.io/)
+      - if article.data[:starred]
+        = link_to article.title, article, class: 'starred'
+      - else
+        = link_to article.title, article
 
 %a{id: "contact"}
 %h2.project-category Contact me
 .home-body-text
   :markdown
     **Please reach out** if you're interested in chatting about ideas, or if I might be able to help you in some way. You can contact me via [email](mailto:gklitt@gmail.com) or on [Twitter](http://www.twitter.com/geoffreylitt).
-
 
 %div{style: "max-width: 700px;"}
   .subscribe
@@ -79,11 +54,16 @@
         %i.fa.fa-rss
         Subscribe via RSS
 
-<hr />
+<h1 class="the-archive">📦 The Archive...</h1>
 
-<h1>Way back into the archive...</h1>
+.home-body-text
+  :markdown
+    Below this line lies older work which is less immediately relevant to my current interests.
 
 .project-grids
+  %h2.project-category Conference Talks
+  = partial(:project_grid, locals: { projects: projects.talks })
+
   %h2.project-category Other software projects
   = partial(:project_grid, locals: { projects: projects.other })
 

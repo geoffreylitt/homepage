@@ -5,6 +5,7 @@ date: 2019-07-29 13:13 UTC
 tags: 
 image_url: /images/article_images/legos.jpg
 description: "In a world of closed platforms, browser extensions are the rare exception that let users modify the apps that we use."
+starred: true
 ---
 
 <figure style="margin: 0;">

@@ -8,13 +8,19 @@ projects:
       slug: cambria
       description: Better cross-app data compatibility using bidirectional lenses
       link: https://www.inkandswitch.com/cambria.html
-    - name: JSON Sheets
-      slug: json-sheets
-      description: A reactive programming environment for building GUIs
+      image: images/projects/cambria.svg
     - name: Margin Notes
       slug: margin-notes
       description: Automatic code docs w/ recorded examples from runtime (LIVE 2018)
       link: /margin-notes
+  explorations:
+    - name: TodoMVC Vis
+      slug: todomvc-vis
+      description: Visualizing the internal behavior of TodoMVC in Redux
+      image: images/project_images/todomvc-vis/timeline.png
+    - name: JSON Sheets
+      slug: json-sheets
+      description: A reactive programming environment for building GUIs
     - name: ladybug
       slug: ladybug
       description: A Ruby debugger backend for the Chrome Dev Tools UI

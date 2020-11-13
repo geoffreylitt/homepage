@@ -4,6 +4,7 @@ date: 2015-10-07 14:18 UTC
 tags:
 image_url: "http://www.codeforamerica.org/media/images/summit/2015/summit-social.png"
 description: "Reporting back from the 2015 Code for America Summit. Government tech is changing, and faster than you might think."
+hidden: true
 ---
 
 I'm sitting in a packed conference room, about to see a talk by Todd Park, who famously led the "tech surge" that saved Healthcare.gov. Before he speaks, I notice Park standing at the side of the room, fiddling with his iPhone, face expressionless. I'm expecting a pleasant, if slightly bland, presentation.

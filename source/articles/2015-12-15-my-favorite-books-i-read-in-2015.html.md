@@ -4,6 +4,7 @@ date: 2015-12-15 03:12 UTC
 tags:
 image_url: "http://www.geoffreylitt.com/images/article_images/book-cover-habit.jpg"
 description: "Five of my favorite reads from 2015"
+hidden: true
 ---
 
 One of my goals for 2015 was to read more books.
