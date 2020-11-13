@@ -2,8 +2,12 @@ projects:
   programming_interfaces:
     - name: Wildcard
       slug: wildcard
-      description: Spreadsheet-driven customization of web applications (CCS 2020)
+      description: Spreadsheet-driven customization of web applications (Onward! 2020)
       link: /wildcard
+    - name: Cambria
+      slug: cambria
+      description: Better cross-app data compatibility using bidirectional lenses
+      link: https://www.inkandswitch.com/cambria.html
     - name: JSON Sheets
       slug: json-sheets
       description: A reactive programming environment for building GUIs

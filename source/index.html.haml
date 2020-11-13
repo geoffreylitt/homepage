@@ -2,40 +2,23 @@
 
 .home-body-text
   :markdown
-    Hi, I'm Geoffrey. I'm a PhD student in Computer Science at MIT in the [Software Design Group](http://sdg.csail.mit.edu/). My goal is to make programming radically more accessible, so that everyone can build and tweak their own software.
+    I'm a PhD student in Computer Science at MIT in the [Software Design Group](http://sdg.csail.mit.edu/). My goal is to make programming radically more accessible, so that everyone can build and tweak their own software. _Recently_...
+  
+    * I'm developing [Wildcard](/wildcard), a platform that empowers end users to modify web applications through a spreadsheet interface.
+    * I wrote about [Cambria](https://www.inkandswitch.com/cambria.html), a system for achieving better data compatibility between applications, with the Ink and Switch research lab.
+    * I'm [thinking](/2020/07/19/tools-over-apps-for-personal-notetaking.html) [about](/2019/07/29/browser-extensions.html) extension ecosystems, [evolvable software](https://twitter.com/geoffreylitt/status/1272542423001022467), and new OS metaphors for moving beyond siloed applications.
 
-    _These days:_ 
-    
-    * I'm exploring [schema evolution + interoperability in decentralized systems](https://www.inkandswitch.com/cambria.html) with the Ink and Switch research lab
-    * I'm continuing to develop [Wildcard](/wildcard), a platform that empowers end users to modify web applications through a spreadsheet interface.
-    * I'm [thinking](/2020/07/19/tools-over-apps-for-personal-notetaking.html) [about](/2019/07/29/browser-extensions.html) extension ecosystems and [evolvable software](https://twitter.com/geoffreylitt/status/1272542423001022467)
-
-    _To get updates_: [join my email newsletter](https://tinyletter.com/geoffreylitt), [follow me on Twitter](https://www.twitter.com/geoffreylitt), or [subscribe via RSS](/feed.xml).
+    _To follow along_: [join my email newsletter](https://tinyletter.com/geoffreylitt), [follow me on Twitter](https://www.twitter.com/geoffreylitt), or [subscribe via RSS](/feed.xml).
 
     _Previously_: I was an early engineer at [Panorama Education](http://www.panoramaed.com) (YC S13), an edtech startup building data analytics software for K-12 schools. I helped grow Panorama into a market leader that serves 10 million students.
-
-    Here are some things I've made:
 
   %a{id: "projects"}
 .project-grids
   %h2.project-category Programming tools
   = partial(:project_grid, locals: { projects: projects.programming_interfaces })
 
-  %h2.project-category Other software projects
-  = partial(:project_grid, locals: { projects: projects.other })
-
   %h2.project-category Conference Talks
   = partial(:project_grid, locals: { projects: projects.talks })
-
-  %h2.project-category Data visualization / NLP
-  = partial(:project_grid, locals: { projects: projects.dataviz })
-
-  %h2.project-category Hardware / Electrical Engineering
-  = partial(:project_grid, locals: { projects: projects.hardware })
-
-
-
-
 
 %a{id: "writing"}
 %h2.project-category Writing
@@ -95,3 +78,17 @@
       %a{:href => '/feed.xml' }
         %i.fa.fa-rss
         Subscribe via RSS
+
+<hr />
+
+<h1>Way back into the archive...</h1>
+
+.project-grids
+  %h2.project-category Other software projects
+  = partial(:project_grid, locals: { projects: projects.other })
+
+  %h2.project-category Data visualization / NLP
+  = partial(:project_grid, locals: { projects: projects.dataviz })
+
+  %h2.project-category Hardware / Electrical Engineering
+  = partial(:project_grid, locals: { projects: projects.hardware })
