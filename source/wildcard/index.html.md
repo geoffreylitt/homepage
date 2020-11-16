@@ -1,10 +1,12 @@
 ---
 layout: simple
+title: Wildcard
+description: Wildcard lets anyone modify websites using a familiar spreadsheet view.
 ---
 
 # Wildcard
 
-Wildcard is a platform that empowers anyone to build browser extensions and modify websites to meet their own specific needs, using a familiar spreadsheet view. It's a research project as part of my PhD at MIT, with my advisor Daniel Jackson.
+Wildcard is a browser extension that empowers anyone to modify websites to meet their own specific needs, using a familiar spreadsheet view. It's a research project as part of my PhD at MIT, with my advisor Daniel Jackson.
 
 Here's a 60 second demo of adding read times to Hacker News using Wildcard:
 
@@ -45,18 +47,19 @@ Here's a short 15 minute talk from Onward! 2020, which shows a bunch of examples
 
 The best place to get a general sense of the project is the [web version of the Convivial Computing Salon paper](/wildcard/salon2020).
 
-## Get involved
+## Get Future Updates
 
-* **Sign up for beta**: To get notified when the beta is available, [sign up for the mailing list](https://tinyletter.com/wildcard-extension).
+* **Beta list**: To get notified when the beta is available, [sign up for the mailing list](https://tinyletter.com/wildcard-extension).
 * **Follow along on Twitter**: To get further updates about Wildcard and my other projects, [follow me on Twitter](https://twitter.com/geoffreylitt).
 * **Try the current version**: If you want to live on the edge, you can try installing the current dev build, although it's not totally feature-complete or stable. Here are the [installation instructions](https://geoffreylitt.github.io/wildcard/#/quickstart) and the [Github source](https://github.com/geoffreylitt/wildcard). [Let me know](mailto:glitt@mit.edu) if you run into problems or questions.
 
 ## Contributors
 
-- Project lead: Geoffrey Litt
-- Project advisor: Daniel Jackson
-- Contributors:
-  - Tyler Millis
-  - Jessica Quaye
-  - Kapaya Katongo
-  - Gloria Lin
+- Project leads: Geoffrey Litt, Daniel Jackson
+- Contributors: Tyler Millis, Jessica Quaye, Kapaya Katongo, Gloria Lin
+
+## Related Projects
+
+- [thoughts on the power of browser extensions](/2019/07/29/browser-extensions.html)
+- [explorations into extending the spreadsheet paradigm](/projects/json-sheets.html)
+- [thoughts on curating personal software](/2020/07/19/tools-over-apps-for-personal-notetaking.html)
