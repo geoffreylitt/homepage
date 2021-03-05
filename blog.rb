@@ -1,4 +1,4 @@
-#!/usr/bin/ruby
+#!/Users/geoffreylitt/.rubies/ruby-3.0.0/bin/ruby
 
 # Creates a new blog post, and opens an editor to the new file
 
@@ -7,7 +7,7 @@
 title = ARGV[0]
 Dir.chdir "/Users/geoffreylitt/dev/homepage" do
   puts "Creating blog post: #{title}..."
-  created = `bash -l -c "bundle exec middleman article '#{title}'"`
+  created = `source ~/.bash_profile && chruby 3.0 && bash -l -c "bundle exec middleman article '#{title}'"`
   puts created
   filename = created.split(" ")[1]
 
