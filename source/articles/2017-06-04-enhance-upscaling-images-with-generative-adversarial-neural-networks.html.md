@@ -2,7 +2,6 @@
 title: "ENHANCE!: Upscaling images CSI-style with generative adversarial neural networks"
 date: 2017-06-04 12:16 UTC
 tags:
-starred: true
 ---
 
 *I gave a silly lightning talk about GANs at [Bangbangcon 2017](http://bangbangcon.com/)! You can watch the video, or read a written version of the talk below.*

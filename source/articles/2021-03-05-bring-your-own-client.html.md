@@ -4,6 +4,7 @@ title: Bring Your Own Client
 date: 2021-03-05 02:00 UTC
 tags:
 summary: Just a little note about the main problem I'm pondering these days...
+starred: true
 
 ---
 
