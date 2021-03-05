@@ -81,7 +81,7 @@ See the [local-first software](https://www.inkandswitch.com/local-first.html) ar
 
 * [Webstrates](https://webstrates.net/) has some great demos of this philosophy. It uses a centralized server for the live sync.
 * Webstrates descends from Michel Beaudouin-Lafon's work on [instrumental interfaces](https://youtu.be/ntaudUum06E?t=727)—"polymorphic" tools that can operate in different applications. For example, a color picker that I can use in any app.
-* The SOLID decentralized web project has some closely related ideas: ["apps become views"](https://ruben.verborgh.org/blog/2017/12/20/paradigm-shifts-for-the-decentralized-web/#apps-become-views), creating a competitive marketplace of clients decoupled from data silos. In turn it's heavily inspired by ideas from the Semantic Web.
+* The [SOLID](https://solidproject.org/) decentralized web project has some closely related ideas: ["apps become views"](https://ruben.verborgh.org/blog/2017/12/20/paradigm-shifts-for-the-decentralized-web/#apps-become-views), creating a competitive marketplace of clients decoupled from data silos. In turn it's heavily inspired by ideas from the Semantic Web.
 * [Google Wave](https://mashable.com/2009/05/28/google-wave-guide/) had some related ideas... A platform for realtime collaboration, with a rich open [extension API](https://youtu.be/v_UyVmITiYQ?t=4207) intended for people to build various collaboration clients on top of. Seems like the common wisdom on why it failed is that it was [too complicated](https://gizmodo.com/what-in-the-hell-was-google-wave-trying-to-be-anyway-1835038967) and tried to do too much.
 * [Braid](https://braid.news/) is exploring ways to extend HTTP to support collaborative editing across diverse clients.
 
