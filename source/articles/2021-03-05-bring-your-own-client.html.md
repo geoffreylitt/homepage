@@ -3,7 +3,7 @@
 title: Bring Your Own Client
 date: 2021-03-05 02:00 UTC
 tags:
-summary: Just a brief note on the main problem I'm thinking about these days...
+summary: Just a little note about the main problem I'm pondering these days...
 
 ---
 
@@ -46,7 +46,7 @@ Instead of needing to pick a single email client, can I compose my favorite emai
 ## Problems / questions
 
 * **Schema compatibility**: do all the editors need to agree on a single rigidly specified format? If there are reconcilable differences between formats, can we build "live converters" that convert between them on every change? (Essentially, imagine collaborating between Pages and Microsoft Word, running a file export in both directions on every keystroke from either app) This problem is closely related to the problem of schema versioning within a single editor, but BYOC can complicate things much further.
-* **Preserving intent**: the decoupling of git + text editors has a downside: the text format fails to capture the intent of edits, so git can't be very smart about merging conflicts. Is this something fundamental to decoupling editors from collaboration? Or are there ways to design APIs that preserve intent better, while also supporting an open client ecosystem?
+* **Preserving intent**: the decoupling of git + text editors has a downside: the text format fails to capture the intent of edits, so git can't be very smart about merging conflicts. Is this something fundamental to decoupling editors from collaboration? Or are there ways to design APIs that preserve intent better, while also supporting an open client ecosystem? (It seems like deciding on how you store your data in a CRDT is the key question here?)
 * **Additional editor-specific metadata**: Some editors need to store additional data that isn't part of the "core data model." Eg, Sublime Text stores my `.sublime-workspace` file alongside the code source. How does this work smoothly without polluting the data being used by other editors?
 * **Code distribution**: Traditionally code distribution happens through centralized means, but could code be distributed in a decentralized way alongside documents? If we're collaborating together in a doc, can I directly share a little editor widget/tool that I'm using, without needing to send you a Github link? This might be overcomplicating things / orthogonal to the general idea here... (This idea inspired by [Webstrates](https://webstrates.net/), linked below)
 * **Innovation**: Unfortunately stable open formats can limit product innovation—eg, email clients are tied down by adherence to the email standard. Can we mitigate that effect? I think web browsers have struck a good balance between progress and openness, despite frustrations in both directions.
@@ -58,14 +58,14 @@ Instead of needing to pick a single email client, can I compose my favorite emai
 * The SOLID decentralized web project has some closely related ideas: ["apps become views"](https://ruben.verborgh.org/blog/2017/12/20/paradigm-shifts-for-the-decentralized-web/#apps-become-views), creating a competitive marketplace of clients decoupled from data silos. In turn it's heavily inspired by ideas from the Semantic Web.
 * [Google Wave](https://mashable.com/2009/05/28/google-wave-guide/) had some related ideas... A platform for realtime collaboration, with a rich open [extension API](https://youtu.be/v_UyVmITiYQ?t=4207) intended for people to build various collaboration clients on top of. Seems like the common wisdom on why it failed is that it was [too complicated](https://gizmodo.com/what-in-the-hell-was-google-wave-trying-to-be-anyway-1835038967) and tried to do too much.
 
-## Aside: idea incubation
-
-I actually wrote this note 10 months ago and had totally forgotten about it.
-
-An hour ago, I randomly came across it and was quite amused. It includes some ideas which I _thought_ I had started thinking about only recently. But it turns out they've been incubating in my mind for a long time. Funny how that works!
-
-## Related
+## Related Thoughts
 
 - I believe one piece of the puzzle here is declarative schema mapping, for example the [Cambria](https://www.inkandswitch.com/cambria.html) project I worked on recently.
 - Granular BYOC starts to look like [software as curation](/2020/07/19/tools-over-apps-for-personal-notetaking.html): assembling software out of smaller "extensions"
 - Also relates to document-centric computing ideas like OpenDoc. Some [recent notes](https://twitter.com/geoffreylitt/status/1362779218241855494) I took on why that failed...
+
+## PS: idea incubation
+
+I actually wrote this note 10 months ago and had totally forgotten about it.
+
+An hour ago, I randomly came across it and was quite amused. It includes some ideas which I _thought_ I had started thinking about only recently. But it turns out they've been incubating in my mind for a long time. Funny how that works!
