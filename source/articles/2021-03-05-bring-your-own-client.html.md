@@ -53,7 +53,7 @@ Instead of needing to pick a single email client, can I compose my favorite emai
 
 ## Addendum: FAQ
 
-*This post unexpectedly got popular on HN. As I drink my morning coffee, I'll briefly respond to a few themes from the comments here.*
+*Edited 2020-03-05: This post unexpectedly got popular on HN. As I drink my morning coffee, I'll briefly respond to a few themes from the comments here.*
 
 **Q: Don't standards make it harder to innovate?**
 
@@ -92,12 +92,6 @@ See the [local-first software](https://www.inkandswitch.com/local-first.html) ar
 - Also relates to document-centric computing ideas like OpenDoc. Some [recent notes](https://twitter.com/geoffreylitt/status/1362779218241855494) I took on why that failed...
 - Part of the solution may involve extracting and synchronizing data from cloud services without going through official APIs, as demonstrated in my [Wildcard](/wildcard) project.
 
-## Brief Aside: idea incubation
-
-I actually wrote this note 10 months ago and had totally forgotten about it.
-
-An hour ago, I randomly came across it and was quite amused. It includes some ideas which I _thought_ I had started thinking about only recently. But it turns out they've been incubating in my mind for a long time. Funny how that works!
-
 ## I'm working on this!
 
 I'm currently pursuing a PhD at MIT doing research on this topic. Lots of challenges and open questions ahead, but I have some ideas for how to make progress. I'm particularly excited about clever ways to incrementally nudge us from the status quo to a BYOC world, rather than reinventing everything.
@@ -105,3 +99,9 @@ I'm currently pursuing a PhD at MIT doing research on this topic. Lots of challe
 If you want to follow along with future updates, you can subscribe via the links below.
 
 And if you have ideas about this topic or want to chat, feel free to [get in touch](mailto:gklitt@gmail.com).
+
+## PS: idea incubation
+
+I actually wrote this note 10 months ago and had totally forgotten about it.
+
+An hour ago, I randomly came across it and was quite amused. It includes some ideas which I _thought_ I had started thinking about only recently. But it turns out they've been incubating in my mind for a long time. Funny how that works!
