@@ -140,7 +140,8 @@ body {
 .site-container {
   // for some reason, firefox doesn't render gradient on body background,
   // so we need this container div
-  background: linear-gradient(to left, #d9f7ff, #fff9b5);
+  // background: linear-gradient(to left, #d9f7ff, #fff9b5);
+  background-color: #fffbca;
 }
 
 a {
