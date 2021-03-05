@@ -58,14 +58,23 @@ Instead of needing to pick a single email client, can I compose my favorite emai
 * The SOLID decentralized web project has some closely related ideas: ["apps become views"](https://ruben.verborgh.org/blog/2017/12/20/paradigm-shifts-for-the-decentralized-web/#apps-become-views), creating a competitive marketplace of clients decoupled from data silos. In turn it's heavily inspired by ideas from the Semantic Web.
 * [Google Wave](https://mashable.com/2009/05/28/google-wave-guide/) had some related ideas... A platform for realtime collaboration, with a rich open [extension API](https://youtu.be/v_UyVmITiYQ?t=4207) intended for people to build various collaboration clients on top of. Seems like the common wisdom on why it failed is that it was [too complicated](https://gizmodo.com/what-in-the-hell-was-google-wave-trying-to-be-anyway-1835038967) and tried to do too much.
 
-## Related Thoughts
+## Related Posts
 
 - I believe one piece of the puzzle here is declarative schema mapping, for example the [Cambria](https://www.inkandswitch.com/cambria.html) project I worked on recently.
 - Granular BYOC starts to look like [software as curation](/2020/07/19/tools-over-apps-for-personal-notetaking.html): assembling software out of smaller "extensions"
 - Also relates to document-centric computing ideas like OpenDoc. Some [recent notes](https://twitter.com/geoffreylitt/status/1362779218241855494) I took on why that failed...
+- Part of the solution may involve extracting and synchronizing data from cloud services without going through official APIs, as demonstrated in my [Wildcard](/wildcard) project.
 
-## PS: idea incubation
+## Brief Aside: idea incubation
 
 I actually wrote this note 10 months ago and had totally forgotten about it.
 
 An hour ago, I randomly came across it and was quite amused. It includes some ideas which I _thought_ I had started thinking about only recently. But it turns out they've been incubating in my mind for a long time. Funny how that works!
+
+## I'm working on this!
+
+I'm currently pursuing a PhD at MIT doing research on this topic. Lots of challenges and open questions ahead, but I have some ideas for how to make progress. I'm particularly excited about clever ways to incrementally nudge us from the status quo to a BYOC world, rather than reinventing everything.
+
+If you want to follow along with future updates, you can subscribe via the links below.
+
+And if you have ideas about this topic or want to chat, feel free to [get in touch](mailto:gklitt@gmail.com).
