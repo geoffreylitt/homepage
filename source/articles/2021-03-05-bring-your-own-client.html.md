@@ -51,12 +51,39 @@ Instead of needing to pick a single email client, can I compose my favorite emai
 * **Code distribution**: Traditionally code distribution happens through centralized means, but could code be distributed in a decentralized way alongside documents? If we're collaborating together in a doc, can I directly share a little editor widget/tool that I'm using, without needing to send you a Github link? This might be overcomplicating things / orthogonal to the general idea here... (This idea inspired by [Webstrates](https://webstrates.net/), linked below)
 * **Innovation**: Unfortunately stable open formats can limit product innovation—eg, email clients are tied down by adherence to the email standard. Can we mitigate that effect? I think web browsers have struck a good balance between progress and openness, despite frustrations in both directions.
 
+## Addendum: FAQ
+
+*This post unexpectedly got popular on HN. As I drink my morning coffee, I'll briefly respond to a few themes from the comments here.*
+
+**Q: Don't standards make it harder to innovate?**
+
+A: Yes, that's a major challenge. For example, email and IRC have lagged behind Slack and Reddit, because it's hard to change standards. We discussed this problem a bit in the [Cambria paper, re: Mastodon](https://www.inkandswitch.com/cambria.html#mastodon-protocol-evolution).
+
+I think the key is to aim for more flexible and extensible standards: a useful 80% compatibility, rather than a perfect 100%.
+
+Of course, once you abandon an exact standard, it's easy to rack up tons of complexity. (I think the Semantic Web struggled with this problem trying to provide schema flexibility.) So we also need better tools to make partial compatibility easy to reason about, for both developers and users.
+
+**Q: Hmm. 80% compatibility sounds like kind of a buggy mess? Word and OpenOffice don't interop very well.**
+
+A: I think with the right foundational tech for helping devs build maximally compatible formats, we can avoid the worst problems of incorrect format conversions. In the Cambria paper we sketched [a few examples](https://www.inkandswitch.com/cambria.html#lenses-in-action) of partial compatibility, where Cambria guaranteed type safety and helped us easily avoid bugs.
+
+That does leave a substantial design problem, though: even if everything works correctly, what do you show the _user_ when two pieces of software aren't fully compatible? How do you tell a user that their actions might show up differently for collaborators using different apps? I'm thinking a lot about these questions...
+
+**Q: Cloud business models are so entrenched. Can this actually happen without government intervention?**
+
+A:  It's true that business incentives are a major challenge. Maybe some form of government intervention could help, but ultimately it'll be fighting a headwind unless users and devs are excited for the change.
+
+I think the most sustainable way to make progress is to make BYOC the most convenient option, for the typical user and the typical developer. On the desktop, it's convenient for a developer to work with the user's existing filesystem. On the web today, there's no user-controlled filesystem, so it's usually easiest to just put the data in a database, and add a ticket to the backlog for someday building a public-facing API. How would that change if we had a convenient user-controlled place to put data?
+
+See the [local-first software](https://www.inkandswitch.com/local-first.html) article by Ink & Switch for some ideas on how new data architectures can make the right thing the easy thing, for both users and devs.
+
 ## Prior Art
 
 * [Webstrates](https://webstrates.net/) has some great demos of this philosophy. It uses a centralized server for the live sync.
 * Webstrates descends from Michel Beaudouin-Lafon's work on [instrumental interfaces](https://youtu.be/ntaudUum06E?t=727)—"polymorphic" tools that can operate in different applications. For example, a color picker that I can use in any app.
 * The SOLID decentralized web project has some closely related ideas: ["apps become views"](https://ruben.verborgh.org/blog/2017/12/20/paradigm-shifts-for-the-decentralized-web/#apps-become-views), creating a competitive marketplace of clients decoupled from data silos. In turn it's heavily inspired by ideas from the Semantic Web.
 * [Google Wave](https://mashable.com/2009/05/28/google-wave-guide/) had some related ideas... A platform for realtime collaboration, with a rich open [extension API](https://youtu.be/v_UyVmITiYQ?t=4207) intended for people to build various collaboration clients on top of. Seems like the common wisdom on why it failed is that it was [too complicated](https://gizmodo.com/what-in-the-hell-was-google-wave-trying-to-be-anyway-1835038967) and tried to do too much.
+* [Braid](https://braid.news/) is exploring ways to extend HTTP to support collaborative editing across diverse clients.
 
 ## Related Posts
 
