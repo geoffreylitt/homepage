@@ -11,7 +11,7 @@ anyone to create.
 
 At Dynamicland, rather than hunch over their own individual computers,
 people gather around tables rearranging pieces of paper together in order to "program" the system.
-You can find more background in [these](https://phenomenalworld.org/metaresearch/the-next-big-thing-is-a-room) [articles](https://rsnous.com/posts/notes-from-dynamicland-geokit/).
+You can find more background in [these](https://phenomenalworld.org/analysis/the-next-big-thing-is-a-room) [articles](https://rsnous.com/posts/notes-from-dynamicland-geokit/).
 
 ![](/images/project_images/dynamicland/space.jpg)
 
