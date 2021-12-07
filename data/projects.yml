@@ -1,5 +1,10 @@
 projects:
   programming_interfaces:
+    - name: Peritext
+      slug: peritext
+      description: A CRDT for rich text, to enable asynchronous collaborative writing
+      link: https://www.inkandswitch.com/peritext
+      image: images/projects/peritext.svg
     - name: Wildcard
       slug: wildcard
       description: Spreadsheet-driven customization of web applications (Onward! 2020)
@@ -7,7 +12,7 @@ projects:
     - name: Cambria
       slug: cambria
       description: Better cross-app data compatibility using bidirectional lenses
-      link: https://www.inkandswitch.com/cambria.html
+      link: https://www.inkandswitch.com/cambria
       image: images/projects/cambria.svg
     - name: Margin Notes
       slug: margin-notes
