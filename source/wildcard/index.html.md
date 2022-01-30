@@ -22,7 +22,7 @@ Here's a short 15 minute talk from Onward! 2020, which shows a bunch of examples
 
 <div class="publication-link">
   <div class="main-metadata">
-    <p class="paper-title">End-User Software Customization by Direct Manipulation of Tabular Data.</p>
+    <p class="paper-title">End-User Software Customization by Direct Manipulation of Tabular Data</p>
     <p class="paper-authors">Geoffrey Litt, Daniel Jackson, Tyler Millis, and Jessica Quaye</p>
     <p class="paper-venue"><a href="https://2020.splashcon.org/track/splash-2020-Onward-papers?">Onward! Papers 2020</a></p>
   </div>
@@ -34,7 +34,7 @@ Here's a short 15 minute talk from Onward! 2020, which shows a bunch of examples
 
 <div class="publication-link">
   <div class="main-metadata">
-    <p class="paper-title">Wildcard: Spreadsheet-Driven Customization of Web Applications.</p>
+    <p class="paper-title">Wildcard: Spreadsheet-Driven Customization of Web Applications</p>
     <p class="paper-authors">Geoffrey Litt and Daniel Jackson</p>
     <p class="paper-venue">Convivial Computing Salon, 2020</p>
   </div>
@@ -42,6 +42,30 @@ Here's a short 15 minute talk from Onward! 2020, which shows a bunch of examples
     <a class="link-primary" href="/wildcard/salon2020">🔗 Web (with videos!)</a>
     <a href="/wildcard/salon2020/paper.pdf">📜 PDF</a>
     <a href="https://doi.org/10.1145/3397537.3397541">🌍 DOI</a>
+  </div>
+</div>
+
+<div class="publication-link">
+  <div class="main-metadata">
+    <p class="paper-title">Towards End-User Web Scraping for Customization</p>
+    <p class="paper-authors">Kapaya Katongo, Geoffrey Litt and Daniel Jackson</p>
+    <p class="paper-venue">PX Workshop, 2021</p>
+  </div>
+  <div class="links">
+    <a href="/wildcard/Joker-PX-21.pdf">📜 PDF</a>
+    <a href="https://doi.org/10.1145/3464432.3464437">🌍 DOI</a>
+  </div>
+</div>
+
+<div class="publication-link">
+  <div class="main-metadata">
+    <p class="paper-title">Joker: A Unified Interaction Model For Web Customization</p>
+    <p class="paper-authors">Kapaya Katongo, Geoffrey Litt, Kathryn Jin, and Daniel Jackson</p>
+    <p class="paper-venue">LIVE Workshop, 2021</p>
+  </div>
+  <div class="links">
+    <a href="/wildcard/Joker-LIVE-2022.pdf">📜 PDF</a>
+    <a href="https://liveprog.org/live-2021/Joker-A-Unified-Interaction-Model-for-Web-Customization.mp4">🎬 Talk video</a>
   </div>
 </div>
 
@@ -56,7 +80,7 @@ The best place to get a general sense of the project is the [web version of the 
 ## Contributors
 
 - Project leads: Geoffrey Litt, Daniel Jackson
-- Contributors: Tyler Millis, Jessica Quaye, Kapaya Katongo, Gloria Lin
+- Contributors: Tyler Millis, Jessica Quaye, Kapaya Katongo, Gloria Lin, Kathryn Jin
 
 ## Related Projects
 
