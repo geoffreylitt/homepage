@@ -4,12 +4,14 @@
   :markdown
     I'm researching ways to give people more agency in computing, so they can compose, tweak, and even build their own tools.
 
-    I'm currently a Computer Science PhD student at MIT in the [Software Design Group](http://sdg.csail.mit.edu/), and I also collaborate with the [Ink & Switch](https://www.inkandswitch.com/) industrial research lab. Before that, I spent five years as an early engineer/designer at [Panorama Education](https://www.panoramaed.com/) (YC S13).
+    I'm currently a Computer Science PhD student at MIT in the [Software Design Group](http://sdg.csail.mit.edu/). I also collaborate with the [Ink & Switch](https://www.inkandswitch.com/) industrial research lab. Before that, I was an early engineer at [Panorama Education](https://www.panoramaed.com/) (YC S13).
 
-    Recently I've been thinking about:
+    My main project these days is [Riffle](https://riffle.systems/essays/prelude/): a local-first reactive relational database that aims to make it easier for anyone to build apps. That's a collaboration w/ Nicholas Schiefer, Johannes Schickling, and Daniel Jackson.
+
+    More broadly, I'm thinking about:
 
     - **data interoperability**: how can we build a world where you can [Bring Your Own Client](/2021/03/05/bring-your-own-client.html) and have software tools work together better on shared data? I talked about this in depth on [the Metamuse podcast](https://museapp.com/podcast/34-bring-your-own-client/).
-    - **calm collaborative work**: how can we better support groups of writers in working together asynchronously? I worked on the [Peritext rich text CRDT](https://www.inkandswitch.com/peritext/) as a first step towards this kind of collaboration.
+    - **calm collaborative work**: what tools can we build to support writers working together _asynchronously_? I worked on the [Peritext rich text CRDT](https://www.inkandswitch.com/peritext/) as a first step towards this kind of collaboration.
 
     If you'd like to hear about my future work, you can [subscribe to occasional email updates](https://buttondown.email/geoffreylitt). I'm also active on [Twitter](https://www.twitter.com/geoffreylitt) and have an [RSS feed](/feed.xml).
 
@@ -17,10 +19,10 @@
 
   %a{id: "projects"}
 .project-grids
-  %h2.project-category Published Projects
+  %h2.project-category Projects
   = partial(:project_grid, locals: { projects: projects.programming_interfaces })
 
-  %h2.project-category Smaller Explorations
+  %h2.project-category Experiments
   = partial(:project_grid, locals: { projects: projects.explorations })
 
 %a{id: "writing"}
