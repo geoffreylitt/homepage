@@ -1,5 +1,15 @@
 projects:
   programming_interfaces:
+    - name: Riffle
+      slug: riffle
+      description: Building data-centric apps with a reactive relational database
+      link: https://riffle.systems/prelude
+      image: images/projects/riffle.png
+    - name: Potluck
+      slug: potluck
+      description: Dynamic text documents for creating personal software
+      link: https://www.inkandswitch.com/potluck
+      image: images/article_images/potluck.png
     - name: Peritext
       slug: peritext
       description: A CRDT for rich text, to enable asynchronous collaborative writing
