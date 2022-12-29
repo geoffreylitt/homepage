@@ -61,7 +61,7 @@ With AI on the scene, there's been sudden progress. In particular, natural langu
 
 I think there's a blurry but useful distinction to be drawn between "tools" and "machines":
 
-https://twitter.com/geoffreylitt/status/1216750194886422531
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">On &quot;tools&quot; vs &quot;machines&quot;:<br><br>&quot;the power loom is a machine, and its significance as a destroyer of culture lies in the fact that it does the essentially human part of the work&quot; <a href="https://t.co/2AfnerYBgl">pic.twitter.com/2AfnerYBgl</a></p>&mdash; Geoffrey Litt (@geoffreylitt) <a href="https://twitter.com/geoffreylitt/status/1216750194886422531?ref_src=twsrc%5Etfw">January 13, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 When it comes to AI, I'm much more interested in using AI to amplify human capabilities than I am in cheaply automating tasks that humans were already able to do. In their essay [Using Artificial Intelligence to Augment Human Intelligence](https://distill.pub/2017/aia/), Shan Carter and Michael Nielsen call this idea "Artificial Intelligence Augmentation", or AIA. I think it's a nice phrase to describe the goal. (Another good read on this topic: [How To Become A Centaur](https://jods.mitpress.mit.edu/pub/issue3-case/release/6), by Nicky Case)
 
@@ -69,7 +69,7 @@ The general vibe of AIA is: human in the driver seat, precisely wielding a tool,
 
 [Linus](https://thesephist.com/) recently posted some demos of dragging a slider to change the length or emotional tone of a text summary, which I think has a similar sense of "tool" rather than "machine":
 
-https://twitter.com/thesephist/status/1587929014848540673
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">NEW DEMO!<br><br>Exploring the &quot;length&quot; dimension in the latent space of a language model ✨<br><br>By scrubbing up/down across the text, I&#39;m moving this sentence up and down a direction in the embedding space corresponding to text length — producing summaries w/ precise length control (1/n) <a href="https://t.co/oclIOvpvlN">pic.twitter.com/oclIOvpvlN</a></p>&mdash; Linus (@thesephist) <a href="https://twitter.com/thesephist/status/1587929014848540673?ref_src=twsrc%5Etfw">November 2, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 We didn't use LLMs in Potluck, but it'd be a natural extension, as we discuss briefly in the [Future Work](https://www.inkandswitch.com/potluck/#future-work). There, the AI could help with extracting structured data from messy raw text data, but still leave the user in control of deciding what kinds of computations to run over that structured data. I think this is a nice split because it lets AI do the thing that traditional code is terrible at, but doesn't try to automate away the entire process. It's also exactly the split that Nardi, Miller and Wright envisioned when they [invented data detectors](https://artifex.org/~bonnie/pdf/Nardi_program_agents.pdf) at Apple:
 
@@ -90,11 +90,11 @@ There are serious tradeoffs here. The AI can do soft reasoning that's basically 
 
 Here's a great example of the "just use the AI" approach: entering GPT prompts directly as "formulas" into Google Sheets. Works great, looks like magic:
 
-https://twitter.com/shubroski/status/1587136794797244417
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">This weekend I built =GPT3(), a way to run GPT-3 prompts in Google Sheets.<br><br>It&#39;s incredible how tasks that are hard or impossible to do w/ regular formulas become trivial.<br><br>For example: sanitize data, write thank you cards, summarize product reviews, categorize feedback... <a href="https://t.co/4fXOTpn2vz">pic.twitter.com/4fXOTpn2vz</a></p>&mdash; Shubhro Saha (@shubroski) <a href="https://twitter.com/shubroski/status/1587136794797244417?ref_src=twsrc%5Etfw">October 31, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 But also, a bunch of the results were wrong 🙃:
 
-https://twitter.com/danielxli/status/1587198402181599232
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">This is awesome. I also love how 20% of the zip codes are wrong. Messy AI future seems really fun and chaotic</p>&mdash; Daniel Li (@danielxli) <a href="https://twitter.com/danielxli/status/1587198402181599232?ref_src=twsrc%5Etfw">October 31, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 I'm very curious where we'll see each of these two techniques used, and what hybrids will emerge.
 
