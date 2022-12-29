@@ -3,7 +3,7 @@ projects:
     - name: Riffle
       slug: riffle
       description: Building data-centric apps with a reactive relational database
-      link: https://riffle.systems/prelude
+      link: https://riffle.systems/essays/prelude
       image: images/projects/riffle.png
     - name: Potluck
       slug: potluck
