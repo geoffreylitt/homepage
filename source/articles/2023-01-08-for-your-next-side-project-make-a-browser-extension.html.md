@@ -48,7 +48,7 @@ Once this initial feature set solidified, I got some buzz with a soft launch twe
 
 In hindsight, this distribution turned out to be a great idea, because DMs were the perfect way to gather early feedback. Over 50% of early users actually sent meaningful feedback, and I suspect it's because we already had a casual messaging channel opened when I originally sent the app. I also found that DMs (with proper follow-up) were a super efficient way of getting feedback, compared to calls, emails, etc.
 
-For a while I just kept iterating and polishing. My #1 priority  was to "earn the space": to make the extension feel native to Twitter, never cause glitches, and to generally offer a high quality, pro-user style experience. Eventually things stabilized and I shipped a proper public beta through the Chrome store. 
+For a while I just kept iterating and polishing. My #1 priority  was to "earn the space": to make the extension feel native to Twitter, never cause glitches, and to generally offer a high quality, pro-user style experience. Eventually things stabilized and I shipped a proper public beta through the Chrome store.
 
 At this point a lot of people started really loving the Twemex experience. I got reviews like "Rapidly became one of my core features when browsing Twitter. Cuts through the noise and finds quality so well.", and "I cannot believe how broken twitter feels *without* twemex".
 
@@ -94,7 +94,7 @@ These rules made it far easier to keep the project running without investing muc
 
 ### Easy growth
 
-Two truths of building new stuff: Getting people to use a new thing is hard, and getting them to keep using it is even harder. 
+Two truths of building new stuff: Getting people to use a new thing is hard, and getting them to keep using it is even harder.
 
 The great news is, **with an extension, the flywheel isn't starting from scratch**. Once a user installed Twemex, they would automatically see the new sidebar whenever they visited Twitter. For the power users who were the most likely to use Twemex anyway, this meant that their existing habits would seamlessly grow to include Twemex.
 
@@ -124,13 +124,14 @@ Another thing worth mentioning is that it's getting harder to engineer browser e
 
 ### Distribution
 
+
 I'm used to building web applications where you can ship an update anytime, especially when something is broken.
 
 In contrast, I found that distribution is miserable on the extension platform. Reaching most users requires going through the Chrome Web Store, which has an opaque manual review process that can take anywhere from a couple hours to a few weeks. Not being able to ship updates quickly meant I had to be far more diligent about QAing releases.
 
 ### Other limitations
 
-All of this only works on the web; there's no way to extend the Twitter native mobile app with Twemex. For some kinds of extension use cases this might be a dealbreaker. 
+All of this only works on the web; there's no way to extend the Twitter native mobile app with Twemex. For some kinds of extension use cases this might be a dealbreaker.
 
 Of course, there are also general limitations to what you can build when you're extending an existing app vs. building your own from scratch. That's sort of the point: incremental improvement over radical change.
 
