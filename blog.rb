@@ -7,7 +7,7 @@
 title = ARGV[0]
 Dir.chdir "/Users/geoffreylitt/dev/homepage" do
   puts "Creating blog post: #{title}..."
-  created = `source ~/.bash_profile && chruby 3.0 && bash -l -c "bundle exec middleman article '#{title}'"`
+  created = `zsh -l -c "bundle exec middleman article '#{title}'"`
   puts created
   filename = created.split(" ")[1]
 
