@@ -84,7 +84,7 @@ and
 
 Here's a short demo video of Twemex if you want to see more of the cool things it does. Notice how throughout the demo, it really feels like the extension is just part of the app:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ORAFb0Lh7ys?start=2898" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="100%" height="300px" src="https://www.youtube.com/embed/ORAFb0Lh7ys?start=2898" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Growth + acquisition
 
