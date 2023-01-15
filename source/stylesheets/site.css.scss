@@ -329,19 +329,14 @@ header {
   font-weight: 400;
 
   a.logo {
-    box-sizing: content-box;
-    display: inline-block;
-    width: 80px;
-    height: 80px;
-    vertical-align: top;
-    margin-right: 15px;
+    display: none;
   }
 
   h1.name {
     display: inline-block;
     line-height: 0.6em;
     font-weight: 300;
-    margin: 0;
+    margin: 15px 0;
 
     a {
       font-size: 23px;
