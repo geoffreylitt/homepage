@@ -4,6 +4,8 @@ title: For your next side project, make a browser extension
 date: 2023-01-08 19:37 UTC
 tags:
 image_url: /images/article_images/gears.jpg
+summary: |
+  Reflections on the benefits of tweaking an existing app, instead of starting from scratch.
 
 ---
 
