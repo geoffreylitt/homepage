@@ -3,7 +3,8 @@
 title: "Fuzzy API composition: querying NBA stats with GPT-3 + Statmuse + Langchain"
 date: 2023-01-29 21:08 UTC
 tags:
-summary: "An exploration of the weird world we live in, composing multiple tools through a natural language interface"
+image_url: /images/article_images/langchain/robot.png
+summary: "An exploration of composing multiple tools through a natural language interface"
 
 ---
 
