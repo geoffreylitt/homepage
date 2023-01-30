@@ -118,11 +118,14 @@ Then, we give the Langchain agent access to this tool, alongside two tools built
 
 ```python
 llm = OpenAI(temperature=0)
-default_tools = load_tools(["serpapi", "llm-math"], llm=llm)
+default_tools = load_tools(
+  ["serpapi", "llm-math"], llm=llm
+)
 
 # Add our Statmuse tool to the mix!
 tools = default_tools + [statmuse_tool]
-agent = initialize_agent(tools, llm, agent="zero-shot-react-description", verbose=True)
+agent = initialize_agent(tools, llm,
+  agent="zero-shot-react-description", verbose=True)
 ```
 
 And that's it—almost no code at all, really. Let's see how well it worked...
