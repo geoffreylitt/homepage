@@ -255,4 +255,5 @@ Some links:
 
 - [my notebook code](https://gist.github.com/geoffreylitt/b345e5a3fcc18368df04b49f6924c217), you can try opening in colab and running more queries, all you need is an OpenAI API key.
 - The [Langchain docs](https://langchain.readthedocs.io/en/latest/modules/agents/getting_started.html) have a lot more interesting info as well.
+- Another [fun demo](https://huggingface.co/spaces/JavaFXpert/Chat-GPT-LangChain) of tool usage that I found inspirational: having GPT call out to Wolfram Alpha to answer factual questions. I guess Wolfram Alpha serves a sort of similar role to Statmuse: a specialized fact-based natural-language query engine.
 - I found [this blog post](https://dagster.io/blog/chatgpt-langchain) by Pete Hunt useful as an example of how to use LangChain in a different setting.
