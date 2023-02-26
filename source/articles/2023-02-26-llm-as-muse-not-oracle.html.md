@@ -29,7 +29,7 @@ Given this seed of an idea, there was obviously only one way to deepen the think
 
 Overall, was it a useful muse? I'll let you draw your own conclusions.
 
-A quick disclaimer before we dive in. I used some prompting tricks which include frequent cherry-picking among multiple options as the conversation progresses; you shouldn't expect ChatGPT to work exactly like this out of the box. I've also lightly edited the conversation for flow. . I'll share more details on the process at the end.
+A quick disclaimer before we dive in. I used some prompting tricks which include frequent cherry-picking among multiple options as the conversation progresses; you shouldn't expect ChatGPT to work exactly like this out of the box. I've also lightly edited the conversation for flow. I'll share more details on the process at the end.
 
 ## My conversation with ChatGPT
 
