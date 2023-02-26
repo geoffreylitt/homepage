@@ -291,6 +291,13 @@ img.book-cover {
   border: solid 1px black;
 }
 
+img.transcript-headshot {
+  border-radius: 100%;
+  height: 1.5rem;
+  vertical-align: top;
+  margin: -0.2rem 0.4rem 0 0;
+}
+
 figure {
   img {
     margin-bottom: 0;
