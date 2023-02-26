@@ -4,16 +4,16 @@ title: ChatGPT as muse, not oracle
 date: 2023-02-26 21:47 UTC
 tags:
 summary: "What if we thought of LLMs as tools for inspiring human creativity, not giving us answers? A meta-conversation with ChatGPT"
-image_url: /images/article_images/muse.jpg
+image_url: https://www.geoffreylitt.com/images/article_images/muse.jpg
 
 ---
 
-Recently lots of people have been trying very hard to make large language models like ChatGPT into better *oracles*—when we ask them questions, we want the perfect answer. As an example, in my [last post](/2023/01/29/fun-with-compositional-llms-querying-basketball-stats-with-gpt-3-statmuse-langchain.html), I explored some techniques for helping LLMs answer complex questions more reliably by coordinating multiple steps with external tools.
+Recently lots of people have been trying very hard to make large language models like ChatGPT into better *oracles*—when we ask them questions, we want the perfect answer. As an example, in my [last post](https://www.geoffreylitt.com/2023/01/29/fun-with-compositional-llms-querying-basketball-stats-with-gpt-3-statmuse-langchain.html), I explored some techniques for helping LLMs answer complex questions more reliably by coordinating multiple steps with external tools.
 
 I've been wondering, though, if this framing is missing a different opportunity. **What if we were to think of LLMs not as tools for answering questions, but as tools for _asking_ us questions and inspiring our creativity?** Could they serve as on-demand conversation partners for helping us to develop our best thoughts? As a creative *muse*?
 
 <figure style="margin: 0;">
-  <img src="/images/article_images/muse.jpg" alt="A winged figure behind another person">
+  <img src="https://www.geoffreylitt.com/images/article_images/muse.jpg" alt="A winged figure behind another person">
   <figcaption>Cropped section of <a href="https://commons.wikimedia.org/wiki/File:Hesiod_and_the_Muse.jpg">Hesiod and the Muse</a>, by Gustave Moreau</figcaption>
 </figure>
 
@@ -29,37 +29,34 @@ Given this seed of an idea, there was obviously only one way to deepen the think
 
 Overall, was it a useful muse? I'll let you draw your own conclusions.
 
-A quick disclaimer before we dive in. I used some prompting tricks which include frequent cherry-picking among multiple options as the conversation progresses; you shouldn't expect ChatGPT to work exactly like this out of the box. I've also lightly edited the conversation for flow. . I'll share more details on the process at the end.
+A quick disclaimer before we dive in. I used some prompting tricks which include frequent cherry-picking among multiple options as the conversation progresses; you shouldn't expect ChatGPT to work exactly like this out of the box. I've also lightly edited the conversation for flow. I'll share more details on the process at the end.
 
 ## My conversation with ChatGPT
 
-<img class="transcript-headshot" src="/images/headshot.jpg" />**Geoffrey:**
-
+**Geoffrey**:
 Something that's been on my mind is flipping the relationship between the human and language model when going through a creative process. It seems that we often want to ask questions of language models, and we expect them to brainstorm ideas or give us answers, but I wonder if another fruitful pattern here is having models *ask questions of us*.
 
 In a conversation it's often really helpful to have someone listening to me and responding and asking the right probing questions at the right times. I'm driving the creative process, but the conversation partner is playing an essential role too.
 
 One reason I find this idea interesting is that **the bar for the intelligence required in an agent for it to support human creativity seems pretty low**. In [rubber duck debugging](https://en.wikipedia.org/wiki/Rubber_duck_debugging), talking to a silent rubber duck helps a person figure out the problem by forcing them to put it into words. The Oblique Strategies card deck [promotes creative ideas](https://subconscious.substack.com/p/creativity-can-be-provoked-on-demand) based on general loose strategies. [ELIZA](https://en.wikipedia.org/wiki/ELIZA) can ask super basic questions and cause people to feel a therapeutic relationship. In all these cases, a person gets a boost in the creative process from interacting with a tool that's clearly far from intelligent. It seems like large language models could do at least as well as these tools, and have a much higher ceiling.
 
-<img class="transcript-headshot" src="/images/article_images/ChatGPT-logo.svg" />**ChatGPT:**
+**ChatGPT**:
 
 That's an intriguing idea! Could you give an example of how you envision the interaction between a human and a language model playing out in a creative process? I'm interested in hearing how the model's questions might guide the user's thinking.
 
-<img class="transcript-headshot" src="/images/headshot.jpg" />**Geoffrey:**
-
+**Geoffrey**:
 Sure, I'll use this very conversation as an example! I started out this conversation with a pretty vague idea, and you immediately asked me for a specific example. Next you might tell me about a related idea from your own background knowledge, or push back on my point, or ask a more incisive question. As we go, I'll develop a clearer view of what I myself mean when I say to use LLMs for asking questions, not providing answers.
 
 The key point here is that **even if the questions and points you're making are relatively standard ones, it might lead to me having surprisingly interesting or creative ideas.** Guiding my own thought process can feel like hard work, and having your points to respond to makes it easier for me to keep going, just like in any conversation.
 
 
-<img class="transcript-headshot" src="/images/article_images/ChatGPT-logo.svg" />**ChatGPT:**
+**ChatGPT**:
 
 That's a great example, and I can see how having a language model ask targeted questions could help guide a person's thought process in a productive way.
 
 While I see the potential benefits of using language models to ask questions, I'm curious about how we can ensure that the questions are meaningful and not just generic prompts. Are there specific techniques or strategies for generating targeted questions that you would recommend?
 
-<img class="transcript-headshot" src="/images/headshot.jpg" />**Geoffrey:**
-
+**Geoffrey**:
 This is indeed a crucial design problem, but defining "meaningful" prompts might be harder than it seems.
 
 First, to reiterate a point from earlier: **the bar is low**. In a sense, Oblique Strategies cards are generic prompts, since they don't know anything about the person's specific problem context, and could apply to any situation—but this universality is also what gives them their power.
@@ -68,34 +65,31 @@ It reminds me a bit of Arthur Koestler's idea of [bisociation](https://www.thema
 
 Still, you're right that there are better and worse prompts, and avoiding blandness is crucial. One strategy I like here is to **ask a model to generate many possible future paths for the conversation**, and let me choose which path to follow next. Often there are many mediocre paths and one or two interesting ones. This would be really bizarre to do in a live human conversation, but plays to the strengths of models: running fast and generating lots of options.
 
-<img class="transcript-headshot" src="/images/article_images/ChatGPT-logo.svg" />**ChatGPT:**
+**ChatGPT**:
 
 That's an interesting approach! I wonder if you could incorporate some sort of reinforcement learning approach to encourage the model to generate more interesting paths.
 
-<img class="transcript-headshot" src="/images/headshot.jpg" />**Geoffrey:**
-
+**Geoffrey**:
 Yeah, that's an interesting idea. I don't know that much about reinforcement learning from human feedback (RLHF), but I do know that it's a technique that's been effectively used recently to guide chatbot assistants towards being more helpful. Maybe you could use the same technique to guide towards open-ended creative conversations?
 
 BTW, another idea is to give the LLM specific templates for the kinds of responses that it can generate. This is kind of like teaching a human to be a good advisor—you tell them kinds of question formats that are generally useful, and then they can learn to pattern match and apply the templates to the specific situation at hand. In fact, I'm using that technique in this very conversation, since I've given you templates like referencing the prior literature, pushing back on my claims, or riffing on my ideas.
 
-<img class="transcript-headshot" src="/images/article_images/ChatGPT-logo.svg" />**ChatGPT:**
+**ChatGPT**:
 
 In thinking about teaching LLMs templates for generating questions, I'm reminded of the work on scaffolded learning, where learners are given progressively more difficult tasks and receive support along the way. I wonder if a similar approach could be taken with LLMs, where they start with more basic question templates and as they receive feedback and improve, they move on to more complex and nuanced templates.
 
-<img class="transcript-headshot" src="/images/headshot.jpg" />**Geoffrey:**
-
+**Geoffrey**:
 Hmm, that's an interesting connection to scaffolded learning! I would make a slightly different connection though: instead of thinking about scaffolding for teaching LLMs to ask questions, what if we think of the role of LLMs as building scaffolding for humans to think through an idea during the creative process?
 
 When a teacher creates scaffolding for a student to reach a conclusion, they might use techniques like asking a student if they understand a given point before moving on to the next one. I think this kind of thing has been explored a lot when thinking about LLMs as personalized tutors.
 
 Creative thinking feels like a different context than learning a pre-existing skill, but there's still a relevant analogy. An LLM might start out asking me big broad questions about my idea, before progressing to more detailed probing and more skeptical pushback. This gives me time to start thinking through my idea and building it up before I'm confronted with these points. Good conversation partners seem to do this kind of thing a lot, carefully sequencing their points to draw out ideas.
 
-<img class="transcript-headshot" src="/images/article_images/ChatGPT-logo.svg" />**ChatGPT:**
+**ChatGPT**:
 
 Your point about good conversation partners carefully sequencing their points to draw out ideas reminds me of the concept of "conversational scaffolding" developed by Wood, Bruner, and Ross in their 1976 paper [The Role of Tutoring in Problem Solving](https://www.researchgate.net/publication/228039919_The_Role_of_Tutoring_in_Problem_Solving). They argue that a good tutor can help a student solve problems by giving hints and guidance that scaffold the student's thinking and help them reach a solution.
 
-<img class="transcript-headshot" src="/images/headshot.jpg" />**Geoffrey:**
-
+**Geoffrey**:
 Interesting! One of the ideas in that paper is "reduction in degrees of freedom: simplifying  the task by reducing the number of constituent acts required to reach [a] solution." I wonder if there's a relationship to the idea that "constraints breed creativity"?
 
 The exact connection here seems a bit subtle.
@@ -104,7 +98,7 @@ When learning an existing skill like how to play tennis, scaffolding constraints
 
 And yet, the constraints result in more interesting choices, and also do make the creative task easier in a broader sense. It might be hard to finish the story without e, but you can chug through the task, and you're likely to end up, nearly automatically, with something weirder than if you had omitted the constraint.
 
-<img class="transcript-headshot" src="/images/article_images/ChatGPT-logo.svg" />**ChatGPT:**
+**ChatGPT**:
 
 That's an interesting point. I think there is definitely a relationship between scaffolding and constraints in creative thinking, even if it might not be immediately obvious.
 
@@ -112,11 +106,10 @@ One possible way to connect the two is to think about how scaffolding can help t
 
 One interesting idea that comes to mind is to **use the LLM to generate a set of constraints for a creative task, and then use those constraints as a prompt for generating ideas.** This could be a fun way to explore the relationship between scaffolding and constraints in creative thinking.
 
-<img class="transcript-headshot" src="/images/headshot.jpg" />**Geoffrey:**
-
+**Geoffrey**:
 Hmm fun idea! Could you give an example of how you might use an LLM to generate constraints for a creative task, and then use those constraints as a prompt? Let's imagine we wanted to apply that strategy to writing a poem, for example.
 
-<img class="transcript-headshot" src="/images/article_images/ChatGPT-logo.svg" />**ChatGPT:**
+**ChatGPT**:
 
 Certainly! One way to use an LLM to generate constraints for a creative task like writing a poem is to train the LLM on a large corpus of poetry and use it to generate new poetic forms. For example, the LLM might suggest a new poetic form that involves using only five words per line, or a form that requires a certain number of syllables per line but allows for flexibility in line breaks.
 
@@ -124,57 +117,52 @@ Once the LLM has generated a new poetic form, it could then be used as a prompt 
 
 Of course, the challenge for the LLM would be to generate constraints that are interesting and challenging, but not so difficult that they stifle creativity altogether. It might require some fine-tuning to strike the right balance between creativity and constraint.
 
-<img class="transcript-headshot" src="/images/headshot.jpg" />**Geoffrey:**
-
+**Geoffrey**:
 That makes sense. I'm not sure the LLM is really necessary for that though; I think you could easily have a classical computer program generate new poetic forms and have people work within them. The unique benefit LLMs provide is coming up with constraints or questions that are more tailored to a specific problem being faced by a human.
 
 Maybe creative writing isn't really the right example to focus on here; I'm thinking more of conversations like this one, where I'm trying to develop some principles for interaction design.
 
-<img class="transcript-headshot" src="/images/article_images/ChatGPT-logo.svg" />**ChatGPT:**
+**ChatGPT**:
 
 What if we used LLMs to generate prompts or constraints for problem-solving activities like brainstorming or ideation sessions in a group setting? How might that change the dynamics of the group and lead to more creative solutions?
 
-<img class="transcript-headshot" src="/images/headshot.jpg" />**Geoffrey:**
-
+**Geoffrey**:
 Huh, good question—so far I had been thinking mainly about the solo setting, and not groups. Two ideas immediately come to mind.
 
 First, we could scale up facilitation using LLMs. Typically in a group brainstorm there's a single facilitator helping everyone navigate the creative process. But if you could have a skilled LLM facilitator assigned to each participant, maybe that could help people when they get stuck.
 
 Another idea is to treat LLMs as extra participants in a group ideation process. I've found that LLMs are good at generating long lists of related ideas; even if most are mediocre, one might be really good. Maybe when a group comes up with a set of ideas in a session, an LLM could use those ideas as a starting point and add many more ideas, to be evaluated and pruned by the group.
 
-<img class="transcript-headshot" src="/images/article_images/ChatGPT-logo.svg" />**ChatGPT:**
+**ChatGPT**:
 
 Those are both interesting ideas! It seems like they both involve using LLMs to help facilitate group ideation sessions.
 
 Changing the topic, I'm curious to hear your thoughts on the **ethical implications** of using LLMs in design and creative work. What are some potential downsides or concerns that you see?
 
-<img class="transcript-headshot" src="/images/headshot.jpg" />**Geoffrey:**
-
+**Geoffrey**:
 There's been a lot of consternation recently about LLMs replacing humans in creative endeavors. To me, **using LLMs as question-askers rather than answer-givers makes for a slightly rosier story**. Rather than doing the work for us, we can find ways to use LLMs as the ultimate muse to draw out our best work.
 
 There's also the complicated question of credit and authorship. It's one thing to handle ChatGPT writing essays for us; it's another thing entirely to develop ideas in conversation with ChatGPT. Sometimes people will acknowledge their conversation partners who helped them develop an idea, although we typically wouldn't give those people "co-authorship" credit. I wonder if we'd want a similar practice of acknowledging LLMs for helpful conversations.
 
-<img class="transcript-headshot" src="/images/article_images/ChatGPT-logo.svg" />**ChatGPT:**
+**ChatGPT**:
 
 While I agree that using LLMs as question-askers rather than answer-givers can be a more positive use of the technology, I wonder if there's still a risk of over-reliance on LLMs in the creative process. As humans, we often learn and grow through the struggle of coming up with ideas and working through challenges. If LLMs are always there to provide prompts and help us when we get stuck, are we missing out on that growth opportunity? Additionally, if we become too reliant on LLMs for creative ideation, what happens when the technology isn't available or accessible to everyone?
 
-<img class="transcript-headshot" src="/images/headshot.jpg" />**Geoffrey:**
-
+**Geoffrey**:
 Yeah, I could certainly see the argument at earlier ages. If children can only think through ideas by chatting with virtual bots, and lose the ability for solo contemplation, that might freak me out a bit. Already in this conversation I'm seeing that you're serving as a helpful "crutch" that makes it easier for me to keep noodling on this idea; maybe I myself should be worried about becoming over-reliant.
 
 On the other hand, we already have tons of modalities for developing ideas: scribbling in a notebook, talking on Twitter, going to a conference... as long as we keep a varied diet of contexts for developing ideas, it seems fine to bring LLMs into that mix.
 
-<img class="transcript-headshot" src="/images/article_images/ChatGPT-logo.svg" />**ChatGPT:**
+**ChatGPT**:
 
 Absolutely, I think that's a really good point. And there's also the potential for LLMs to help people who might not have access to as many varied modalities for idea development. For example, someone in a remote location without access to conferences or a community of like-minded individuals could use an LLM to expand their creative horizons.
 
 But I think it's also important to acknowledge the limitations of LLMs. As powerful as they are, they're not a replacement for real-life human interaction and collaboration. It's important to strike a balance between utilizing LLMs as a tool for creative exploration and not becoming overly reliant on them to the point where we neglect other forms of idea development.
 
-<img class="transcript-headshot" src="/images/headshot.jpg" />**Geoffrey:**
-
+**Geoffrey**:
 Indeed. Well, that seems like a great place to end the conversation. Thanks for an intellectually stimulating time, ChatGPT!
 
-<img class="transcript-headshot" src="/images/article_images/ChatGPT-logo.svg" />**ChatGPT:**
+**ChatGPT**:
 
 You're welcome, it was a pleasure discussing with you! Don't hesitate to reach out if you have more questions or ideas to explore in the future. Have a great day!
 
@@ -204,11 +192,10 @@ Each turn, the model would generate 5 options following these templates, and I w
 
 ---
 
-<img class="transcript-headshot" src="/images/headshot.jpg" />**Geoffrey:**
-
+**Geoffrey**:
 ...In all these cases, a person gets a boost in the creative process from interacting with a tool that’s clearly far from intelligent. It seems like large language models could do at least as well as these tools, and have a much higher ceiling.
 
-<img class="transcript-headshot" src="/images/article_images/ChatGPT-logo.svg" />**ChatGPT:**
+**ChatGPT**:
 
 That's an intriguing idea! Here are some options for continuing our conversation:
 
@@ -222,8 +209,7 @@ That's an intriguing idea! Here are some options for continuing our conversation
 
 5. Could you give an example of how you envision the interaction between a human and a language model playing out in a creative process? I'm interested in hearing how the model's questions might guide the user's thinking.
 
-<img class="transcript-headshot" src="/images/headshot.jpg" />**Geoffrey:**
-
+**Geoffrey**:
 Responding to option 5:
 
 Sure, I'll use this very conversation as an example!...
