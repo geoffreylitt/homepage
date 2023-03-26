@@ -142,23 +142,25 @@ One approach is to ask your skilled team of business analysts. You can send them
 
 In contrast, another option is to use a self-serve analytics platform where you can click around in some dashboards. When this works, it's way faster and cheaper than bothering the analysts. The dashboards offer you powerful direct manipulation interactions like sorting, filtering, and zooming. You can quickly think through the problem yourself.
 
-So what's the downside? Using the app is _less flexible_ than working with the bespoke consultants. The moment you want to perform a task which this analytics platform doesn't support, you're stuck asking for help or switching to a different tool. You can try sending an email to the developers of the analysis platform, but usually nothing will come of it. You don't have a meaningful feedback loop with the developers; you're left wishing software were more flexible.
+So what's the downside? **Using the app is *less flexible* than working with the bespoke consultants.** The moment you want to perform a task which this analytics platform doesn't support, you're stuck asking for help or switching to a different tool. You can try sending an email to the developers of the analysis platform, but usually nothing will come of it. You don't have a meaningful feedback loop with the developers; you're left wishing software were more flexible.
 
 ![](/images/article_images/llm-eup/app.png)
 
 Now with that baseline comparison established, let's imagine how LLMs might fit in.
 
-Assume that we could replace our human analyst team with ChatGPT for the tasks we have in mind, while preserving the same degree of flexibility. (This isn't true of today's models, but will become increasingly true to some approximation.) How would that change the picture? Well, for one thing, the LLM is a lot cheaper to run than the humans. It's also a lot faster at responding since it's not busy taking a coffee break. These are major advantages. But still, dialog back and forth with it takes seconds, if not minutes, of conscious thought—much slower than feedback loops you have with a GUI or a steering wheel.
+Assume that we could replace our human analyst team with ChatGPT for the tasks we have in mind, while preserving the same degree of flexibility. (This isn't true of today's models, but will become increasingly true to some approximation.) How would that change the picture? Well, for one thing, the LLM is a lot cheaper to run than the humans. It's also a lot faster at responding since it's not busy taking a coffee break. These are major advantages. But still, dialogue back and forth with it takes seconds, if not minutes, of conscious thought—much slower than feedback loops you have with a GUI or a steering wheel.
 
 ![](/images/article_images/llm-eup/llm-consultant.png)
 
-Next, consider LLMs applied to the app model. What if we started with an interactive analytics application, but this time we had a team of LLM developers at our disposal? As a start, we could ask the LLM questions about how to use the application, which could be easier than reading documentation.
+Next, consider LLMs applied to the app model. **What if we started with an interactive analytics application, but this time we had a team of LLM developers at our disposal?** As a start, we could ask the LLM questions about how to use the application, which could be easier than reading documentation.
 
 But more profoundly than that, the LLM developers could go beyond that and _update_ the application. When we give feedback about adding a new feature, our request wouldn't get lost in an infinite queue. They would respond immediately, and we'd have some back and forth to get the feature implemented. Of course, the new functionality doesn't need to be shipped to everyone; it can just be enabled for our team. This is economically viable now because we're not relying on a centralized team of human developers to make the change.
 
 ![](/images/article_images/llm-eup/llm-app.png)
 
-Now we've established two loops in the interaction. On the inner loop, we can become one with the tool, using fast direct manipulation interfaces. On the outer loop, when we hit limits of the existing application, we can consciously offer feedback to the LLM developers and get new features built. This preserves the benefits of UIs, while adding more flexibility.
+Note that this is just a rough vision at this point. We're missing a lot of details about how this model might be made real. A lot of the specifics of how software is built today make these kinds of on-the-fly customizations quite challenging.
+
+The important thing, though, is that we've now established two loops in the interaction. On the inner loop, we can become one with the tool, using fast direct manipulation interfaces. On the outer loop, when we hit limits of the existing application, we can consciously offer feedback to the LLM developers and get new features built. This preserves the benefits of UIs, while adding more flexibility.
 
 ## From apps to computational media
 
