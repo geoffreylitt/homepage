@@ -4,6 +4,7 @@ title: Malleable software in the age of LLMs
 date: 2023-03-25 19:05 UTC
 tags:
 summary: "All computer users may soon have the ability to author small bits of code. What structural changes does this imply for the production and distribution of software?"
+image_url: /images/article_images/llm-eup/robot-coding.png
 
 ---
 
@@ -58,7 +59,7 @@ One disclaimer before diving in: expect a lot of speculation and uncertainty. I'
 ## Opening up the programming bottleneck
 
 Why might LLMs be a big deal for empowering users with computation?
- 
+
 For decades, pioneers of computing have been reaching towards a vision of *end-user programming*: normal people harnessing the full, general power of computers, not just using prefabricated applications handed down to them by the programmer elite. As Alan Kay [wrote in 1984](http://worrydream.com/refs/Kay%20-%20Opening%20the%20Hood%20of%20a%20Word%20Processor.pdf): "We now want to edit our _tools_ as we have previously edited our documents."
 
 There are many manifestations of this idea. Modern examples of end-user programming systems you may have used include spreadsheets, Airtable, Glide, or iOS Shortcuts. Older examples include HyperCard, Smalltalk, and Yahoo Pipes. (See this [excellent overview](https://www.inkandswitch.com/end-user-programming/) by my collaborators at Ink & Switch for a historical deep dive)
@@ -71,7 +72,7 @@ Here's one example of the programming bottleneck in my own work. A few years ago
 
 Neat demo, right?
 
-But if you look closely, there are two slightly awkward programming bottlenecks in this system. First, the user needs to be able to write small spreadsheet formulas to express computations. This is a lot easier than learning a full-fledged programming language, but it's still a barrier to initial usage. Second, behind the scenes, Wildcard requires site-specific scraping code (excerpt shown below) to connect the spreadsheet to the website. In theory these adapters could be written and maintained by developers and shared among a community of end-users, but that's a lot of work. 
+But if you look closely, there are two slightly awkward programming bottlenecks in this system. First, the user needs to be able to write small spreadsheet formulas to express computations. This is a lot easier than learning a full-fledged programming language, but it's still a barrier to initial usage. Second, behind the scenes, Wildcard requires site-specific scraping code (excerpt shown below) to connect the spreadsheet to the website. In theory these adapters could be written and maintained by developers and shared among a community of end-users, but that's a lot of work.
 
 ![](/images/article_images/llm-eup/hacker-news.png)
 
@@ -101,7 +102,7 @@ First, **iteration is a natural part of the process with LLMs**. When the code d
 
 A joke that comes up often among AI-skeptical programmers goes something like this: "Great, now no one will have to write code, they'll only have to write exact, precise specifications of computer behavior..." (implied: oh wait, that is code!) I suspect we'll look back on this view as short-sighted. LLMs can iteratively work with users and ask them questions to develop their specifications, and can also fill in underspecified details using common sense. This doesn't mean those are trivial challenges, but I expect to see progress on those fronts. I've already had success prompting GPT-4 to ask me clarifying questions about my specifications.
 
-Another important point: **GPT-4 seems to be a *lot* better than GPT-3 at coding**, per the MSR paper and my own limited experiments. The trend line is steep. If we're not plateauing yet, then it's very plausible that the next generation of models will be significantly better once again. 
+Another important point: **GPT-4 seems to be a *lot* better than GPT-3 at coding**, per the MSR paper and my own limited experiments. The trend line is steep. If we're not plateauing yet, then it's very plausible that the next generation of models will be significantly better once again.
 
 Coding difficulty varies by context, and we might expect to see differences between professional software engineering and end-user programming. On the one hand, one might expect end-user programming to be easier than professional coding, because lots of tasks can be achieved with simple coding that mostly involves gluing together libraries, and doesn't require novel algorithmic innovation.
 
@@ -123,7 +124,7 @@ And yet... in another sense, **this is also a silly demo, because we already hav
 
 ![](/images/article_images/llm-eup/iphone-trim.jpeg)
 
-Now, I get that the point of Greg's demo wasn't just to trim a video, it was to gesture at an expanse of possibilities. But there's still something important to notice here: a chat interface is not only quite slow and imprecise, but also requires conscious awareness of your thought process. 
+Now, I get that the point of Greg's demo wasn't just to trim a video, it was to gesture at an expanse of possibilities. But there's still something important to notice here: a chat interface is not only quite slow and imprecise, but also requires conscious awareness of your thought process.
 
 When we use a good tool—a hammer, a paintbrush, a pair of skis, or a car steering wheel—we become one with the tool in a subconscious way. We can enter a flow state, apply muscle memory, achieve fine control, and maybe even produce creative or artistic output. **Chat will never feel like driving a car, no matter how good the bot is.** In their 1986 book Understanding Computers and Cognition, Terry Winograd and Fernando Flores elaborate on this point:
 
@@ -151,7 +152,7 @@ Assume that we could replace our human analyst team with ChatGPT for the tasks w
 
 ![](/images/article_images/llm-eup/llm-consultant.png)
 
-Next, consider LLMs applied to the app model. What if we started with an interactive analytics application, but this time we had a team of LLM developers at our disposal? As a start, we could ask the LLM questions about how to use the application, which could be easier than reading documentation. 
+Next, consider LLMs applied to the app model. What if we started with an interactive analytics application, but this time we had a team of LLM developers at our disposal? As a start, we could ask the LLM questions about how to use the application, which could be easier than reading documentation.
 
 But more profoundly than that, the LLM developers could go beyond that and _update_ the application. When we give feedback about adding a new feature, our request wouldn't get lost in an infinite queue. They would respond immediately, and we'd have some back and forth to get the feature implemented. Of course, the new functionality doesn't need to be shipped to everyone; it can just be enabled for our team. This is economically viable now because we're not relying on a centralized team of human developers to make the change.
 
@@ -177,14 +178,14 @@ So far, I've labeled the spreadsheet in the above diagram as "kinda" flexible. W
 
 Most teams have a mix of domain experts and technical experts, who work together to put together a spreadsheet. And, importantly, the people building a spreadsheet together have a _very different relationship_ than a typical "developer" and "end-user". Bonnie Nardi and James Miller explain in their [1990 paper on collaborative spreadsheet development](https://www.lri.fr/~mbl/Stanford/CS477/papers/Nardi-Twinkling-IJMMS.pdf), imagining Betty, a CFO who knows finance, and Buzz, an expert in programming spreadsheets:
 
-> Betty and Buzz seem to be the stereotypical end-user/developer pair, and it is easy to imagine their development of a spreadsheet to be equally stereotypical: Betty specifies what the spreadsheet should do based on her knowledge of the domain, and Buzz implements it. 
-> 
+> Betty and Buzz seem to be the stereotypical end-user/developer pair, and it is easy to imagine their development of a spreadsheet to be equally stereotypical: Betty specifies what the spreadsheet should do based on her knowledge of the domain, and Buzz implements it.
+>
 > This is not the case. Their cooperative spreadsheet development departs from this scenario in two important ways:
-> 
+>
 >	(1) **Betty constructs her basic spreadsheets without assistance from Buzz.** She programs the parameters, data values and formulas into her models. In addition, Betty is completely responsible for the design and implementation of the user interface. She makes effective use of color, shading, fonts, outlines, and blank cells to structure and highlight the information in her spreadsheets.
 >
 > (2) When Buzz helps Betty with a complex part of the spreadsheet such as graphing or a complex formula, **his work is expressed in terms of Betty's original work.** He adds small, more advanced pieces of code to Betty's basic spreadsheet; Betty is the main developer and he plays an adjunct role as consultant.
-> 
+>
 > This is an important shift in the responsibility of system design and implementation. Non-programmers can be responsible for most of the development of a spreadsheet, implementing large applications that they would not undertake if they had to use conventional programming techniques. Non-programmers may never learn to program recursive functions and nested loops, but they can be extremely productive with spreadsheets. Because less experienced spreadsheet users become engaged and involved with their spreadsheets, they are motivated to reach out to more experienced users when they find themselves approaching the limits of their understanding of, or interest in, more sophisticated programming techniques.
 
 So, a more accurate diagram of spreadsheet usage includes "local developers" like Buzz, who provide another outer layer of iteration, where the user can get help molding their tools. Because they're on the same team as the user, it's a lot easier to get help than appealing to third-party application or platform developers. And most importantly, over time, the user naturally learns to use more features of spreadsheets on their own, since they're involved in the development process.
@@ -207,7 +208,7 @@ If you like this diagram too, then it suggests an interesting opportunity. Until
 
 That's it for now. There are a lot of questions in the space that we still haven't covered.
 
-Next time I plan to discuss the architectural foundations required to make GUI applications extensible and composable by people using LLMs. 
+Next time I plan to discuss the architectural foundations required to make GUI applications extensible and composable by people using LLMs.
 
 If you're interested in that, you can [sign up for my email newsletter](https://buttondown.email/geoffreylitt) or [subscribe via RSS](/feed.xml).
 
