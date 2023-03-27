@@ -67,7 +67,7 @@ There are many manifestations of this idea. Modern examples of end-user programm
 
 Although some of these efforts have been quite successful, until now they've also been limited by a fundamental challenge: **it's really hard to help people turn their rough ideas into formal executable code.** System designers have tried super-high-level languages, friendly visual editors and better syntax, layered levels of complexity, and automatically generating simple code from examples. But it's proven hard to get past a certain ceiling of complexity with these techniques.
 
-Here's one example of the programming bottleneck in my own work. A few years ago, I developed an end-user programming system called Wildcard which would let people customize any website through a spreadsheet interface. For example, in this short demo you can see a user sorting articles on Hacker News in a different order, and then adding read times to the articles in the page, all by manipulating a spreadsheet synced with the webpage.
+Here's one example of the programming bottleneck in my own work. A few years ago, I developed an end-user programming system called [Wildcard](https://www.geoffreylitt.com/wildcard/) which would let people customize any website through a spreadsheet interface. For example, in this short demo you can see a user sorting articles on Hacker News in a different order, and then adding read times to the articles in the page, all by manipulating a spreadsheet synced with the webpage.
 
 <video src="/images/article_images/llm-eup/wildcard.mp4#t=0.1" controls="controls" preload="auto" muted="muted" data-video="0" />
 
