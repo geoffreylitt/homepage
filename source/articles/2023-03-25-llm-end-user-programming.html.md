@@ -5,6 +5,7 @@ date: 2023-03-25 19:05 UTC
 tags:
 summary: "All computer users may soon have the ability to author small bits of code. What structural changes does this imply for the production and distribution of software?"
 image_url: /images/article_images/llm-eup/robot-coding.png
+starred: true
 
 ---
 
