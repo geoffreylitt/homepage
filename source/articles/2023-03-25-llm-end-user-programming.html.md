@@ -207,6 +207,26 @@ In a ChatGPT world, the user is left entirely dependent on the AI, without any u
 
 If you like this diagram too, then it suggests an interesting opportunity. Until now, the design of open-ended computational media has been restricted by the programming bottleneck problem. LLMs seem to offer a promising way to more flexibly turn natural language into code, which then raises the question: _what kinds of powerful computational media might be a good fit for this new situation?_
 
+## Demos of on-the-fly UI
+
+*Update 3/31: In the days after I originally posted this essay, I found a few neat demos on Twitter from people exploring ideas in this space; I've added them here.*
+
+OK, enough diagrams, what might on-the-fly UI generation actually feel like to use?
+
+Here's Sean Grove demonstrating on-the-fly generation of an interactive table view, a map view with a lat/long output, and a simple video editing UI:
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">🚀Future of UI dev🔮:<br>~10% fixed UIs built by hand like today<br>~40% replaced by conversational UIs<br>~50% long-tail, on-the-fly UIs generated for specific tasks, used once, then vanish<br><br>Combined with ChatGPT plugins to read/write from the world 🤯<a href="https://t.co/mIFrCyzW8N">https://t.co/mIFrCyzW8N</a></p>&mdash; Sean Grove (@sgrove) <a href="https://twitter.com/sgrove/status/1640417065650778113?ref_src=twsrc%5Etfw">March 27, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+And here's Vasek Mlejnsky showing an IDE that can create a form for submitting server requests:
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">I present to you: <br>GPT-4 powered IDE that creates UI on demand so it fits your exact development needs.<br><br>Need UI for making server requests? No problem. Just ask for it. <a href="https://t.co/2oDKTuWM0e">pic.twitter.com/2oDKTuWM0e</a></p>&mdash; Vasek Mlejnsky (@mlejva) <a href="https://twitter.com/mlejva/status/1641151421830529042?ref_src=twsrc%5Etfw">March 29, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+Finally, here's a little video mockup I made of GPT answering a question by returning an interactive spreadsheet. Note how I can tweak numbers and get immediate feedback. I can also inspect the underlying formulas and ask the model to explain them to me to level up my spreadsheet knowledge. (GPT actually did generate this spreadsheet data, I just copied the raw data into Excel to demonstrate the interactive element.)
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">what if a chat produced a spreadsheet as the answer, so you could instantly tweak numbers and see the result? <a href="https://t.co/FNKz0kLH7L">pic.twitter.com/FNKz0kLH7L</a></p>&mdash; Geoffrey Litt (@geoffreylitt) <a href="https://twitter.com/geoffreylitt/status/1641134578222891029?ref_src=twsrc%5Etfw">March 29, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+I think these demos nicely illustrate the general promise of on-the-fly UI, but there's still a ton of work ahead. One particular challenge: interesting UIs usually can't be generated in a single shot; there has to be an iterative process with the user. In my experience, that iteration process can still often be very rough at the moment.
+
 ##  Next time: extensible software
 
 That's it for now. There are a lot of questions in the space that we still haven't covered.
@@ -215,9 +235,20 @@ Next time I plan to discuss the architectural foundations required to make GUI a
 
 If you're interested in that, you can [sign up for my email newsletter](https://buttondown.email/geoffreylitt) or [subscribe via RSS](/feed.xml).
 
+
 ## Related reading
+
+**Quick reads:**
 
 - [LLM Powered Assistants for Complex Interfaces](https://nickarner.com/notes/llm-powered-assistants-for-complex-interfaces-february-26-2023/) by Nick Arner
 - ["The fact that they generate text is not the point"](https://stream.thesephist.com/updates/1668617521) by @thesephist
 - ["GPT-3 as a universal coupling"](https://interconnected.org/home/2023/02/07/braggoscope) by Matt Webb
 - ["tools vs machines"](https://www.geoffreylitt.com/2022/11/23/dynamic-documents.html#tools-vs-machines) and ["interpreter vs compiler"](https://www.geoffreylitt.com/2022/11/23/dynamic-documents.html#interpreter-vs-compiler)
+
+**Deep, deep dives:**
+
+[Designing and Programming Malleable Software](https://tcher.tech/publications/PhilipTchernavskij_PhDThesis.pdf): Philip Tchernavskij's 2019 PhD thesis, which coined the term Malleable Software, and brilliantly motivates and defines the problem. "Malleable software aims to increase the power of existing adaptation behaviors by allowing users to pull apart and re-combine their interfaces at the granularity of individual UI elements"
+
+[The State of the Art in End-User Software Engineering](https://web.media.mit.edu/~lieber/Publications/End-User-Software-Engineering.pdf): an academic paper from 2011 that illustrates many of the challenges ahead for supporting normal people in building software. "Although these end-user programmers may not have the same goals as professional developers, they do face many of the same software engineering challenges, including understanding their requirements, as well as making decisions about design, reuse, integration, testing, and debugging."
+
+The [Malleable Systems Catalog](https://malleable.systems/catalog/), a list of projects exploring user-editable software, curated by J. Ryan Stinnett and co.
