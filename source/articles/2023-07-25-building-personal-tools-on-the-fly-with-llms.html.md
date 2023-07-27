@@ -64,7 +64,7 @@ As I translated more messages and saw ways that the model failed, I developed so
 
 I also learned some typical follow-up requests I would often make after receiving the initial translation: things like asking to adjust the formality level up or down.
 
-Once I had landed on these specific prompt patterns, it made my interactions more scripted. Each time I would need to dig up my prompt text for this task, copy-paste it in, and fill in the blanks for this particular translation. When asking follow-up questions I'd also copy-paste phrasings from previous chats that had proven successful. At this point it didn't feel like an open-ended conversation anymore; it felt like I was tediously executing a workflow made up of specific chat prompts.
+Once I had landed on these specific prompt patterns, it made my interactions more scripted. Each time I would need to dig up my prompt text for this task, copy-paste it in, and fill in the blanks for this particular translation. When asking follow-up questions I'd also copy-paste phrasings from previous chats that had proven successful. **At this point it didn't feel like an open-ended conversation anymore; it felt like I was tediously executing a workflow made up of specific chat prompts.**
 
 I also found myself wanting to have more of a feeling of a solid tool that I could return to. ChatGPT chats feels a bit amorphous and hard to return to: where do I store my prompts? How do I even remember what useful workflows I've come up with? I basically wanted a window I could pop open and get a quick translation.
 
@@ -78,15 +78,11 @@ The initial version of the app was very simple: it basically just accepted a tex
 
 ![](/images/article_images/early-designs.png)
 
-Asking it for a "professional and modern" redesign helped get the design looking passable. I also gave some specific design guidance, e.g. "arrange the text thread in a tall box on the left, and then the new message and translation vertically stacked to the right".
-
-I then asked GPT to add a *formality slider* to the app. The new app requests three translations of varying formality, and then lets the user drag a slider to instantly choose between them 😎
+Asking it for a "professional and modern" redesign helped get the design looking passable. I then asked GPT to add a *formality slider* to the app. The new app requests three translations of varying formality, and then lets the user drag a slider to instantly choose between them 😎
 
 <video autoplay loop controls="controls" preload="auto" muted="muted" data-video="0" type="video/mp4" src="/images/article_images/text-app.mp4" width="100%"></video>
 
-GPT-4 did most of the coding of the UI. I didn't measure how long it took, but I think it was under an hour. GPT produced good results on every iteration. At one point it got confused about how to call the OpenAI API, but pasting in some recent documentation got it sorted out. I've included some of the coding prompts I used at the [bottom of this post](#appendix) if you're curious about the details.
-
-Subjectively, the whole thing felt pretty effortless; **it felt more like asking a friend to build an app for me than building it myself**, and I never engaged my detailed programmer brain. I still haven't looked very closely at the code.
+GPT-4 did most of the coding of the UI. I didn't measure how long it took, but subjectively, the whole thing felt pretty effortless; **it felt more like asking a friend to build an app for me than building it myself**, and I never engaged my detailed programmer brain. I still haven't looked very closely at the code. GPT generally produced good results on every iteration. At one point it got confused about how to call the OpenAI API, but pasting in some recent documentation got it sorted out. I've included some of the coding prompts I used at the [bottom of this post](#appendix) if you're curious about the details.
 
 At the same time, it's important to note that **my programming background did substantially help the process along** and I don't think it would have gone that well if I didn't know how to make React UIs. I was able to give the LLM a detailed spec, which was natural for me to write. For example: I suggested storing the OpenAI key as a user-provided setting in the app UI rather than putting it in the code, because that would let us keep the app frontend-only. I also helped fix some minor bugs.
 
@@ -110,7 +106,9 @@ I think sharing a GUI is probably way more effective than trying to share a comp
 
 ## From chatbot to GUI
 
-One idea this experience points to is that **chatbots are not always the best interface for a task**, even one like translation that involves lots of natural language and text. Amelia Wattenberger wrote a [great piece](https://wattenberger.com/thoughts/boo-chatbots) explaining some of the reasons. It's worth reading the whole thing, but here's a key excerpt about the value of affordances:
+What general lessons can we take away from my experience here? I think it gestures at two big ideas.
+
+The first one is that **chatbots are not always the best interface for a task**, even one like translation that involves lots of natural language and text. Amelia Wattenberger wrote a [great piece](https://wattenberger.com/thoughts/boo-chatbots) explaining some of the reasons. It's worth reading the whole thing, but here's a key excerpt about the value of affordances:
 
 >  Good tools make it clear how they should be used. And more importantly, how they should not be used. If we think about a good pair of gloves, it's immediately obvious how we should use them. They're hand-shaped! We put them on our hands. And the specific material tells us more: metal mesh gloves are for preventing physical harm, rubber gloves are for preventing chemical harm, and leather gloves are for looking cool on a motorcycle.
 
@@ -122,9 +120,9 @@ I also find that making a UI makes a tool more memorable. My custom GUI is a vis
 
 Now, it's not quite as simple as "GUI good, chatbot bad"—there are tradeoffs. For my translation use case, I found ChatGPT super helpful for my initial explorations. The open-endedness of the chatbot gave it a huge leg up over Google Translate, a more traditional application with more limited capabilities and clearer affordances. I was able to explore a wide space of useful features and find the ones that I wanted to keep using.
 
-I think this suggests a natural workflow: start in chat, and then codify a UI if it's getting annoying doing the same chat workflow repeatedly.
+I think this suggests a natural workflow: **start in chat, and then codify a UI if it's getting annoying doing the same chat workflow repeatedly.**
 
-By the way, one more thing: ther are obviously many other visual affordances to consider besides the ones I used in this particular example. For example, here's another example of a GPT-powered GUI tool I built a couple months ago, where I can drag-and-drop in a file and see useful conversions of that file into different formats:
+By the way, one more thing: there are obviously many other visual affordances to consider besides the ones I used in this particular example. For example, here's another example of a GPT-powered GUI tool I built a couple months ago, where I can drag-and-drop in a file and see useful conversions of that file into different formats:
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">I wanted to convert a JSON file of a chat transcript into nice markdown text for sharing w/ people...<br><br>so I had GPT generate an ephemeral React UI where I can drag in the JSON file and it outputs the markdown🤓<br><br>reflections on the process: <a href="https://t.co/WGwBBtEGiT">pic.twitter.com/WGwBBtEGiT</a></p>&mdash; Geoffrey Litt (@geoffreylitt) <a href="https://twitter.com/geoffreylitt/status/1654246096212992004?ref_src=twsrc%5Etfw">May 4, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
@@ -144,7 +142,7 @@ Software doesn't always need to be mass-produced like restaurant food, it can be
 
 In this example, using GPT-4 to code and edit the app is what enabled the feeling of malleability for me. It feels magical describing an app and having it appear on-screen within seconds. Little React apps seem to be the kind of simple code that GPT-4 is good at producing. You could even argue that it's "just regurgitating other code it's already seen", but I don't care—it made me the tool that I wanted.
 
-I'm a programmer and I could have built this app manually myself without too much trouble. And yet, I don't think I would have. The LLM is an order of magnitude faster than me at getting the first draft out and producing new iterations, this makes me much more likely to just give it a shot. As Simon Willison says, ["AI-enhanced development makes me more ambitious with my projects"](https://simonwillison.net/2023/Mar/27/ai-enhanced-development/):
+I'm a programmer and I could have built this app manually myself without too much trouble. And yet, I don't think I would have. The LLM is an order of magnitude faster than me at getting the first draft out and producing new iterations, this makes me much more likely to just give it a shot. This reminds me of how Simon Willison says that [AI-enhanced development makes him more ambitious with his projects](https://simonwillison.net/2023/Mar/27/ai-enhanced-development/):
 
 > In the past I’ve had plenty of ideas for projects which I’ve ruled out because they would take a day—or days—of work to get to a point where they’re useful. I have enough other stuff to build already!
 
