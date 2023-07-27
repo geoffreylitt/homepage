@@ -82,7 +82,7 @@ I then asked GPT to add a *formality slider* to the app. The new app requests th
 
 <video autoplay loop controls="controls" preload="auto" muted="muted" data-video="0" type="video/mp4" src="/images/article_images/text-app.mp4" width="100%"></video>
 
-GPT-4 did most of the coding of the UI. I didn't measure how long it took, but I think it was under an hour. GPT produced good results on every iteration. At one point it got confused about how to call the OpenAI API, but pasting in some recent documentatino got it sorted out. I've included some of the coding prompts I used at the [bottom of this post](#appendix) if you're curious about the details.
+GPT-4 did most of the coding of the UI. I didn't measure how long it took, but I think it was under an hour. GPT produced good results on every iteration. At one point it got confused about how to call the OpenAI API, but pasting in some recent documentation got it sorted out. I've included some of the coding prompts I used at the [bottom of this post](#appendix) if you're curious about the details.
 
 Subjectively, the whole thing felt pretty effortless; **it felt more like asking a friend to build an app for me than building it myself**, and I never engaged my detailed programmer brain. I still haven't looked very closely at the code.
 
