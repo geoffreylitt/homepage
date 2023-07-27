@@ -195,6 +195,8 @@ If you're interested in diving deeper into ways of interacting with LLMs besides
 - [Unpredictable Black Boxes are Terrible Interfaces](https://magrawala.substack.com/p/unpredictable-black-boxes-are-terrible) by Maneesh Agrawala
 - [Direct manipulation vs. interface agents](https://dl.acm.org/doi/10.1145/267505.267514), a 1997 debate between Ben Shneiderman and Pattie Maes
 
+And for a more abstract angle on the example in this post, check out my previous post, [Malleable software in the age of LLMs](/2023/03/25/llm-end-user-programming.html)!
+
 ---
 
 ## Appendix: prompts
