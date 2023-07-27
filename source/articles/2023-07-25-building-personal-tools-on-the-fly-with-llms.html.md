@@ -3,6 +3,8 @@
 title: Codifying a ChatGPT workflow into a malleable GUI
 date: 2023-07-25 17:15 UTC
 tags:
+summary: "Wouldn't it be neat if you could use LLMs to create little personal utility apps as the need arises? Here's a story where I did just that..."
+image_url: /images/article_images/texting-app-teaser.png
 
 ---
 
@@ -62,7 +64,7 @@ As I translated more messages and saw ways that the model failed, I developed so
 
 I also learned some typical follow-up requests I would often make after receiving the initial translation: things like asking to adjust the formality level up or down.
 
-Once I had honed these prompts, it meant that I couldn't just randomly chat with GPT anymore to get a good translation. Each time I would need to dig up my prompt text for this task, copy-paste it in, and fill in the blanks for this particular translation. When asking follow-up questions I'd also copy-paste phrasings from previous chats that had proven successful. At this point it didn't feel like an open-ended conversation anymore; it felt like I was tediously executing a workflow made up of specific chat prompts.
+Once I had landed on these specific prompt patterns, it made my interactions more scripted. Each time I would need to dig up my prompt text for this task, copy-paste it in, and fill in the blanks for this particular translation. When asking follow-up questions I'd also copy-paste phrasings from previous chats that had proven successful. At this point it didn't feel like an open-ended conversation anymore; it felt like I was tediously executing a workflow made up of specific chat prompts.
 
 I also found myself wanting to have more of a feeling of a solid tool that I could return to. ChatGPT chats feels a bit amorphous and hard to return to: where do I store my prompts? How do I even remember what useful workflows I've come up with? I basically wanted a window I could pop open and get a quick translation.
 
