@@ -158,7 +158,7 @@ It's not just about the initial creation, it's also about the fast iteration loo
 
 > But more profoundly than that, the LLM developers could go beyond that and _update_ the application. When we give feedback about adding a new feature, our request wouldn't get lost in an infinite queue. They would respond immediately, and we'd have some back and forth to get the feature implemented. Of course, the new functionality doesn't need to be shipped to everyone; it can just be enabled for our team. This is economically viable now because we're not relying on a centralized team of human developers to make the change.
 
-> ![](llm-eup/../../images/article_images/llm-eup/llm-app.png)
+> ![](/images/article_images/llm-eup/llm-app.png)
 
 It simply feels good to be using a GUI app, have an idea for how it could be different, and then have that new version running within seconds.
 
