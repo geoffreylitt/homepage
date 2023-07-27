@@ -178,11 +178,11 @@ In the past few months I've given a couple talks relevant to the themes in this 
 
 In April I spoke at [Causal Islands](https://www.causalislands.com/) about [Potluck](https://www.inkandswitch.com/potluck/), a programmable notes prototype I worked on with Max Schoening, Paul Shen, and Paul Sonnentag at Ink & Switch. In my talk I share a bunch of demos from our published essay, but I also show some newer demos of integrating LLMs to help author spreadsheets. (The embed below will jump you right to the LLM demos)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/bJ3i4K3hefI?start=1359" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="100%" height="315" src="https://www.youtube.com/embed/bJ3i4K3hefI?start=1359" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 Also: a couple weeks ago, I presented my PhD thesis defense at MIT! I gave a talk called Building Personal Software with Reactive Databases. I talk about what makes spreadsheets great, and show a few projects I've worked on that aim to make it easier to build software using techniques from spreadsheets and databases.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/CPKsS3SJU4o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="100%" height="315" src="https://www.youtube.com/embed/CPKsS3SJU4o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ---
 
