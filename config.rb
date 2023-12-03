@@ -58,7 +58,7 @@ page "/feed.xml", :layout => false
 # end
 
 # don't build aoc2023, just pass it thru
-import_path '/source/aoc2023'
+import_path File.expand_path('aoc2023', app.root)
 
 #Blogging
 activate :blog do |blog|
