@@ -230,6 +230,18 @@ h2.project-category {
   .project-title {
     margin: 0;
   }
+
+  .project-description {
+    font-size: 1rem;
+    line-height: 1.2rem;
+  }
+
+  .recent {
+    font-size: 0.8rem;
+    font-weight: bold;
+    vertical-align: top;
+    color: $col_orange;
+  }
 }
 
 hr {
@@ -428,6 +440,10 @@ nav {
 
 .home-body-text {
   max-width: 40rem;
+  hr {
+    border-color: #999;
+    margin: 2rem 8rem;
+  }
 }
 
 @import "responsive";

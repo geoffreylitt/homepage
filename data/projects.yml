@@ -1,34 +1,40 @@
 projects:
-  programming_interfaces:
+  malleable:
+    - name: Embark
+      link: https://www.inkandswitch.com/embark
+      description: Dynamic documents for travel planning
+      image: images/projects/embark.png
+      recent: true
+    - name: Potluck
+      slug: potluck
+      description: Dynamic documents as personal software
+      link: https://www.inkandswitch.com/potluck
+      image: images/article_images/potluck.png
+    - name: Wildcard
+      slug: wildcard
+      description: Customize a web app with a spreadsheet
+      link: /wildcard
+  local_first:
     - name: Riffle
       slug: riffle
       description: Building data-centric apps with a reactive relational database
       link: https://riffle.systems/essays/prelude
       image: images/projects/riffle.png
-    - name: Potluck
-      slug: potluck
-      description: Dynamic text documents for creating personal software
-      link: https://www.inkandswitch.com/potluck
-      image: images/article_images/potluck.png
     - name: Peritext
       slug: peritext
-      description: A CRDT for rich text, to enable asynchronous collaborative writing
+      description: A CRDT for rich text, to enable async collaborative writing
       link: https://www.inkandswitch.com/peritext
       image: images/projects/peritext.svg
-    - name: Wildcard
-      slug: wildcard
-      description: Customize a web app with a spreadsheet! (Onward 2020)
-      link: /wildcard
     - name: Cambria
       slug: cambria
       description: Better cross-app data compatibility using bidirectional lenses
       link: https://www.inkandswitch.com/cambria
       image: images/projects/cambria.svg
+  live_programming:
     - name: Margin Notes
       slug: margin-notes
-      description: Automatic code docs w/ recorded examples from runtime (LIVE 2018)
+      description: Automatic code docs w/ recorded examples from runtime
       link: /margin-notes
-  explorations:
     - name: TodoMVC Vis
       slug: todomvc-vis
       description: Visualizing the internal behavior of TodoMVC in Redux
@@ -36,6 +42,7 @@ projects:
     - name: JSON Sheets
       slug: json-sheets
       description: A reactive programming environment for building GUIs
+  explorations:
     - name: ladybug
       slug: ladybug
       description: A Ruby debugger backend for the Chrome Dev Tools UI
@@ -111,6 +118,10 @@ projects:
       link: "/2015/02/28/mbta-ninja.html"
       hidden: true
   talks:
+    - name: Dynamic Documents as Personal Software (Causal Islands 2023)
+      link: https://www.youtube.com/watch?v=bJ3i4K3hefI
+      image: images/article_images/potluck.png
+      description: A vision for dynamic documents + AI
     - name: ENHANCE! (BangBangCon 2017)
       slug: enhance
       image: images/projects/enhance.jpg

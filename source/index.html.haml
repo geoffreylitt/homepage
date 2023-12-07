@@ -1,29 +1,41 @@
 - projects = data.projects.projects
+- interviews = data.interviews.interviews
 
 .home-body-text
   :markdown
     My professional mission is to bring into the world _malleable software_: computing environments where anyone can mold their tools to their own unique needs.
 
+    (For more background on what that mission means and why it matters to me, check out my [interview on the Metamuse podcast](https://museapp.com/podcast/34-bring-your-own-client/).)
+
+    ---
+
     I'm currently a senior researcher at the independent research lab [Ink & Switch](https://www.inkandswitch.com/), leading the malleable software research track.
 
-    Previously, I completed a PhD at MIT CSAIL in the [Software Design Group](http://sdg.csail.mit.edu/) advised by [Daniel Jackson](http://people.csail.mit.edu/dnj/). Before that, I spent five years as an early engineer and designer building the edtech startup [Panorama Education](https://www.panoramaed.com/) (YC S13).
+    Before that, I completed a PhD at MIT CSAIL in the [Software Design Group](http://sdg.csail.mit.edu/) advised by [Daniel Jackson](http://people.csail.mit.edu/dnj/). Before *that*, I spent five years as an early engineer and designer building the edtech startup [Panorama Education](https://www.panoramaed.com/) (YC S13).
 
-    These days, I'm thinking a lot about **AI + malleable software**: How can LLMs help people make custom software?
+    ---
 
-    - 📜 essay: [Malleable software in the age of LLMs](/2023/03/25/llm-end-user-programming.html)
-    - 🎥 talk/demo: [Dynamic documents as personal software](https://www.youtube.com/watch?v=bJ3i4K3hefI)
+    These days, I'm thinking a lot about **AI + malleable software**: How can LLMs help people make their own custom software?
 
-    If you'd like to hear about my future work, you can [subscribe to occasional email updates](https://buttondown.email/geoffreylitt). I'm also active on [Twitter](https://www.twitter.com/geoffreylitt) and [Mastodon](https://mastodon.social/@geoffreylitt) and have an [RSS feed](/feed.xml).
+    *Essay:* [Malleable software in the age of LLMs](/2023/03/25/llm-end-user-programming.html)
+
+    *Talk:* [Dynamic documents as personal software](https://www.youtube.com/watch?v=bJ3i4K3hefI)
+
+    ---
+
+    If you'd like to hear about my future work, you can [subscribe to occasional email updates](https://buttondown.email/geoffreylitt), or follow on [Twitter](https://www.twitter.com/geoffreylitt) or [RSS](/feed.xml).
 
 
-
-  %a{id: "projects"}
+%a{id: "projects"}
 .project-grids
-  %h2.project-category Projects
-  = partial(:project_grid, locals: { projects: projects.programming_interfaces })
+  %h2.project-category Malleable Software
+  = partial(:project_grid, locals: { projects: projects.malleable })
 
-  %h2.project-category Experiments
-  = partial(:project_grid, locals: { projects: projects.explorations })
+  %h2.project-category Local-First Software
+  = partial(:project_grid, locals: { projects: projects.local_first })
+
+  %h2.project-category Programming Interfaces
+  = partial(:project_grid, locals: { projects: projects.live_programming })
 
 %a{id: "writing"}
 %h2.project-category Writing
@@ -35,6 +47,14 @@
         = link_to article.title, article, class: 'starred'
       - else
         = link_to article.title, article
+
+%a{id: "podcasts"}
+%h2.project-category Interviews
+
+.blogposts-list
+  - interviews.each do |interview|
+    .blogpost-link
+      = link_to interview.name, interview.link
 
 %a{id: "contact"}
 %h2.project-category Contact me
@@ -64,6 +84,9 @@
 <h1 class="the-archive">📦 The Archive... <span class="small">(older work less relevant to my current interests)</span></h1>
 
 .project-grids
+  %h2.project-category Programming interface explorations
+  = partial(:project_grid, locals: { projects: projects.explorations })
+
   %h2.project-category Conference Talks
   = partial(:project_grid, locals: { projects: projects.talks })
 
