@@ -3,6 +3,7 @@
 title: 7 books that stood the test of time in 2023
 date: 2023-12-17 17:01 UTC
 tags:
+image_url: /images/article_images/seven-books.jpg
 
 ---
 
