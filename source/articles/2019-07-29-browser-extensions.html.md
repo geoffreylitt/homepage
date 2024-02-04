@@ -89,8 +89,8 @@ Browser extensions give us one example to strive for: a place where we routinely
 
 I originally wrote this post in 2019. In the five years since then, I've worked on a number of research projects which you might find interesting if you like the vision of customizing software with browser extensions:
 
+* I built a popular browser extension for Twitter, and [wrote some reflections](/2023/01/08/for-your-next-side-project-make-a-browser-extension.html) on the benefits (and tradeoffs!) of extensions as a way to fix problems in the software you use yourself every day.
 * During my PhD at MIT with Daniel Jackson, I developed a tool called [Wildcard](/wildcard) that enables non-programmers to build a browser extension in a spreadsheet.
-* I built a popular browser extension for Twitter, and [wrote some reflections](/2023/01/08/for-your-next-side-project-make-a-browser-extension.html) on why it's a good idea to make your own extensions.
 * More recently, I'm working towards [malleable software powered by AI](/2023/03/25/llm-end-user-programming.html) at the research lab [Ink & Switch](https://www.inkandswitch.com/).
 
 If you'd like to keep following my future work on malleable software you can [sign up for my email newsletter](https://buttondown.email/geoffreylitt)!
