@@ -2,7 +2,7 @@
 
 title: "Browser extensions are underrated: the promise of hackable software"
 date: 2019-07-29 13:13 UTC
-tags: 
+tags:
 image_url: /images/article_images/legos.jpg
 description: "In a world of closed platforms, browser extensions are the rare exception that let users modify the apps that we use."
 starred: true
@@ -63,8 +63,6 @@ We clearly need to work on protecting people from malicious extensions that inva
 
 **Accessibility:** Today, it requires a big jump to go from using browser extensions to creating them: you need to learn a fair amount of web development to get started, and you can't easily develop extensions in the browser itself. What if there were a quick way to get started developing and sharing extensions in the browser? You could imagine smoothly transitioning from editing a website in the developer tools to publishing a small extension.
 
-*Update*: I've started working on a system called [Wildcard](https://sdg.csail.mit.edu/projects/wildcard) to work towards this vision.
-
 **Compatibility:** Because extensions hook into websites in unsupported ways, updates to websites often result in extensions temporarily breaking, and extension authors scrambling to fix them. Can we make it easier for website developers and extension authors to form stable connections between their software, without necessarily resorting to using explicit extension APIs?
 
 There are existing practices that fit into this category already—for example, using clean semantic markup, human-readable CSS, and source maps makes it easier to develop an extension.
@@ -87,9 +85,22 @@ Computing is still young, and platforms are changing quickly. Modern browser ext
 
 Browser extensions give us one example to strive for: a place where we routinely hack the software we use and make it our own. <span style="color: #aaa;">▪</span>
 
-[*Discuss on Hacker News*
+## 2024 Updates
+
+I originally wrote this post in 2019. In the five years since then, I've worked on a number of research projects which you might find interesting if you like the vision of customizing software with browser extensions:
+
+* During my PhD at MIT with Daniel Jackson, I developed a tool called [Wildcard](/wildcard) that enables non-programmers to build a browser extension in a spreadsheet.
+* I built a popular browser extension for Twitter, and [wrote some reflections](/2023/01/08/for-your-next-side-project-make-a-browser-extension.html) on why it's a good idea to make your own extensions.
+* More recently, I'm working towards [malleable software powered by AI](/2023/03/25/llm-end-user-programming.html) at the research lab [Ink & Switch](https://www.inkandswitch.com/).
+
+If you'd like to keep following my future work on malleable software you can [sign up for my email newsletter](https://buttondown.email/geoffreylitt)!
+
+[*Discuss on Hacker News (2019)*
 ](https://news.ycombinator.com/item?id=20556382)
+
+[*Discuss on Hacker News (2024)*
+](https://news.ycombinator.com/item?id=39251095)
 
 [^chrome]: [https://www.blog.google/technology/safety-security/update-project-strobe-new-policies-chrome-and-drive/](https://www.blog.google/technology/safety-security/update-project-strobe-new-policies-chrome-and-drive/)
 [^tbl]: Weaving the Web, by Tim Berners-Lee (p33)
-[^tbl2]: Tim thought web browsers should also be website editors, and was disappointed when the Mosaic browser took off in popularity without including that feature. 
+[^tbl2]: Tim thought web browsers should also be website editors, and was disappointed when the Mosaic browser took off in popularity without including that feature.
