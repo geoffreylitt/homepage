@@ -87,13 +87,14 @@ Browser extensions give us one example to strive for: a place where we routinely
 
 ## 2024 Updates
 
-I originally wrote this post in 2019. In the five years since then, I've worked on a number of research projects which you might find interesting if you like the vision of customizing software with browser extensions:
+I originally wrote this post in 2019. Coming back to this five years later, here are a few related projects which you might find interesting:
 
 * I built a popular browser extension for Twitter, and [wrote some reflections](/2023/01/08/for-your-next-side-project-make-a-browser-extension.html) on using extensions as a way to fix problems in the software you use every day. I also touch on some of the downsides of the extensions platform in that post, if this one was too optimistic for your taste 😉
 * During my PhD at MIT with Daniel Jackson, I developed a tool called [Wildcard](/wildcard) that enables non-programmers to build a browser extension in a spreadsheet.
-* More recently, I'm working towards [malleable software powered by AI](/2023/03/25/llm-end-user-programming.html) at the research lab [Ink & Switch](https://www.inkandswitch.com/).
+* My friend Glen has also been working on a neat platform called [ExtensionPay](https://extensionpay.com/) for monetizing browser extensions, for anyone interested in making an extension into a sustainable project.
 
-If you'd like to keep following my future work on malleable software you can [sign up for my email newsletter](https://buttondown.email/geoffreylitt)!
+More recently, I'm working towards [malleable software powered by AI](/2023/03/25/llm-end-user-programming.html) at the research lab [Ink & Switch](https://www.inkandswitch.com/). If you'd like to follow that work you can [sign up for my email newsletter](https://buttondown.email/geoffreylitt).
+
 
 [*Discuss on Hacker News (2019)*
 ](https://news.ycombinator.com/item?id=20556382)
