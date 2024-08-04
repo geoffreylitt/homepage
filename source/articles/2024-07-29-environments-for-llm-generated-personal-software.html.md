@@ -59,7 +59,7 @@ The vision of [local-first software](https://www.inkandswitch.com/local-first/) 
 
 In theory, easier data access across tools could not only promote choosing among existing editors, but also enable on-the-fly customization and creation of *new tools* that operate on your existing data. One of my favorite projects in this vein is [Webstrates](https://webstrates.net/) by Clemens Klokmose and collaborators, which imagines a *malleable substrate* where data is shared among various tools, so that users can do things like live-edit the same shared data from different editors, or even add new features on the fly from within the editor.
 
-### The dream hasn't worked out yet
+### The dream hasn't worked out (yet)
 
 At the moment, silos seem to be winning. The typical cloud and mobile patterns seem to be going strong, and the desktop filesystem is definitely losing momentum among end-users. I've even heard stories of college students being unfamiliar with the very concept of files.
 
@@ -91,30 +91,40 @@ The simplicity of "Just a UI" is appealing on many dimensions. The lack of persi
 
 "Just UI" also makes "remixing" relatively more straightforward. A key aspect of these kinds of platforms is blurring the line between being a "user" and a "programmer": if I share a Claude Artifact or a Websim app, anyone using it can trivially try adding on their own further modifications with just a text prompt. This kind of playful iteration is easy if there's no shared data and no collaboration; if you have multiple users or data from past versions, these kinds of iterations become less straightforward to manage.
 
-Still, despite all the cool things people are managing to do within this architecture, there are some severe limitations to how far you can get with just a UI. Think of most of the apps you use today: even something as simple as a todo list requires storage at minimum, and often collaboration as well.
+Still, despite all the cool things people are managing to do within this architecture, **there are some severe limitations to how far you can get with just a UI**. Think of most of the apps you use today: even something as simple as a todo list requires storage at minimum, and often collaboration as well.
 
-### Level 2: Siloed Apps
+### Level 2: Siloed Cloud Apps
+
+At this point the next move should be fairly obvious: build tools that let users prompt their way to "full-stack" tools that include persistence and collaboration. And indeed, various providers are exploring exactly this.
+
+[Val.Town](https://val.town), a simple online JavaScript IDE and hosting platform, recently launched [Townie](https://x.com/stevekrouse/status/1820122839447650660), an AI assistant for creating websites that can use ValTown's backend capabilities for things like data storage. [Replit](https://replit.com/), an online IDE + hosting platform with support for many languages, has also launched a bunch of AI features that make it easier to spin up a full-stack site on their infrastructure.
+
+There are also companies getting here from more of a "no-code" perspective than a developer focus: companies like [Glide](https://x.com/amirbolous/status/1458573998372053001) and [Airtable](https://blog.airtable.com/airtable-cobuilder-launch/) are exploring AI environments help people build new business tools on top of their existing products.
+
+Supporting data storage and collaboration obviously unlocks a whole bunch of new use cases: everything from project management software to multiplayer games. But it's worth noting that **AI-generated full stack apps each store their own siloed data, with no shared data**:
 
 ![](/images/article_images/llm-eup-2/siloed-apps.jpeg)
 
-- level 2
-	- add a DB, collaboration, "a backend"
-	- eg: valtown, replit
-		- show Townie
-	- pros
-		- you get "real apps" that can do more stuff - like a collaborative website
-	- cons
-		- state is complicated, ops are complicated
-		- fragmented apps
-		- worse than cloud saas
-			- more apps! explosion of individual apps
-			- AI needs shared context
-	- discussion
-		- i expect this will be a near-term plateau
+This architecture basically looks like the familiar status quo. But **if AI leads to a larger number of smaller personal tools, we might expect data silos to become increasingly frustrating to deal with.** For example: if you want to make a little utility for viewing your todo list in a certain way, but it doesn't interoperate at all with your team's project management software, then it's hard to bring it into your workflow.
+
+There's a second, more subtle problem. Many of these new kinds of software tools aren't just *generated via* AI, they also *use* AI—and AI tools benefit hugely from broader context on a problem or a project. Tools with siloed data make this context hard to gather up—every bit of context needs to be explicitly brought into the tool at the moment of use.
+
+For example, my text message translation app uses LLMs to do translation within the context of an existing text message thread. But because my app doesn't share data with iMessage, I have to laboriously copy-paste text messages into the web UI. It'd be much smoother if this interoperability was taken care of for me by a shared data layer.
 
 ### Level 3: Shared Data
 
+Imagine that all our apps were just UIs living on top of a shared collaboration and data storage stack—analogous to the role the filesystem used to play as a shared data layer for all your desktop apps, but reimagined for modern collaboration.
+
 ![](/images/article_images/llm-eup-2/shared-data.jpeg)
+
+Now, imagine you're hitting limits with a tool you're using. What if you could use AI to generate or customize your own alternative tool on the fly? Perhaps you just add a specialized button that handles one workflow, perhaps you replace the original tool entirely. **The key is that you're not starting from scratch, you're just tweaking and extending the tools you already had, over your existing data.**
+
+- Here's a small example of how that might feel; a recent demo from Patchwork..
+	- show "edit the tool"
+	- can edit manually...
+	- or can edit with AI...
+
+Todo: video
 
 - level 3
 	- now we're back to... shared data dream!
@@ -148,7 +158,7 @@ Still, despite all the cool things people are managing to do within this archite
 		- security is tough => point to Bernie Seefeld's post
 
 
-TLDR:
+## Conclusions
 
 - easy to write off lots of the current stuff as toys/demos
 - i think it's fair to be quite skeptical of generalizing to larger code
@@ -167,11 +177,17 @@ Newsletter subscribe
 - [x] outline whole thing
 - [x] bring in the sketchy diagrams
 - [ ] prosify
-	- [ ] level 1
-	- [ ] level 2
+	- [x] level 1
+	- [x] level 2
 	- [ ] level 3
+
+
+Later:
+
+	- [ ] conclusion
 - [ ] make better diagrams by hand
-- [ ] make a call: cut interactions for later?
+- [ ] edit pass
+- [ ] publish
 
 I made a strategic decision here:
 Clarify the exact point of this note, make it smaller and sharper.
