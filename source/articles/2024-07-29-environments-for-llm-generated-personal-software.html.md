@@ -1,208 +1,201 @@
 ---
 
-title: Environments for LLM-generated personal software
+title: "Malleable software in the age of LLMs, Part 2: Shared Data"
 date: 2024-07-29 14:32 UTC
+summary: "As LLMs open up the coding bottleneck, we may see increasing incentives towards a shared data layer across applications."
 tags:
 
 ---
 
-
-# Draft 0
-
-### Christensen’s Disruption Theory Applied to AI Coding Environments
-
-#### Disruption for Coding Environments
-- **Glitch, Replit, Dark, Val…**
-  - All playful and limited in capability
-  - Almost like Scratch in a way. Creative coding.
-
-#### And Now Artifacts!
-- Arguably undercutting all of them with an even simpler approach
-- **Websim, Windows 9X, ValAI, my stuff…** is going up the curve from that starting point. Replit’s AI stuff too.
-- But I wonder if we need to push even further into the simple UI?
-  - To some extent it’s a bet on capabilities
-  - I’m skeptical on large-scale software engineering and bullish on small-scale situated software (This rhymes with Antirez’s nuanced post)
-
-#### LLM-generated Apps Need Infra
-- They will grow to need the full infra stack.
-
-#### Local-first is Similarly Disruptive
-- Low capability right now but simpler
-- Has some key adoption characteristics…
-
-### Huge Interaction Design Questions
-- What does it look like to do both directions of the feedback loop without code?
-  - Up from the chatbot.
-  - Link to Lude?
-  - The gold standard: demos with a PM.
-
-#### How Does Glide Fit In?
-- Unclear how fast and how far this will go.
-
-## Post Draft
-
-### Preamble
-- PDD is blowing up for small ephemeral tools.
-
-### Thesis
-- Prompt-driven development could be the start of disrupting coding. What will it take to go the distance?
-
-### PDD = Artifacts, Websim, my stuff
-- Show some demos. People are using it for end-user programming. Now you can share and remix too.
-
-### Reminiscent of Scratch but with Very Different Goals
-
-#### What Else is Needed to Keep Going?
-- **Interaction Models**
-  - Dig back to the synthesis literature, Mayer, Wrex, Smyth, Hazel
-- **Infrastructure**
-  - Storage, multiplayer, etc. This raises complexity in many ways - need approaches that cut through. (Local first FTW)
-- **Obvious**
-  - Model capabilities and context windows
-
-
----
-
-
-# Draft 1
-
-### Introduction
-- Summary of the meetup organized last week.
-- Focus on pushing the frontiers of AI-generated software to improve environments and interaction models.
-
-## AI-Generated Software
-
-### Casual and Lightweight Approach
-- AI-generated software isn't confined to traditional, formal environments.
-- Demos showcased user-friendly, well-situated software.
-- Example: Flawed artifacts used for thinking through simulations on the fly.
-
-### Differences from Traditional Software Engineering
-- Unlike formal tools like DevIn, this new style aligns with current model capabilities.
-- Example: Cloud 3.5 Sonnet can output a few hundred lines of React code with smaller context windows and simpler use cases.
-- Shared past examples:
-  - Translator app
-  - Podcasting app made with Dan Schicker
-  - Ethan’s work from MIT showcasing artifacts
-- Link to Redis creator’s blog post on current model capabilities: good for scripting, poor for systems programming.
-
-### Need for Sophistication in Infrastructure
-- Importance of gradually adding sophistication to the infrastructure.
-- WebSim as an example of a simulated browser for playful end-user programming.
-- Valtown as another example with a playful, community-inclined vibe.
-- Local-first stack benefits:
-  - Easy AI app building
-  - Supports collaboration with minimal fuss
-  - Similar to YBB's Tailwind for styling
-
-### Existing Apps and Data
-- Starting from existing apps and tweaking them instead of building new tools from scratch.
-- Example: Patchwork’s approach.
-
-### Overall Point
-- Current capabilities are limited, often seen as toys.
-- Disruption argument: Models and environments will grow, potentially replacing traditional software with on-the-fly software.
-- Counterpoint: Demos are simple; easier to do open-ended things than specific tasks.
-
-## Interaction Models
-
-### Baseline Interaction: Text Chat
-- Text chat is the baseline but has limitations.
-- Issues: Understanding possibility spaces and efficient communication of intent.
-
-### Interesting Ideas
-- Sigma tone dial
-- Minuses using latent model features
-- Tyler’s branching exploration of alternatives
-- Demo of branching and speculation
-- Lou’s observations on visual prompting for UI and behavior
-- Mention Lou’s whiteboard demo as a different context for creating software
-
-### Conclusion
-- Potential disruption with evolving AI capabilities.
-- Traditional software might be replaced by more adaptable, on-the-fly solutions.
-- Highlight the importance of demos and experiments in showcasing these new possibilities.
-
-# Previous notes on Cloud SaaS
-
-
 ## intro
 
-previous post, laid out theory of AI-powered Malleable Software. basic idea: AI code gen -> everyone's a personal dev.
+- hook
+- image!
+- context on malleable software / end-user programming
+	- history
+	- Nardi EUP
+	- spreadsheets are famous EUP example: unlocked financial / simple calculations / simple UI to the masses
+	- but historically construction of GUIs and complex logic has been fairly bottlenecked on programming
+		- no-code environments: simplified toolkits
+		- research work 
+			- Webstrates
+			- Tchernavskij thesis
+			- My own work: Wildcard, Potluck, Embark
+- previous post: LLMs opening up the coding bottleneck
+	- 18 months lol
+	- I was busy... finished a PhD and started new job at I&S!
+- Since then:
+	- model capabilities advancing, lots of people using them
+	- this post is_not_ about using models for heavy-duty software eng, more about lightweight tools.
+		- eg: devin, copilot workspaces, even Cursor
+		- i'm more interested in EUP for 2 reasons:
+			- incidentally: better fit for current model capabilities
+			- deeper: actually a more interesting change to the software ecosystem
+- Maybe 
 
-(i've also covered one example of what this might look like: crafting a bespoke gui app)
+## The dream of shared data across applications
 
-general theory raises more questions than answers. if we get AI personal devs, what kinds of platforms will be best positioned to take advantage? and what new platforms will win? in a sense, the Q is: what would it look like to design an OS platform around the idea that AI can generate code for anybody?
+History: FS, cloud silos
 
-will argue that **Cloud SaaS (the dominant paradigm of our time for most sofwtare)——is a bad fit for this future!**
+The dream
+	- SOLID, Verborgh
+	- Webstrates
+	- Wildcard demo, Riffle demo => live interop
 
-2 reasons:
+Link to BYOC
 
-- centralized data
-- centralized code
+Mostly, it hasn't caught on.
 
-## the history
+- Status quo: cloud silos fragmented by media type
+- Think: Figma, Google Docs, Notion, TLDraw... each their own sync stack
+- APIs sometimes yes, but that's a weak abstraction. Too bespoke, too 
 
-- From Midas chapter: software went from all bespoke to standardized software packages
-- part of what drove this: cost of dev was so high!
-- so we got desktop software in a box...
-- ...fast forward to modern day:
-- these days: biz software is increasingly cloud saas
-- nice things: collaborative web apps, pay as a service, no ops
+(Caveat: maybe in enterprise world things are better? But I kinda doubt it)
 
-## what's changing
+Thesis: cost of creating new tools heavily affects the benefit of shared data!
 
-- AI personal dev
-- make new tools that work with your existing data
-- tweak / extend existing tools
+Now... let's build up to shared data from the current state of things...
 
-(maybe i need a good simple motivating example here)
+## 3 levels of data infrastructure
 
-why cloud saas fails:
+In this section I'll present a simple framework for thinking about 
 
-## centralized code
+- 3 level model
+	- what i view as increasingly powerful approaches to data infra for ai-generated software
+	- not nec "better" / "worse", but appropriate for diff contexts... altho i'm biased, working on L3 :)
 
-- we wanna tweak the UI and add some stuff
-  - luckily, web is a very open client platform
-    - browser extensions are great! (link to past work)
-      - a subtle thing about them: they usually "rebase" automatically
-    - this is a bright spot
-  - but there's a problem.... we can't change the backend.
-    - this is a big problem. most serious features require new backend features, or worse, edits.
-    - now you're stuck, do you:
-      - mirror all the data to a new backend and add logic there
-      - can't suppress existing logic
-      - can't add new data validations / other features which rely on backend logic
-    - if you're lucky they might provide webhooks / extension points... but that's rare.
-  - even if we got access to the repo this wouldn't work -- all customers running the same shared backend! that's the fundamental problem
-  - we basically want to fork a custom backend just for us, with its own minor tweaks / data schema changes
+![](/images/article_images/llm-eup-2/3-levels.jpeg)
 
-another problem: backend-frontend split makes things complicated, and complicated is hard to edit.
+### Level 1: UI Only
 
-## centralized data
+![](/images/article_images/llm-eup-2/just-ui.png)
 
-- let's say you wanna make a lil new app that can edit your existing data...
-  - like an alternate project mgmt tool for github issues customized to your org
+- level 1
+	- make UI-only app, share and remix
+	- no state or collab
+	- eg:
+		- claude artifacts -> mollick
+		- websim -> find some examples
+		- my translator app, json app, podcast app
+	- pros
+		- great for toys
+		- easy ops
+		- simple for AI to generate, all local
+	- cons
+		- limits to what you can do
+	- discussion
+		- often see people "externalizing" the state - clipboard, file import/export, etc
+		- interesting phenomenon: incorporating user-specific context directly into the code. still modifiable because anyone can remix the code. kinda "currying"
 
-- data is siloed away
-- hard to make new tools that reuse data from existing cloud apps
-  - possible to schlep it with APIs, but APIs don't always exist, and are gross in any case
+### Level 2: Siloed Apps
 
-It woudl be SO much easier if you just owned your own single-tenant database / FS!!!
+![](/images/article_images/llm-eup-2/siloed-apps.jpeg)
 
-- btw: what if you wanna add a column to the data?
-  - you can't, it's a multitenant system, one does not simply fork the schema
-  - i guess you could store your own data...?
+- level 2
+	- add a DB, collaboration, "a backend"
+	- eg: valtown, replit
+	- pros
+		- you get "real apps" that can do more stuff - like a collaborative website
+	- cons
+		- state is complicated, ops are complicated
+		- fragmented apps
+		- worse than cloud saas
+			- more apps! explosion of individual apps
+			- AI needs shared context
+	- discussion
+		- i expect this will be a near-term plateau
+
+### Level 3: Shared Data
+
+![](/images/article_images/llm-eup-2/shared-data.jpeg)
+
+- level 3
+	- intro: SOLID, Verborgh post
+		- maybe the time has come for this
+			- we need shared data more than ever
+			- the coding bottleneck is opening up "BYOC" -> lower cost to make new clients incentivizes the shared data layer
+	- shared data is the dream
+		- show Wildcard / Riffle demo?
+	- common SDK for things like collaboration, history, auth
+		- stop reinventing the wheel! like an FS
+	- show my demo
+	- self-hosting / in-place toolchain - you're editing from within the site of *use*, not from within an IDE
+		- subtle, but suggests the code editor grows from an end-user  collab environment, rather than the other way around...
+		- hint at "malleable software" here?
+	- pros
+		- local-first is
+			- more local code for AI to generate
+			- easier shared data across apps
+		- more powerful applications
+	- cons
+		- harder to pull off - bigger change to the ecosystem
+	- discussion
+		- tweak rather than starting from scratch
+		- what properties do you need from the data layer
+			- what's the data shape
+				- Automerge JSON
+				- Riffle / LiveStorerelational
+			- live reactivity!!!
+				- enables rich interactions
+			- version control
+				- of the code
+				- of the data
+		- schemas / migrations
+			- LLM glue can help here clearly
+		- what is the SDK
+		- security is tough => point to Bernie Seefeld's post
 
 
-## what's needed
+TLDR:
 
-this problem analysis points out a lot of what you want/need:
+- easy to write off lots of the current stuff as toys/demos
+- i think it's fair to be quite skeptical of generalizing to larger code
+	- Link to Redis creator’s blog post on current model capabilities: good for scripting, poor for systems programming.
+- but at the same time
+- Disruption theory: might these apps grow more and more powerful...
 
-- you own a copy of the data, the schema, and the code
-- you can edit any at any time (at individual, team, or company scale)
-- but you want to keep bringing in upstream changes too...
 
-this suggests to me... local-first data layer with versioning
+Tease part 3, interactions
+Newsletter subscribe
 
-more speculatively:
+
+## interactions
+
+CUT THIS
+
+an orthogonal axis: how do you actually get the code
+
+- current practices: simple demos + lots of trial and error
+- text chat + "don't look at code" is the current status quo
+- works surprisingly well if you're in the right regime and can trivially verify
+- my favorite trick: "ask me clarifying questions"
+- my north star: "a good design consultancy" => show me spec docs, demos...
+- playing the specification game
+- other methods
+	- Linus: navigating latent space, what does this look like for apps
+		- tone dial
+	- visual prompting, Lu
+	- Tyler's branching
+- lots of trad synthesis work worth looking at:
+	- ReGae Glassman
+	- UIST Mayer 15
+- some of my ideas
+	- structure the space
+	- marketing webpages
+	- parallel generation
+
+
+
+## meta
+
+- [x] outline whole thing
+- [x] bring in the sketchy diagrams
+- [ ] prosify
+	- [ ] level 1
+	- [ ] level 2
+	- [ ] level 3
+- [ ] make better diagrams by hand
+- [ ] make a call: cut interactions for later?
+
+I made a strategic decision here:
+Clarify the exact point of this note, make it smaller and sharper.
