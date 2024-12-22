@@ -56,8 +56,9 @@ Overall, **it felt incredible that it only took seconds to go from noticing some
 
 This is the dream of [malleable software](https://www.geoffreylitt.com/2023/03/25/llm-end-user-programming.html): editing software at the speed of thought. Starting with just the minimal thing we need for our particular use case, adding things immediately as we come across new requirements. Ending up with a tool that's molded to our needs like a leather shoe, not some complicated generic thing designed for a million users.
 
-## Related posts
+## Related reading
 
-- For more zoomed-out thoughts on this workflow, check out [Malleable software in the age of LLMs](https://www.geoffreylitt.com/2023/03/25/llm-end-user-programming)
+- For more zoomed-out thoughts on the possibilities of custom AI-generated tools, check out [Malleable software in the age of LLMs](https://www.geoffreylitt.com/2023/03/25/llm-end-user-programming)
 - I've written before about using AI to develop one-off custom personal tools, like [a Japanese text message translation app with a formality slider](https://www.geoffreylitt.com/2023/07/25/building-personal-tools-on-the-fly-with-llms).
 - A few months ago, a collaborator and I had a similar experience building [a custom visualization tool for bounding boxes on PDFs](https://x.com/geoffreylitt/status/1821666220644683950).
+- The idea of custom tools for debugging programming systems has been explored in depth by many live programming tools; e.g. check out [Glamorous Toolkit](https://gtoolkit.com/) and [Clerk](https://clerk.vision/).
