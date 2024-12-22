@@ -1,88 +1,63 @@
 ---
 
-title: AI-generated debug views make coding more fun
+title: AI-generated tools can make programming more fun
 date: 2024-12-22 14:05 UTC
-tags: 
+tags:
 
 ---
 
-Recently, I was hacking on a Prolog interpreter as a learning project. [Prolog](https://en.wikipedia.org/wiki/Prolog) is a logic language that lets you define facts and rules, and then answer queries about those facts. And a basic interpreter for this language turns out to be an elegant little program with surprising power. Exactly the kind of thing that's fun to hack on!
+I want to tell you about a neat experience I had with AI-assisted programming this week. What's unusual here is: **the AI didn't write a single line of my code.** Instead, I used AI to build a *custom debugger UI*... which made it faster and more fun for me to do the coding myself.
 
-The trouble is: it's also a bit finicky to get right. Early on, I encountered some bugs in my implementation of a key step called [_unification_](https://en.wikipedia.org/wiki/Unification_(computer_science))—solving symbolic equations—which was leading to weird behavior downstream. My learning project was becoming less fun; motivation was fading ☹️.
+<div style="text-align: center; width: 100%">* * *</div>
 
-I decided what I needed was a tool that would help me understand what was actually going on in my interpreter—something that would give me *better visibility*. **So I used [Claude Artifacts](https://support.anthropic.com/en/articles/9487310-what-are-artifacts-and-how-do-i-use-them) to quickly whip up a custom debugger UI which would visualize execution traces of my interpreter running on a sample program:**
+I was hacking on a Prolog interpreter as a learning project. [Prolog](https://en.wikipedia.org/wiki/Prolog) is a logic language where the user defines facts and rules, and then the system helps answer queries. A basic interpreter for this language turns out to be an elegant little program with surprising power—a perfect project for a fun learning experience.
+
+The trouble is: it's also a bit finicky to get the details right. I encountered some bugs in my implementation of a key step called [_unification_](https://en.wikipedia.org/wiki/Unification_(computer_science))—solving symbolic equations—which was leading to weird behavior downstream. I tried logging some information at each step of execution, but I was still parsing through screens of text output looking for patterns.
+
+I needed better visibility. So, I asked [Claude Artifacts](https://support.anthropic.com/en/articles/9487310-what-are-artifacts-and-how-do-i-use-them) to whip up a custom UI for viewing one of my execution traces. After a few iterations, here's where it ended up:
 
 <video autoplay loop controls="controls" preload="auto" muted="muted" data-video="0" type="video/mp4" src="/images/article_images/debugger/demo.mp4" width="100%"></video>
 
-In this UI, I can step through an execution and see a nice visualization of my interpreter's internal state: how it has broken down goals, which rule it's currently evaluating, how it has assigned variables, and when it's found a solution. And don't forget the most important feature: a black-and-green hacker design 😎.
+I could step through an execution and see a clear visualization of my interpreter's stack: how it has broken down goals to solve; which rule it's currently evaluating; variable assignments active in the current context; when it's come across a solution. The timeline shows an overview of the execution, letting me manually jump to any point to inspect the state. I could even leave a note annotating that point of the trace.
 
-With this debug view in hand, progress on my code became smoother. Instead of poring over terminal output, I could enjoy a custom-made visualization. I caught a couple bugs immediately just by being able to see variable assignments more clearly. A repeating pattern of solutions in the timeline view led me to discover an infinite loop bug.
+Oh yeah, and don't forget the most important feature: the retro design 😎.
 
-**Above all: I started having fun again!** I was still getting stuck, but it felt like I was getting stuck in *interesting* ways on essential issues, and not in dumb ways due to lack of visibility. And the visual aesthetic of the debugger made debugging feel like a puzzle game rather than a depressing slog. Maybe if this had been a Serious Work Project that wouldn't have made a big difference, but when hacking on a learning project in the evening after a long day, motivation is critical.
+Using this interactive debug UI gave me far clearer visibility than a terminal of print statements. I caught a couple bugs immediately just by being able to see variable assignments more clearly. A repeating pattern of solutions in the timeline view led me to discover an infinite loop bug.
 
-In this post I'll briefly share how the tool came together and evolved, how it made me think differently about custom dev tools, and how you might apply this pattern in your own programming work.
+**And, above all: I started having more fun!** When I got stuck on bugs, it felt like I was getting stuck in interesting, essential ways, not on dumb mistakes. I was able to get an intuitive grasp of my interpreter's operation, and then hone in on problems. As a bonus, the visual aesthetic made debugging feel more like a puzzle game than a depressing slog.
 
-## Reflecting
+<div style="text-align: center; width: 100%">* * *</div>
 
-### Malleable Software
-- Evolutionary development process:
-  - Started with basic visualization
-  - Added layout improvements for substitution findings
-  - Implemented commenting features
-  - Developed timeline view with navigation
-- Adapting tools at the speed of thought
-- Zero friction between need and implementation
-- [Link: Malleable Software essay]
-- link: translator app
-- AI advantage: Custom tool creation from simple examples
-  - Created debugger from single trace sample
-  - Interpreter-specific customization
+Two things that stick out to me about this experience are 1) how fast it was to get started, and 2) how fast it was to iterate.
 
-#### Other examples
+When I first had the idea, I just copy-pasted my interpreter code and a sample execution trace into Claude, and asked it to build a React web UI with the rough functionality I wanted. I also specified "a fun hacker vibe, like the matrix", because why not? About a minute later (after a single iteration for a UI bug which Claude fixed on its own), I had a solid first version up and running:
 
-- Synctex debugger: https://x.com/geoffreylitt/status/1821666220644683950
-- ambient visibility: https://x.com/geoffreylitt/status/1455915933940260871
-- todo debug: https://x.com/geoffreylitt/status/1260641012415946754
+![My prompt to Claude](/images/article_images/debugger/prompt.png)
 
-### Single-Player to Collaborative
-- Need for persistence and sharing
-- Moving beyond Claude Artifacts
-- Implementation in Patchwork runtime (Ink & Switch)
-- Benefits of lightweight infrastructure
-  - Trace sharing with colleagues
-  - Note-taking capabilities
-  - Bug documentation storage
+**That fast turnaround is absolutely critical, because it meant I didn't need to break focus from the main task at hand.** I was trying to write a Prolog interpreter here, not build a debug UI. Without AI support, I would have just muddled through with my existing tools, lacking the time or focus to build a debug UI. Simon Willison says: ["AI-enhanced development makes me more ambitious with my projects"](https://simonwillison.net/2023/Mar/27/ai-enhanced-development/). In this case: AI-enhanced development made me more ambitious with my *dev tools*.
 
+By the way: I was confident Claude 3.5-Sonnet would do well at this task, because it's great at building straightforward web UIs. That's all this debugger is, at the end of the day: a simple view of a JSON blob; an easy task for a competent web developer. In some sense, you can think of this workflow is a technique for turning that narrow, limited programming capability—rapidly and automatically building straightforward UIs—into an accelerant for more advanced kinds of programming.
 
+Whether you're an AI-programming skeptic or an enthusiast, the reality is that many programming tasks are beyond the reach of today's models. But many decent *dev tools* are actually quite easy for AI to build, and can help the rest of the programming go smoother. In general, these days any time I'm spending more than a minute staring at a JSON blob, I consider whether to whip up a custom UI for it in seconds.
 
-### Making Development More Enjoyable
-- Countering the "AI will take the fun parts" narrative
-- Learning exercise - deliberately keeping core implementation human-made
-- Using AI to enhance the development experience
-- Value beyond pure utility - making short projects more engaging
-- Moldable viewers / Smalltalk heritage => the "right way" to do this
-- There is a twinge of regret that I didn't get to shave the yak, but it's ok, time is limited.
+<div style="text-align: center; width: 100%">* * *</div>
 
+As I used the tool in my debugging, I would notice small things I wanted to visualize differently: improving the syntax display for the program, allocating screen real estate better, adding the timeline view to get a sense of the full history.
 
+Each time, I would just switch windows, spend a few seconds asking Claude to make the change, and then switch back to my code editor and resume working. When I came back at my next breaking point, I'd have a new debugger waiting for me. Usually things would just work the first time. Sometimes a minor bug fix was necessary, but I let Claude handle it every time. I still haven't looked at the UI code.
 
-## Conclusion
-AI as an enabler for custom tooling that enhances our development process
+Eventually we landed on a fairly nice design, where each feature had been motivated by an immediate need that I had felt during use:
 
+![](/images/article_images/debugger/debugger-annotated.png)
 
-## cutting room
+Claude wasn't perfect—it did get stuck one time when I asked it to add a flamegraph view. Perhaps I could have prodded it into building this better, or even resorted to building it myself. But instead I just decided to abandon that idea and carry on. **AI development works well when your requirements are flexible** and you're OK changing course to work within the current limits of the model.
 
-```prolog
-// Define some facts
-parent(alice, bob) // Alice is bob's parent
-parent(bob, carol) // bob is carol's parent
-parent(carol, dan) // carol is dan's parent
+Overall, **it felt incredible that it only took seconds to go from noticing something I wanted in my debugger to having it there in the UI.** The AI support let me stay in flow the whole time; I was free to think about interpreter code and not debug tool code. I had a yak-shaving intern at my disposal.
 
-// Define a rule
-// X is Y's grandparent if: X is parent of some Z, and that Z is the parent of Y
-grandparent(X, Y) :- parent(X, Z), parent(Z, Y)
+This is the dream of [malleable software](https://www.geoffreylitt.com/2023/03/25/llm-end-user-programming.html): editing software at the speed of thought. Starting with just the minimal thing we need for our particular use case, adding things immediately as we come across new requirements. Ending up with a tool that's molded to our needs like a leather shoe, not some complicated generic thing designed for a million users.
 
-// Run a query: who is who's grandparent?
-?- grandparent(X, Y)
+## Related posts
 
-// X = alice, Y = carol
-```
+- For more zoomed-out thoughts on this workflow, check out [Malleable software in the age of LLMs](https://www.geoffreylitt.com/2023/03/25/llm-end-user-programming)
+- I've written before about using AI to develop one-off custom personal tools, like [a Japanese text message translation app with a formality slider](https://www.geoffreylitt.com/2023/07/25/building-personal-tools-on-the-fly-with-llms).
+- A few months ago, a collaborator and I had a similar experience building [a custom visualization tool for bounding boxes on PDFs](https://x.com/geoffreylitt/status/1821666220644683950).
