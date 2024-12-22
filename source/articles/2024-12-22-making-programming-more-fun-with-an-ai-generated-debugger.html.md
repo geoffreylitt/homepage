@@ -6,7 +6,7 @@ tags:
 
 ---
 
-I want to tell you about a neat experience I had with AI-assisted programming this week. What's unusual here is: **the AI didn't write a single line of my code.** Instead, I used AI to build a *custom debugger UI*... which made it faster and more fun for me to do the coding myself.
+I want to tell you about a neat experience I had with AI-assisted programming this week. What's unusual here is: **the AI didn't write a single line of my code.** Instead, I used AI to build a *custom debugger UI*... which made it more fun for me to do the coding myself.
 
 <div style="text-align: center; width: 100%">* * *</div>
 
@@ -38,7 +38,7 @@ When I first had the idea, I just copy-pasted my interpreter code and a sample e
 
 By the way: I was confident Claude 3.5-Sonnet would do well at this task, because it's great at building straightforward web UIs. That's all this debugger is, at the end of the day: a simple view of a JSON blob; an easy task for a competent web developer. In some sense, you can think of this workflow is a technique for turning that narrow, limited programming capability—rapidly and automatically building straightforward UIs—into an accelerant for more advanced kinds of programming.
 
-Whether you're an AI-programming skeptic or an enthusiast, the reality is that many programming tasks are beyond the reach of today's models. But many decent *dev tools* are actually quite easy for AI to build, and can help the rest of the programming go smoother. In general, these days any time I'm spending more than a minute staring at a JSON blob, I consider whether to whip up a custom UI for it in seconds.
+Whether you're an AI-programming skeptic or an enthusiast, the reality is that many programming tasks are beyond the reach of today's models. But many decent *dev tools* are actually quite easy for AI to build, and can help the rest of the programming go smoother. In general, these days any time I'm spending more than a minute staring at a JSON blob, I consider whether it's worth building a custom UI for it.
 
 <div style="text-align: center; width: 100%">* * *</div>
 
@@ -50,7 +50,7 @@ Eventually we landed on a fairly nice design, where each feature had been motiva
 
 ![](/images/article_images/debugger/debugger-annotated.png)
 
-Claude wasn't perfect—it did get stuck one time when I asked it to add a flamegraph view. Perhaps I could have prodded it into building this better, or even resorted to building it myself. But instead I just decided to abandon that idea and carry on. **AI development works well when your requirements are flexible** and you're OK changing course to work within the current limits of the model.
+Claude wasn't perfect—it did get stuck one time when I asked it to add a [flamegraph](https://www.brendangregg.com/flamegraphs.html) view of the stack trace changing over time. Perhaps I could have prodded it into building this better, or even resorted to building it myself. But instead I just decided to abandon that idea and carry on. **AI development works well when your requirements are flexible** and you're OK changing course to work within the current limits of the model.
 
 Overall, **it felt incredible that it only took seconds to go from noticing something I wanted in my debugger to having it there in the UI.** The AI support let me stay in flow the whole time; I was free to think about interpreter code and not debug tool code. I had a yak-shaving intern at my disposal.
 
