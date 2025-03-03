@@ -7,7 +7,7 @@ tags:
 ---
 
 
-The most important idea in product design is to avoid the "nightmare bicycle".
+In my opinion, one of the most important ideas in product design is to avoid the "nightmare bicycle".
 
 Imagine a bicycle where the product manager said: "people don't get math so we can't have numbered gears. We need labeled buttons for gravel mode, downhill mode, ..."
 
