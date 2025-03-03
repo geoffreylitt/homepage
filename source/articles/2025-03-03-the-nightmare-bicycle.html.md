@@ -11,7 +11,7 @@ In my opinion, one of the most important ideas in product design is to avoid the
 
 Imagine a bicycle where the product manager said: "people don't get math so we can't have numbered gears. We need labeled buttons for gravel mode, downhill mode, ..."
 
-This is the hypothetical "nightmare bicycle" that Andy diSessa imagines in his book [Changing Minds](https://mitpress.mit.edu/9780262541329/changing-minds/).
+This is the hypothetical "nightmare bicycle" that Andrea diSessa imagines in his book [Changing Minds](https://mitpress.mit.edu/9780262541329/changing-minds/).
 
 As he points out: it would be terrible! We'd lose the intuitive understanding of how to use the gears to solve any situation we encounter. Which mode do you use for gravel + downhill?
 
