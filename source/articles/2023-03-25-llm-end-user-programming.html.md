@@ -9,6 +9,8 @@ starred: true
 
 ---
 
+[You can listen to this article here.](https://listenly.io/book/6669a10cc8bc46a35994e5dc)
+
 ![A robot and a human coding together. Image from Midjourney.](/images/article_images/llm-eup/robot-coding.png)
 
 It's been a wild few weeks for large language models. OpenAI [released GPT-4](https://cdn.openai.com/papers/gpt-4.pdf), which shows impressive gains on a variety of capabilities including coding. Microsoft Research [released a paper](https://www.microsoft.com/en-us/research/publication/sparks-of-artificial-general-intelligence-early-experiments-with-gpt-4/) showing how GPT-4 was able to produce quite sophisticated code like a 3D video game without much prompting at all. OpenAI also released [plugins for ChatGPT](https://openai.com/blog/chatgpt-plugins), which are a productized version of the ReAct tool usage pattern I played around with in my [previous post about querying NBA statistics using GPT](https://www.geoffreylitt.com/2023/01/29/fun-with-compositional-llms-querying-basketball-stats-with-gpt-3-statmuse-langchain.html).
