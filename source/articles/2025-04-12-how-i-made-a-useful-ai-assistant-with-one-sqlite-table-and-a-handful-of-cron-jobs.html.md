@@ -76,4 +76,4 @@ Stevens isn't a product you can run out of the box, it's just a personal project
 
 But if you're curious, you can check out the code and fork the project [here](https://www.val.town/x/geoffreylitt/stevensDemo). You should be able to apply this basic pattern—a single memories table and an extensible constellation of cron jobs—to do lots of other useful things.
 
-I recommend editing the code using your AI editor of choice with the [Valtown CLI](https://github.com/pomdtr/vt) to sync to local filesystem.
+I recommend editing the code using your AI editor of choice with the [Val Town CLI](https://github.com/val-town/vt) to sync to local filesystem.
