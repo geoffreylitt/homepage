@@ -3,36 +3,20 @@
 
 .home-body-text
   :markdown
-    Welcome! I'm a researcher exploring _malleable software_: computing environments where anyone can mold their tools to their own unique needs.
+    Welcome! I do research on [malleable software](https://www.inkandswitch.com/essay/malleable-software/): computing environments where anyone can adapt their software to meet their needs with minimal friction. For more on what that means and why it matters, see [this essay](https://www.inkandswitch.com/essay/malleable-software/).
 
-    For more background on what that mission means and why it matters to me, check out my [interview on the Metamuse podcast](https://museapp.com/podcast/34-bring-your-own-client/).
+    I'm also working on AI-assisted programming these days. I believe AI can help usher in a [new era of personal software tools](/2023/03/25/llm-end-user-programming.html), help programmers [have more fun](/2024/12/22/making-programming-more-fun-with-an-ai-generated-debugger.html), and [create new interaction patterns](/2023/07/25/building-personal-tools-on-the-fly-with-llms.html) for working with software.
 
-    ---
+    I'm currently a senior researcher at the independent research lab [Ink & Switch](https://www.inkandswitch.com/). Previously I received a PhD in computer science at MIT, advised by [Daniel Jackson](http://people.csail.mit.edu/dnj/). Earlier in my career I [worked](https://mubi.com/) at [startups](https://www.panoramaed.com/) doing engineering and design.
 
-    I'm currently a senior researcher at the independent research lab [Ink & Switch](https://www.inkandswitch.com/), leading our Malleable Software research track.
+    You can reach me via [email](mailto:gklitt@gmail.com). I enjoy hearing from people making cool stuff! I also do a bit of startup advising and investing in companies related to my work.
 
-    Before that, I completed a PhD at MIT CSAIL in the [Software Design Group](http://sdg.csail.mit.edu/) advised by [Daniel Jackson](http://people.csail.mit.edu/dnj/). Before *that*, I spent five years as an early engineer and designer building the edtech startup [Panorama Education](https://www.panoramaed.com/) (YC S13).
-
-    ---
-
-    These days, I'm thinking a lot about **AI + malleable software**: How can LLMs help people make their own custom software?
-
-    *Essay:* [Malleable software in the age of LLMs](/2023/03/25/llm-end-user-programming.html)
-
-    *Talk:* [Dynamic documents as personal software](https://www.youtube.com/watch?v=bJ3i4K3hefI)
-
-    ---
-
-    If you'd like to hear about my future work, you can [subscribe to occasional email updates](https://buttondown.email/geoffreylitt), or follow on [Twitter](https://www.twitter.com/geoffreylitt) or [RSS](/feed.xml).
-
+    If you'd like to hear updates on my work, subscribe via [email newsletter](https://buttondown.email/geoffreylitt) or [RSS](/feed.xml).
 
 %a{id: "projects"}
 .project-grids
   %h2.project-category Malleable Software
   = partial(:project_grid, locals: { projects: projects.malleable })
-
-  %h2.project-category Local-First Software
-  = partial(:project_grid, locals: { projects: projects.local_first })
 
   %h2.project-category Programming Interfaces
   = partial(:project_grid, locals: { projects: projects.live_programming })
@@ -81,9 +65,12 @@
         %i.fa.fa-rss
         Subscribe via RSS
 
-<h1 class="the-archive">📦 The Archive... <span class="small">(older work less relevant to my current interests)</span></h1>
+<h1 class="the-archive">📦 The Archive... <span class="small">(older work less immediately relevant to my current interests)</span></h1>
 
 .project-grids
+  %h2.project-category Local-First Software
+  = partial(:project_grid, locals: { projects: projects.local_first })
+
   %h2.project-category Programming interface explorations
   = partial(:project_grid, locals: { projects: projects.explorations })
 
