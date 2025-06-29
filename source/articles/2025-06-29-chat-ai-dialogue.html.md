@@ -6,7 +6,7 @@ tags:
 
 ---
 
-The pupil was confused. Everyone on Design Twitter said that chat isn't a good UI for AI... but then chat seemed to be winning in many products? He climbed Mount GPT to consult a wizard...
+The pupil was confused. Some people on Design Twitter said that chat isn't a good UI for AI... but then chat seemed to be winning in many products? He climbed Mount GPT to consult a wizard...
 
 🐣: please wizard tell me once and for all. is chat a good UI for AI?
 
@@ -144,7 +144,7 @@ Graphical interfaces can make repeated workflows nicer.
 
 🐣: ... yes, i think it is?
 
-🧙: did we not say that GUIs can speed up repeated workflows? why do i need to stay in chat for this? also btw, i want my assistant to help out with this, and an app would help her know what to do.
+🧙: did we not say that GUIs can speed up repeated workflows? why do i need to stay in chat for this? also btw, i want my assistant to help out with this, and an app would help them know what to do.
 
 🐣: i mean, i'm not sure there's a good app for seminar planning that does what you want. lemme search on the app st--
 
