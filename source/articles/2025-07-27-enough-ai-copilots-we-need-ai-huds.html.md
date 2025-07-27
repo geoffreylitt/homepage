@@ -67,3 +67,11 @@ So when should we use one or the other? I think it's quite tricky to answer that
 When pilots just want the plane to fly straight and level, they fully delegate that task to an autopilot, which is close to a "virtual copilot". But if the plane just hit a flock of birds and needs to land in the Hudson, the pilot is going to take manual control, and we better hope they have great instruments that help them understand the situation.
 
 In other words: routine predictable work might make sense to delegate to a virtual copilot / assistant. But when you're shooting for extraordinary outcomes, perhaps the best bet is to equip human experts with new superpowers.
+
+---
+
+## Further reading
+
+- A nice discussion of one approach to this idea can be found in [Using Artificial Intelligence to Augment Human Intelligence](https://distill.pub/2017/aia/) by Michael Nielsen and Shan Carter.
+- A more cryptic take on the same topic: [Is chat a good UI for AI? A Socratic dialogue](/2025/06/29/chat-ai-dialogue.html)
+- A discussion of how the the HUD philosophy intersects with on-demand software creation: [Malleable software in the age of LLMs](/2023/03/25/llm-end-user-programming.html)
