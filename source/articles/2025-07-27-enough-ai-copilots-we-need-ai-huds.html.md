@@ -41,7 +41,7 @@ One familiar example is spellcheck. Think about it: **spellcheck isn't designed 
 
 <figure style="margin: 0;">
   <img src="/images/article_images/spellcheck.png" alt="">
-  <figcaption>Spellcheck isn't an "assistant"</figcaption>
+  <figcaption>Spellcheck makes you aware of misspelled words without an "assistant" interface.</figcaption>
 </figure>
 
 (This example comes from Jeffrey Heer's excellent [Agency plus Automation](https://idl.cs.washington.edu/files/2019-AgencyPlusAutomation-PNAS.pdf) paper. We may not consider spellcheck an AI feature today, but it's still a fuzzy algorithm under the hood.)
