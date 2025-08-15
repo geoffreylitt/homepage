@@ -1,5 +1,4 @@
 ---
-layout: simple
 ---
 
 # JSON Sheets

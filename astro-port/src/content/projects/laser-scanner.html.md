@@ -1,5 +1,4 @@
 ---
-layout: simple
 ---
 
 # Efficiently scanning an object with a low-cost laser ranger
@@ -12,8 +11,8 @@ My algorithm took a two-stage approach, starting with a broad scan of an object 
 
 This image compares the brute force result (which scanned 625 points) to the result using my algorithm, which required only 47:
 
-![](images/project_images/laser-scanner/comparison.gif)
+![](/images/project_images/laser-scanner/comparison.gif)
 
 The sensing hardware, a low-cost laser ranger mounted on a pan-tilt mechanism:
 
-![](images/project_images/laser-scanner/hardware.jpg)
+![](/images/project_images/laser-scanner/hardware.jpg)

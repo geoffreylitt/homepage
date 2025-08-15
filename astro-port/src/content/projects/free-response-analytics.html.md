@@ -1,5 +1,4 @@
 ---
-layout: simple
 ---
 
 # Panorama Free Response Analytics

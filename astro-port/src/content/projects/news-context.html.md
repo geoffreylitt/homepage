@@ -1,5 +1,4 @@
 ---
-layout: simple
 ---
 
 # News context sidebar
@@ -10,7 +9,7 @@ showing a sidebar with background information about key concepts in the article,
 like people, places, or institutions. The project won first place out of
 1000+ participants.
 
-![screenshot](project_images/news-context/news-context-phillipines.png)
+![screenshot](/images/project_images/news-context/news-context-phillipines.png)
 
 Under the hood, the project had some several components that came together to
 deliver a simple user experience:
@@ -24,5 +23,5 @@ deliver a simple user experience:
   reading experience for any news article, with the sidebar providing
   summaries and images of key entities as well as links to more information.
 
-![screenshot](project_images/news-context/news-context-full.png)
+![screenshot](/images/project_images/news-context/news-context-full.png)
 

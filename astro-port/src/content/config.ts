@@ -16,7 +16,8 @@ const posts = defineCollection({
 const projects = defineCollection({
   type: 'content',
   schema: z.object({
-    // layout field is ignored in Astro 5, we'll handle it in the component
+    // layout field supported in legacy collections
+    layout: z.string().optional(),
   }),
 });
 

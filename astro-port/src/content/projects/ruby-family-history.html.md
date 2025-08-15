@@ -1,5 +1,4 @@
 ---
-layout: simple
 ---
 
 # Ruby: A Family History

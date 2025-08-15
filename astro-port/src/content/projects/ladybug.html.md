@@ -1,10 +1,9 @@
 ---
-layout: simple
 ---
 
 # 🐞 ladybug
 
-![](images/project_images/ladybug/ladybug-demo.gif)
+![](/images/project_images/ladybug/ladybug-demo.gif)
 
 ladybug is a visual debugger for Ruby web applications that uses the excellent
 Chrome Dev Tools as a user interface. It aims to provide a rich web backend debugging experience in a UI that many

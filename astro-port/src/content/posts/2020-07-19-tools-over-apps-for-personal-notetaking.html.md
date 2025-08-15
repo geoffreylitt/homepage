@@ -32,7 +32,7 @@ It's kind of hard to describe what Foam is. Foam definitely isn't an app. It's b
 
 The install process is easy. You just create a git repo from a template, open it in VS Code, and then your VS Code essentially transforms into a new piece of software, with different visual design and all sorts of new features!
 
-![](article_images/foam-navigation-demo.gif)
+![](/images/article_images/foam-navigation-demo.gif)
 
 This all piggybacks on a couple key features of the VS Code text editor:
 

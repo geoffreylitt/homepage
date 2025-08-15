@@ -1,5 +1,4 @@
 ---
-layout: simple
 ---
 
 # Bulldogs Racing

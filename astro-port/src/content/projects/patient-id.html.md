@@ -1,5 +1,4 @@
 ---
-layout: simple
 ---
 
 # Patient ID
@@ -10,7 +9,7 @@ In addition to participating throughout the design process, I led the hardware p
 
 ## The problem
 
-![wristband](project_images/patient-id/wristband.png)
+![wristband](/images/project_images/patient-id/wristband.png)
 
 Almost all U.S. hospitals use disposable wristbands to keep track of patient identity, which contain information on name, birth date, and medical record number, for both inpatient and outpatients. By checking the bands before administering medicine, taking samples, or performing surgery, nurses can ensure that patients receive the proper care.
 
@@ -18,7 +17,7 @@ This system, however, is fundamentally flawed; a combination of human error and 
 
 ## User research
 
-![nurses](project_images/patient-id/hospital.png)
+![nurses](/images/project_images/patient-id/hospital.png)
 
 We met with nurses at Yale New Haven hospital to understand their concerns with the existing ID band system. We learned that they particularly worried about bands being removed before surgery—and then never getting replaced properly.
 
@@ -28,19 +27,19 @@ For example, one nurse explained: “What happens is that someone goes into the 
 
 We designed an integrated system which caters to the needs of both patients and nurses. Our group at Yale focused on making a smart ID unit with an E-ink screen, active RFID, and modular wear.
 
-![e-wristband](project_images/patient-id/solution.png)
+![e-wristband](/images/project_images/patient-id/solution.png)
 
 For much of the patient’s visit, the unit would be worn on the wrist, like a bracelet; in the OR, though, it could be transferred to a different attachment mechanism, like a retractable clip.
 
-![](project_images/patient-id/form-factor.png)
+![](/images/project_images/patient-id/form-factor.png)
 
 The E-ink screen would provide the patient immediate access to information about her visit, while the active RFID would allow caregivers to track patients through the hospital.
 
-![](project_images/patient-id/e-ink.png)
+![](/images/project_images/patient-id/e-ink.png)
 
 The accompanying application, designed by MICA, gives nurses easy access to chart information and erases the gap between the band itself and key patient information.
 
-![](project_images/patient-id/rfid.png)
+![](/images/project_images/patient-id/rfid.png)
 
 ## Validation
 

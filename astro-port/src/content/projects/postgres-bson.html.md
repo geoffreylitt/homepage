@@ -1,5 +1,4 @@
 ---
-layout: simple
 ---
 
 # Postgres BSON
@@ -8,7 +7,7 @@ In a databases class at Yale with Prof. Daniel Abadi, as a final project togethe
 
 We experimentally demonstrated up to 8x speedups for queries on JSON documents, and the PostgreSQL team later adopted a similar binary encoding into the official project.
 
-![](images/project_images/postgres-bson/results.png)
+![](/images/project_images/postgres-bson/results.png)
 
 ## Abstract
 

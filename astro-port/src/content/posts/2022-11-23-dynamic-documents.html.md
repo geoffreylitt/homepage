@@ -22,7 +22,7 @@ You can read the essay here:
 
 Potluck originated from a desire to make it easier for people to build little pieces of personal software. We ended up building a prototype that enables people to gradually enrich text notes into interactive tools by extracting structured data from freeform text, running computations on that data, and then injecting the results back into the text as annotations.
 
-![](article_images/potluck.png)
+![](/images/article_images/potluck.png)
 
 You can use it to do all sorts of things, including scale recipe ingredients, keep track of household chores, or manage a meeting—lots more examples and details in the essay. We found that starting with familiar text notes seems to make it easier to think of places to use computation; instead of thinking "what app should I make?" you can just notice places in your notes app where you'd like a small extra bit of functionality.
 
@@ -104,7 +104,7 @@ Reliability aside, it also seems like there's a lot of benefit in having code as
 
 One of my favorite interaction ideas in this area comes from a traditional synthesis paper, [User Interaction Models for Disambiguation in Programming by Example](https://www.microsoft.com/en-us/research/wp-content/uploads/2015/11/uist15.pdf). The idea is that the AI generates a program based on user specification, and then shows the user a description of the program written in natural language syntax. It also shows alternative code that it *could have written* within various parts of the program, and lets the user directly choose between the options:
 
-![](article_images/uist15.png)
+![](/images/article_images/uist15.png)
 
 I like how this engages the human in reasoning clearly and directly about the desired behavior, while still getting a lot of help from fuzzy reasoning. It'll be interesting to see how programming languages evolve to support easier reading, editing, and verification, as opposed to always writing from scratch...
 

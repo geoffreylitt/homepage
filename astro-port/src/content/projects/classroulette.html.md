@@ -1,5 +1,4 @@
 ---
-layout: simple
 ---
 
 # Classroulette
@@ -16,7 +15,7 @@ I missed stumbling across courses that I hadn't been looking for
 So over the summer I made a website called Classroulette,
 which aimed to bring back that feeling of serendipity in a digital interface.
 
-![](images/project_images/classroulette/classroulette.gif)
+![](/images/project_images/classroulette/classroulette.gif)
 
 In Classroulette, you could hit the space key to get a totally random selection
 of courses. Then you could click on any course to see a bit more detail,
