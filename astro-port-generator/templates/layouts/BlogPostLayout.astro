@@ -1,31 +1,57 @@
 ---
 import BaseLayout from './BaseLayout.astro';
-import type { CollectionEntry } from 'astro:content';
 
 export interface Props {
-  post: CollectionEntry<'posts'>;
+  title: string;
+  date: Date;
+  summary?: string;
+  description?: string;
+  image?: string;
 }
 
-const { post } = Astro.props;
-const { title, date, image_url } = post.data;
+const { title, date, summary, description, image } = Astro.props;
 
-// Format date
-const formattedDate = new Date(date).toLocaleDateString('en-US', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric'
+const formattedDate = date.toLocaleDateString('en-US', { 
+  year: 'numeric', 
+  month: 'long' 
 });
 ---
 
-<BaseLayout title={title} image={image_url}>
-  <article class="blog-post">
-    <header class="blog-post-header">
-      <h1>{title}</h1>
-      <time datetime={date}>{formattedDate}</time>
-    </header>
-    
-    <div class="blog-post-content">
-      <slot />
-    </div>
-  </article>
+<BaseLayout title={title} description={description || summary} image={image}>
+  <div class="one-column">
+    <article class="blogpost full">
+      <h3 class="date">{formattedDate}</h3>
+      <h1 class="title">{title}</h1>
+      {summary && <p class="summary">{summary}</p>}
+      <div class="content">
+        <slot />
+      </div>
+
+      <div class="subscribe">
+        <h4>Subscribe</h4>
+        I periodically write about programming tools, end-user programming, and other software topics. To get updates about new posts:
+
+        <div class="subscribe-links">
+          <div></div>
+          <a href="https://buttondown.email/geoffreylitt" style="margin-right: 15px;">
+            <i class="fa fa-envelope"></i>
+            Join my email newsletter
+          </a>
+          <a href="http://www.twitter.com/geoffreylitt" style="margin-right: 15px;">
+            <i class="fa fa-twitter"></i>
+            Follow me on Twitter
+          </a>
+          <a href="/feed.xml">
+            <i class="fa fa-rss"></i>
+            Subscribe via RSS
+          </a>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <script is:inline src="//cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+  <script is:inline>
+    anchors.add();
+  </script>
 </BaseLayout>

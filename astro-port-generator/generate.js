@@ -102,12 +102,19 @@ function copyStaticAssets() {
 
   // Copy individual static files
   const staticFiles = [
-    'favicon.ico',
     'favicon.svg', 
     'robots.txt',
     'resume.pdf',
     'crossdomain.xml'
   ];
+
+  // Copy favicon.ico from images directory to public root
+  const faviconSource = path.join(MIDDLEMAN_SOURCE, 'images', 'favicon.ico');
+  const faviconDest = path.join(publicDir, 'favicon.ico');
+  if (fs.existsSync(faviconSource)) {
+    fs.copyFileSync(faviconSource, faviconDest);
+    console.log('  Copying favicon.ico from images/...');
+  }
 
   staticFiles.forEach(file => {
     const sourcePath = path.join(MIDDLEMAN_SOURCE, file);
@@ -309,10 +316,21 @@ function generatePageComponents() {
 
   // Generate page components from templates
   const pageTemplates = [
+    { template: 'pages/index.astro', output: 'index.astro' },
     { template: 'pages/slug.astro', output: '[...slug].astro' },
     { template: 'pages/blog.astro', output: 'blog.astro' },
     { template: 'pages/404.astro', output: '404.astro' }
   ];
+  
+  // Generate project pages
+  const projectsPageDir = path.join(pagesDir, 'projects');
+  if (!fs.existsSync(projectsPageDir)) {
+    fs.mkdirSync(projectsPageDir, { recursive: true });
+  }
+  
+  const projectSlugContent = readTemplate('pages/projects/slug.astro');
+  fs.writeFileSync(path.join(projectsPageDir, '[slug].astro'), projectSlugContent);
+  console.log('  Generated projects/[slug].astro');
 
   pageTemplates.forEach(({ template, output }) => {
     const content = readTemplate(template);
@@ -321,6 +339,102 @@ function generatePageComponents() {
   });
 
   console.log('✅ Page components generated successfully');
+}
+
+/**
+ * Stage 7: Generate Special Pages from Markdown
+ * 
+ * Handles special pages that are in markdown format in the Middleman source
+ * and need to be converted to Astro components with proper layouts.
+ */
+function generateSpecialPages() {
+  console.log('📄 Stage 7: Generating special pages from markdown...');
+  
+  const pagesDir = path.join(ASTRO_GENERATED, 'src', 'pages');
+  
+  // Handle inspirations.html.md
+  const inspirationsSource = path.join(MIDDLEMAN_SOURCE, 'inspirations.html.md');
+  if (fs.existsSync(inspirationsSource)) {
+    let content = fs.readFileSync(inspirationsSource, 'utf8');
+    
+    // Transform the markdown content to Astro
+    // Remove frontmatter and extract metadata
+    content = content.replace(/^---\s*\nlayout:\s*[^\n]*\n---\s*\n/m, '');
+    
+    // Convert markdown lists to HTML
+    content = content.replace(/^\* \[([^\]]+)\]\(([^)]+)\)$/gm, '        <li><a href="$2">$1</a></li>');
+    
+    // Fix image path
+    content = content.replace(/!\[\]\(\/images\/computing-books\.jpg\)/g, '<img src="/images/computing-books.jpg" alt="Computing books on bookshelf" />');
+    
+    // Wrap in Astro component
+    const astroContent = `---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+  title="Inspirations - Geoffrey Litt"
+  description="People whose work I've found inspirational"
+>
+  <div class="container">
+    <div class="one-column">
+${content.replace(/^(.*)$/gm, '      $1')}
+    </div>
+  </div>
+</BaseLayout>`;
+    
+    fs.writeFileSync(path.join(pagesDir, 'inspirations.astro'), astroContent);
+    console.log('  Generated inspirations.astro from source markdown');
+  }
+  
+  // Handle wildcard/index.html.md
+  const wildcardSource = path.join(MIDDLEMAN_SOURCE, 'wildcard', 'index.html.md');
+  if (fs.existsSync(wildcardSource)) {
+    let content = fs.readFileSync(wildcardSource, 'utf8');
+    
+    // Extract frontmatter metadata
+    const frontmatterMatch = content.match(/^---\s*\n(.*?)\n---\s*\n/ms);
+    let title = 'Wildcard';
+    let description = 'Wildcard lets anyone modify websites using a familiar spreadsheet view.';
+    
+    if (frontmatterMatch) {
+      const frontmatter = frontmatterMatch[1];
+      const titleMatch = frontmatter.match(/title:\s*(.+)/);
+      const descMatch = frontmatter.match(/description:\s*(.+)/);
+      if (titleMatch) title = titleMatch[1];
+      if (descMatch) description = descMatch[1];
+      
+      // Remove frontmatter
+      content = content.replace(frontmatterMatch[0], '');
+    }
+    
+    // Convert markdown lists to HTML
+    content = content.replace(/^- \*\*([^*]+)\*\*:\s*(.+)$/gm, '          <li><strong>$1</strong>: $2</li>');
+    content = content.replace(/^- (.+)$/gm, '          <li>$1</li>');
+    
+    // Wrap in Astro component
+    const astroContent = `---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+  title="${title}"
+  description="${description}"
+>
+  <div class="one-column">
+    <article class="post single">
+      <div class="post-content">
+${content.replace(/^(.*)$/gm, '        $1')}
+      </div>
+    </article>
+  </div>
+</BaseLayout>`;
+    
+    fs.writeFileSync(path.join(pagesDir, 'wildcard.astro'), astroContent);
+    console.log('  Generated wildcard.astro from source markdown');
+  }
+  
+  console.log('✅ Special pages generated successfully');
 }
 
 /**
@@ -386,6 +500,7 @@ function main() {
     createStylesDirectory();
     generateLayoutComponents();
     generatePageComponents();
+    generateSpecialPages();
 
     console.log('');
     console.log('🎉 Generation complete!');
@@ -414,6 +529,7 @@ module.exports = {
   createStylesDirectory,
   generateLayoutComponents,
   generatePageComponents,
+  generateSpecialPages,
   readTemplate,
   transformContentFile,
   main

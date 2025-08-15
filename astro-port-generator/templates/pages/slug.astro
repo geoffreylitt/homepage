@@ -29,8 +29,17 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await post.render();
+
+// Parse date
+const postDate = new Date(post.data.date);
 ---
 
-<BlogPostLayout post={post}>
+<BlogPostLayout 
+  title={post.data.title}
+  date={postDate}
+  summary={post.data.summary}
+  description={post.data.summary || post.data.title}
+  image={post.data.image_url}
+>
   <Content />
 </BlogPostLayout>
