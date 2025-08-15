@@ -25,6 +25,31 @@ function getAllFiles(dir, fileList = [], baseDir = dir) {
   return fileList;
 }
 
+// Convert Astro paths to Middleman equivalents for comparison
+function astroToMiddlemanPath(astroPath) {
+  // Convert /path/to/page/index.html -> /path/to/page.html
+  if (astroPath.endsWith('/index.html')) {
+    return astroPath.replace('/index.html', '.html');
+  }
+  return astroPath;
+}
+
+// Convert Middleman paths to Astro equivalents for comparison  
+function middlemanToAstroPath(middlemanPath) {
+  // Convert /path/to/page.html -> /path/to/page/index.html
+  // But skip root index.html and certain special files
+  if (middlemanPath === 'index.html' || 
+      middlemanPath.endsWith('feed.xml') || 
+      middlemanPath.endsWith('404.html') ||
+      middlemanPath.endsWith('blog.html') ||
+      !middlemanPath.endsWith('.html')) {
+    return middlemanPath;
+  }
+  
+  const basePath = middlemanPath.replace(/\.html$/, '');
+  return `${basePath}/index.html`;
+}
+
 function compareBuilds() {
   console.log('🔍 Comparing build directories...\n');
   console.log(`Middleman build: ${MIDDLEMAN_BUILD}`);
@@ -34,20 +59,54 @@ function compareBuilds() {
   const middlemanFiles = new Set(getAllFiles(MIDDLEMAN_BUILD));
   const astroFiles = new Set(getAllFiles(ASTRO_BUILD));
   
-  // Files only in Middleman
-  const onlyInMiddleman = [...middlemanFiles].filter(f => !astroFiles.has(f));
+  // Create normalized comparison sets
+  const middlemanNormalized = new Map();
+  const astroNormalized = new Map();
   
-  // Files only in Astro
-  const onlyInAstro = [...astroFiles].filter(f => !middlemanFiles.has(f));
+  // Map Middleman files to their normalized paths
+  middlemanFiles.forEach(file => {
+    const normalized = middlemanToAstroPath(file);
+    middlemanNormalized.set(normalized, file);
+  });
   
-  // Files in both - check for content differences
-  const inBoth = [...middlemanFiles].filter(f => astroFiles.has(f));
+  // Map Astro files to their normalized paths  
+  astroFiles.forEach(file => {
+    const normalized = astroToMiddlemanPath(file);
+    astroNormalized.set(normalized, file);
+  });
+  
+  // Find matches using normalized paths
+  const matchedPages = [];
+  const onlyInMiddleman = [];
+  const onlyInAstro = [];
+  
+  // Check Middleman files
+  middlemanFiles.forEach(middlemanFile => {
+    const normalizedPath = middlemanToAstroPath(middlemanFile);
+    if (astroFiles.has(normalizedPath)) {
+      matchedPages.push({ middleman: middlemanFile, astro: normalizedPath });
+    } else {
+      onlyInMiddleman.push(middlemanFile);
+    }
+  });
+  
+  // Check Astro files not already matched
+  astroFiles.forEach(astroFile => {
+    const normalizedPath = astroToMiddlemanPath(astroFile);
+    const isMatched = matchedPages.some(m => m.astro === astroFile);
+    if (!isMatched && !middlemanFiles.has(normalizedPath)) {
+      onlyInAstro.push(astroFile);
+    }
+  });
+  
+  // Files in both builds (accounting for path differences)
+  const inBoth = matchedPages.map(m => m.middleman);
   
   // Summary stats
   console.log('📊 Summary:');
   console.log(`  Middleman files: ${middlemanFiles.size}`);
   console.log(`  Astro files:     ${astroFiles.size}`);
-  console.log(`  Common files:    ${inBoth.length}\n`);
+  console.log(`  Matched pages:   ${matchedPages.length} (accounting for /index.html structure differences)\n`);
   
   // Show missing files (limit output for efficiency)
   if (onlyInMiddleman.length > 0) {
@@ -81,47 +140,53 @@ function compareBuilds() {
     console.log();
   }
   
-  // For common files, do a quick diff check
-  if (inBoth.length > 0) {
-    console.log(`🔄 Checking content differences for ${inBoth.length} common files...`);
+  // For matched pages, do a quick diff check
+  if (matchedPages.length > 0) {
+    console.log(`🔄 Checking content differences for ${matchedPages.length} matched pages...`);
     let diffCount = 0;
     
-    for (const file of inBoth) {
-      const middlemanPath = path.join(MIDDLEMAN_BUILD, file);
-      const astroPath = path.join(ASTRO_BUILD, file);
+    for (const { middleman, astro } of matchedPages) {
+      const middlemanPath = path.join(MIDDLEMAN_BUILD, middleman);
+      const astroPath = path.join(ASTRO_BUILD, astro);
+      
+      // Skip content comparison for binary files and certain file types
+      if (middleman.match(/\.(jpg|jpeg|png|gif|pdf|ico|svg|woff|woff2|eot|ttf)$/i)) {
+        continue;
+      }
       
       try {
         execSync(`diff -q "${middlemanPath}" "${astroPath}"`, { stdio: 'pipe' });
       } catch (e) {
         diffCount++;
         if (diffCount <= 5) {
-          console.log(`  ≠ ${file}`);
+          console.log(`  ≠ ${middleman} ↔ ${astro}`);
         }
       }
     }
     
     if (diffCount > 0) {
-      console.log(`  Total files with differences: ${diffCount}/${inBoth.length}`);
+      console.log(`  Total pages with differences: ${diffCount}/${matchedPages.length}`);
     } else {
-      console.log(`  ✅ All common files are identical!`);
+      console.log(`  ✅ All matched pages are identical!`);
     }
   }
   
-  // Key pages to check
+  // Key pages to check (accounting for path structure differences)
   console.log('\n🎯 Key pages status:');
   const keyPages = [
-    'index.html',
-    'blog.html', 
-    'feed.xml',
-    '404.html',
-    'projects/dynamicland.html',
-    '2025/07/27/enough-ai-copilots-we-need-ai-huds.html'
+    { middleman: 'index.html', astro: 'index.html' },
+    { middleman: 'blog.html', astro: 'blog.html' }, 
+    { middleman: 'feed.xml', astro: 'feed.xml' },
+    { middleman: '404.html', astro: '404.html' },
+    { middleman: 'projects/dynamicland.html', astro: 'projects/dynamicland/index.html' },
+    { middleman: '2025/07/27/enough-ai-copilots-we-need-ai-huds.html', astro: '2025/07/27/enough-ai-copilots-we-need-ai-huds/index.html' }
   ];
   
-  keyPages.forEach(page => {
-    const exists = middlemanFiles.has(page);
-    const inAstro = astroFiles.has(page);
-    console.log(`  ${exists ? '✓' : '✗'} Middleman | ${inAstro ? '✓' : '✗'} Astro | ${page}`);
+  keyPages.forEach(({ middleman, astro }) => {
+    const existsInMiddleman = middlemanFiles.has(middleman);
+    const existsInAstro = astroFiles.has(astro);
+    const symbol = existsInMiddleman && existsInAstro ? '✓' : (existsInMiddleman && !existsInAstro) ? '➜' : '✗';
+    console.log(`  ${existsInMiddleman ? '✓' : '✗'} Middleman | ${existsInAstro ? '✓' : '✗'} Astro | ${middleman} ${symbol === '➜' ? '→ ' + astro : ''}`);
   });
 }
 
