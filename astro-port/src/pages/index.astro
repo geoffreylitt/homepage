@@ -58,15 +58,27 @@ const visiblePosts = allPosts
   <h2 class="project-category">Writing</h2>
 
   <div class="blogposts-list">
-    {visiblePosts.map((post) => (
-      <div class="blogpost-link">
-        {post.data.starred ? (
-          <a href={`/${post.slug}.html`} class="starred">{post.data.title}</a>
-        ) : (
-          <a href={`/${post.slug}.html`}>{post.data.title}</a>
-        )}
-      </div>
-    ))}
+    {visiblePosts.map((post) => {
+      // Generate URL matching the [slug].astro pattern
+      const match = post.slug.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)html$/);
+      let postUrl;
+      if (match) {
+        const [_, year, month, day, title] = match;
+        postUrl = `/${year}/${month}/${day}/${title}/`;
+      } else {
+        postUrl = `/${post.slug.replace(/html$/, '')}/`;
+      }
+      
+      return (
+        <div class="blogpost-link">
+          {post.data.starred ? (
+            <a href={postUrl} class="starred">{post.data.title}</a>
+          ) : (
+            <a href={postUrl}>{post.data.title}</a>
+          )}
+        </div>
+      );
+    })}
   </div>
 
   <a id="podcasts"></a>
