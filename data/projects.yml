@@ -13,7 +13,7 @@ projects:
     - name: Wildcard
       slug: wildcard
       description: Customize a web app with a spreadsheet
-      link: /wildcard
+      link: /projects/wildcard
   local_first:
     - name: Riffle
       slug: riffle
