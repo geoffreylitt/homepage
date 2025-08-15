@@ -3,34 +3,33 @@
 /**
  * Middleman vs Generated Astro Site Verification
  * 
- * This script:
- * 1. Generates a fresh Astro site using the generator
- * 2. Builds the Astro site 
- * 3. Serves both the original Middleman site and built Astro site
- * 4. Compares key pages to verify functional equivalence
+ * Compares built HTML files from Middleman and generated Astro sites.
  * 
- * The goal is to verify that the generated Astro site produces 
- * the same user experience as the original Middleman site.
+ * Usage:
+ *   node verify-against-middleman.js                    # Summary comparison
+ *   node verify-against-middleman.js --file /blog      # Compare specific file
+ *   node verify-against-middleman.js --diff /blog      # Show detailed diff for file
+ *   node verify-against-middleman.js --list            # List all comparable files
  */
 
 const fs = require('fs');
 const path = require('path');
-const { execSync, spawn } = require('child_process');
+const { execSync } = require('child_process');
 
 // Configuration
-const MIDDLEMAN_DIR = '.';
+const MIDDLEMAN_BUILD = 'build';
 const ASTRO_GENERATED = 'astro-port-generated';
 const ASTRO_DIST = path.join(ASTRO_GENERATED, 'dist');
 
-// Test URLs to compare
-const TEST_URLS = [
-  '/',
-  '/blog',
-  '/inspirations',
-  '/wildcard',
-  '/2023/03/25/llm-end-user-programming/',
-  '/projects/wildcard',
-  '/feed.xml'
+// Key files to compare
+const KEY_FILES = [
+  'index.html',
+  'blog.html', 
+  'inspirations.html',
+  'wildcard/index.html',
+  '2023/03/25/llm-end-user-programming.html',
+  'projects/wildcard.html',
+  'feed.xml'
 ];
 
 /**
@@ -47,258 +46,243 @@ function execCommand(command, options = {}) {
 }
 
 /**
- * Check if a port is in use
+ * Get all HTML/XML files from a directory
  */
-function isPortInUse(port) {
-  try {
-    execSync(`lsof -i :${port}`, { stdio: 'pipe' });
-    return true;
-  } catch {
-    return false;
+function getComparableFiles(dir) {
+  const files = [];
+  
+  function walkDir(currentDir, relativePath = '') {
+    if (!fs.existsSync(currentDir)) return;
+    
+    const entries = fs.readdirSync(currentDir);
+    for (const entry of entries) {
+      const fullPath = path.join(currentDir, entry);
+      const relPath = path.join(relativePath, entry);
+      
+      if (fs.statSync(fullPath).isDirectory()) {
+        walkDir(fullPath, relPath);
+      } else if (entry.endsWith('.html') || entry.endsWith('.xml')) {
+        files.push(relPath.replace(/\\/g, '/'));
+      }
+    }
   }
+  
+  walkDir(dir);
+  return files.sort();
 }
 
 /**
- * Start a server process
+ * Compare two files and return comparison result
  */
-function startServer(command, cwd, expectedPort, name) {
-  console.log(`🚀 Starting ${name} server...`);
+function compareFiles(middlemanPath, astroPath) {
+  const middlemanExists = fs.existsSync(middlemanPath);
+  const astroExists = fs.existsSync(astroPath);
   
-  if (isPortInUse(expectedPort)) {
-    console.log(`  ⚠️  Port ${expectedPort} already in use, assuming ${name} is running`);
-    return null;
+  if (!middlemanExists && !astroExists) {
+    return { status: 'both_missing', identical: true };
   }
-
-  const process = spawn('bash', ['-c', command], { 
-    cwd, 
-    stdio: 'pipe',
-    detached: false 
-  });
-
-  return new Promise((resolve, reject) => {
-    let output = '';
-    
-    process.stdout.on('data', (data) => {
-      output += data.toString();
-      if (output.includes(`localhost:${expectedPort}`) || output.includes(`:${expectedPort}`)) {
-        console.log(`  ✅ ${name} server started on port ${expectedPort}`);
-        resolve(process);
-      }
-    });
-
-    process.stderr.on('data', (data) => {
-      const error = data.toString();
-      // Ignore common dev server warnings
-      if (!error.includes('WARNING') && !error.includes('deprecated')) {
-        console.log(`  ${name} stderr:`, error);
-      }
-    });
-
-    process.on('error', reject);
-    
-    // Timeout after 30 seconds
-    setTimeout(() => {
-      if (!process.killed) {
-        console.log(`  ⚠️  ${name} server seems to be starting (timeout reached)`);
-        resolve(process);
-      }
-    }, 30000);
-  });
+  
+  if (!middlemanExists) {
+    return { status: 'middleman_missing', identical: false };
+  }
+  
+  if (!astroExists) {
+    return { status: 'astro_missing', identical: false };
+  }
+  
+  const middlemanContent = fs.readFileSync(middlemanPath, 'utf8');
+  const astroContent = fs.readFileSync(astroPath, 'utf8');
+  
+  const identical = middlemanContent === astroContent;
+  
+  return {
+    status: 'both_exist',
+    identical,
+    middlemanSize: middlemanContent.length,
+    astroSize: astroContent.length,
+    sizeDiff: astroContent.length - middlemanContent.length
+  };
 }
 
 /**
- * Fetch URL and return status and basic info
+ * Show detailed diff between two files
  */
-async function fetchUrl(baseUrl, path) {
-  const url = `${baseUrl}${path}`;
+function showDetailedDiff(middlemanPath, astroPath) {
+  if (!fs.existsSync(middlemanPath)) {
+    console.log(`❌ Middleman file not found: ${middlemanPath}`);
+    return;
+  }
+  
+  if (!fs.existsSync(astroPath)) {
+    console.log(`❌ Astro file not found: ${astroPath}`);
+    return;
+  }
   
   try {
-    const response = await fetch(url);
-    const text = await response.text();
-    
-    return {
-      url,
-      status: response.status,
-      size: text.length,
-      hasContent: text.length > 100,
-      title: text.match(/<title[^>]*>([^<]+)<\/title>/i)?.[1] || 'No title',
-      isHTML: response.headers.get('content-type')?.includes('text/html'),
-      isXML: response.headers.get('content-type')?.includes('xml') || path.endsWith('.xml')
-    };
+    const diff = execCommand(`diff -u "${middlemanPath}" "${astroPath}"`);
+    console.log(diff);
   } catch (error) {
-    return {
-      url,
-      status: 'ERROR',
-      error: error.message,
-      size: 0,
-      hasContent: false
-    };
+    // diff returns non-zero when files differ, which is expected
+    console.log(error.stdout || 'Files differ but diff output unavailable');
   }
 }
 
 /**
- * Compare two URL responses
+ * Parse command line arguments
  */
-function compareResponses(middleman, astro, path) {
-  const issues = [];
+function parseArgs() {
+  const args = process.argv.slice(2);
   
-  if (middleman.status !== astro.status) {
-    issues.push(`Status mismatch: ${middleman.status} vs ${astro.status}`);
+  if (args.includes('--list')) {
+    return { mode: 'list' };
   }
   
-  if (middleman.status === 200 && astro.status === 200) {
-    if (!middleman.hasContent && !astro.hasContent) {
-      issues.push('Both responses are empty');
-    } else if (!middleman.hasContent) {
-      issues.push('Middleman response is empty');
-    } else if (!astro.hasContent) {
-      issues.push('Astro response is empty');
-    }
-    
-    // For HTML pages, compare titles
-    if (middleman.isHTML && astro.isHTML && middleman.title && astro.title) {
-      if (middleman.title !== astro.title) {
-        issues.push(`Title mismatch: "${middleman.title}" vs "${astro.title}"`);
-      }
-    }
-    
-    // Size comparison (allow some variance for built vs dev)
-    const sizeDiff = Math.abs(middleman.size - astro.size);
-    const sizeRatio = sizeDiff / Math.max(middleman.size, astro.size);
-    if (sizeRatio > 0.5) { // More than 50% difference
-      issues.push(`Significant size difference: ${middleman.size} vs ${astro.size} bytes`);
-    }
+  const fileIndex = args.indexOf('--file');
+  if (fileIndex !== -1 && args[fileIndex + 1]) {
+    return { mode: 'file', path: args[fileIndex + 1] };
   }
   
-  return issues;
+  const diffIndex = args.indexOf('--diff');
+  if (diffIndex !== -1 && args[diffIndex + 1]) {
+    return { mode: 'diff', path: args[diffIndex + 1] };
+  }
+  
+  return { mode: 'summary' };
+}
+
+/**
+ * Convert URL path to file path
+ */
+function urlToFilePath(urlPath) {
+  if (urlPath === '/') return 'index.html';
+  if (urlPath.endsWith('/')) return urlPath.slice(1) + 'index.html';
+  if (urlPath.startsWith('/')) return urlPath.slice(1);
+  return urlPath;
 }
 
 /**
  * Main verification function
  */
 async function main() {
-  console.log('🔍 Middleman vs Astro Site Verification');
+  const options = parseArgs();
+  
+  console.log('🔍 Middleman vs Astro Build Verification');
   console.log('=========================================\n');
 
-  let middlemanServer = null;
-  let astroServer = null;
-
   try {
-    // Step 1: Generate Astro site
-    console.log('📄 Step 1: Generating Astro site...');
-    if (fs.existsSync(ASTRO_GENERATED)) {
-      console.log(`  Removing existing ${ASTRO_GENERATED}/...`);
-      execCommand(`rm -rf "${ASTRO_GENERATED}"`);
-      // Wait a bit to ensure cleanup is complete
-      await new Promise(resolve => setTimeout(resolve, 2000));
+    // Step 1: Generate Astro site if needed
+    if (!fs.existsSync(ASTRO_GENERATED)) {
+      console.log('📄 Generating Astro site...');
+      execCommand('node astro-port-generator/generate.js');
+      execCommand('npm install', { cwd: ASTRO_GENERATED });
+    }
+
+    // Step 2: Build both sites
+    console.log('📦 Building sites...');
+    
+    // Build Middleman
+    if (!fs.existsSync(MIDDLEMAN_BUILD)) {
+      console.log('  Building Middleman site...');
+      execCommand('bundle exec middleman build');
     }
     
-    execCommand('node astro-port-generator/generate.js');
-    
-    // Install additional dependencies needed for build
-    console.log('  Installing RSS dependency...');
-    execCommand('npm install', { cwd: ASTRO_GENERATED });
-    console.log('  ✅ Astro site generated\n');
-
-    // Step 2: Build Astro site
-    console.log('📦 Step 2: Building Astro site...');
+    // Build Astro
+    console.log('  Building Astro site...');
     execCommand('npm run build', { cwd: ASTRO_GENERATED });
-    console.log('  ✅ Astro site built\n');
-
-    // Step 3: Start Middleman server
-    console.log('🖥️  Step 3: Starting servers...');
-    middlemanServer = await startServer(
-      'bundle exec middleman server -p 4567',
-      MIDDLEMAN_DIR,
-      4567,
-      'Middleman'
-    );
-
-    // Step 4: Start Astro preview server
-    astroServer = await startServer(
-      'npm run preview -- --port 4568',
-      ASTRO_GENERATED,
-      4568,
-      'Astro'
-    );
-
-    // Wait a bit for servers to fully start
-    console.log('  ⏳ Waiting for servers to fully initialize...');
-    await new Promise(resolve => setTimeout(resolve, 5000));
-
-    // Step 5: Test URLs
-    console.log('\n🧪 Step 4: Testing URLs...\n');
     
-    const results = [];
-    let passCount = 0;
-    let totalTests = 0;
+    console.log('✅ Both sites built\n');
 
-    for (const testPath of TEST_URLS) {
-      console.log(`Testing ${testPath}...`);
+    // Handle different modes
+    if (options.mode === 'list') {
+      console.log('📋 Comparable files:');
+      const middlemanFiles = getComparableFiles(MIDDLEMAN_BUILD);
+      const astroFiles = getComparableFiles(ASTRO_DIST);
+      const allFiles = [...new Set([...middlemanFiles, ...astroFiles])];
       
-      const [middlemanResult, astroResult] = await Promise.all([
-        fetchUrl('http://localhost:4567', testPath),
-        fetchUrl('http://localhost:4568', testPath)
-      ]);
-
-      const issues = compareResponses(middlemanResult, astroResult, testPath);
-      totalTests++;
+      allFiles.forEach(file => {
+        const inMiddleman = middlemanFiles.includes(file);
+        const inAstro = astroFiles.includes(file);
+        const status = inMiddleman && inAstro ? '✅' : 
+                      inMiddleman ? '🔴 M' : '🔴 A';
+        console.log(`  ${status} ${file}`);
+      });
+      return;
+    }
+    
+    if (options.mode === 'file' || options.mode === 'diff') {
+      const filePath = urlToFilePath(options.path);
+      const middlemanPath = path.join(MIDDLEMAN_BUILD, filePath);
+      const astroPath = path.join(ASTRO_DIST, filePath);
       
-      if (issues.length === 0) {
-        console.log(`  ✅ PASS`);
-        passCount++;
-      } else {
-        console.log(`  ❌ FAIL`);
-        issues.forEach(issue => console.log(`    - ${issue}`));
+      if (options.mode === 'diff') {
+        console.log(`📄 Detailed diff for ${filePath}:\n`);
+        showDetailedDiff(middlemanPath, astroPath);
+        return;
       }
       
-      results.push({
-        path: testPath,
-        middleman: middlemanResult,
-        astro: astroResult,
-        issues,
-        passed: issues.length === 0
+      console.log(`📄 Comparing ${filePath}:\n`);
+      const result = compareFiles(middlemanPath, astroPath);
+      
+      if (result.identical) {
+        console.log('✅ Files are identical');
+      } else {
+        console.log('❌ Files differ');
+        if (result.status === 'both_exist') {
+          console.log(`  Middleman: ${result.middlemanSize} bytes`);
+          console.log(`  Astro: ${result.astroSize} bytes`);
+          console.log(`  Difference: ${result.sizeDiff > 0 ? '+' : ''}${result.sizeDiff} bytes`);
+        } else {
+          console.log(`  Status: ${result.status}`);
+        }
+        console.log(`\nFor detailed diff, run:`);
+        console.log(`  node verify-against-middleman.js --diff ${options.path}`);
+      }
+      return;
+    }
+
+    // Summary mode
+    console.log('📊 Summary comparison:\n');
+    
+    let totalFiles = 0;
+    let identicalFiles = 0;
+    let differences = [];
+    
+    for (const filePath of KEY_FILES) {
+      const middlemanPath = path.join(MIDDLEMAN_BUILD, filePath);
+      const astroPath = path.join(ASTRO_DIST, filePath);
+      const result = compareFiles(middlemanPath, astroPath);
+      
+      totalFiles++;
+      
+      if (result.identical) {
+        identicalFiles++;
+        console.log(`✅ ${filePath}`);
+      } else {
+        console.log(`❌ ${filePath}`);
+        differences.push(filePath);
+        
+        if (result.status === 'both_exist') {
+          console.log(`   Size: ${result.middlemanSize} → ${result.astroSize} bytes (${result.sizeDiff > 0 ? '+' : ''}${result.sizeDiff})`);
+        } else {
+          console.log(`   Status: ${result.status}`);
+        }
+      }
+    }
+    
+    console.log(`\n📈 Results: ${identicalFiles}/${totalFiles} files identical (${((identicalFiles/totalFiles) * 100).toFixed(1)}%)`);
+    
+    if (differences.length > 0) {
+      console.log('\n🔍 To investigate differences:');
+      differences.forEach(file => {
+        const urlPath = file === 'index.html' ? '/' : '/' + file.replace('/index.html', '/').replace('.html', '');
+        console.log(`  node verify-against-middleman.js --file ${urlPath}`);
+        console.log(`  node verify-against-middleman.js --diff ${urlPath}`);
       });
     }
-
-    // Summary
-    console.log('\n📊 Summary');
-    console.log('===========');
-    console.log(`Tests passed: ${passCount}/${totalTests}`);
-    console.log(`Success rate: ${((passCount/totalTests) * 100).toFixed(1)}%`);
-    
-    if (passCount === totalTests) {
-      console.log('\n🎉 All tests passed! The generated Astro site matches the original Middleman site.');
-    } else {
-      console.log('\n⚠️  Some tests failed. Review the issues above.');
-    }
-
-    // Detailed results
-    console.log('\n📋 Detailed Results');
-    console.log('==================');
-    results.forEach(result => {
-      console.log(`\n${result.path}:`);
-      console.log(`  Middleman: ${result.middleman.status} (${result.middleman.size} bytes)`);
-      console.log(`  Astro:     ${result.astro.status} (${result.astro.size} bytes)`);
-      if (result.issues.length > 0) {
-        console.log(`  Issues:    ${result.issues.join(', ')}`);
-      }
-    });
 
   } catch (error) {
     console.error('\n❌ Verification failed:', error.message);
     process.exit(1);
-  } finally {
-    // Cleanup
-    console.log('\n🧹 Cleaning up servers...');
-    if (middlemanServer) {
-      middlemanServer.kill();
-      console.log('  Stopped Middleman server');
-    }
-    if (astroServer) {
-      astroServer.kill(); 
-      console.log('  Stopped Astro server');
-    }
   }
 }
 
