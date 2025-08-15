@@ -31,7 +31,7 @@ export async function GET(context) {
         pubDate: new Date(post.data.date),
         description: post.data.summary || post.data.title,
         content: post.body, // Use raw markdown body for content
-        link: `${site}/${url}`,
+        link: `${site}${url}`,
       };
     }),
   });

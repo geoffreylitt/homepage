@@ -10,5 +10,16 @@ export default defineConfig({
   },
   legacy: {
     collections: true
+  },
+  build: {
+    // Disable minification for better HTML comparison with Middleman
+    inlineStylesheets: 'never',
+    format: 'preserve',
+  },
+  vite: {
+    build: {
+      minify: false,
+      cssMinify: false,
+    }
   }
 });
