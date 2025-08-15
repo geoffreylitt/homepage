@@ -21,7 +21,17 @@ const projects = defineCollection({
   }),
 });
 
+const pages = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string().optional(),
+    description: z.string().optional(),
+    layout: z.string().optional(),
+  }),
+});
+
 export const collections = {
   posts,
   projects,
+  pages,
 };

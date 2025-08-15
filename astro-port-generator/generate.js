@@ -45,8 +45,8 @@ function readTemplate(templatePath) {
 function transformContentFile(filePath) {
   let content = fs.readFileSync(filePath, 'utf8');
   
-  // Transform frontmatter: remove layout field, keeping empty frontmatter
-  content = content.replace(/^---\s*\nlayout:\s*[^\n]*\n---/m, '---\n---');
+  // Transform frontmatter: remove layout field
+  content = content.replace(/^layout:\s*[^\n]*\n/m, '');
   
   // Transform image paths: convert relative to absolute
   // Pattern: ![...](images/...) -> ![...](/images/...)
@@ -151,8 +151,9 @@ function setupContentCollections() {
   const contentDir = path.join(ASTRO_GENERATED, 'src', 'content');
   const postsDir = path.join(contentDir, 'posts');
   const projectsDir = path.join(contentDir, 'projects');
+  const pagesDir = path.join(contentDir, 'pages');
   
-  [contentDir, postsDir, projectsDir].forEach(dir => {
+  [contentDir, postsDir, projectsDir, pagesDir].forEach(dir => {
     if (!fs.existsSync(dir)) {
       fs.mkdirSync(dir, { recursive: true });
     }
@@ -186,6 +187,25 @@ function setupContentCollections() {
         transformContentFile(path.join(projectsDir, file));
       }
     });
+  }
+
+  // Copy standalone pages (inspirations, wildcard) to src/content/pages
+  console.log('  Copying standalone pages...');
+  
+  // Copy inspirations.html.md
+  const inspirationsSource = path.join(MIDDLEMAN_SOURCE, 'inspirations.html.md');
+  if (fs.existsSync(inspirationsSource)) {
+    const inspirationsDest = path.join(pagesDir, 'inspirations.md');
+    fs.copyFileSync(inspirationsSource, inspirationsDest);
+    transformContentFile(inspirationsDest);
+  }
+  
+  // Copy wildcard/index.html.md
+  const wildcardSource = path.join(MIDDLEMAN_SOURCE, 'wildcard', 'index.html.md');
+  if (fs.existsSync(wildcardSource)) {
+    const wildcardDest = path.join(pagesDir, 'wildcard.md');
+    fs.copyFileSync(wildcardSource, wildcardDest);
+    transformContentFile(wildcardDest);
   }
 
   console.log('✅ Content collections set up successfully');
@@ -317,7 +337,7 @@ function generatePageComponents() {
   // Generate page components from templates
   const pageTemplates = [
     { template: 'pages/index.astro', output: 'index.astro' },
-    { template: 'pages/slug.astro', output: '[...slug].astro' },
+    { template: 'pages/slug-with-pages.astro', output: '[...slug].astro' },
     { template: 'pages/blog.astro', output: 'blog.astro' },
     { template: 'pages/404.astro', output: '404.astro' }
   ];
