@@ -1,0 +1,31 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import type { CollectionEntry } from 'astro:content';
+
+export interface Props {
+  post: CollectionEntry<'posts'>;
+}
+
+const { post } = Astro.props;
+const { title, date, image_url } = post.data;
+
+// Format date
+const formattedDate = new Date(date).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+---
+
+<BaseLayout title={title} image={image_url}>
+  <article class="blog-post">
+    <header class="blog-post-header">
+      <h1>{title}</h1>
+      <time datetime={date}>{formattedDate}</time>
+    </header>
+    
+    <div class="blog-post-content">
+      <slot />
+    </div>
+  </article>
+</BaseLayout>

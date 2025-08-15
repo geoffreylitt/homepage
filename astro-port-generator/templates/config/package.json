@@ -1,0 +1,17 @@
+{
+  "name": "astro-port",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/rss": "^4.0.12",
+    "astro": "^5.13.2",
+    "sass": "^1.90.0",
+    "yaml": "^2.8.1"
+  }
+}

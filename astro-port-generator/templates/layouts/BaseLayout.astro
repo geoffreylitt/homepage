@@ -1,0 +1,88 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+const { title = "Geoffrey Litt", description = "", image = "/images/gradient.jpg" } = Astro.props;
+const fullImageUrl = `https://geoffreylitt.com${image}`;
+
+// Import the main SCSS file
+import '../styles/site.css.scss';
+---
+
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9"> <![endif]-->
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
+
+    <meta name="viewport" content="width=device-width" />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={fullImageUrl} />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@geoffreylitt" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={fullImageUrl} />
+
+    <script is:inline src="/javascripts/vendor/modernizr-2.6.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/goh5xrk.css" />
+  </head>
+
+  <body>
+    <div class="site-container">
+      <!--[if lt IE 10]>
+        <p class="chromeframe">
+          Your browser is <em>ancient!</em> 
+          <a href="http://browsehappy.com/">Upgrade to a different browser</a> or 
+          <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> 
+          to experience this site.
+        </p>
+      <![endif]-->
+
+      <div class="site-header">
+        <h1><a href="/">Geoffrey Litt</a></h1>
+        <nav>
+          <a href="/">About</a>
+          <a href="/blog.html">Writing</a>
+          <a href="/inspirations.html">Inspiration</a>
+        </nav>
+      </div>
+
+      <div class="site-content">
+        <slot />
+      </div>
+
+      <footer class="site-footer">
+        <div class="site-footer-content">
+          <p>
+            © Geoffrey Litt. Built with <a href="https://astro.build">Astro</a>.
+            Subscribe to <a href="/feed.xml">my RSS feed</a>.
+          </p>
+        </div>
+      </footer>
+    </div>
+
+    <script is:inline>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-48541701-1', 'geoffreylitt.com');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

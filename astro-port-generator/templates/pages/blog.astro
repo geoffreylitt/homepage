@@ -1,0 +1,49 @@
+---
+export const prerender = true;
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+// Get all blog posts, sorted by date (newest first)
+const posts = await getCollection('posts');
+const sortedPosts = posts
+  .filter(post => !post.data.hidden)
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+---
+
+<BaseLayout 
+  title="Writing - Geoffrey Litt"
+  description="Blog posts about programming tools, end-user programming, and other software topics"
+>
+  <div class="container">
+    <h3>Writing</h3>
+
+    <div class="blogposts-list">
+      {sortedPosts.map((post) => {
+        // Generate URL for post (matching the blog post URL structure)
+        const match = post.slug.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)html$/);
+        let postUrl;
+        if (match) {
+          const [_, year, month, day, title] = match;
+          postUrl = `/${year}/${month}/${day}/${title}/`;
+        } else {
+          postUrl = `/${post.slug.replace(/html$/, '')}/`;
+        }
+
+        const formattedDate = new Date(post.data.date).toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        });
+
+        return (
+          <div class="blogpost-list-item">
+            <h4><a href={postUrl}>{post.data.title}</a></h4>
+            <p class="blogpost-date">{formattedDate}</p>
+            {post.data.summary && <p class="blogpost-summary">{post.data.summary}</p>}
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</BaseLayout>
