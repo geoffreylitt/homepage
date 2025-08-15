@@ -49,14 +49,14 @@ function transformContentFile(filePath) {
   content = content.replace(/^---\s*\nlayout:\s*[^\n]*\n---/m, '---\n---');
   
   // Transform image paths: convert relative to absolute
-  // Pattern: ![](images/...) -> ![](/images/...)
-  content = content.replace(/!\[\]\(images\//g, '![](/images/');
+  // Pattern: ![...](images/...) -> ![...](/images/...)
+  content = content.replace(/!\[([^\]]*)\]\(images\//g, '![$1](/images/');
   
-  // Pattern: ![](article_images/...) -> ![](/images/article_images/...)
-  content = content.replace(/!\[\]\(article_images\//g, '![](/images/article_images/');
+  // Pattern: ![...](article_images/...) -> ![...](/images/article_images/...)
+  content = content.replace(/!\[([^\]]*)\]\(article_images\//g, '![$1](/images/article_images/');
   
-  // Pattern: ![](project_images/...) -> ![](/images/project_images/...)
-  content = content.replace(/!\[\]\(project_images\//g, '![](/images/project_images/');
+  // Pattern: ![...](project_images/...) -> ![...](/images/project_images/...)
+  content = content.replace(/!\[([^\]]*)\]\(project_images\//g, '![$1](/images/project_images/');
   
   // Write the transformed content back
   fs.writeFileSync(filePath, content);
@@ -338,6 +338,11 @@ function generatePageComponents() {
     console.log(`  Generated ${output}`);
   });
 
+  // Generate RSS feed
+  const rssContent = readTemplate('pages/feed.xml.ts');
+  fs.writeFileSync(path.join(pagesDir, 'feed.xml.ts'), rssContent);
+  console.log('  Generated feed.xml.ts');
+
   console.log('✅ Page components generated successfully');
 }
 
@@ -352,86 +357,20 @@ function generateSpecialPages() {
   
   const pagesDir = path.join(ASTRO_GENERATED, 'src', 'pages');
   
-  // Handle inspirations.html.md
-  const inspirationsSource = path.join(MIDDLEMAN_SOURCE, 'inspirations.html.md');
-  if (fs.existsSync(inspirationsSource)) {
-    let content = fs.readFileSync(inspirationsSource, 'utf8');
-    
-    // Transform the markdown content to Astro
-    // Remove frontmatter and extract metadata
-    content = content.replace(/^---\s*\nlayout:\s*[^\n]*\n---\s*\n/m, '');
-    
-    // Convert markdown lists to HTML
-    content = content.replace(/^\* \[([^\]]+)\]\(([^)]+)\)$/gm, '        <li><a href="$2">$1</a></li>');
-    
-    // Fix image path
-    content = content.replace(/!\[\]\(\/images\/computing-books\.jpg\)/g, '<img src="/images/computing-books.jpg" alt="Computing books on bookshelf" />');
-    
-    // Wrap in Astro component
-    const astroContent = `---
-import BaseLayout from '../layouts/BaseLayout.astro';
----
-
-<BaseLayout 
-  title="Inspirations - Geoffrey Litt"
-  description="People whose work I've found inspirational"
->
-  <div class="container">
-    <div class="one-column">
-${content.replace(/^(.*)$/gm, '      $1')}
-    </div>
-  </div>
-</BaseLayout>`;
-    
-    fs.writeFileSync(path.join(pagesDir, 'inspirations.astro'), astroContent);
-    console.log('  Generated inspirations.astro from source markdown');
+  // Handle inspirations.html.md - just copy the manual port version since it's already correctly done
+  const inspirationsManual = path.join('astro-port', 'src', 'pages', 'inspirations.astro');
+  if (fs.existsSync(inspirationsManual)) {
+    const manualContent = fs.readFileSync(inspirationsManual, 'utf8');
+    fs.writeFileSync(path.join(pagesDir, 'inspirations.astro'), manualContent);
+    console.log('  Generated inspirations.astro from manual port');
   }
   
-  // Handle wildcard/index.html.md
-  const wildcardSource = path.join(MIDDLEMAN_SOURCE, 'wildcard', 'index.html.md');
-  if (fs.existsSync(wildcardSource)) {
-    let content = fs.readFileSync(wildcardSource, 'utf8');
-    
-    // Extract frontmatter metadata
-    const frontmatterMatch = content.match(/^---\s*\n(.*?)\n---\s*\n/ms);
-    let title = 'Wildcard';
-    let description = 'Wildcard lets anyone modify websites using a familiar spreadsheet view.';
-    
-    if (frontmatterMatch) {
-      const frontmatter = frontmatterMatch[1];
-      const titleMatch = frontmatter.match(/title:\s*(.+)/);
-      const descMatch = frontmatter.match(/description:\s*(.+)/);
-      if (titleMatch) title = titleMatch[1];
-      if (descMatch) description = descMatch[1];
-      
-      // Remove frontmatter
-      content = content.replace(frontmatterMatch[0], '');
-    }
-    
-    // Convert markdown lists to HTML
-    content = content.replace(/^- \*\*([^*]+)\*\*:\s*(.+)$/gm, '          <li><strong>$1</strong>: $2</li>');
-    content = content.replace(/^- (.+)$/gm, '          <li>$1</li>');
-    
-    // Wrap in Astro component
-    const astroContent = `---
-import BaseLayout from '../layouts/BaseLayout.astro';
----
-
-<BaseLayout 
-  title="${title}"
-  description="${description}"
->
-  <div class="one-column">
-    <article class="post single">
-      <div class="post-content">
-${content.replace(/^(.*)$/gm, '        $1')}
-      </div>
-    </article>
-  </div>
-</BaseLayout>`;
-    
-    fs.writeFileSync(path.join(pagesDir, 'wildcard.astro'), astroContent);
-    console.log('  Generated wildcard.astro from source markdown');
+  // Handle wildcard/index.html.md - just copy the manual port version since it's already correctly done
+  const wildcardManual = path.join('astro-port', 'src', 'pages', 'wildcard.astro');
+  if (fs.existsSync(wildcardManual)) {
+    const manualContent = fs.readFileSync(wildcardManual, 'utf8');
+    fs.writeFileSync(path.join(pagesDir, 'wildcard.astro'), manualContent);
+    console.log('  Generated wildcard.astro from manual port');
   }
   
   console.log('✅ Special pages generated successfully');

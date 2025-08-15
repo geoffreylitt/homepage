@@ -52,36 +52,84 @@ import '../styles/site.css.scss';
           to experience this site.
         </p>
       <![endif]-->
-
-      <div class="site-header">
-        <h1><a href="/">Geoffrey Litt</a></h1>
+      
+      <header>
+        <a class="logo" href="/">
+          <img src="/images/headshot.jpg" width="100%" alt="Geoffrey Litt" />
+        </a>
         <nav>
-          <a href="/">About</a>
-          <a href="/blog.html">Writing</a>
-          <a href="/inspirations.html">Inspiration</a>
+          <h1 class="name">
+            <a href="/">Geoffrey Litt</a>
+          </h1>
+          <ul class="sections">
+            <li>
+              <a href="/#projects">Projects</a>
+            </li>
+            <li>
+              <a href="/#writing">Writing</a>
+            </li>
+            <li>
+              <a href="/inspirations.html">Inspirations</a>
+            </li>
+          </ul>
+          <div class="subscribe-header">Subscribe:</div>
+          <ul class="subscribe-links">
+            <li>
+              <a href="https://buttondown.email/geoffreylitt">
+                Newsletter
+                <i class="fa fa-envelope"></i>
+              </a>
+            </li>
+            <li>
+              <a href="http://www.twitter.com/geoffreylitt">
+                Twitter
+                <i class="fa fa-twitter"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://mastodon.social/@geoffreylitt" rel="me">
+                Mastodon
+                <i class="fa fa-comment"></i>
+              </a>
+            </li>
+            <li>
+              <a href="/feed.xml">
+                RSS
+                <i class="fa fa-rss"></i>
+              </a>
+            </li>
+          </ul>
+          <div class="subscribe-header">Contact</div>
+          <ul class="subscribe-links">
+            <li>
+              <a href="mailto:gklitt@gmail.com">
+                Email me
+                <i class="fa fa-envelope"></i>
+              </a>
+            </li>
+          </ul>
         </nav>
-      </div>
+      </header>
 
-      <div class="site-content">
-        <slot />
-      </div>
-
-      <footer class="site-footer">
-        <div class="site-footer-content">
-          <p>
-            © Geoffrey Litt. Built with <a href="https://astro.build">Astro</a>.
-            Subscribe to <a href="/feed.xml">my RSS feed</a>.
-          </p>
+      <div class="main_container">
+        <div class="main">
+          <slot />
         </div>
-      </footer>
+      </div>
     </div>
+
+    <script is:inline src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <script is:inline>
+      window.jQuery || document.write('<script src="/javascripts/vendor/jquery-1.8.0.min.js"><\/script>')
+    </script>
 
     <script is:inline>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      ga('create', 'UA-48541701-1', 'geoffreylitt.com');
+
+      ga('create', 'UA-38867184-1', 'auto');
       ga('send', 'pageview');
     </script>
   </body>
