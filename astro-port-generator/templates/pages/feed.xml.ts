@@ -26,11 +26,14 @@ export async function GET(context) {
         url = `${post.slug.replace(/html$/, '')}/`;
       }
       
+      // Sanitize content by removing control characters
+      const sanitizedContent = post.body.replace(/[\x00-\x1F\x7F]/g, '');
+      
       return {
         title: post.data.title,
         pubDate: new Date(post.data.date),
         description: post.data.summary || post.data.title,
-        content: post.body, // Use raw markdown body for content
+        content: sanitizedContent,
         link: `${site}${url}`,
       };
     }),

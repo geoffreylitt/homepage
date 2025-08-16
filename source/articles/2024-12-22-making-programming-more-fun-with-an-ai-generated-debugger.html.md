@@ -12,7 +12,7 @@ I want to tell you about a neat experience I had with AI-assisted programming th
 
 I was hacking on a Prolog interpreter as a learning project. [Prolog](https://en.wikipedia.org/wiki/Prolog) is a logic language where the user defines facts and rules, and then the system helps answer queries. A basic interpreter for this language turns out to be an elegant little program with surprising power—a perfect project for a fun learning experience.
 
-The trouble is: it's also a bit finicky to get the details right. I encountered some bugs in my implementation of a key step called [_unification_](https://en.wikipedia.org/wiki/Unification_(computer_science))—solving symbolic equations—which was leading to weird behavior downstream. I tried logging some information at each step of execution, but I was still parsing through screens of text output looking for patterns.
+The trouble is: it's also a bit finicky to get the details right. I encountered some bugs in my implementation of a key step called [_unification_](https://en.wikipedia.org/wiki/Unification_(computer_science))—solving symbolic equations—which was leading to weird behavior downstream. I tried logging some information at each step of execution, but I was still parsing through screens of text output looking for patterns.
 
 I needed better visibility. So, I asked [Claude Artifacts](https://support.anthropic.com/en/articles/9487310-what-are-artifacts-and-how-do-i-use-them) to whip up a custom UI for viewing one of my execution traces. After a few iterations, here's where it ended up:
 
