@@ -3,11 +3,12 @@
 /**
  * Middleman vs Generated Astro Site Verification
  * 
- * Compares built HTML files from Middleman and generated Astro sites.
+ * Compares built HTML files from Middleman and generated Astro sites with 
+ * detailed similarity analysis using Levenshtein distance and line-by-line comparison.
  * 
  * Usage:
- *   node verify-against-middleman.js                    # Summary comparison
- *   node verify-against-middleman.js --file /blog      # Compare specific file
+ *   node verify-against-middleman.js                    # Summary with similarity scores
+ *   node verify-against-middleman.js --file /blog      # Compare specific file with stats
  *   node verify-against-middleman.js --diff /blog      # Show detailed diff for file
  *   node verify-against-middleman.js --list            # List all comparable files
  */
@@ -72,6 +73,93 @@ function getComparableFiles(dir) {
 }
 
 /**
+ * Calculate Levenshtein distance between two strings (memory-optimized for large files)
+ */
+function levenshteinDistance(str1, str2) {
+  // For very large files, truncate to avoid memory issues
+  const maxLength = 10000;
+  if (str1.length > maxLength) str1 = str1.substring(0, maxLength);
+  if (str2.length > maxLength) str2 = str2.substring(0, maxLength);
+  
+  // Use two rows instead of full matrix to save memory
+  let prev = Array(str1.length + 1).fill(0);
+  let curr = Array(str1.length + 1).fill(0);
+  
+  // Initialize first row
+  for (let i = 0; i <= str1.length; i++) {
+    prev[i] = i;
+  }
+  
+  for (let j = 1; j <= str2.length; j++) {
+    curr[0] = j;
+    
+    for (let i = 1; i <= str1.length; i++) {
+      const cost = str1[i - 1] === str2[j - 1] ? 0 : 1;
+      curr[i] = Math.min(
+        curr[i - 1] + 1,     // deletion
+        prev[i] + 1,         // insertion
+        prev[i - 1] + cost   // substitution
+      );
+    }
+    
+    // Swap rows
+    [prev, curr] = [curr, prev];
+  }
+  
+  return prev[str1.length];
+}
+
+/**
+ * Calculate similarity percentage between two strings
+ */
+function calculateSimilarity(str1, str2) {
+  const maxLength = Math.max(str1.length, str2.length);
+  if (maxLength === 0) return 100;
+  
+  const distance = levenshteinDistance(str1, str2);
+  return Math.max(0, ((maxLength - distance) / maxLength) * 100);
+}
+
+/**
+ * Get line-by-line diff statistics
+ */
+function getLineDiffStats(str1, str2) {
+  const lines1 = str1.split('\n');
+  const lines2 = str2.split('\n');
+  
+  let identical = 0;
+  let different = 0;
+  let added = 0;
+  let removed = 0;
+  
+  const maxLines = Math.max(lines1.length, lines2.length);
+  
+  for (let i = 0; i < maxLines; i++) {
+    const line1 = lines1[i];
+    const line2 = lines2[i];
+    
+    if (line1 === undefined) {
+      added++;
+    } else if (line2 === undefined) {
+      removed++;
+    } else if (line1 === line2) {
+      identical++;
+    } else {
+      different++;
+    }
+  }
+  
+  return {
+    totalLines: maxLines,
+    identical,
+    different,
+    added,
+    removed,
+    identicalPercent: maxLines > 0 ? (identical / maxLines) * 100 : 100
+  };
+}
+
+/**
  * Compare two files and return comparison result
  */
 function compareFiles(middlemanPath, astroPath) {
@@ -79,28 +167,32 @@ function compareFiles(middlemanPath, astroPath) {
   const astroExists = fs.existsSync(astroPath);
   
   if (!middlemanExists && !astroExists) {
-    return { status: 'both_missing', identical: true };
+    return { status: 'both_missing', identical: true, similarity: 100 };
   }
   
   if (!middlemanExists) {
-    return { status: 'middleman_missing', identical: false };
+    return { status: 'middleman_missing', identical: false, similarity: 0 };
   }
   
   if (!astroExists) {
-    return { status: 'astro_missing', identical: false };
+    return { status: 'astro_missing', identical: false, similarity: 0 };
   }
   
   const middlemanContent = fs.readFileSync(middlemanPath, 'utf8');
   const astroContent = fs.readFileSync(astroPath, 'utf8');
   
   const identical = middlemanContent === astroContent;
+  const similarity = calculateSimilarity(middlemanContent, astroContent);
+  const lineDiffStats = getLineDiffStats(middlemanContent, astroContent);
   
   return {
     status: 'both_exist',
     identical,
+    similarity: Math.round(similarity * 10) / 10, // Round to 1 decimal
     middlemanSize: middlemanContent.length,
     astroSize: astroContent.length,
-    sizeDiff: astroContent.length - middlemanContent.length
+    sizeDiff: astroContent.length - middlemanContent.length,
+    lineDiffStats
   };
 }
 
@@ -226,11 +318,18 @@ async function main() {
       if (result.identical) {
         console.log('✅ Files are identical');
       } else {
-        console.log('❌ Files differ');
+        console.log(`❌ Files differ (${result.similarity}% similar)`);
         if (result.status === 'both_exist') {
-          console.log(`  Middleman: ${result.middlemanSize} bytes`);
-          console.log(`  Astro: ${result.astroSize} bytes`);
-          console.log(`  Difference: ${result.sizeDiff > 0 ? '+' : ''}${result.sizeDiff} bytes`);
+          console.log(`  Size: ${result.middlemanSize} → ${result.astroSize} bytes (${result.sizeDiff > 0 ? '+' : ''}${result.sizeDiff})`);
+          console.log(`  Character similarity: ${result.similarity}%`);
+          
+          const stats = result.lineDiffStats;
+          console.log(`  Line analysis:`);
+          console.log(`    Total lines: ${stats.totalLines}`);
+          console.log(`    Identical: ${stats.identical} (${Math.round(stats.identicalPercent * 10) / 10}%)`);
+          console.log(`    Different: ${stats.different}`);
+          if (stats.added > 0) console.log(`    Added: ${stats.added}`);
+          if (stats.removed > 0) console.log(`    Removed: ${stats.removed}`);
         } else {
           console.log(`  Status: ${result.status}`);
         }
@@ -246,6 +345,7 @@ async function main() {
     let totalFiles = 0;
     let identicalFiles = 0;
     let differences = [];
+    let totalSimilarity = 0;
     
     for (const filePath of KEY_FILES) {
       const middlemanPath = path.join(MIDDLEMAN_BUILD, filePath);
@@ -253,30 +353,39 @@ async function main() {
       const result = compareFiles(middlemanPath, astroPath);
       
       totalFiles++;
+      totalSimilarity += result.similarity || 0;
       
       if (result.identical) {
         identicalFiles++;
-        console.log(`✅ ${filePath}`);
+        console.log(`✅ ${filePath} (100% similar)`);
       } else {
-        console.log(`❌ ${filePath}`);
-        differences.push(filePath);
+        const similarityStr = result.similarity !== undefined ? ` (${result.similarity}% similar)` : '';
+        console.log(`❌ ${filePath}${similarityStr}`);
+        differences.push({ file: filePath, result });
         
         if (result.status === 'both_exist') {
           console.log(`   Size: ${result.middlemanSize} → ${result.astroSize} bytes (${result.sizeDiff > 0 ? '+' : ''}${result.sizeDiff})`);
+          if (result.lineDiffStats) {
+            const linePercent = Math.round(result.lineDiffStats.identicalPercent * 10) / 10;
+            console.log(`   Lines: ${result.lineDiffStats.identical}/${result.lineDiffStats.totalLines} identical (${linePercent}%)`);
+          }
         } else {
           console.log(`   Status: ${result.status}`);
         }
       }
     }
     
+    const avgSimilarity = totalFiles > 0 ? (totalSimilarity / totalFiles).toFixed(1) : 0;
     console.log(`\n📈 Results: ${identicalFiles}/${totalFiles} files identical (${((identicalFiles/totalFiles) * 100).toFixed(1)}%)`);
+    console.log(`📊 Average similarity: ${avgSimilarity}%`);
     
     if (differences.length > 0) {
       console.log('\n🔍 To investigate differences:');
-      differences.forEach(file => {
+      differences.forEach(({ file, result }) => {
         const urlPath = file === 'index.html' ? '/' : '/' + file.replace('/index.html', '/').replace('.html', '');
-        console.log(`  node verify-against-middleman.js --file ${urlPath}`);
-        console.log(`  node verify-against-middleman.js --diff ${urlPath}`);
+        const priority = result.similarity < 50 ? '🔴' : result.similarity < 80 ? '🟡' : '🟢';
+        console.log(`  ${priority} node verify-against-middleman.js --file ${urlPath}`);
+        console.log(`     node verify-against-middleman.js --diff ${urlPath}`);
       });
     }
 

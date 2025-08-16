@@ -16,6 +16,7 @@ export default defineConfig({
     inlineStylesheets: 'never',
     format: 'preserve',
   },
+  compressHTML: false,
   vite: {
     build: {
       minify: false,
