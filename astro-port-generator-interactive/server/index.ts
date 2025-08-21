@@ -8,6 +8,7 @@ import generatorAPI from './api/generator';
 import fileSystemAPI from './api/fileSystem';
 import devServerAPI from './api/devServer';
 import terminalAPI from './api/terminal';
+import auditAPI from './api/audit';
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -22,6 +23,7 @@ app.use('/api/generator', generatorAPI);
 app.use('/api/filesystem', fileSystemAPI);
 app.use('/api/devserver', devServerAPI);
 app.use('/api/terminal', terminalAPI);
+app.use('/api/audit', auditAPI);
 
 // Health check
 app.get('/api/health', (req, res) => {

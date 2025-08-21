@@ -14,6 +14,7 @@ const FileTree = ({
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [lastUpdate, setLastUpdate] = useState(Date.now());
+  const [showChangedOnly, setShowChangedOnly] = useState(false);
 
   // Load file tree
   useEffect(() => {
@@ -82,6 +83,50 @@ const FileTree = ({
     return false;
   };
 
+  // Filter tree to show only changed files and their parent directories
+  const filterTreeToChangesOnly = (nodes) => {
+    if (!showChangedOnly) return nodes;
+    
+    const filteredNodes = [];
+    
+    for (const node of nodes) {
+      const isNewFile = newFiles.has(node.path);
+      const hasChangedChildren = node.type === 'directory' && directoryContainsNewFiles(node);
+      
+      if (isNewFile || hasChangedChildren) {
+        const filteredNode = { ...node };
+        
+        if (node.children && hasChangedChildren) {
+          filteredNode.children = filterTreeToChangesOnly(node.children);
+        }
+        
+        filteredNodes.push(filteredNode);
+      }
+    }
+    
+    return filteredNodes;
+  };
+
+  // Auto-expand directories containing new files when filtering
+  useEffect(() => {
+    if (showChangedOnly && tree) {
+      const autoExpand = (nodes, basePath = '') => {
+        for (const node of nodes) {
+          if (node.type === 'directory') {
+            const nodePath = basePath ? `${basePath}/${node.name}` : node.name;
+            if (directoryContainsNewFiles(node, basePath)) {
+              setExpanded(prev => new Set([...prev, nodePath]));
+              if (node.children) {
+                autoExpand(node.children, nodePath);
+              }
+            }
+          }
+        }
+      };
+      autoExpand(tree);
+    }
+  }, [showChangedOnly, tree, newFiles]);
+
   const renderTreeNode = (node, depth = 0) => {
     const isExpanded = expanded.has(node.path);
     const isSelected = selectedFile === node.path;
@@ -100,8 +145,8 @@ const FileTree = ({
             flex items-center py-1 px-2 font-terminal text-terminal cursor-pointer hover:bg-bloomberg-panel
             ${isSelected ? 'bg-bloomberg-orange bg-opacity-20 border-l-2 border-bloomberg-orange' : ''}
             ${isCorresponding ? 'bg-bloomberg-green bg-opacity-10 border-l-2 border-bloomberg-green' : ''}
-            ${isNewFile ? 'bg-bloomberg-green bg-opacity-30 border-l-2 border-bloomberg-green' : ''}
-            ${isDirectoryWithNewFiles && !isNewFile ? 'bg-bloomberg-green bg-opacity-10 border-l-1 border-bloomberg-green' : ''}
+            ${isNewFile ? 'bg-bloomberg-green bg-opacity-40 border-l-4 border-bloomberg-green' : ''}
+            ${isDirectoryWithNewFiles && !isNewFile ? 'bg-bloomberg-green bg-opacity-15 border-l-2 border-bloomberg-green' : ''}
           `}
           style={{ paddingLeft: `${depth * 12 + 8}px` }}
           onClick={() => {
@@ -121,17 +166,21 @@ const FileTree = ({
           
           {/* File/Directory Icon */}
           <span className="mr-2">
-            {node.type === 'directory' ? '📁' : getFileIcon(node.name)}
+            {node.type === 'directory' ? 
+              (isDirectoryWithNewFiles ? '📁✨' : '📁') : 
+              getFileIcon(node.name)
+            }
           </span>
           
           {/* File/Directory Name */}
           <span className={`flex-1 truncate ${
             isNewFile ? 'text-bloomberg-green font-bold' :
-            isDirectoryWithNewFiles ? 'text-bloomberg-green' :
+            isDirectoryWithNewFiles ? 'text-bloomberg-green font-semibold' :
             node.type === 'directory' ? 'text-bloomberg-text' : 'text-bloomberg-muted'
           }`}>
             {node.name}
             {isNewFile && <span className="ml-1 text-bloomberg-green">●</span>}
+            {isDirectoryWithNewFiles && !isNewFile && <span className="ml-1 text-bloomberg-green text-xs">+</span>}
           </span>
           
           {/* File Size */}
@@ -250,19 +299,39 @@ const FileTree = ({
       <div className="p-2 border-b border-cockpit-border flex items-center justify-between">
         <span className="text-cockpit-muted">
           {tree.length} item{tree.length !== 1 ? 's' : ''}
+          {newFiles.size > 0 && (
+            <span className="ml-1 text-bloomberg-green text-xs">
+              ({newFiles.size} changed)
+            </span>
+          )}
         </span>
-        <button
-          onClick={() => loadFileTree()}
-          className="text-cockpit-muted hover:text-cockpit-text text-xs"
-          title="Refresh"
-        >
-          ↻
-        </button>
+        <div className="flex items-center space-x-2">
+          {newFiles.size > 0 && (
+            <button
+              onClick={() => setShowChangedOnly(!showChangedOnly)}
+              className={`text-xs px-2 py-1 rounded ${
+                showChangedOnly ? 
+                  'bg-bloomberg-green bg-opacity-20 text-bloomberg-green' : 
+                  'text-cockpit-muted hover:text-cockpit-text'
+              }`}
+              title={showChangedOnly ? "Show all files" : "Show only changed files"}
+            >
+              {showChangedOnly ? "All" : "Changed"}
+            </button>
+          )}
+          <button
+            onClick={() => loadFileTree()}
+            className="text-cockpit-muted hover:text-cockpit-text text-xs"
+            title="Refresh"
+          >
+            ↻
+          </button>
+        </div>
       </div>
       
       {/* Tree */}
       <div className="overflow-auto">
-        {tree.map(node => renderTreeNode(node))}
+        {filterTreeToChangesOnly(tree).map(node => renderTreeNode(node))}
       </div>
     </div>
   );

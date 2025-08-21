@@ -1,0 +1,12 @@
+{
+  "watch": ["server/**/*"],
+  "ext": "ts,js,json",
+  "ignore": [
+    "stage-state.json",
+    "../astro-port-generated/**/*",
+    "node_modules/**/*",
+    "dist/**/*",
+    "client/**/*"
+  ],
+  "delay": "2500"
+}
