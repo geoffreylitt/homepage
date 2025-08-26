@@ -8,6 +8,8 @@ image_url: /images/article_images/texting-app-teaser.png
 
 ---
 
+[You can listen to this article here.](https://listenly.io/book/6669a0dbc8bc46a35994e5c0)
+
 In my previous post, [Malleable software in the age of LLMs](/2023/03/25/llm-end-user-programming.html), I laid out a theory for how LLMs might enable a new era of people creating their own personal software:
 
 > I think it’s likely that soon all computer users will have the ability to develop small software tools from scratch, and to describe modifications they’d like made to software they’re already using.
