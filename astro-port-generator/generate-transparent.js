@@ -62,7 +62,14 @@ function readTemplate(templatePath) {
  * Transform content files to match the patterns from the manual port
  */
 function transformContentFile(filePath) {
-  let content = fs.readFileSync(filePath, 'utf8');
+  const originalContent = fs.readFileSync(filePath, 'utf8');
+  let content = originalContent;
+  
+  // Validate content before processing
+  const originalLines = originalContent.split('\n').length;
+  const originalCharCount = originalContent.length;
+  
+  addInfo(`📄 Processing ${path.basename(filePath)} - ${originalLines} lines, ${originalCharCount} characters`);
   
   // Transform frontmatter: remove layout field
   content = content.replace(/^layout:\s*[^\n]*\n/m, '');
@@ -71,6 +78,25 @@ function transformContentFile(filePath) {
   content = content.replace(/!\[([^\]]*)\]\(images\//g, '![$1](/images/');
   content = content.replace(/!\[([^\]]*)\]\(article_images\//g, '![$1](/images/article_images/');
   content = content.replace(/!\[([^\]]*)\]\(project_images\//g, '![$1](/images/project_images/');
+  
+  // Fix self-closing video tags - ensure they remain self-closing for proper HTML
+  content = content.replace(/<video([^>]*?)\s*\/>/g, '<video$1></video>');
+  
+  // Validate content after processing
+  const processedLines = content.split('\n').length;
+  const processedCharCount = content.length;
+  
+  // Check for significant content loss (more than 10% reduction)
+  const lineReduction = (originalLines - processedLines) / originalLines;
+  const charReduction = (originalCharCount - processedCharCount) / originalCharCount;
+  
+  if (lineReduction > 0.1 || charReduction > 0.1) {
+    addInfo(`⚠️  WARNING: Significant content reduction detected in ${path.basename(filePath)}:`);
+    addInfo(`   Lines: ${originalLines} → ${processedLines} (${(lineReduction * 100).toFixed(1)}% reduction)`);
+    addInfo(`   Characters: ${originalCharCount} → ${processedCharCount} (${(charReduction * 100).toFixed(1)}% reduction)`);
+  } else {
+    addInfo(`✅ Content preserved - ${processedLines} lines, ${processedCharCount} characters`);
+  }
   
   fs.writeFileSync(filePath, content);
 }
@@ -324,16 +350,26 @@ async function setupContentCollections() {
   // Copy and transform blog posts
   const articlesSource = path.join(MIDDLEMAN_SOURCE, 'articles');
   if (fs.existsSync(articlesSource)) {
-    addInfo('Copying and transforming blog posts...');
+    const sourceFiles = fs.readdirSync(articlesSource).filter(f => f.endsWith('.html.md'));
+    addInfo(`📝 Found ${sourceFiles.length} blog posts to copy and transform`);
+    
     await execSync(`cp -r "${articlesSource}"/* "${postsDir}"/`);
+    addInfo('✅ Blog posts copied successfully');
     
     // Transform blog post content
     const postFiles = fs.readdirSync(postsDir);
+    let processedCount = 0;
     postFiles.forEach(file => {
       if (file.endsWith('.html.md')) {
         transformContentFile(path.join(postsDir, file));
+        processedCount++;
       }
     });
+    
+    addInfo(`🔄 Processed ${processedCount} blog posts`);
+    if (processedCount !== sourceFiles.length) {
+      addInfo(`⚠️  WARNING: Copied ${sourceFiles.length} files but only processed ${processedCount}`);
+    }
   }
 
   // Copy and transform project pages
@@ -356,9 +392,32 @@ async function setupContentCollections() {
   
   const inspirationsSource = path.join(MIDDLEMAN_SOURCE, 'inspirations.html.md');
   if (fs.existsSync(inspirationsSource)) {
-    const inspirationsDest = path.join(pagesDir, 'inspirations.md');
+    // Copy to pages directory, not content/pages, so Astro will build it as a route
+    const pagesRouteDir = path.join(ASTRO_GENERATED, 'src', 'pages');
+    const inspirationsDest = path.join(pagesRouteDir, 'inspirations.md');
     await execSync(`cp "${inspirationsSource}" "${inspirationsDest}"`);
     transformContentFile(inspirationsDest);
+    addInfo('✅ Copied inspirations page to pages directory');
+  }
+  
+  // Handle redirect files (like wildcard/index.html.md -> /projects/wildcard)
+  addInfo('Processing redirect files...');
+  const wildcardRedirectSource = path.join(MIDDLEMAN_SOURCE, 'wildcard', 'index.html.md');
+  if (fs.existsSync(wildcardRedirectSource)) {
+    const wildcardDir = path.join(ASTRO_GENERATED, 'src', 'pages', 'wildcard');
+    if (!fs.existsSync(wildcardDir)) {
+      fs.mkdirSync(wildcardDir, { recursive: true });
+    }
+    const wildcardRedirectDest = path.join(wildcardDir, 'index.astro');
+    
+    // Create an Astro redirect component
+    const redirectTemplate = `---
+// Redirect from /wildcard/ to /projects/wildcard
+return Astro.redirect("/projects/wildcard", 301);
+---`;
+    
+    fs.writeFileSync(wildcardRedirectDest, redirectTemplate);
+    addInfo('✅ Created wildcard redirect at /wildcard/ -> /projects/wildcard');
   }
 
   // Copy content config
@@ -534,6 +593,30 @@ async function addSpecialPagesAndPolish() {
   addInfo('✅ Special pages and polish added successfully');
 }
 
+/**
+ * Run the complete port process headlessly
+ */
+async function runCompletePort() {
+  console.log('🚀 Starting complete headless port...');
+  
+  try {
+    await initializeBasicSite();
+    await addCoreStyling();
+    await setupContentCollections();
+    await addBlogListing();
+    await addProjectGrids();
+    await addSpecialPagesAndPolish();
+    
+    console.log('✅ Port completed successfully!');
+    console.log('💡 Next steps:');
+    console.log('   cd astro-port-generated');
+    console.log('   npm run build');
+  } catch (error) {
+    console.error('❌ Port failed:', error);
+    process.exit(1);
+  }
+}
+
 module.exports = {
   initializeBasicSite,
   addCoreStyling,
@@ -543,5 +626,6 @@ module.exports = {
   addSpecialPagesAndPolish,
   setCommandExecutor,
   readTemplate,
-  transformContentFile
+  transformContentFile,
+  runCompletePort
 };

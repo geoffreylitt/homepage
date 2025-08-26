@@ -69,7 +69,7 @@ Although some of these efforts have been quite successful, until now they've als
 
 Here's one example of the programming bottleneck in my own work. A few years ago, I developed an end-user programming system called [Wildcard](https://www.geoffreylitt.com/wildcard/) which would let people customize any website through a spreadsheet interface. For example, in this short demo you can see a user sorting articles on Hacker News in a different order, and then adding read times to the articles in the page, all by manipulating a spreadsheet synced with the webpage.
 
-<video src="/images/article_images/llm-eup/wildcard.mp4#t=0.1" controls="controls" preload="auto" muted="muted" data-video="0" />
+<video src="/images/article_images/llm-eup/wildcard.mp4#t=0.1" controls="controls" preload="auto" muted="muted" data-video="0"></video>
 
 Neat demo, right?
 

@@ -34,7 +34,7 @@ Using Twitter this way was sort of a hack, and it required some light creativity
 
 I decided to take matters into my hands, and spent a day hacking on a simple little extension to improve the situation. It added a sidebar where I could type in a search term, and get immediate search results from my own past tweets as I typed. This way, I could easily find past tweets to link to in my own threads as I wrote them.
 
-<video src="/images/article_images/twemex/v0.mp4" autoplay=true controls=true loop=true />
+<video src="/images/article_images/twemex/v0.mp4" autoplay=true controls=true loop=true></video>
 
 The implementation was dead simple. All it did was prepend `from:<my username>` to the beginning of the search term and send requests to the search API used by the web client. I found that the search API was fast enough to power a live search experience as the user typed, even though this live search UX wasn't exposed anywhere in the Twitter client itself.
 
