@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  
+  return projects.map((project) => {
+    // Project slugs come as "dynamiclandhtml" from "dynamicland.html.md" files
+    const slug = project.slug.replace(/html$/, '');
+    
+    return {
+      params: { slug },
+      props: { project }
+    };
+  });
+}
+
+const { project } = Astro.props;
+const { Content } = await project.render();
+
+// Generate a nice title from the slug
+const title = project.slug.replace(/html$/, '').replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+---
+
+<BaseLayout 
+  title={title}
+  description={`Project: ${title}`}
+>
+  <div class="one-column">
+    <article class="post single">
+      <div class="post-content">
+        <Content />
+      </div>
+    </article>
+  </div>
+</BaseLayout>

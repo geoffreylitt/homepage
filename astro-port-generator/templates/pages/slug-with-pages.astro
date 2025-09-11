@@ -1,0 +1,94 @@
+---
+import BlogPostLayout from '../layouts/BlogPostLayout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  const pages = await getCollection('pages');
+  
+  const postPaths = posts.map((post) => {
+    // Extract date parts from filename (e.g., "2025-07-27-titlehtml" -> "2025/07/27/title")
+    const match = post.slug.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)html$/);
+    if (!match) {
+      // Fallback for posts without date prefix - remove html suffix
+      const cleanSlug = post.slug.replace(/html$/, '');
+      return {
+        params: { slug: cleanSlug },
+        props: { post, type: 'post' }
+      };
+    }
+    
+    const [_, year, month, day, title] = match;
+    const slug = `${year}/${month}/${day}/${title}`;
+    
+    return {
+      params: { slug },
+      props: { post, type: 'post' }
+    };
+  });
+
+  const pagePaths = pages.map((page) => {
+    return {
+      params: { slug: page.slug },
+      props: { page, type: 'page' }
+    };
+  });
+  
+  return [...postPaths, ...pagePaths];
+}
+
+const { post, page, type } = Astro.props;
+
+// Render content based on type
+let Content, layoutProps;
+
+if (type === 'post') {
+  const postContent = await post.render();
+  Content = postContent.Content;
+  const postDate = new Date(post.data.date);
+  layoutProps = {
+    component: BlogPostLayout,
+    props: {
+      title: post.data.title,
+      date: postDate,
+      summary: post.data.summary,
+      description: post.data.summary || post.data.title,
+      image: post.data.image_url
+    }
+  };
+} else {
+  const pageContent = await page.render();
+  Content = pageContent.Content;
+  layoutProps = {
+    component: BaseLayout,
+    props: {
+      title: page.data.title || 'Geoffrey Litt',
+      description: page.data.description || ''
+    }
+  };
+}
+---
+
+{type === 'post' ? (
+  <BlogPostLayout 
+    title={post.data.title}
+    date={new Date(post.data.date)}
+    summary={post.data.summary}
+    description={post.data.summary || post.data.title}
+    image={post.data.image_url}
+  >
+    <Content />
+  </BlogPostLayout>
+) : (
+  <BaseLayout 
+    title={page.data.title || 'Geoffrey Litt'}
+    description={page.data.description || ''}
+  >
+    <div class="main_container">
+      <div class="main">
+        <Content />
+      </div>
+    </div>
+  </BaseLayout>
+)}

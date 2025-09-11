@@ -1,0 +1,149 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectGrid from '../components/ProjectGrid.astro';
+import { getCollection } from 'astro:content';
+import { readFileSync } from 'fs';
+import { parse } from 'yaml';
+
+// Load YAML data
+const projectsYml = readFileSync('src/data/projects.yml', 'utf8');
+const interviewsYml = readFileSync('src/data/interviews.yml', 'utf8');
+
+const projectsData = parse(projectsYml);
+const interviewsData = parse(interviewsYml);
+
+const projects = projectsData.projects;
+const interviews = interviewsData.interviews;
+
+// Get blog posts and filter out hidden ones
+const allPosts = await getCollection('posts');
+const visiblePosts = allPosts
+  .filter(post => !post.data.hidden)
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+---
+
+<BaseLayout title="Geoffrey Litt">
+  <div class="home-body-text">
+    <p>
+      Welcome! I work on <em>malleable software</em>: computing environments where anyone can adapt their software to meet their needs with minimal friction. To see what that means to me, read <a href="https://www.inkandswitch.com/essay/malleable-software/">this essay</a> or listen to <a href="https://jacksondahl.com/dialectic/geoffrey-litt">this interview</a>.
+    </p>
+
+    <p>
+      I'm also tinkering with AI-assisted programming, which I think can help usher in a <a href="/2023/03/25/llm-end-user-programming.html">new era of personal software tools</a>, help programmers <a href="/2024/12/22/making-programming-more-fun-with-an-ai-generated-debugger.html">have more fun</a>, and <a href="/2023/07/25/building-personal-tools-on-the-fly-with-llms.html">create new interaction patterns</a> for working with software.
+    </p>
+
+    <p>
+      I'm currently a senior researcher at the independent research lab <a href="https://www.inkandswitch.com/">Ink & Switch</a>. Previously I did a PhD in HCI at MIT—researching end-user programming interfaces, advised by <a href="http://people.csail.mit.edu/dnj/">Daniel Jackson</a>. Earlier in my career I did design and engineering at <a href="https://www.panoramaed.com/">startups</a>. My core skill is designing and prototyping environments for thinking.
+    </p>
+
+    <p>
+      You can reach me via <a href="mailto:gklitt@gmail.com">email</a>. I enjoy hearing from people making cool stuff! I also do a bit of startup advising for companies related to my work.
+    </p>
+
+    <p>
+      If you'd like to hear occasional updates on my work, you can <a href="https://buttondown.email/geoffreylitt">subscribe to my email newsletter</a> or <a href="/feed.xml">follow via RSS</a>.
+    </p>
+  </div>
+
+  <a id="projects"></a>
+  <div class="project-grids">
+    <h2 class="project-category">Malleable Software</h2>
+    <ProjectGrid projects={projects.malleable} />
+
+    <h2 class="project-category">Programming Interfaces</h2>
+    <ProjectGrid projects={projects.live_programming} />
+  </div>
+
+  <a id="writing"></a>
+  <h2 class="project-category">Writing</h2>
+
+  <div class="blogposts-list">
+    {visiblePosts.map((post) => {
+      // Generate URL matching the [slug].astro pattern
+      const match = post.slug.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)html$/);
+      let postUrl;
+      if (match) {
+        const [_, year, month, day, title] = match;
+        postUrl = `/${year}/${month}/${day}/${title}/`;
+      } else {
+        postUrl = `/${post.slug.replace(/html$/, '')}/`;
+      }
+      
+      return (
+        <div class="blogpost-link">
+          {post.data.starred ? (
+            <a href={postUrl} class="starred">{post.data.title}</a>
+          ) : (
+            <a href={postUrl}>{post.data.title}</a>
+          )}
+        </div>
+      );
+    })}
+  </div>
+
+  <a id="podcasts"></a>
+  <h2 class="project-category">Interviews</h2>
+
+  <div class="blogposts-list">
+    {interviews.map((interview) => (
+      <div class="blogpost-link">
+        <a href={interview.link}>{interview.name}</a>
+      </div>
+    ))}
+  </div>
+
+  <a id="contact"></a>
+  <h2 class="project-category">Contact me</h2>
+  <div class="home-body-text">
+    <p>
+      <strong>Please reach out</strong> if you're interested in chatting about ideas, or if I might be able to help you in some way. You can contact me via <a href="mailto:gklitt@gmail.com">email</a> or on <a href="http://www.twitter.com/geoffreylitt">Twitter</a>.
+    </p>
+  </div>
+
+  <div style="max-width: 700px;">
+    <div class="subscribe">
+      <h4>Subscribe</h4>
+      I periodically write about programming tools, end-user programming, and software design. To get updates about new posts:
+
+      <div class="subscribe-links">
+        <div></div>
+        <a href="https://buttondown.email/geoffreylitt" style="margin-right: 15px;">
+          <i class="fa fa-envelope"></i>
+          Join my email newsletter
+        </a>
+
+        <a href="http://www.twitter.com/geoffreylitt" style="margin-right: 15px;">
+          <i class="fa fa-twitter"></i>
+          Follow me on Twitter
+        </a>
+
+        <a href="/feed.xml">
+          <i class="fa fa-rss"></i>
+          Subscribe via RSS
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <h1 class="the-archive">📦 The Archive... <span class="small">(older work less immediately relevant to my current interests)</span></h1>
+
+  <div class="project-grids">
+    <h2 class="project-category">Local-First Software</h2>
+    <ProjectGrid projects={projects.local_first} />
+
+    <h2 class="project-category">Programming interface explorations</h2>
+    <ProjectGrid projects={projects.explorations} />
+
+    <h2 class="project-category">Conference Talks</h2>
+    <ProjectGrid projects={projects.talks} />
+
+    <h2 class="project-category">Other software projects</h2>
+    <ProjectGrid projects={projects.other} />
+
+    <h2 class="project-category">Data visualization / NLP</h2>
+    <ProjectGrid projects={projects.dataviz} />
+
+    <h2 class="project-category">Hardware / Electrical Engineering</h2>
+    <ProjectGrid projects={projects.hardware} />
+  </div>
+</BaseLayout>
