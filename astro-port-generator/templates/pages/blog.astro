@@ -1,0 +1,63 @@
+---
+export const prerender = true;
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+// Get all blog posts, sorted by date (newest first)
+const posts = await getCollection('posts');
+const sortedPosts = posts
+  .filter(post => !post.data.hidden)
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+---
+
+<BaseLayout 
+  title="Writing - Geoffrey Litt"
+  description="Blog posts about programming tools, end-user programming, and other software topics"
+>
+  <div class="container">
+    <h3>Writing</h3>
+
+    <div class="blogposts-list">
+      {sortedPosts.map((post) => {
+        // Generate URL for post (matching the blog post URL structure)
+        const match = post.slug.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)html$/);
+        let postUrl;
+        if (match) {
+          const [_, year, month, day, title] = match;
+          postUrl = `/${year}/${month}/${day}/${title}/`;
+        } else {
+          postUrl = `/${post.slug.replace(/html$/, '')}/`;
+        }
+        
+        return (
+          <div class="blogpost-link">
+            <a href={postUrl}>{post.data.title}</a>
+          </div>
+        );
+      })}
+    </div>
+
+    <br />
+
+    <div style="max-width: 700px;">
+      <div class="subscribe">
+        <h4>Subscribe</h4>
+        <p>I periodically write about programming tools, end-user programming, and other software topics. To get updates about new posts:</p>
+
+        <div class="subscribe-links">
+          <div></div>
+          <a href="http://www.twitter.com/geoffreylitt" style="margin-right: 15px;">
+            <i class="fa fa-twitter"></i>
+            Follow me on Twitter
+          </a>
+          
+          <a href="/feed.xml">
+            <i class="fa fa-rss"></i>
+            Subscribe via RSS
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

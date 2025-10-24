@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="43px" height="40px" viewBox="0 0 43 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Artboard</title>
+    <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <ellipse id="Oval" stroke="#979797" fill="#FFFFFF" cx="19.5" cy="22.5" rx="19" ry="12"></ellipse>
+        <rect id="Rectangle" stroke="#979797" fill="#000000" x="9.5" y="30.5" width="3" height="8"></rect>
+        <rect id="Rectangle" stroke="#979797" fill="#000000" x="24.5" y="30.5" width="3" height="8"></rect>
+        <ellipse id="Oval" stroke="#979797" fill="#000000" cx="33.5" cy="17" rx="8" ry="8.5"></ellipse>
+        <rect id="Rectangle" fill="#066B00" x="27" y="7" width="13" height="3"></rect>
+        <rect id="Rectangle" fill="#066B00" x="30" y="1" width="7" height="7"></rect>
+        <circle id="Oval" stroke="#FFFFFF" fill="#0B0B0B" cx="31" cy="15" r="1.5"></circle>
+        <circle id="Oval" stroke="#FFFFFF" fill="#0B0B0B" cx="37" cy="15" r="1.5"></circle>
+        <rect id="Rectangle" stroke="#000000" fill="#D8D8D8" x="30.5" y="5.5" width="6" height="1"></rect>
+        <rect id="Rectangle" stroke="#B6893E" fill="#D8D8D8" x="32.5" y="6.5" width="1" height="1"></rect>
+    </g>
+</svg>
