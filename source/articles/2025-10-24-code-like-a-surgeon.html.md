@@ -54,3 +54,13 @@ First, as an employee, I find it incredibly valuable right now to work at a plac
 Secondly, as a product -- in a sense I would say we are trying to bring this way of working to a broader group of knowledge workers beyond programmers. When I think about how that will play out, I like the mental model of enabling everyone to "work like a surgeon".
 
 The goal isn't to delegate your core work, it's to **identify and delegate the secondary grunt work tasks, so you can focus on the main thing that matters.**
+
+---
+
+## Related reads
+
+If you liked this perspective, you might enjoy reading these other posts I've written about the nature of human-AI collaboration:
+
+- [Enough AI copilots! We need AI HUDs](/2025/07/27/enough-ai-copilots-we-need-ai-huds): "anyone serious about designing for AI should consider non-copilot form factors that more directly extend the human mind..."
+- [AI-generated tools can make programming more fun](/2024/12/22/making-programming-more-fun-with-an-ai-generated-debugger): "Instead, I used AI to build a custom debugger UI… which made it more fun for me to do the coding myself..."
+- [ChatGPT as muse, not oracle](/2023/02/26/llm-as-muse-not-oracle): "What if we were to think of LLMs not as tools for answering questions, but as tools for asking us questions and inspiring our creativity?
