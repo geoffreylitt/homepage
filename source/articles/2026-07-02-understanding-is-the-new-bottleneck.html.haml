@@ -22,6 +22,8 @@ image_url: "/images/talks/understanding-bottleneck/card.jpg"
       conference in July 2026, also shared as
       %a{href: "https://x.com/geoffreylitt/status/2072522251300409556"} a tweet thread.
 
+  - slide_sizes = "(min-width: 860px) min(52vw, 815px), calc(100vw - 30px)"
+  - first_slide = true
   - talk.sections.each do |section|
     - if section["title"]
       %h2.talk-section-title= section["title"]
@@ -32,7 +34,10 @@ image_url: "/images/talks/understanding-bottleneck/card.jpg"
             %video{controls: true, playsinline: true, preload: "metadata", poster: "#{talk.assets}/#{seg["poster"]}", "aria-label" => seg["alt"]}
               %source{src: "#{talk.assets}/#{seg["video"]}", type: "video/mp4"}
           - else
-            %img{src: "#{talk.assets}/#{seg["slide"]}", alt: seg["alt"], loading: "lazy"}
+            - base = seg["slide"].sub(".webp", "")
+            - srcset = "#{talk.assets}/#{base}-800.webp 800w, #{talk.assets}/#{base}-1200.webp 1200w, #{talk.assets}/#{base}.webp 1600w"
+            %img{src: "#{talk.assets}/#{seg["slide"]}", srcset: srcset, sizes: slide_sizes, alt: seg["alt"], loading: first_slide ? "eager" : "lazy", fetchpriority: first_slide ? "high" : nil, decoding: "async"}
+            - first_slide = false
         .talk-text!= seg["html"]
 
   .talk-outro
