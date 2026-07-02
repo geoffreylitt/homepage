@@ -5,7 +5,7 @@ sections:
       - slide: slide-01.webp
         alt: "Title slide: Understanding is the new bottleneck. Geoffrey Litt, Design Engineer at Notion."
         html: |
-          <p>Hot take: I think it's still important to understand the code that our agents write!</p>
+          <p><strong>Hot take: I think it's still important to understand the code that our agents write!</strong></p>
           <p>In this talk I'll explain why that's the case, and show some ideas for how to efficiently understand code. Alright, let's dive in.</p>
       - slide: slide-02.webp
         alt: "Cartoon of a person surrounded by a growing pile of agent-written code."
@@ -27,7 +27,7 @@ sections:
       - slide: slide-04.webp
         alt: "Slide reading: Why understand?"
         html: |
-          <p>Why? Why understand?</p>
+          <p><strong>Why? Why understand?</strong></p>
           <p>Aren't we supposed to be taking ourselves out of the loop now, and letting the agents loop themselves? As the agents get smarter, doesn't it become less important for us to be in the details?</p>
           <p>I think many people &mdash; even those who are pro-understanding &mdash; have a slightly incorrect answer to this question!</p>
       - slide: slide-05.webp
@@ -43,7 +43,7 @@ sections:
       - slide: slide-07.webp
         alt: "Slide: understand to participate."
         html: |
-          <p>That's where another answer comes in: we can understand <em>to participate</em>.</p>
+          <p><strong>That's where another answer comes in: we can understand <em>to participate</em>.</strong></p>
           <p>You can learn what the agent is doing to make sure you can be an active participant in the creative process. Here's why this matters&hellip;</p>
       - slide: slide-08.webp
         alt: "Diagram of a project as many iterative loops with an agent."
@@ -60,7 +60,7 @@ sections:
         alt: "Slide asking: how do we build understanding? Pointing to education for inspiration."
         html: |
           <p>OK, so fine, understanding matters.</p>
-          <p>But this raises the next question: <em>how</em>? How do we build this human understanding when we're working with AI and moving fast?</p>
+          <p>But this raises the next question: <em>how</em>? <strong>How do we build this human understanding when we're working with AI and moving fast?</strong></p>
           <p>Well, turns out this is not the first time anyone has ever thought about how to communicate understanding. I think we can look to education as an inspiration. Can we steal the best ideas ever invented for education and apply them to this problem?</p>
   - title: "Technique 1: Explanations"
     segments:
@@ -78,7 +78,7 @@ sections:
         alt: "Slide asking: what would the best explanation be?"
         html: |
           <p>But what if we ask:</p>
-          <p>What would the <em>best</em> explanation be? If you had a team &mdash; human or AI &mdash; that really sweat the details of explaining something well to you, how would that feel?</p>
+          <p><strong>What would the <em>best</em> explanation be?</strong> If you had a team &mdash; human or AI &mdash; that really sweat the details of explaining something well to you, how would that feel?</p>
       - slide: slide-14.webp
         alt: "Screenshot of a code explainer doc produced by the /explain-diff skill."
         html: |
@@ -129,7 +129,7 @@ sections:
       - slide: slide-22.webp
         alt: "Slide describing the quiz as a speed regulator on the AI loop."
         html: |
-          <p>I think of this as a <strong>speed regulator</strong>. Working with AI, it's easy for the loop to run faster than the speed of human understanding.</p>
+          <p><strong>A quiz is a speed regulator.</strong> Working with AI, it's easy for the loop to run faster than the speed of human understanding.</p>
           <p>The quiz is a counterbalancing force: I mechanically ask &ldquo;do I actually understand?&rdquo; so that I can remain a full creative participant.</p>
       - slide: slide-23.webp
         alt: "QR code linking to the /explain-diff skill."
@@ -145,7 +145,7 @@ sections:
         alt: "Slide about Papert's idea of living in Mathland."
         html: |
           <p>Papert had this beautiful idea he called <em>living in Mathland</em>: if you want to learn math, live in Mathland &mdash; just like if you want to learn French, you go live in France. Could we build an environment where children learn math naturally, as a consequence of their curiosity?</p>
-          <p>So how do we apply that to code? Can we make worlds you inhabit and naturally intuit how the system works and how it's changing?</p>
+          <p>So how do we apply that to code? <strong>Can we make worlds you inhabit and naturally intuit how the system works and how it's changing?</strong></p>
       - video: video-27.mp4
         poster: poster-27.webp
         alt: "Screen recording of an interactive debugger for a Prolog interpreter: scrubbing through time and inspecting the stack."
@@ -170,7 +170,7 @@ sections:
       - slide: slide-30.webp
         alt: "Slide introducing shared spaces: understanding together as a team."
         html: |
-          <p>Alright, last technique: shared spaces. So far this has all been about understanding solo&hellip; but when you're working on a team, you need to understand <em>together</em>.</p>
+          <p>Alright, last technique: shared spaces. So far this has all been about understanding solo&hellip; but <strong>when you're working on a team, you need to understand <em>together</em>.</strong></p>
       - slide: slide-31.webp
         alt: "Slide about shared mental models enabling efficient communication."
         html: |
@@ -188,7 +188,7 @@ sections:
         alt: "Slide: it's still important for humans to understand how things work."
         html: |
           <p>Alright, let's wrap up. Today we've covered some techniques that were about understanding code&hellip; but actually I think this is a much bigger issue.</p>
-          <p>It's still important for humans to understand how things work <em>in general</em>! Not just to verify, but to participate.</p>
+          <p>It's still important for humans to understand how things work <em>in general</em>! <strong>Not just to verify, but to participate.</strong></p>
           <p>And surprise surprise, this is not a new idea. It harkens back to the very origins of our field of computing&hellip;</p>
       - slide: slide-34.webp
         alt: "Alan Kay's vision: kids learning physics by playing and editing an interactive simulation."
@@ -205,5 +205,5 @@ sections:
         alt: "Closing slide: we can get deeper in the loop. It's up to us."
         html: |
           <p>This makes me very optimistic about the future!</p>
-          <p>If we build the right tools, we can now understand the world better than we ever could before. We don't have to merely take ourselves out of the loop, we can get <em>deeper in the loop</em> too. It's up to us.</p>
+          <p><strong>If we build the right tools, we can now understand the world better than we ever could before.</strong> We don't have to merely take ourselves out of the loop, we can get <em>deeper in the loop</em> too. It's up to us.</p>
           <p><em>FIN</em></p>
