@@ -1,0 +1,54 @@
+---
+
+title: "Understanding is the new bottleneck"
+date: 2026-07-02 10:00 UTC
+tags:
+summary: "Agents can write code faster than we can absorb it. Here's why it still matters for humans to understand what they build — and some techniques for doing that efficiently: explainer docs, quizzes, micro-worlds, and shared spaces."
+layout: talk
+main_class: wide
+image_url: "/images/talks/understanding-bottleneck/card.jpg"
+
+---
+
+- talk = data.aie_talk
+
+%article.talk
+  .talk-header
+    %h3.date July 2026
+    %h1.title Understanding is the new bottleneck
+    %p.talk-context
+      This is a written version of a talk I gave at the
+      %a{href: "https://www.ai.engineer/"} AI Engineer
+      conference in July 2026, adapted from
+      %a{href: "https://x.com/geoffreylitt/status/2072522251300409556"} the thread
+      I posted about it. Each slide is paired with roughly what I said about it.
+
+  - talk.sections.each do |section|
+    - if section["title"]
+      %h2.talk-section-title= section["title"]
+    - section["segments"].each do |seg|
+      - if seg["aside"]
+        .talk-aside!= seg["html"]
+      - else
+        .talk-segment
+          .talk-slide
+            - if seg["video"]
+              %video{controls: true, playsinline: true, preload: "metadata", poster: "#{talk.assets}/#{seg["poster"]}", "aria-label" => seg["alt"]}
+                %source{src: "#{talk.assets}/#{seg["video"]}", type: "video/mp4"}
+            - else
+              %img{src: "#{talk.assets}/#{seg["slide"]}", alt: seg["alt"], loading: "lazy"}
+          .talk-text!= seg["html"]
+
+  .talk-outro
+    %h2 Related reads
+    %p If you enjoyed this talk, you might like these other posts I've written about human-AI collaboration:
+    %ul
+      %li
+        %a{href: "/2025/07/27/enough-ai-copilots-we-need-ai-huds"} Enough AI copilots! We need AI HUDs
+        &mdash; "anyone serious about designing for AI should consider non-copilot form factors that more directly extend the human mind..."
+      %li
+        %a{href: "/2024/12/22/making-programming-more-fun-with-an-ai-generated-debugger"} AI-generated tools can make programming more fun
+        &mdash; "Instead, I used AI to build a custom debugger UI… which made it more fun for me to do the coding myself..."
+      %li
+        %a{href: "/2025/10/24/code-like-a-surgeon"} Code like a surgeon
+        &mdash; "identify and delegate the secondary grunt work tasks, so you can focus on the main thing that matters."
