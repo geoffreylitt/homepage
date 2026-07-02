@@ -43,7 +43,7 @@ sections:
       - slide: slide-07.webp
         alt: "Slide: understand to participate."
         html: |
-          <p><strong>That's where another answer comes in: we can understand <em>to participate</em>.</strong></p>
+          <p><strong>That's where another answer comes in: we can understand to participate.</strong></p>
           <p>You can learn what the agent is doing to make sure you can be an active participant in the creative process. Here's why this matters&hellip;</p>
       - slide: slide-08.webp
         alt: "Diagram of a project as many iterative loops with an agent."
@@ -83,7 +83,7 @@ sections:
         alt: "Screenshot of a code explainer doc produced by the /explain-diff skill."
         html: |
           <p>Here's one answer. I made a skill called <a href="https://gist.github.com/geoffreylitt/a29df1b5f9865506e8952488eac3d524">/explain-diff</a>, which I use every day and many coworkers have found valuable.</p>
-          <p>It outputs thoughtfully structured code explainers as HTML, markdown, or Notion docs. (Notion is a good place for collaborating on and discussing these explainers as a team.)</p>
+          <p>It outputs thoughtfully structured code explainers as HTML, markdown, or Notion docs. Notion is a good place for collaborating on and discussing these explainers as a team. (Disclaimer: I work at Notion so I'm biased.)</p>
           <p>Let's see what's in one of these explainers, using an example of editing the perspective of a video game.</p>
       - slide: slide-15.webp
         alt: "Explainer section teaching background info about the game engine."
@@ -170,7 +170,7 @@ sections:
       - slide: slide-30.webp
         alt: "Slide introducing shared spaces: understanding together as a team."
         html: |
-          <p>Alright, last technique: shared spaces. So far this has all been about understanding solo&hellip; but <strong>when you're working on a team, you need to understand <em>together</em>.</strong></p>
+          <p>Alright, last technique: shared spaces. So far this has all been about understanding solo&hellip; but <strong>when you're working on a team, you need to understand together.</strong></p>
       - slide: slide-31.webp
         alt: "Slide about shared mental models enabling efficient communication."
         html: |
