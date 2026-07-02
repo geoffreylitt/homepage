@@ -131,7 +131,8 @@ sections:
         html: |
           <p>I think of this as a <strong>speed regulator</strong>. Working with AI, it's easy for the loop to run faster than the speed of human understanding.</p>
           <p>The quiz is a counterbalancing force: I mechanically ask &ldquo;do I actually understand?&rdquo; so that I can remain a full creative participant.</p>
-      - aside: true
+      - slide: slide-23.webp
+        alt: "QR code linking to the /explain-diff skill."
         html: |
           <p>OK, so that's explain-diff. <a href="https://gist.github.com/geoffreylitt/a29df1b5f9865506e8952488eac3d524">Here's the skill if you want it</a>: two variants that output either HTML or a Notion page.</p>
   - title: "Technique 2: Micro-worlds"
@@ -156,7 +157,7 @@ sections:
         poster: poster-28.webp
         alt: "Screen recording of a control-panel UI for porting a website step by step, with old and new sites side by side."
         html: |
-          <p>Another example. I was migrating my personal website from one framework to another, and Claude wrote a script that did it &mdash; something like this. But it was very hard to review: I wasn't familiar with the new framework, and all I could say was &ldquo;I guess that looks about right.&rdquo;</p>
+          <p>Another example. I was migrating my personal website from one framework to another, and Claude wrote a script that did it. But it was very hard to review: I wasn't familiar with the new framework, and all I could say was &ldquo;I guess that looks about right.&rdquo;</p>
           <p>So I asked Claude to make me a video game &mdash; a command center where I do the port myself, step by step, watching the visible effects and the file tree evolve. It produced a UI where I click buttons to run the port step by step, with my old site and new site running side by side.</p>
           <p>In this command center I watched the new site come to life incrementally. That left me with a similar understanding to doing it by hand &mdash; but much faster, because the whole experience was laid out for me.</p>
       - slide: slide-29.webp

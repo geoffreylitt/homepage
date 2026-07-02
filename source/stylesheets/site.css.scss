@@ -400,7 +400,6 @@ h2.talk-section-title {
   margin-bottom: 5px;
   padding: 5px 0;
   font-size: 22px !important;
-  border-bottom: solid thin rgba(19, 19, 19, 0.2);
 
   &::before {
     content: "";
@@ -414,15 +413,10 @@ h2.talk-section-title {
 
 .talk-segment {
   display: grid;
-  grid-template-columns: minmax(0, 63fr) minmax(0, 37fr);
-  gap: 20px 40px;
+  grid-template-columns: minmax(0, 58fr) minmax(0, 42fr);
+  gap: 20px 48px;
   align-items: start;
   padding: 28px 0;
-  border-bottom: solid thin rgba(19, 19, 19, 0.08);
-
-  &:last-child {
-    border-bottom: none;
-  }
 
   .talk-slide {
     img,
@@ -450,18 +444,6 @@ h2.talk-section-title {
     ul:last-child {
       margin-bottom: 0;
     }
-  }
-}
-
-.talk-aside {
-  max-width: 675px;
-  margin: 30px 0;
-  padding: 10px 15px;
-  background-color: rgba(255, 255, 255, 0.5);
-  border-left: solid 3px $col_orange;
-
-  p {
-    margin: 0;
   }
 }
 

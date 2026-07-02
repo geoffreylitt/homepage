@@ -19,25 +19,21 @@ image_url: "/images/talks/understanding-bottleneck/card.jpg"
     %p.talk-context
       This is a written version of a talk I gave at the
       %a{href: "https://www.ai.engineer/"} AI Engineer
-      conference in July 2026, adapted from
-      %a{href: "https://x.com/geoffreylitt/status/2072522251300409556"} the thread
-      I posted about it. Each slide is paired with roughly what I said about it.
+      conference in July 2026, also shared as
+      %a{href: "https://x.com/geoffreylitt/status/2072522251300409556"} a tweet thread.
 
   - talk.sections.each do |section|
     - if section["title"]
       %h2.talk-section-title= section["title"]
     - section["segments"].each do |seg|
-      - if seg["aside"]
-        .talk-aside!= seg["html"]
-      - else
-        .talk-segment
-          .talk-slide
-            - if seg["video"]
-              %video{controls: true, playsinline: true, preload: "metadata", poster: "#{talk.assets}/#{seg["poster"]}", "aria-label" => seg["alt"]}
-                %source{src: "#{talk.assets}/#{seg["video"]}", type: "video/mp4"}
-            - else
-              %img{src: "#{talk.assets}/#{seg["slide"]}", alt: seg["alt"], loading: "lazy"}
-          .talk-text!= seg["html"]
+      .talk-segment
+        .talk-slide
+          - if seg["video"]
+            %video{controls: true, playsinline: true, preload: "metadata", poster: "#{talk.assets}/#{seg["poster"]}", "aria-label" => seg["alt"]}
+              %source{src: "#{talk.assets}/#{seg["video"]}", type: "video/mp4"}
+          - else
+            %img{src: "#{talk.assets}/#{seg["slide"]}", alt: seg["alt"], loading: "lazy"}
+        .talk-text!= seg["html"]
 
   .talk-outro
     %h2 Related reads
