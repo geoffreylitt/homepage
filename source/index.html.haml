@@ -27,10 +27,11 @@
 .blogposts-list
   - page_articles.reject{ |a| a.data[:hidden] }.each_with_index do |article, i|
     .blogpost-link
+      - link_target = article.data[:link] || article
       - if article.data[:starred]
-        = link_to article.title, article, class: 'starred'
+        = link_to article.title, link_target, class: 'starred'
       - else
-        = link_to article.title, article
+        = link_to article.title, link_target
 
 %a{id: "podcasts"}
 %h2.project-category Interviews
