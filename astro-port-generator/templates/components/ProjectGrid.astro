@@ -1,0 +1,35 @@
+---
+export interface Project {
+  name: string;
+  slug?: string;
+  description: string;
+  image?: string;
+  link?: string;
+  recent?: boolean;
+  hidden?: boolean;
+}
+
+export interface Props {
+  projects: Project[];
+}
+
+const { projects } = Astro.props;
+const visibleProjects = projects.filter(p => !p.hidden);
+---
+
+<div class="project-grid">
+  {visibleProjects.map((project) => (
+    <a href={project.link || `/projects/${project.slug}.html`} class="homepage-link">
+      <div class="project">
+        <div class="project-image">
+          <img src={project.image || `/images/projects/${project.slug}.png`} alt={project.name} />
+        </div>
+        <h3 class="project-title">
+          {project.name}
+          {project.recent && <span class="recent">New!</span>}
+        </h3>
+        <div class="project-description">{project.description}</div>
+      </div>
+    </a>
+  ))}
+</div>

@@ -1,0 +1,23 @@
+@media screen and (min-width: 500px) {
+  article.blogpost{
+    font-size: 40px;
+
+    h2.title{
+      font-size: 50px;
+    }
+
+    h3.date{
+      font-size: 16px;
+    }
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .mobile{
+    display: none;
+  }
+
+  .desktop{
+    display: block;
+  }
+}
