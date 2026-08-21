@@ -8,3 +8,6 @@ DOCS.md
 .DS_Store
 .bundle
 vendor
+
+# talk sync: cached Figma renders
+talks/*/cache/

@@ -1,0 +1,25 @@
+# Config for one talk-slides post. Consumed by bin/sync-talk.
+slug: rc-dynamic
+file_key: a3TxBTfJ5yVihJxdnYzUKR
+
+# Where the generated Middleman data file goes. The article template reads this
+# via `data.rc_talk`, so the basename determines the template's variable name.
+data_file: data/rc_talk.yml
+
+# Public asset path baked into the generated data file.
+assets: /images/talks/rc-dynamic
+
+# Slide rows (Figma "sections") to leave out of the post entirely.
+exclude_sections:
+  - archive
+
+# Slides flagged "skip in presentation" in Figma are dropped unless this is true.
+include_skipped: false
+
+# Responsive variants. `full_width` is the 1x file (slide-NN.webp); each entry in
+# `widths` gets a suffixed file (slide-NN-800.webp).
+full_width: 1600
+widths:
+  - 800
+  - 1200
+webp_quality: 82

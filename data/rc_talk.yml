@@ -1,0 +1,706 @@
+---
+assets: "/images/talks/rc-dynamic"
+generated_by: bin/sync-talk rc-dynamic — do not hand-edit; edit Figma speaker notes
+  and resync
+figma_file: https://www.figma.com/deck/a3TxBTfJ5yVihJxdnYzUKR
+slide_count: 79
+sections:
+- title: intro
+  segments:
+  - slide: slide-01.webp
+    figma_id: 1:1683
+    figma_name: '1'
+    alt: 'Title slide: Dynamic documents as personal software.'
+    html: |-
+      <p>Hi everyone, it&#39;s great to be here.</p>
+
+      <p>So the title of this talk is &quot;dynamic documents as personal software&quot;.</p>
+
+      <p>I spend a lot of time thinking about fresh ways to view the basic building blocks of computing, things like &quot;documents&quot; and &quot;applications&quot; - and today, by sharing some of those ideas, I hope to change the way that you see those building blocks.</p>
+  - slide: slide-02.webp
+    figma_id: 2105:916
+    figma_name: '2'
+    alt: Slide 2 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <p>But this talk could also be called How to take a rabbit hole very seriously</p>
+
+      <p>So this has been almost a decade long quest now, and I&#39;ve learned a lot about what it looks like, in very practical terms, to go deep on a nerdy topic. And if you&#39;re at RC or part of this community, you&#39;re probably the kind of person who likes nerdy rabbit holes and may want to up your level of seriousness.</p>
+
+      <p>So I hope to share some ideas on that meta level too.</p>
+  - slide: slide-03.webp
+    figma_id: 2146:1116
+    figma_name: '3'
+    alt: Slide 3 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <p>Looking back, it all started right here!</p>
+
+      <p>I was part of the first ever one-week &quot;Mini Batch&quot; in January 2018, and it ended up being one of the most important weeks of my career.</p>
+
+      <p>I looked back for photos from that time, and for some reason the only photo I took was of a Christmas tree on the street as I was walking to RC one morning. So you can tell it was January.</p>
+
+      <p>My project at RC was following a curriculum to implement a Lisp, which was a ton of fun. But more importantly I was exposed to some new ideas and people...</p>
+  - slide: slide-04.webp
+    figma_id: 2089:381
+    figma_name: '4'
+    alt: Slide 4 from the talk “Dynamic documents as personal software”.
+    html: "<p>I met the programming languages researcher named Alex Warth, who was
+      working on a &quot;directional programming language&quot; that opened my eyes
+      to new ways of specifying behavior.</p>"
+  - slide: slide-05.webp
+    figma_id: 2015:292
+    figma_name: '5'
+    alt: Slide 5 from the talk “Dynamic documents as personal software”.
+    html: "<p>And I also learned about the work of Bret Victor, an interface designer
+      who&#39;s explored ideas like reactive documents that blend interaction with
+      explanation.</p>"
+  - slide: slide-06.webp
+    figma_id: 2105:1024
+    figma_name: '6'
+    alt: Slide 6 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <p>And finally, less than a week after leaving RC, when I got back home to Boston, I met Glen Chiacchieri - who was previously an RC Resident.</p>
+
+      <p>He was presenting Flowsheets, a prototype system that blended a spreadsheet UI with arbitrary python code.</p>
+  - slide: slide-07.webp
+    figma_id: 2151:1232
+    figma_name: '7'
+    alt: Slide 7 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <p>Now these three people were all exploring ideas hovering around a shared theme:
+      How can we blend “documents” and “programming”?</p>
+
+      <p>I decided I wanted to explore that question too.</p>
+  - slide: slide-08.webp
+    figma_id: 2001:279
+    figma_name: '8'
+    alt: Slide 8 from the talk “Dynamic documents as personal software”.
+    html: "<p>So today I want to tell you 3 stories from the journey.</p>"
+  - slide: slide-09.webp
+    figma_id: 2154:1239
+    figma_name: '9'
+    alt: Slide 9 from the talk “Dynamic documents as personal software”.
+    html: "<p>First one: bringing code to life.</p>"
+- title: Margin Notes (2018)
+  segments:
+  - slide: slide-10.webp
+    figma_id: 2106:1040
+    figma_name: '10'
+    alt: Slide 10 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <p>Hot take: code is unnecessarily hard to read.
+      Example: some ruby code, part of a tic tac toe game.
+      What does this method return?</p>
+
+      <p>Now maybe you can give it some thought and figure it out... but it takes a few seconds even if you&#39;re good at reading code.</p>
+
+      <p>Why is this hard? Well one reason: you can&#39;t see the data!!!
+      You can only see the abstract logic so you have to <strong>simulate a computer</strong> in your head.</p>
+
+      <p>When you think about it this is a bit silly. The computer is already running this code with real data.
+      So let&#39;s see it!</p>
+  - slide: slide-11.webp
+    figma_id: 2014:285
+    figma_name: '11'
+    alt: Slide 11 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <ul>
+      <li>here&#39;s a system i built called Margin Notes</li>
+      <li>it records some examples of what methods returned</li>
+      <li>surface them inline as you browse the code</li>
+      <li>simple but speeds you up!</li>
+      </ul>
+  - slide: slide-12.webp
+    figma_id: 2014:287
+    figma_name: '12'
+    alt: Slide 12 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <ul>
+      <li>you can also name the examples to make them easier to browse</li>
+      <li>this starts to feel a bit like &quot;tests&quot; -- but more focused on human understanding than rigorous correctness checking</li>
+      </ul>
+  - slide: slide-13.webp
+    figma_id: 2014:291
+    figma_name: '13'
+    alt: Slide 13 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <ul>
+      <li>a neat example: the docstring for a method had some types written down...</li>
+      <li>but we can record the tests running and visualize them as examples, turns out the docstring wasn&#39;t fully accurate!</li>
+      </ul>
+  - slide: slide-14.webp
+    figma_id: 2148:1140
+    figma_name: '14'
+    alt: Slide 14 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <ul>
+      <li>btw this is not a totally unique idea, this is part of a field called &quot;live programming&quot; which is all about showing the data</li>
+      <li>one example: around 2018 when i was working on margin notes, there was a team working on a system called &quot;darklang&quot; which had some similar really cool ideas about recording live http traces to a production server and showing you with the code. (their version was extra cool - you could edit code and see what it <em>would</em> have done thanks to a very pure fp lang.)</li>
+      </ul>
+  - slide: slide-15.webp
+    figma_id: 2106:1092
+    figma_name: '15'
+    alt: Slide 15 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <ul>
+      <li>i got lucky: live programming has a welcoming community... including a stellar academic &quot;workshop&quot;</li>
+      <li>in computer science, academic workshop = venue to get feedback on in-progress ideas. much lower bar than conference publication. highly recommend for people who aren&#39;t full time academics!</li>
+      <li>unfortunately my work was rejected.</li>
+      </ul>
+  - slide: slide-16.webp
+    figma_id: 2106:1100
+    figma_name: '16'
+    alt: Slide 16 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <ul>
+      <li>oh wait, it was actually accepted! :D</li>
+      <li>went to the workshop, presented, met so many cool people who are now friends</li>
+      </ul>
+  - slide: slide-17.webp
+    figma_id: 2106:1054
+    figma_name: '17'
+    alt: Slide 17 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <ul>
+      <li>and also met this guy, Daniel Jackson, an MIT programming languages professor</li>
+      </ul>
+  - slide: slide-18.webp
+    figma_id: 2106:1074
+    figma_name: '18'
+    alt: Slide 18 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <ul>
+      <li>and I convinced him to let me work with him at MIT</li>
+      <li>So I started a PhD there :D</li>
+      <li>secret: STEM PhD is basically getting paid to rabbit hole. so if you find the right fit it can be amazing</li>
+      <li>Led me to the next step...</li>
+      </ul>
+- title: Potluck + Embark
+  segments:
+  - slide: slide-19.webp
+    figma_id: 2154:1299
+    figma_name: '19'
+    alt: Slide 19 from the talk “Dynamic documents as personal software”.
+    html: "<p>dynamic docs as personal software.</p>"
+  - slide: slide-20.webp
+    figma_id: 2015:290
+    figma_name: '20'
+    alt: Slide 20 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <ul>
+      <li>gonna show projects that i worked on during MIT time, together with collaborators at Ink &amp; Switch, indepenent lab</li>
+      </ul>
+  - slide: slide-21.webp
+    figma_id: 2015:296
+    figma_name: '21'
+    alt: Slide 21 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <ul>
+      <li>related work: soulver</li>
+      </ul>
+  - slide: slide-22.webp
+    figma_id: 2147:1135
+    figma_name: '22'
+    alt: Slide 22 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <ul>
+      <li>also goes way back - to Xerox PARC and also hypercard. start from writing doc or drawing canvas. then layer in interaction and programmability.</li>
+      </ul>
+  - slide: slide-23.webp
+    figma_id: 2015:280
+    figma_name: '23'
+    alt: Slide 23 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <ul>
+      <li>https://www.inkandswitch.com/potluck/</li>
+      </ul>
+  - slide: slide-24.webp
+    figma_id: 2154:1265
+    figma_name: '24'
+    alt: Slide 24 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <ul>
+      <li>&quot;Let&#39;s see an example of how it feels to use a simple Potluck document. Below is a simple recipe for making coffee, which includes an interactive slider that can scale up the number of servings.&quot;</li>
+      <li>&quot;we&#39;ve 1) constructed a search that finds the quantities of coffee and water, 2) run a computation that multiplies those quantities, and then 3) set up some annotations to overlay the scaled quantities over the original ones.&quot;</li>
+      </ul>
+  - slide: slide-25.webp
+    figma_id: 2015:282
+    figma_name: '25'
+    alt: Slide 25 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <ul>
+      <li>&quot;We&#39;ve found that many different kinds of software can be built in Potluck. We&#39;ve used it to build tools for tracking household chores, managing a cash register, organizing a meeting agenda, tracking workouts, splitting a bill, and planning a trip.&quot;</li>
+      </ul>
+  - slide: slide-26.webp
+    figma_id: 2015:284
+    figma_name: '26'
+    alt: Slide 26 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <ul>
+      <li><strong>Caption:</strong> &quot;A workshop agenda. Each line has a duration, and the start/end times are computed.&quot;</li>
+      <li>Note what&#39;s <em>not</em> here: no table, no schema, no app. Just a note where the times add themselves up.</li>
+      </ul>
+  - slide: slide-27.webp
+    figma_id: 2015:286
+    figma_name: '27'
+    alt: Slide 27 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <ul>
+      <li><strong>Caption:</strong> &quot;A cash register where each item for sale is represented as an emoji.&quot;</li>
+      <li>Emoji as the primary key is a good laugh line — and a real demonstration that the user picks the syntax, not the tool.</li>
+      </ul>
+  - slide: slide-28.webp
+    figma_id: 2016:280
+    figma_name: '28'
+    alt: Slide 28 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <ul>
+      <li>&quot;Users are already familiar with searching for content in a word processor or web browser, so it&#39;s a natural on-ramp to creating live data detectors.&quot;</li>
+      <li>&quot;As an easy start, the user can search for a string literal: <code>11 g</code>... Searches run continuously against the note&#39;s content, so the results update as we update the text note.&quot;</li>
+      </ul>
+  - slide: slide-29.webp
+    figma_id: 2016:282
+    figma_name: '29'
+    alt: Slide 29 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <ul>
+      <li>&quot;the user can do this by rewriting their search from <code>11 g</code> to <code>{number} g</code>. This works because Potluck searches can reference other existing searches, by putting the name of an existing search inside of curly braces. Potluck comes with many simple patterns built in, including numbers, dates, and phone numbers.&quot;</li>
+      <li>&quot;If they edit the search to say <code>{number:amount} g</code>, the table of results will automatically show a column that just contains the amount.&quot;</li>
+      </ul>
+  - slide: slide-30.webp
+    figma_id: 2016:284
+    figma_name: '30'
+    alt: Slide 30 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <ul>
+      <li>&quot;the user adds a computed property called <code>scaledQuantity</code> that is the result of multiplying the quantity by a scale factor. For now, they want to make 2 cups of coffee, so they just write a simple formula: <code>amount \* 2</code>. Later they&#39;ll make the scale factor adjustable.&quot;</li>
+      <li>&quot;Each column computes a small pure expression that automatically re-evaluates reactively, and the current output is shown live in the table.&quot;</li>
+      </ul>
+  - slide: slide-31.webp
+    figma_id: 2016:286
+    figma_name: '31'
+    alt: Slide 31 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <ul>
+      <li>&quot;Potluck offers several annotation locations: above the text, next to the text, or replacing the text. In this case, the user tries out a few options for where to place the annotation, and decides to cover up the original text with the scaled value.&quot;</li>
+      </ul>
+  - slide: slide-32.webp
+    figma_id: 2016:294
+    figma_name: '32'
+    alt: Slide 32 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <ul>
+      <li>&quot;It&#39;s hard for a user to tell at a glance which plants should be watered today... The user can do this by adding a computed property which outputs &#39;red&#39; or &#39;green&#39;, and assigning that to control the color of the underlying search result. Any CSS property can be addressed by dynamic formatting, including color, font size, and font weight.&quot;</li>
+      <li>&quot;they are overlays applied to the text at view time, and they don&#39;t durably edit the state of the underlying text in any way... eliminating the potential for confusing feedback loops between the two layers.&quot;</li>
+      </ul>
+  - slide: slide-33.webp
+    figma_id: 2017:289
+    figma_name: '33'
+    alt: Slide 33 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <ul>
+      <li>https://www.inkandswitch.com/embark/</li>
+      </ul>
+  - slide: slide-34.webp
+    figma_id: 2154:1271
+    figma_name: '34'
+    alt: Slide 34 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <ul>
+      <li>&quot;When he wants to reference certain kinds of structured objects like a place or a date, he can create a mention by typing &#39;@&#39; and picking a choice from an autocomplete menu. Mentions are simply links to other outline nodes containing structured data. For example, when Paul chooses &#39;Chocolate Factory&#39; from the autocomplete menu... the system automatically creates an outline node and populates it with information pulled from Google Maps.&quot;</li>
+      </ul>
+  - slide: slide-35.webp
+    figma_id: 2017:291
+    figma_name: '35'
+    alt: Slide 35 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <ul>
+      <li>&quot;its children contain structured information stored in named properties, like <code>rating: 4.7</code>. Embark has a lightweight syntax for such properties: any outline node can have a name, using the syntax <code>name: value</code>. These names can be manually written by the user or filled in by automatic data importers.&quot;</li>
+      <li>&quot;we will see much more powerful uses of mentions later on, when they help the environment make sense of structured information to power views and computations.&quot;</li>
+      </ul>
+  - slide: slide-36.webp
+    figma_id: 2017:293
+    figma_name: '36'
+    alt: Slide 36 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <ul>
+      <li>&quot;Paul wants to share the plan with his friends and include a map as a visual overview. He can do this by adding a map view, which reads in any nodes containing location information and displays them as markers on the map. The place mentions he created earlier appear on the map because they contain location coordinates imported from Google Maps.&quot;</li>
+      <li>&quot;The map is just one instance of a view; Embark also includes a few other simple views including tables and calendars. Each view instance is associated with some node in the outline and can access any data in that node or the subtree underneath.&quot;</li>
+      </ul>
+  - slide: slide-37.webp
+    figma_id: 2017:295
+    figma_name: '37'
+    alt: Slide 37 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <ul>
+      <li>&quot;Views are not limited to accessing data created by automatic importers; they can also access data entered manually by the user. Paul can take advantage of this to customize his map further. First, he wants to show some custom icons for various points they are visiting. He can do this by adding an &#39;icon&#39; property to some of the places they are visiting.&quot;</li>
+      </ul>
+  - slide: slide-38.webp
+    figma_id: 2017:297
+    figma_name: '38'
+    alt: Slide 38 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <ul>
+      <li>&quot;Because his outline is already organized hierarchically by day, he can set a <code>color</code> property for various sub-trees of the outline, and the map will color the points taken from that tree.&quot;</li>
+      </ul>
+  - slide: slide-39.webp
+    figma_id: 2017:299
+    figma_name: '39'
+    alt: Slide 39 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <ul>
+      <li>&quot;Embark offers formulas: dynamic computations that use data from the outline as inputs and produce further outline nodes as output. Users can always write formulas manually as in a spreadsheet, but Embark also offers affordances for automatically suggesting formulas.&quot;</li>
+      <li>&quot;When he clicks on the node for Friday in the outline, the UI suggests formulas that could apply to this node, including the one he wants: <code>Weather(in: @Aachen, on: @Friday)</code>. To power this suggestion, the system uses a heuristic that examines the surrounding context in the outline to recommend useful formulas. In this case, Aachen was mentioned in the top node of the document, so the system used that as the location input.&quot;</li>
+      <li>&quot;The results will automatically update as the weather forecast updates. Paul can move or annotate the result just like any other outline node.&quot;</li>
+      </ul>
+  - slide: slide-40.webp
+    figma_id: 2018:286
+    figma_name: '40'
+    alt: Slide 40 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <ul>
+      <li>&quot;Paul wants to get the weather for all the days of the trip. He could achieve this by redoing the same process manually, but Embark also offers a faster way: a repeat button that automatically copies the formula to various parts of the outline, while changing the inputs to match the surrounding context for each copy. For example, the weather formula keeps the same location, but gets a new date to match each date of the trip.&quot;</li>
+      <li>&quot;the repeat button works by inferring an abstract pattern for the formula based on how its arguments relate to the outline. After inferring this pattern, Embark tries to find other places in the outline that match this shape and insert a formula using the matched nodes as arguments.&quot;</li>
+      <li>&quot;a special system-wide outline containing user preferences.&quot;</li>
+      </ul>
+  - slide: slide-41.webp
+    figma_id: 2018:288
+    figma_name: '41'
+    alt: Slide 41 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <ul>
+      <li>&quot;Fuzzy text is effective for filtering the list of possible formulas because it&#39;s not searching over all possible places, only the places which have already been mentioned in this document.&quot;</li>
+      <li>&quot;He concludes the best option is to go there by car, and adds the <code>Drive</code> formula to his outline. The result of this formula displays the time and distance expected for the drive. Internally, it contains more structured data, including a geographic path which can be displayed by the map.&quot;</li>
+      </ul>
+  - slide: slide-42.webp
+    figma_id: 2018:290
+    figma_name: '42'
+    alt: Slide 42 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <ul>
+      <li>&quot;he assigns the name &#39;route&#39; to the outline node with the route computation, which lets him refer to it from other nodes. He can then write new formulas which use the distance of the route to compute the price based on the cost per kilometer (30 cents) and the fixed daily rate (25 Euros). The formula language has a syntax <code>route.distance</code> for accessing named children of the mention returned by the formula result.&quot;</li>
+      <li>&quot;In most apps, computations like routes only show up in a specified view; in Embark, they return structured data into the outline, which can be displayed in standard ways or repurposed for more custom purposes.&quot;</li>
+      </ul>
+  - slide: slide-43.webp
+    figma_id: 2018:292
+    figma_name: '43'
+    alt: Slide 43 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <ul>
+      <li>&quot;Because the result of the weather forecast formula above is a mention containing structured data, it can be passed into a view and combined with other data. Paul can use a single calendar view to show the hourly precipitation probability from the weather formula alongside the opening hours of the flea market that he manually entered into the outline.&quot;</li>
+      <li>&quot;When Paul looks at the calendar, it becomes clear that he and his friends should go to the flea market first because it&#39;s less likely to rain in the morning.&quot;</li>
+      <li>&quot;if you open Google Calendar and pull up the weather forecast in another tab, there is no way to combine these two data sources in a single view. This is possible in Embark because the weather forecast and the time information live in the same data substrate.&quot;</li>
+      </ul>
+  - slide: slide-44.webp
+    figma_id: 2018:294
+    figma_name: '44'
+    alt: Slide 44 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <ul>
+      <li>&quot;A dinner pit stop: Geoffrey was on a road trip to Maine and needed to decide where to stop for dinner. He used the outline view to assess relative drive times, and used the map view to pick a scenic coastal route.&quot;</li>
+      <li>&quot;It was helpful to interleave casual notes directly in the document with the rest of our plans.&quot;</li>
+      </ul>
+- title: notion
+  segments:
+  - slide: slide-45.webp
+    figma_id: 2154:1321
+    figma_name: '45'
+    alt: Slide 45 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <p>Final leg: deploying at scale.
+      So until this point I&#39;ve been showing small scale research prototypes. Sharing demos and essays but not working software.
+      I ended up deciding I wanted to go back to startups and build for users again.
+      So now I&#39;m at Notion.
+      And I want to share a bit about how this all connects there.</p>
+  - slide: slide-46.webp
+    figma_id: 2089:397
+    figma_name: '46'
+    alt: Slide 46 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <p>A lot of people, when they think about code review, picture a human asking: &quot;Is this code correct?&quot; And &quot;correct&quot; could mean: is it buggy? Does it match the spec I gave it? Or even harder-to-verify things, like: does it have good architecture?</p>
+
+      <p>But fundamentally, this is a thumbs-up / thumbs-down, is-it-correct gate that the human is applying.</p>
+
+      <p>Now, here&#39;s the thing. As the agents get smarter, and as we give them better tools, they&#39;re getting better and better at asking that question themselves. Over time, the amount of &quot;thumbs down, not correct&quot; the human gives is going to go down and down — the human role in correctness-checking is fading.</p>
+
+      <p>This is not a bad thing, to be clear — having robots that can automatically produce correct output is great.</p>
+  - slide: slide-47.webp
+    figma_id: 2089:406
+    figma_name: '47'
+    alt: Slide 47 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <p>A lot of people, when they think about code review, picture a human asking: &quot;Is this code correct?&quot; And &quot;correct&quot; could mean: is it buggy? Does it match the spec I gave it? Or even harder-to-verify things, like: does it have good architecture?</p>
+
+      <p>But fundamentally, this is a thumbs-up / thumbs-down, is-it-correct gate that the human is applying.</p>
+
+      <p>Now, here&#39;s the thing. As the agents get smarter, and as we give them better tools, they&#39;re getting better and better at asking that question themselves. Over time, the amount of &quot;thumbs down, not correct&quot; the human gives is going to go down and down — the human role in correctness-checking is fading.</p>
+
+      <p>This is not a bad thing, to be clear — having robots that can automatically produce correct output is great.</p>
+  - slide: slide-48.webp
+    figma_id: 2089:417
+    figma_name: '48'
+    alt: Slide 48 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <p>A lot of people, when they think about code review, picture a human asking: &quot;Is this code correct?&quot; Is it buggy, does it match the spec</p>
+
+      <p>But fundamentally, this is a thumbs-up / thumbs-down gate that the human is applying.</p>
+
+      <p>Now, here&#39;s the thing. As the agents get smarter, and as we give them better tools, they&#39;re getting better at asking that question themselves. And our role is fading. It was never really our greatest contribution to the work anyway.</p>
+
+      <p>This is not a bad thing, to be clear — having robots that can automatically produce correct output is great.</p>
+  - slide: slide-49.webp
+    figma_id: 2089:430
+    figma_name: '49'
+    alt: Slide 49 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <p>A lot of people, when they think about code review, picture a human asking: &quot;Is this code correct?&quot; And &quot;correct&quot; could mean: is it buggy? Does it match the spec I gave it? Or even harder-to-verify things, like: does it have good architecture?</p>
+
+      <p>But fundamentally, this is a thumbs-up / thumbs-down, is-it-correct gate that the human is applying.</p>
+
+      <p>Now, here&#39;s the thing. As the agents get smarter, and as we give them better tools, they&#39;re getting better and better at asking that question themselves. Over time, the amount of &quot;thumbs down, not correct&quot; the human gives is going to go down and down — the human role in correctness-checking is fading.</p>
+
+      <p>This is not a bad thing, to be clear — having robots that can automatically produce correct output is great.</p>
+  - slide: slide-50.webp
+    figma_id: 2089:443
+    figma_name: '50'
+    alt: Slide 50 from the talk “Dynamic documents as personal software”.
+    html: "<p>But all of this discussion around correctness-checking is missing a
+      deeper reason for understanding: participation.</p>"
+  - slide: slide-51.webp
+    figma_id: 2089:446
+    figma_name: '51'
+    alt: Slide 51 from the talk “Dynamic documents as personal software”.
+    html: "<p>One of the things that happens in a code review is that you gain an
+      understanding of the system.</p>"
+  - slide: slide-52.webp
+    figma_id: 2089:455
+    figma_name: '52'
+    alt: Slide 52 from the talk “Dynamic documents as personal software”.
+    html: "<p>One of the things that happens in a code review is that you gain an
+      understanding of the system. And that matters because this isn&#39;t a single
+      loop — after you finish one task, you go to the next, and the next.</p>"
+  - slide: slide-53.webp
+    figma_id: 2089:466
+    figma_name: '53'
+    alt: Slide 53 from the talk “Dynamic documents as personal software”.
+    html: "<p>The understanding you have of the system is part of your ability to
+      come up with the next idea to evolve it. You need a rich set of concepts in
+      your mind to think creatively and fluently about how to move something forward.
+      And if you&#39;re lacking that fluency, your ability to participate in the project
+      is meaningfully limited.</p>"
+  - slide: slide-54.webp
+    figma_id: 2089:475
+    figma_name: '54'
+    alt: Slide 54 from the talk “Dynamic documents as personal software”.
+    html: "<p>The understanding you have of the system is part of your ability to
+      come up with the next idea to evolve it. You need a rich set of concepts in
+      your mind to think creatively and fluently about how to move something forward.
+      And if you&#39;re lacking that fluency, your ability to participate in the project
+      is meaningfully limited.</p>"
+  - slide: slide-55.webp
+    figma_id: 2089:504
+    figma_name: '55'
+    alt: Slide 55 from the talk “Dynamic documents as personal software”.
+    html: "<p>The understanding you have of the system is part of your ability to
+      come up with the next idea to evolve it. You need a rich set of concepts in
+      your mind to think creatively and fluently about how to move something forward.
+      And if you&#39;re lacking that fluency, your ability to participate in the project
+      is meaningfully limited.</p>"
+  - slide: slide-56.webp
+    figma_id: 2089:535
+    figma_name: '56'
+    alt: Slide 56 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <p>You might get away with not understanding short term, but long term it&#39;ll bite you.</p>
+
+      <p>There&#39;s a great concept
+      called cognitive debt, popularized by Margaret Storey — an analogy to technical debt. As your own understanding of the system falls behind, you build up a kind of debt: fine in the short term, but over the long term it diminishes your ability to participate.</p>
+
+      <p>Put another way: understanding is the bottleneck — exceptional work can&#39;t be done faster than the speed of understanding.</p>
+  - slide: slide-57.webp
+    figma_id: 2089:547
+    figma_name: '57'
+    alt: Slide 57 from the talk “Dynamic documents as personal software”.
+    html: "<p>But this raises the next question: how? How do we build this human understanding
+      when we&#39;re working with AI and moving fast?</p>"
+  - slide: slide-58.webp
+    figma_id: 2089:552
+    figma_name: '58'
+    alt: Slide 58 from the talk “Dynamic documents as personal software”.
+    html: "<p>The right way to approach this is to ask a simpler question: how do
+      we build human understanding of complex concepts at all? It turns out this isn&#39;t
+      the first time the question has been asked.</p>"
+  - slide: slide-59.webp
+    figma_id: 2089:556
+    figma_name: '59'
+    alt: Slide 59 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <p>Many people have thought about this. Education is a whole field dedicated to answering that question.</p>
+
+      <p>We can take inspiration from some of the best ideas ever invented in education — especially around using computers to educate — and apply them to this problem of understanding what our agents are doing.</p>
+  - slide: slide-60.webp
+    figma_id: 2089:558
+    figma_name: '60'
+    alt: Slide 60 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <p>Today I want to share three techniques that show how: explanations, micro-worlds, and shared spaces.</p>
+
+      <p>First: explanations. What makes a good explanation?</p>
+  - slide: slide-61.webp
+    figma_id: 2089:577
+    figma_name: '61'
+    alt: Slide 61 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <p>Today I want to share three techniques that show how: explanations, micro-worlds, and shared spaces.</p>
+
+      <p>First: explanations. What makes a good explanation?</p>
+  - slide: slide-62.webp
+    figma_id: 2089:596
+    figma_name: '62'
+    alt: Slide 62 from the talk “Dynamic documents as personal software”.
+    html: "<p>Whenever an agent finishes some work, it&#39;s an opportunity for an
+      explanation — an artifact. Most naively, a code diff: the raw material that
+      changed.</p>"
+  - slide: slide-63.webp
+    figma_id: 2089:605
+    figma_name: '63'
+    alt: Slide 63 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <p>But I&#39;ve always wondered what the best possible explanation would look like. If you had a team — human or AI — that really sweat the details of explaining something well to you, how would that feel?</p>
+
+      <p>So I made a skill for agents called explain-diff, which I use every day and many coworkers have found valuable. It can output markdown or HTML — but my favorite is a Notion page, because then these explanations live as collaborative docs. Here&#39;s what it puts into the explanation.</p>
+  - slide: slide-64.webp
+    figma_id: 2089:614
+    figma_name: '64'
+    alt: Slide 64 from the talk “Dynamic documents as personal software”.
+    html: "<p>So I made a skill for agents called explain-diff, which I use every
+      day and many coworkers have found valuable.</p>"
+  - slide: slide-65.webp
+    figma_id: 2089:624
+    figma_name: '65'
+    alt: Slide 65 from the talk “Dynamic documents as personal software”.
+    html: "<p>The example codebase here is a Zen Garden video game I made to relax
+      a bit.</p>"
+  - slide: slide-66.webp
+    figma_id: 2089:627
+    figma_name: '66'
+    alt: Slide 66 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <p>and then i made a change to the perspective system which produced this explainer doc.
+      It can output markdown or HTML — but my favorite is a Notion page, because then these explanations live as collaborative docs.
+      Here&#39;s what it puts into the explanation.</p>
+  - slide: slide-67.webp
+    figma_id: 2089:631
+    figma_name: '67'
+    alt: Slide 67 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <p>First principle: teach me background info!
+      Before we even get to what changed, help me understand what was already there.</p>
+  - slide: slide-68.webp
+    figma_id: 2089:634
+    figma_name: '68'
+    alt: Slide 68 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <p>Second principle: intuition before details.
+      Before any code, it states the goal — &quot;make the garden feel three-dimensional with 2D drawing tricks&quot; — and explains related concepts, like what isometric projection is.</p>
+
+      <p>All of this builds my intuition for the essence of the change.
+      it&#39;s catching me up as the human so I can be an equal participant in understanding.</p>
+  - slide: slide-69.webp
+    figma_id: 2089:637
+    figma_name: '69'
+    alt: Slide 69 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <p>You can also build intuition with interactive figures.
+      Here I&#39;m understanding the isometric perspective by dragging rocks around the garden and watching their coordinates move.</p>
+
+      <p>This is using a new feature Notion just shipped today actually, you can now embed interactive HTML inside pages.</p>
+  - slide: slide-70.webp
+    figma_id: 2089:640
+    figma_name: '70'
+    alt: Slide 70 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <p>We finally get to the code.
+      But A typical diff is a pile of files edited in alphabetical order with no explanation.
+      A literate diff is structured as prose — walking through the changes in a sensible order, with surrounding explanation and embedded code snippets. Faster to review than a raw diff.</p>
+
+      <p>Put it all together and you get a really nice explanation packet.</p>
+
+      <p>I do still review diffs in GitHub, but I always start here</p>
+  - slide: slide-71.webp
+    figma_id: 2089:643
+    figma_name: '71'
+    alt: Slide 71 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <p>Sometimes I&#39;ll print these out and take them to the café — less distracting.
+      It&#39;s beautifully ironic: AI turns a highly interactive activity into a static paper report I can focus on deeply.</p>
+  - slide: slide-72.webp
+    figma_id: 2089:645
+    figma_name: '72'
+    alt: Slide 72 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <p>But there&#39;s one problem: reading is hard work :)
+      It&#39;s tempting to skip ahead and convince yourself you&#39;ve understood.</p>
+
+      <p>One time I sent a coworker a PR I thought I understood — she asked a few questions and I realized I had no idea what was going on.
+      I&#39;d sent her slop. That was on me, and I wanted a system to make sure I actually did the reading.</p>
+  - slide: slide-73.webp
+    figma_id: 2089:648
+    figma_name: '73'
+    alt: Slide 73 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <p>For inspiration I looked to Andy Matuschak, who has this lovely line: &quot;books don&#39;t work.&quot;</p>
+
+      <p>It&#39;s very easy to read a book and not realize you didn&#39;t retain anything — easy to read without engaging actively enough to actually internalize the knowledge.</p>
+  - slide: slide-74.webp
+    figma_id: 2089:653
+    figma_name: '74'
+    alt: Slide 74 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <p>So Andy and his collaborator Michael Nielsen embedded spaced-repetition quizzes into the flow of an essay.
+      As you read, you quiz yourself and mark whether you could recall it — and they keep resurfacing the questions so you retain them long-term.</p>
+
+      <p>I found this intriguing: a way to introduce speed bumps into your reading — checks for understanding so you know you&#39;re following along.</p>
+  - slide: slide-75.webp
+    figma_id: 2089:656
+    figma_name: '75'
+    alt: Slide 75 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <p>I do something similar with my code explainers now. At the bottom of an explainer there&#39;s an interactive quiz — five questions about the change — and I try to answer them.</p>
+
+      <p>My rule: I won&#39;t send code to others until I can pass the quiz, and I do the same when reviewing others&#39; code.</p>
+  - slide: slide-76.webp
+    figma_id: 2089:659
+    figma_name: '76'
+    alt: Slide 76 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <p>I think of this as a speed regulator. Working with AI, it&#39;s easy for the loop to run faster than the speed of human understanding.</p>
+
+      <p>The quiz is a counterbalancing force: I mechanically ask &quot;do I actually understand?&quot; so that I can remain a full creative participant.</p>
+  - slide: slide-77.webp
+    figma_id: 2089:670
+    figma_name: '77'
+    alt: Slide 77 from the talk “Dynamic documents as personal software”.
+    html: "<p>if you want the skill, here it is</p>"
+- title: conclusion
+  segments:
+  - slide: slide-78.webp
+    figma_id: 176:990
+    figma_name: '78'
+    alt: Slide 78 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <p>This is the meme version of this whole talk</p>
+
+      <p>Alan Kay says the real computer revolution hasn&#39;t happened yet: the goal of computers was never just to automate, it was to help us understand the world by creating simulations on the fly.</p>
+
+      <p>The point was always to augment, not just automate. It&#39;s beautiful that AI now makes creating simulations so accessible — having AI teach us is one of the greatest possibilities computing has opened up.</p>
+  - slide: slide-79.webp
+    figma_id: 2089:897
+    figma_name: '79'
+    alt: Slide 79 from the talk “Dynamic documents as personal software”.
+    html: |-
+      <p>some meta lessons about rabbit holing</p>
+
+      <ul>
+      <li>optimize for people (RC kicked it off for me!)</li>
+      <li>i went to grad school and worked at weird indie research lab - sacrificed conventional career + $$ for nerding out, and it was so worth it</li>
+      </ul>

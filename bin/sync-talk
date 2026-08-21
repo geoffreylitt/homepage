@@ -1,0 +1,298 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# sync-talk — build a talk-slides post from a Figma Slides deck.
+#
+#   bin/sync-talk <slug>            # images + data file (incremental)
+#   bin/sync-talk <slug> import     # raw.json (from Figma MCP) -> slides.yml
+#   bin/sync-talk <slug> data       # only regenerate the data file
+#   bin/sync-talk <slug> images      # only refetch/re-encode slide images
+#   bin/sync-talk <slug> --force    # ignore the image cache
+#
+# Split of responsibilities:
+#   * Speaker notes come from talks/<slug>/slides.yml, which is produced once by
+#     the Figma MCP snippet in talks/<slug>/extract.js. Notes are not available
+#     over the Figma REST API, so that step needs the plugin API.
+#   * Slide images come straight from the Figma REST API. No MCP, no LLM.
+#   * Everything else here is deterministic: re-running is cheap and idempotent.
+#
+# Needs a Figma personal access token in $FIGMA_TOKEN or ~/.figmatoken
+# (https://www.figma.com/developers/api#access-tokens — "File content" read scope).
+
+require "digest"
+require "fileutils"
+require "json"
+require "net/http"
+require "open3"
+require "uri"
+require "yaml"
+
+ROOT = File.expand_path("..", __dir__)
+
+class Sync
+  IMAGE_CHUNK = 20 # slides per Figma render request
+
+  def initialize(slug, force: false)
+    @slug = slug
+    @force = force
+    @dir = File.join(ROOT, "talks", slug)
+    abort "No talk config at talks/#{slug}/config.yml" unless File.exist?(config_path)
+    @config = YAML.load_file(config_path)
+    @cache_dir = File.join(@dir, "cache")
+    @manifest_path = File.join(@cache_dir, "manifest.json")
+    FileUtils.mkdir_p(@cache_dir)
+  end
+
+  def config_path = File.join(@dir, "config.yml")
+  def raw_path    = File.join(@dir, "raw.json")
+  def slides_path = File.join(@dir, "slides.yml")
+
+  def asset_dir
+    File.join(ROOT, "source", @config.fetch("assets").sub(%r{\A/}, ""))
+  end
+
+  # ---------------------------------------------------------------- import
+
+  # Turn the MCP snippet's JSON output into the human-editable slides.yml.
+  # Existing `alt` text is preserved across re-imports so hand-written alt text
+  # is never clobbered by a resync.
+  def import!
+    abort "Expected #{rel(raw_path)} (paste the extract.js output there)" unless File.exist?(raw_path)
+    raw = JSON.parse(File.read(raw_path))
+    existing = File.exist?(slides_path) ? YAML.load_file(slides_path) : []
+    alts = existing.to_h { |s| [s["id"], s["alt"]] }
+
+    slides = raw.map do |s|
+      {
+        "id" => s["id"],
+        "name" => s["name"],
+        "section" => s["section"],
+        "skipped" => !!s["skipped"],
+        "alt" => alts[s["id"]],
+        "notes" => s["notes"].to_s,
+      }
+    end
+
+    File.write(slides_path, slides.to_yaml)
+    puts "imported #{slides.size} slides -> #{rel(slides_path)}"
+    puts "  (kept alt text for #{alts.compact.size} slides)" if alts.compact.any?
+  end
+
+  # ---------------------------------------------------------------- selection
+
+  def slides
+    @slides ||= begin
+      abort "Missing #{rel(slides_path)} — run `bin/sync-talk #{@slug} import` first" unless File.exist?(slides_path)
+      all = YAML.load_file(slides_path)
+      excluded = Array(@config["exclude_sections"])
+      keep = all.reject do |s|
+        excluded.include?(s["section"]) || (s["skipped"] && !@config["include_skipped"])
+      end
+      dropped = all.size - keep.size
+      puts "#{keep.size} slides (#{dropped} excluded: #{excluded.join(', ')} + skipped)" if dropped.positive?
+      keep.each_with_index { |s, i| s["seq"] = format("%02d", i + 1) }
+      keep
+    end
+  end
+
+  # ---------------------------------------------------------------- images
+
+  def token
+    @token ||= begin
+      t = ENV["FIGMA_TOKEN"]
+      file = File.expand_path("~/.figmatoken")
+      t = File.read(file).strip if (t.nil? || t.empty?) && File.exist?(file)
+      abort "No Figma token. Put one in ~/.figmatoken or $FIGMA_TOKEN." if t.nil? || t.empty?
+      t
+    end
+  end
+
+  def figma_get(path)
+    uri = URI("https://api.figma.com#{path}")
+    res = Net::HTTP.start(uri.host, uri.port, use_ssl: true) do |http|
+      http.request(Net::HTTP::Get.new(uri, "X-Figma-Token" => token))
+    end
+    body = JSON.parse(res.body) rescue {}
+    unless res.is_a?(Net::HTTPSuccess)
+      abort "Figma API #{res.code}: #{body['err'] || res.body[0, 200]}"
+    end
+    body
+  end
+
+  # Ask Figma to render every slide, then download the PNGs in parallel.
+  def fetch_pngs
+    urls = {}
+    slides.each_slice(IMAGE_CHUNK).with_index do |chunk, i|
+      ids = chunk.map { |s| s["id"] }.join(",")
+      print "\rrendering slides #{i * IMAGE_CHUNK + 1}-#{i * IMAGE_CHUNK + chunk.size}..."
+      body = figma_get("/v1/images/#{@config['file_key']}?ids=#{URI.encode_www_form_component(ids)}&format=png")
+      abort "\nFigma render error: #{body['err']}" if body["err"]
+      urls.merge!(body["images"] || {})
+    end
+    puts "\rrendered #{urls.size} slides#{' ' * 20}"
+
+    # Figma returns a null URL (with err:null) for a node it can't render right
+    # now — most often because the deck is being edited. Positions shift between
+    # syncs, so leaving the previous run's slide-NN.webp in place would silently
+    # publish a DIFFERENT slide. Drop the stale outputs instead and report loudly.
+    @unrendered = slides.reject { |s| urls[s["id"]] }
+    @unrendered.each do |s|
+      variant_names(s["seq"]).each { |n| FileUtils.rm_f(File.join(asset_dir, n)) }
+      manifest.delete("#{s['seq']}:#{s['id']}")
+      FileUtils.rm_f(File.join(@cache_dir, "#{s['seq']}.png"))
+    end
+
+    # One parallel curl run over a generated config file — much faster than
+    # sequential downloads for an 80-slide deck.
+    cfg = File.join(@cache_dir, "downloads.curl")
+    File.open(cfg, "w") do |f|
+      slides.each do |s|
+        next unless (u = urls[s["id"]])
+        f.puts "url = \"#{u}\""
+        f.puts "output = \"#{File.join(@cache_dir, "#{s['seq']}.png")}\""
+      end
+    end
+    system("curl", "-sS", "--parallel", "--parallel-max", "8", "--config", cfg) || abort("curl failed")
+    File.delete(cfg)
+  end
+
+  def manifest
+    @manifest ||= File.exist?(@manifest_path) ? JSON.parse(File.read(@manifest_path)) : {}
+  end
+
+  # Cheapest possible "did anything change?" probe. Note /v1/files/:key is NOT
+  # available for Slides decks ("File type not supported by this endpoint"), but
+  # /meta is. `last_touched_at` moves on any edit — and sometimes on a mere open,
+  # which errs toward re-rendering rather than serving stale slides.
+  def deck_touched_at
+    @deck_touched_at ||= figma_get("/v1/files/#{@config['file_key']}/meta")
+                         .dig("file", "last_touched_at").to_s
+  end
+
+  def variant_names(seq)
+    [["slide-#{seq}.webp"]].flatten +
+      Array(@config["widths"]).map { |w| "slide-#{seq}-#{w}.webp" }
+  end
+
+  def images!
+    all_present = slides.all? { |s| variant_names(s["seq"]).all? { |n| File.exist?(File.join(asset_dir, n)) } }
+    if !@force && all_present && manifest["_deck"] == deck_touched_at
+      puts "deck untouched since last sync (#{deck_touched_at}) — skipped render; --force to override"
+      return
+    end
+
+    fetch_pngs
+    FileUtils.mkdir_p(asset_dir)
+    full = @config.fetch("full_width")
+    quality = @config.fetch("webp_quality", 82)
+    encoded = 0
+
+    slides.each do |s|
+      png = File.join(@cache_dir, "#{s['seq']}.png")
+      next unless File.exist?(png)
+      sha = Digest::SHA256.file(png).hexdigest
+      key = "#{s['seq']}:#{s['id']}"
+      targets = [[full, "slide-#{s['seq']}.webp"]] +
+                Array(@config["widths"]).map { |w| [w, "slide-#{s['seq']}-#{w}.webp"] }
+      # A couple of slides hold animated content and re-render to different bytes
+      # every time; the hash check keeps that from cascading into a re-encode.
+
+      if !@force && manifest[key] == sha && targets.all? { |_, n| File.exist?(File.join(asset_dir, n)) }
+        next
+      end
+
+      targets.each do |width, name|
+        out = File.join(asset_dir, name)
+        _o, err, st = Open3.capture3("magick", png, "-resize", "#{width}x", "-quality", quality.to_s, out)
+        abort "magick failed on #{name}: #{err}" unless st.success?
+      end
+      manifest[key] = sha
+      encoded += 1
+      print "\rencoding #{encoded} slides..."
+    end
+
+    # Only stamp the deck as clean if every slide actually rendered, so a partial
+    # sync can't be mistaken for an up-to-date one on the next run.
+    manifest["_deck"] = @unrendered.to_a.empty? ? deck_touched_at : nil
+    File.write(@manifest_path, JSON.pretty_generate(manifest))
+    puts "\rencoded #{encoded} changed slides, #{slides.size - @unrendered.to_a.size - encoded} cached#{' ' * 10}"
+
+    if @unrendered.to_a.any?
+      names = @unrendered.map { |s| "#{s['seq']} (#{s['name']})" }.join(", ")
+      warn "\n!! #{@unrendered.size} slide(s) would not render: #{names}"
+      warn "   Their images were removed rather than left stale. This usually means the"
+      warn "   deck was being edited — close/pause the deck and re-run to fill them in."
+    end
+  end
+
+  # ---------------------------------------------------------------- data file
+
+  # Figma's speaker-notes editor supports a markdown subset: lists, bold,
+  # italic, strikethrough. Render that to the HTML the article template inlines.
+  def notes_to_html(notes)
+    require "redcarpet"
+    md = notes.to_s.dup
+    # Notes in this deck escape backticks as \` — unescape so code spans render.
+    md.gsub!('\`', "`")
+    md.gsub!("\r\n", "\n")
+    # Several slides carry a placeholder note that is just a stray bullet.
+    return "" if md.gsub(/[\s\-*]/, "").empty?
+
+    @renderer ||= Redcarpet::Markdown.new(
+      Redcarpet::Render::HTML.new(escape_html: false),
+      strikethrough: true, fenced_code_blocks: true, no_intra_emphasis: true,
+    )
+    @renderer.render(md).strip
+  end
+
+  def data!
+    grouped = slides.group_by { |s| s["section"] }
+    # Preserve the deck's section order rather than hash insertion luck.
+    order = slides.map { |s| s["section"] }.uniq
+
+    sections = order.map do |name|
+      segments = grouped[name].map do |s|
+        {
+          "slide" => "slide-#{s['seq']}.webp",
+          "figma_id" => s["id"],
+          "figma_name" => s["name"],
+          "alt" => s["alt"] || "Slide #{s['name']} from the talk “Dynamic documents as personal software”.",
+          "html" => notes_to_html(s["notes"]),
+        }
+      end
+      { "title" => name, "segments" => segments }
+    end
+
+    out = {
+      "assets" => @config.fetch("assets"),
+      "generated_by" => "bin/sync-talk #{@slug} — do not hand-edit; edit Figma speaker notes and resync",
+      "figma_file" => "https://www.figma.com/deck/#{@config['file_key']}",
+      "slide_count" => slides.size,
+      "sections" => sections,
+    }
+    path = File.join(ROOT, @config.fetch("data_file"))
+    File.write(path, out.to_yaml)
+    empty = slides.count { |s| notes_to_html(s["notes"]).empty? }
+    puts "wrote #{rel(path)} — #{sections.size} sections, #{slides.size} slides (#{empty} with no notes)"
+  end
+
+  def all!
+    images!
+    data!
+  end
+
+  def rel(p) = p.sub("#{ROOT}/", "")
+end
+
+slug = ARGV.shift or abort "usage: bin/sync-talk <slug> [import|data|images] [--force]"
+force = ARGV.delete("--force")
+cmd = ARGV.shift || "all"
+sync = Sync.new(slug, force: !!force)
+
+case cmd
+when "import" then sync.import!
+when "data"   then sync.data!
+when "images" then sync.images!
+when "all"    then sync.all!
+else abort "unknown command: #{cmd}"
+end
