@@ -16,6 +16,12 @@ offers one of them over HTTP:
 So the MCP step runs **once per content change** and dumps notes to a file.
 Everything after that is plain Ruby you can re-run as often as you like.
 
+> **Big decks need a chunked extract.** The MCP response is capped around 20 kb,
+> and it truncates *mid-slide* without erroring — you silently lose the tail. Past
+> roughly 50 slides with substantial notes, run `extract.js` one slide-row at a
+> time (`grid[0]`, `grid[1]`, …) and concatenate the results into `raw.json`.
+> Sanity-check the slide count against the deck before importing.
+
 ## One-time setup
 
 Create a Figma personal access token with **file read** scope
@@ -57,6 +63,22 @@ bundle exec ruby bin/sync-talk <slug> --force   # ignore the image cache
   three slides re-encodes three slides, not eighty.
 * Downloads run through a single parallel `curl`, not one request per slide.
 * `data` needs no network at all — tweaking the markdown-to-HTML rendering is instant.
+
+The render itself is **never** skipped, and deliberately so. There is no trustworthy
+cheap way to ask Figma "did this deck change?": `/v1/files/:key` rejects Slides
+files outright, and `/meta`'s `last_touched_at` was observed not to advance even
+after slides were deleted. Since deleting a slide shifts every later slide's
+position, a wrongly-skipped render republishes the wrong image for the whole tail
+of the deck. Re-rendering costs ~85s for 80 slides; the hash check still avoids
+the expensive re-encode, and it is sound because it compares real rendered bytes.
+
+Two related safeguards, both of which have already caught real breakage:
+
+* If Figma returns a null URL for a slide (it declines to render while the deck is
+  being edited), that slide's images are **deleted** rather than left stale, and the
+  run warns loudly. A leftover file would otherwise show a different slide.
+* When the deck shrinks, now-orphaned `slide-NN.webp` files are swept. They are
+  invisible on the page but would still be committed.
 
 ### Editing rules
 
