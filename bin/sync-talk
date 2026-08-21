@@ -24,6 +24,7 @@ require "fileutils"
 require "json"
 require "net/http"
 require "open3"
+require "set"
 require "uri"
 require "yaml"
 
@@ -160,27 +161,18 @@ class Sync
     @manifest ||= File.exist?(@manifest_path) ? JSON.parse(File.read(@manifest_path)) : {}
   end
 
-  # Cheapest possible "did anything change?" probe. Note /v1/files/:key is NOT
-  # available for Slides decks ("File type not supported by this endpoint"), but
-  # /meta is. `last_touched_at` moves on any edit — and sometimes on a mere open,
-  # which errs toward re-rendering rather than serving stale slides.
-  def deck_touched_at
-    @deck_touched_at ||= figma_get("/v1/files/#{@config['file_key']}/meta")
-                         .dig("file", "last_touched_at").to_s
-  end
-
   def variant_names(seq)
     [["slide-#{seq}.webp"]].flatten +
       Array(@config["widths"]).map { |w| "slide-#{seq}-#{w}.webp" }
   end
 
+  # Deliberately no "has the deck changed?" short-circuit. /v1/files/:key is not
+  # available for Slides decks, and /meta's `last_touched_at` was observed NOT to
+  # advance after slides were deleted — so it cannot be trusted to gate a render.
+  # Slide positions shift when slides are added or removed, so a wrongly-skipped
+  # render silently publishes the wrong image for every slide after the edit.
+  # We always re-render; the per-slide hash below still skips the costly re-encode.
   def images!
-    all_present = slides.all? { |s| variant_names(s["seq"]).all? { |n| File.exist?(File.join(asset_dir, n)) } }
-    if !@force && all_present && manifest["_deck"] == deck_touched_at
-      puts "deck untouched since last sync (#{deck_touched_at}) — skipped render; --force to override"
-      return
-    end
-
     fetch_pngs
     FileUtils.mkdir_p(asset_dir)
     full = @config.fetch("full_width")
@@ -213,7 +205,15 @@ class Sync
 
     # Only stamp the deck as clean if every slide actually rendered, so a partial
     # sync can't be mistaken for an up-to-date one on the next run.
-    manifest["_deck"] = @unrendered.to_a.empty? ? deck_touched_at : nil
+    # Deleting slides in Figma shortens the deck, leaving higher-numbered files
+    # behind. They are invisible on the page but would still get committed, so
+    # sweep anything outside the expected set.
+    expected = slides.flat_map { |s| variant_names(s["seq"]) }.to_set
+    orphans = Dir.children(asset_dir).select { |f| f.end_with?(".webp") && !expected.include?(f) }
+    orphans.each { |f| FileUtils.rm_f(File.join(asset_dir, f)) }
+    puts "removed #{orphans.size} orphaned image(s) from deleted slides" if orphans.any?
+
+    manifest.delete("_deck") # legacy key from the removed short-circuit
     File.write(@manifest_path, JSON.pretty_generate(manifest))
     puts "\rencoded #{encoded} changed slides, #{slides.size - @unrendered.to_a.size - encoded} cached#{' ' * 10}"
 
@@ -240,7 +240,10 @@ class Sync
 
     @renderer ||= Redcarpet::Markdown.new(
       Redcarpet::Render::HTML.new(escape_html: false),
+      # autolink turns bare URLs in the notes (several slides are just a link to
+      # the relevant Ink & Switch essay) into real anchors.
       strikethrough: true, fenced_code_blocks: true, no_intra_emphasis: true,
+      autolink: true,
     )
     @renderer.render(md).strip
   end

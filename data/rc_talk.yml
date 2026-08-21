@@ -3,7 +3,7 @@ assets: "/images/talks/rc-dynamic"
 generated_by: bin/sync-talk rc-dynamic — do not hand-edit; edit Figma speaker notes
   and resync
 figma_file: https://www.figma.com/deck/a3TxBTfJ5yVihJxdnYzUKR
-slide_count: 79
+slide_count: 77
 sections:
 - title: intro
   segments:
@@ -211,7 +211,7 @@ sections:
     alt: Slide 23 from the talk “Dynamic documents as personal software”.
     html: |-
       <ul>
-      <li>https://www.inkandswitch.com/potluck/</li>
+      <li><a href="https://www.inkandswitch.com/potluck/">https://www.inkandswitch.com/potluck/</a></li>
       </ul>
   - slide: slide-24.webp
     figma_id: 2154:1265
@@ -298,7 +298,7 @@ sections:
     alt: Slide 33 from the talk “Dynamic documents as personal software”.
     html: |-
       <ul>
-      <li>https://www.inkandswitch.com/embark/</li>
+      <li><a href="https://www.inkandswitch.com/embark/">https://www.inkandswitch.com/embark/</a></li>
       </ul>
   - slide: slide-34.webp
     figma_id: 2154:1271
@@ -538,86 +538,70 @@ sections:
 
       <p>We can take inspiration from some of the best ideas ever invented in education — especially around using computers to educate — and apply them to this problem of understanding what our agents are doing.</p>
   - slide: slide-60.webp
-    figma_id: 2089:558
+    figma_id: 2089:596
     figma_name: '60'
     alt: Slide 60 from the talk “Dynamic documents as personal software”.
-    html: |-
-      <p>Today I want to share three techniques that show how: explanations, micro-worlds, and shared spaces.</p>
-
-      <p>First: explanations. What makes a good explanation?</p>
-  - slide: slide-61.webp
-    figma_id: 2089:577
-    figma_name: '61'
-    alt: Slide 61 from the talk “Dynamic documents as personal software”.
-    html: |-
-      <p>Today I want to share three techniques that show how: explanations, micro-worlds, and shared spaces.</p>
-
-      <p>First: explanations. What makes a good explanation?</p>
-  - slide: slide-62.webp
-    figma_id: 2089:596
-    figma_name: '62'
-    alt: Slide 62 from the talk “Dynamic documents as personal software”.
     html: "<p>Whenever an agent finishes some work, it&#39;s an opportunity for an
       explanation — an artifact. Most naively, a code diff: the raw material that
       changed.</p>"
-  - slide: slide-63.webp
+  - slide: slide-61.webp
     figma_id: 2089:605
-    figma_name: '63'
-    alt: Slide 63 from the talk “Dynamic documents as personal software”.
+    figma_name: '61'
+    alt: Slide 61 from the talk “Dynamic documents as personal software”.
     html: |-
       <p>But I&#39;ve always wondered what the best possible explanation would look like. If you had a team — human or AI — that really sweat the details of explaining something well to you, how would that feel?</p>
 
       <p>So I made a skill for agents called explain-diff, which I use every day and many coworkers have found valuable. It can output markdown or HTML — but my favorite is a Notion page, because then these explanations live as collaborative docs. Here&#39;s what it puts into the explanation.</p>
-  - slide: slide-64.webp
+  - slide: slide-62.webp
     figma_id: 2089:614
-    figma_name: '64'
-    alt: Slide 64 from the talk “Dynamic documents as personal software”.
+    figma_name: '62'
+    alt: Slide 62 from the talk “Dynamic documents as personal software”.
     html: "<p>So I made a skill for agents called explain-diff, which I use every
       day and many coworkers have found valuable.</p>"
-  - slide: slide-65.webp
+  - slide: slide-63.webp
     figma_id: 2089:624
-    figma_name: '65'
-    alt: Slide 65 from the talk “Dynamic documents as personal software”.
+    figma_name: '63'
+    alt: Slide 63 from the talk “Dynamic documents as personal software”.
     html: "<p>The example codebase here is a Zen Garden video game I made to relax
       a bit.</p>"
-  - slide: slide-66.webp
+  - slide: slide-64.webp
     figma_id: 2089:627
-    figma_name: '66'
-    alt: Slide 66 from the talk “Dynamic documents as personal software”.
+    figma_name: '64'
+    alt: Slide 64 from the talk “Dynamic documents as personal software”.
     html: |-
       <p>and then i made a change to the perspective system which produced this explainer doc.
       It can output markdown or HTML — but my favorite is a Notion page, because then these explanations live as collaborative docs.
       Here&#39;s what it puts into the explanation.</p>
-  - slide: slide-67.webp
+  - slide: slide-65.webp
     figma_id: 2089:631
-    figma_name: '67'
-    alt: Slide 67 from the talk “Dynamic documents as personal software”.
+    figma_name: '65'
+    alt: Slide 65 from the talk “Dynamic documents as personal software”.
     html: |-
       <p>First principle: teach me background info!
       Before we even get to what changed, help me understand what was already there.</p>
-  - slide: slide-68.webp
+  - slide: slide-66.webp
     figma_id: 2089:634
-    figma_name: '68'
-    alt: Slide 68 from the talk “Dynamic documents as personal software”.
+    figma_name: '66'
+    alt: Slide 66 from the talk “Dynamic documents as personal software”.
     html: |-
       <p>Second principle: intuition before details.
       Before any code, it states the goal — &quot;make the garden feel three-dimensional with 2D drawing tricks&quot; — and explains related concepts, like what isometric projection is.</p>
 
       <p>All of this builds my intuition for the essence of the change.
       it&#39;s catching me up as the human so I can be an equal participant in understanding.</p>
-  - slide: slide-69.webp
+  - slide: slide-67.webp
     figma_id: 2089:637
-    figma_name: '69'
-    alt: Slide 69 from the talk “Dynamic documents as personal software”.
+    figma_name: '67'
+    alt: Slide 67 from the talk “Dynamic documents as personal software”.
     html: |-
       <p>You can also build intuition with interactive figures.
       Here I&#39;m understanding the isometric perspective by dragging rocks around the garden and watching their coordinates move.</p>
 
       <p>This is using a new feature Notion just shipped today actually, you can now embed interactive HTML inside pages.</p>
-  - slide: slide-70.webp
+  - slide: slide-68.webp
     figma_id: 2089:640
-    figma_name: '70'
-    alt: Slide 70 from the talk “Dynamic documents as personal software”.
+    figma_name: '68'
+    alt: Slide 68 from the talk “Dynamic documents as personal software”.
     html: |-
       <p>We finally get to the code.
       But A typical diff is a pile of files edited in alphabetical order with no explanation.
@@ -626,77 +610,77 @@ sections:
       <p>Put it all together and you get a really nice explanation packet.</p>
 
       <p>I do still review diffs in GitHub, but I always start here</p>
-  - slide: slide-71.webp
+  - slide: slide-69.webp
     figma_id: 2089:643
-    figma_name: '71'
-    alt: Slide 71 from the talk “Dynamic documents as personal software”.
+    figma_name: '69'
+    alt: Slide 69 from the talk “Dynamic documents as personal software”.
     html: |-
       <p>Sometimes I&#39;ll print these out and take them to the café — less distracting.
       It&#39;s beautifully ironic: AI turns a highly interactive activity into a static paper report I can focus on deeply.</p>
-  - slide: slide-72.webp
+  - slide: slide-70.webp
     figma_id: 2089:645
-    figma_name: '72'
-    alt: Slide 72 from the talk “Dynamic documents as personal software”.
+    figma_name: '70'
+    alt: Slide 70 from the talk “Dynamic documents as personal software”.
     html: |-
       <p>But there&#39;s one problem: reading is hard work :)
       It&#39;s tempting to skip ahead and convince yourself you&#39;ve understood.</p>
 
       <p>One time I sent a coworker a PR I thought I understood — she asked a few questions and I realized I had no idea what was going on.
       I&#39;d sent her slop. That was on me, and I wanted a system to make sure I actually did the reading.</p>
-  - slide: slide-73.webp
+  - slide: slide-71.webp
     figma_id: 2089:648
-    figma_name: '73'
-    alt: Slide 73 from the talk “Dynamic documents as personal software”.
+    figma_name: '71'
+    alt: Slide 71 from the talk “Dynamic documents as personal software”.
     html: |-
       <p>For inspiration I looked to Andy Matuschak, who has this lovely line: &quot;books don&#39;t work.&quot;</p>
 
       <p>It&#39;s very easy to read a book and not realize you didn&#39;t retain anything — easy to read without engaging actively enough to actually internalize the knowledge.</p>
-  - slide: slide-74.webp
+  - slide: slide-72.webp
     figma_id: 2089:653
-    figma_name: '74'
-    alt: Slide 74 from the talk “Dynamic documents as personal software”.
+    figma_name: '72'
+    alt: Slide 72 from the talk “Dynamic documents as personal software”.
     html: |-
       <p>So Andy and his collaborator Michael Nielsen embedded spaced-repetition quizzes into the flow of an essay.
       As you read, you quiz yourself and mark whether you could recall it — and they keep resurfacing the questions so you retain them long-term.</p>
 
       <p>I found this intriguing: a way to introduce speed bumps into your reading — checks for understanding so you know you&#39;re following along.</p>
-  - slide: slide-75.webp
+  - slide: slide-73.webp
     figma_id: 2089:656
-    figma_name: '75'
-    alt: Slide 75 from the talk “Dynamic documents as personal software”.
+    figma_name: '73'
+    alt: Slide 73 from the talk “Dynamic documents as personal software”.
     html: |-
       <p>I do something similar with my code explainers now. At the bottom of an explainer there&#39;s an interactive quiz — five questions about the change — and I try to answer them.</p>
 
       <p>My rule: I won&#39;t send code to others until I can pass the quiz, and I do the same when reviewing others&#39; code.</p>
-  - slide: slide-76.webp
+  - slide: slide-74.webp
     figma_id: 2089:659
-    figma_name: '76'
-    alt: Slide 76 from the talk “Dynamic documents as personal software”.
+    figma_name: '74'
+    alt: Slide 74 from the talk “Dynamic documents as personal software”.
     html: |-
       <p>I think of this as a speed regulator. Working with AI, it&#39;s easy for the loop to run faster than the speed of human understanding.</p>
 
       <p>The quiz is a counterbalancing force: I mechanically ask &quot;do I actually understand?&quot; so that I can remain a full creative participant.</p>
-  - slide: slide-77.webp
+  - slide: slide-75.webp
     figma_id: 2089:670
-    figma_name: '77'
-    alt: Slide 77 from the talk “Dynamic documents as personal software”.
+    figma_name: '75'
+    alt: Slide 75 from the talk “Dynamic documents as personal software”.
     html: "<p>if you want the skill, here it is</p>"
 - title: conclusion
   segments:
-  - slide: slide-78.webp
+  - slide: slide-76.webp
     figma_id: 176:990
-    figma_name: '78'
-    alt: Slide 78 from the talk “Dynamic documents as personal software”.
+    figma_name: '76'
+    alt: Slide 76 from the talk “Dynamic documents as personal software”.
     html: |-
       <p>This is the meme version of this whole talk</p>
 
       <p>Alan Kay says the real computer revolution hasn&#39;t happened yet: the goal of computers was never just to automate, it was to help us understand the world by creating simulations on the fly.</p>
 
       <p>The point was always to augment, not just automate. It&#39;s beautiful that AI now makes creating simulations so accessible — having AI teach us is one of the greatest possibilities computing has opened up.</p>
-  - slide: slide-79.webp
+  - slide: slide-77.webp
     figma_id: 2089:897
-    figma_name: '79'
-    alt: Slide 79 from the talk “Dynamic documents as personal software”.
+    figma_name: '77'
+    alt: Slide 77 from the talk “Dynamic documents as personal software”.
     html: |-
       <p>some meta lessons about rabbit holing</p>
 
