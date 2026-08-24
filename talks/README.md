@@ -1,5 +1,8 @@
 # Talk-slides posts, synced from Figma Slides
 
+> Picking this up cold? Start with **[RESYNC.md](RESYNC.md)** — the short runbook
+> for resyncing the RC talk. This file explains *why* it's built this way.
+
 A talk post is slides down the left, speaker notes down the right (`layout: talk`).
 This directory holds the sync pipeline that builds one from a Figma Slides deck.
 
